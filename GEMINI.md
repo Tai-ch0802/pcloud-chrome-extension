@@ -56,6 +56,15 @@ All user-facing strings must be managed through the `_locales` system.
 
 ---
 
+## 5. Context Engineering
+
+To ensure session continuity and effective context management, Gemini will adhere to the following process upon starting a new session:
+
+1.  **Primary Directives**: Read and understand the entirety of this `GEMINI.md` file.
+2.  **Session Recall**: Read and understand the most recent session note, found in the `.gemini/` directory (e.g., `NOTE_YYYYMMDD.md`). This provides context on the latest state of the project and completed tasks.
+
+---
+
 ## Special Instruction for Gemini
 
 When GEMINI receives a task request, it should use English for its chain of thought and reasoning process. The final response delivered to the end-user must be in Traditional Chinese.
