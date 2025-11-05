@@ -1,0 +1,130 @@
+{
+  "extensionName": {
+    "message": "pCloud Chrome Extension",
+    "description": "The name of the extension."
+  },
+  "extensionDescription": {
+    "message": "Seamlessly integrate pCloud with your Chrome browser for easy file management.",
+    "description": "The description of the extension."
+  },
+  "options_title": {
+    "message": "pCloud Extension Options",
+    "description": "Title for the options page."
+  },
+  "options_description": {
+    "message": "Configure your pCloud Chrome Extension settings here.",
+    "description": "Description for the options page."
+  },
+  "options_default_folder_label": {
+    "message": "Current Selected Path:",
+    "description": "Label for the current selected path display."
+  },
+  "options_default_folder_placeholder": {
+    "message": "e.g., 0 for root folder",
+    "description": "Placeholder for the default upload folder ID input."
+  },
+  "options_save_button_text": {
+    "message": "Save Settings",
+    "description": "Text for the save options button."
+  },
+  "options_saved_message": {
+    "message": "Settings saved!",
+    "description": "Message displayed after settings are saved."
+  },
+  "options_invalid_folder_id": {
+    "message": "Invalid folder ID. Please enter a non-negative number.",
+    "description": "Error message for invalid folder ID input."
+  },
+  "back_button_title": {
+    "message": "Back",
+    "description": "Title for the back button."
+  },
+  "login_token_prompt": {
+    "message": "Authenticate with Token",
+    "description": "Prompt for the token login view."
+  },
+  "login_prompt": {
+    "message": "Login to pCloud",
+    "description": "Prompt for the login view."
+  },
+  "login_email_placeholder": {
+    "message": "Email or Username",
+    "description": "Placeholder for email/username input."
+  },
+  "login_password_placeholder": {
+    "message": "Password",
+    "description": "Placeholder for password input."
+  },
+  "login_button_text": {
+    "message": "Login",
+    "description": "Text for the login button."
+  },
+  "login_error_empty_credentials": {
+    "message": "Please enter both email/username and password.",
+    "description": "Error message for empty login fields."
+  },
+  "login_error_invalid_credentials": {
+    "message": "Login failed. Please check your credentials.",
+    "description": "Error message for invalid login."
+  },
+  "login_token_description": {
+    "message": "Log in to my.pcloud.com in another tab, then paste the 'auth' token here.",
+    "description": "Description for how to get the auth token."
+  },
+  "login_token_placeholder": {
+    "message": "Paste your auth token here",
+    "description": "Placeholder for the auth token textarea."
+  },
+  "login_token_button_text": {
+    "message": "Verify and Save Token",
+    "description": "Text for the token login button."
+  },
+  "login_switch_to_token": {
+    "message": "Or, log in with an auth token",
+    "description": "Link to switch to token login."
+  },
+  "login_switch_to_password": {
+    "message": "Or, log in with email and password",
+    "description": "Link to switch to password login."
+  },
+  "login_error_invalid_token": {
+    "message": "Invalid token. Please check the token and try again.",
+    "description": "Error message for an invalid auth token."
+  },
+  "login_error_generic": {
+    "message": "An unexpected error occurred during verification. Please try again.",
+    "description": "Generic error message for token verification."
+  },
+  "upload_prompt": {
+    "message": "Upload to pCloud",
+    "description": "Prompt for the upload view."
+  },
+  "logout_button_text": {
+    "message": "Logout",
+    "description": "Text for the logout button."
+  },
+  "upload_select_file_button": {
+    "message": "Select File",
+    "description": "Text for the select file button."
+  },
+  "upload_button_text": {
+    "message": "Upload",
+    "description": "Text for the upload button."
+  },
+  "upload_success_message": {
+    "message": "File uploaded successfully!",
+    "description": "Success message after upload."
+  },
+  "upload_error_generic": {
+    "message": "Upload failed. Please try again.",
+    "description": "Generic error message for upload."
+  },
+  "upload_error_no_auth": {
+    "message": "Authentication error. Please log in again.",
+    "description": "Error message when not authenticated for upload."
+  },
+  "upload_error_no_file": {
+    "message": "Please select a file to upload.",
+    "description": "Error message when no file is selected for upload."
+  }
+}

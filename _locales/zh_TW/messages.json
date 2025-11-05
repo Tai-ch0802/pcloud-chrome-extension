@@ -1,0 +1,130 @@
+{
+  "extensionName": {
+    "message": "pCloud Chrome 擴充功能",
+    "description": "擴充功能的名稱。"
+  },
+  "extensionDescription": {
+    "message": "將 pCloud 無縫整合到您的 Chrome 瀏覽器中，輕鬆管理檔案。",
+    "description": "擴充功能的描述。"
+  },
+  "options_title": {
+    "message": "pCloud 擴充功能選項",
+    "description": "選項頁面的標題。"
+  },
+  "options_description": {
+    "message": "在此配置您的 pCloud Chrome 擴充功能設定。",
+    "description": "選項頁面的描述。"
+  },
+  "options_default_folder_label": {
+    "message": "當前選擇路徑：",
+    "description": "當前選擇路徑顯示的標籤。"
+  },
+  "options_default_folder_placeholder": {
+    "message": "例如：0 代表根資料夾",
+    "description": "預設上傳資料夾 ID 輸入框的佔位符。"
+  },
+  "options_save_button_text": {
+    "message": "儲存設定",
+    "description": "儲存選項按鈕的文字。"
+  },
+  "options_saved_message": {
+    "message": "設定已儲存！",
+    "description": "設定儲存後顯示的訊息。"
+  },
+  "options_invalid_folder_id": {
+    "message": "無效的資料夾 ID。請輸入一個非負數。",
+    "description": "無效資料夾 ID 輸入的錯誤訊息。"
+  },
+  "back_button_title": {
+    "message": "返回",
+    "description": "返回按鈕的標題。"
+  },
+  "login_token_prompt": {
+    "message": "使用權杖進行驗證",
+    "description": "權杖登入介面的提示。"
+  },
+  "login_prompt": {
+    "message": "登入 pCloud",
+    "description": "登入介面的提示。"
+  },
+  "login_email_placeholder": {
+    "message": "電子郵件或使用者名稱",
+    "description": "電子郵件/使用者名稱輸入框的佔位符。"
+  },
+  "login_password_placeholder": {
+    "message": "密碼",
+    "description": "密碼輸入框的佔位符。"
+  },
+  "login_button_text": {
+    "message": "登入",
+    "description": "登入按鈕的文字。"
+  },
+  "login_error_empty_credentials": {
+    "message": "請輸入電子郵件/使用者名稱和密碼。",
+    "description": "登入欄位為空的錯誤訊息。"
+  },
+  "login_error_invalid_credentials": {
+    "message": "登入失敗。請檢查您的憑證。",
+    "description": "登入無效的錯誤訊息。"
+  },
+  "login_token_description": {
+    "message": "請在另一個分頁登入 my.pcloud.com，然後將 'auth' 權杖貼到此處。",
+    "description": "關於如何獲取 auth 權杖的描述。"
+  },
+  "login_token_placeholder": {
+    "message": "在此貼上您的 auth 權杖",
+    "description": "auth 權杖文字輸入區的佔位符。"
+  },
+  "login_token_button_text": {
+    "message": "驗證並儲存權杖",
+    "description": "權杖登入按鈕的文字。"
+  },
+  "login_switch_to_token": {
+    "message": "或使用 auth 權杖登入",
+    "description": "切換至權杖登入的連結。"
+  },
+  "login_switch_to_password": {
+    "message": "或使用電子郵件和密碼登入",
+    "description": "切換至密碼登入的連結。"
+  },
+  "login_error_invalid_token": {
+    "message": "權杖無效。請檢查權杖後重試。",
+    "description": "無效 auth 權杖的錯誤訊息。"
+  },
+  "login_error_generic": {
+    "message": "驗證時發生意外錯誤。請重試。",
+    "description": "權杖驗證的通用錯誤訊息。"
+  },
+  "upload_prompt": {
+    "message": "上傳至 pCloud",
+    "description": "上傳介面的提示。"
+  },
+  "logout_button_text": {
+    "message": "登出",
+    "description": "登出按鈕的文字。"
+  },
+  "upload_select_file_button": {
+    "message": "選擇檔案",
+    "description": "選擇檔案按鈕的文字。"
+  },
+  "upload_button_text": {
+    "message": "上傳",
+    "description": "上傳按鈕的文字。"
+  },
+  "upload_success_message": {
+    "message": "檔案上傳成功！",
+    "description": "上傳成功的訊息。"
+  },
+  "upload_error_generic": {
+    "message": "上傳失敗，請重試。",
+    "description": "上傳的通用錯誤訊息。"
+  },
+  "upload_error_no_auth": {
+    "message": "認證錯誤，請重新登入。",
+    "description": "上傳時未認證的錯誤訊息。"
+  },
+  "upload_error_no_file": {
+    "message": "請選擇要上傳的檔案。",
+    "description": "未選擇檔案上傳的錯誤訊息。"
+  }
+}
