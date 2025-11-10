@@ -34,20 +34,36 @@
             <button id="options-button" title="__MSG_options_title__">
                 <img src="../assets/icons/settings.svg" alt="Options" />
             </button>
+            <div class="user-info">
+                <span id="user-email"></span>
+            </div>
+
+            <!-- Data Usage Bar -->
+            <div id="quota-info" class="hidden">
+                <div id="quota-text"></div>
+                <div class="progress-bar-container quota-bar-container">
+                    <div class="progress-bar" id="quota-progress"></div>
+                </div>
+            </div>
+
             <h1 data-i18n="upload_prompt"></h1>
             <div class="setting-item-popup">
                 <label data-i18n="options_default_folder_label"></label>
                 <div id="current-upload-path" class="selected-path-display">/</div>
             </div>
-            <div class="success-message" id="upload-success"></div>
-            <div class="error-message" id="upload-error"></div>
-            <input type="file" id="file-input" style="display: none;">
-            <button id="select-file-button" data-i18n="upload_select_file_button"></button>
-            <span id="selected-file-name"></span>
-            <button id="upload-button" data-i18n="upload_button_text" disabled></button>
-            <div class="progress-bar-container">
-                <div class="progress-bar" id="upload-progress">0%</div>
+
+            <!-- Upload Area -->
+            <div id="drop-zone">
+                <div id="upload-list"></div>
+                <div id="drop-zone-text" data-i18n="upload_drag_and_drop_prompt"></div>
+                <a href="#" id="select-file-link" data-i18n="upload_select_file_link"></a>
             </div>
+
+            <input type="file" id="file-input" multiple style="display: none;">
+
+            <div class="success-message hidden" id="upload-success"></div>
+            <div class="error-message hidden" id="upload-error"></div>
+
             <button id="logout-button" data-i18n="logout_button_text"></button>
         </div>
     </div>

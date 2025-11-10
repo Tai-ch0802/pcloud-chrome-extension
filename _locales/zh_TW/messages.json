@@ -103,10 +103,18 @@
     "message": "登出",
     "description": "登出按鈕的文字。"
   },
-  "upload_select_file_button": {
-    "message": "選擇檔案",
-    "description": "選擇檔案按鈕的文字。"
-  },
+    "upload_select_file_button": {
+        "message": "選擇檔案",
+        "description": "開啟檔案選擇器的按鈕"
+    },
+    "upload_drag_and_drop_prompt": {
+        "message": "將檔案拖曳至此處上傳",
+        "description": "拖曳上傳區域的文字"
+    },
+    "upload_select_file_link": {
+        "message": "或選擇檔案",
+        "description": "替代拖曳上傳的文字連結"
+    },
   "upload_button_text": {
     "message": "上傳",
     "description": "上傳按鈕的文字。"
