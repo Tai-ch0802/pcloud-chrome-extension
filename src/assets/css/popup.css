@@ -15,11 +15,19 @@
 body {
   width: 400px;
   min-height: 100px;
-  padding: 16px;
+  /* padding is removed to eliminate the outer border effect */
   background-color: var(--secondary-bg-color);
   color: var(--primary-text-color);
   margin: 0;
   box-sizing: border-box;
+}
+
+body.options-body {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
 }
 
 #loading-view .spinner {
@@ -166,11 +174,11 @@ body.theme-geek #options-button img {
 }
 
 .options-container {
-    max-width: 600px;
-    margin: 24px auto;
-    padding: 0;
-    border: none;
-    background-color: transparent;
+    max-width: 800px; /* Increased width */
+    width: 100%;
+    margin: 48px auto; /* Increased top margin */
+    padding: 0 24px; /* Added horizontal padding */
+    box-sizing: border-box;
 }
 
 #status-message {
@@ -188,6 +196,7 @@ body.theme-geek #options-button img {
 #quota-info {
     width: 100%;
     margin-bottom: 16px;
+    margin-top: 8px; /* Added to prevent text being cut off */
 }
 
 #quota-text {

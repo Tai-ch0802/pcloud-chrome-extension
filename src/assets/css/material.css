@@ -12,8 +12,8 @@ body {
   background-color: var(--card-bg-color);
   border-radius: var(--card-border-radius);
   box-shadow: var(--card-shadow);
-  padding: 16px;
-  margin-bottom: 16px;
+  padding: 24px;
+  margin: 16px;
 }
 
 .button {
