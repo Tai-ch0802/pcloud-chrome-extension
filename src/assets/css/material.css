@@ -1,0 +1,82 @@
+/* src/assets/css/material.css */
+
+body {
+  font-family: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  background-color: var(--secondary-bg-color);
+  color: var(--primary-text-color);
+  margin: 0;
+  font-size: 14px;
+}
+
+.card {
+  background-color: var(--card-bg-color);
+  border-radius: var(--card-border-radius);
+  box-shadow: var(--card-shadow);
+  padding: 16px;
+  margin-bottom: 16px;
+}
+
+.button {
+  background-color: var(--accent-color);
+  color: var(--accent-text-color);
+  padding: 8px 16px;
+  border: none;
+  border-radius: var(--button-border-radius);
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: background-color 0.2s ease-in-out;
+  position: relative;
+  overflow: hidden;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.button:hover {
+  background-color: var(--accent-color-hover);
+}
+
+.button .ripple {
+  position: absolute;
+  border-radius: 50%;
+  transform: scale(0);
+  animation: ripple 600ms linear;
+  background-color: rgba(255, 255, 255, 0.7);
+}
+
+@keyframes ripple {
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+.textfield {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 16px;
+  border: 1px solid var(--border-color);
+  border-radius: var(--button-border-radius);
+  background-color: var(--secondary-bg-color);
+  color: var(--primary-text-color);
+  box-sizing: border-box;
+  font-size: 14px;
+}
+
+.progress-bar-container {
+  width: 100%;
+  background-color: var(--progress-bar-bg-color);
+  border-radius: 4px;
+  margin-top: 10px;
+  overflow: hidden;
+  height: 8px;
+}
+
+.progress-bar {
+  width: 0%;
+  height: 100%;
+  background-color: var(--accent-color);
+  border-radius: 4px;
+  transition: width 0.3s ease-in-out;
+}
