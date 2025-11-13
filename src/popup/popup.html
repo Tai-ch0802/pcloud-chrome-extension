@@ -8,7 +8,11 @@
 </head>
 <body>
     <div id="app">
-        <div id="login-view" class="container">
+        <div id="loading-view" class="container">
+            <div class="spinner"></div>
+        </div>
+
+        <div id="login-view" class="container hidden">
             <!-- Email/Password Login Form -->
             <div id="login-form-password">
                 <h1 data-i18n="login_prompt"></h1>
@@ -63,6 +67,8 @@
 
             <div class="success-message hidden" id="upload-success"></div>
             <div class="error-message hidden" id="upload-error"></div>
+
+            <a href="https://www.pcloud.com/" target="_blank" id="pcloud-website-link" data-i18n="go_to_pcloud_website"></a>
 
             <button id="logout-button" data-i18n="logout_button_text"></button>
         </div>

@@ -115,6 +115,10 @@
         "message": "Or select files",
         "description": "Link text to open file selector as an alternative to drag and drop."
     },
+    "go_to_pcloud_website": {
+        "message": "Go to pCloud Website",
+        "description": "Link to pCloud website."
+    },
   "upload_button_text": {
     "message": "Upload",
     "description": "Text for the upload button."

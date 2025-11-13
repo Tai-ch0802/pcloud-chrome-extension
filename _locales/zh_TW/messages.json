@@ -115,6 +115,10 @@
         "message": "或選擇檔案",
         "description": "替代拖曳上傳的文字連結"
     },
+    "go_to_pcloud_website": {
+        "message": "前往 pCloud",
+        "description": "pCloud 網站連結"
+    },
   "upload_button_text": {
     "message": "上傳",
     "description": "上傳按鈕的文字。"

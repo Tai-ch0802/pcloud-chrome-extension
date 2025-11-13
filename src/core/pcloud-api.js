@@ -73,20 +73,40 @@ class PCloudAPIClient {
   }
 
   /**
-   * Uploads a file to pCloud with progress reporting.
+   * Uploads a file to pCloud.
+   * NOTE: This method uses fetch() and does not support progress reporting.
    * Corresponds to pCloud API: /uploadfile
    * @param {File} file The File object to upload.
    * @param {number} folderid The ID of the destination folder.
-   * @param {function(number): void} onProgress A callback function to report upload progress (0-100).
    * @param {string} [filename=file.name] Optional: The desired filename in pCloud. Defaults to original file name.
    * @returns {Promise<object>} Uploaded file metadata.
    */
-  async uploadFile(file, folderid = 0, onProgress, filename = file.name) {
+  async uploadFile(file, folderid = 0, filename = file.name) {
     const formData = new FormData();
     formData.append('folderid', folderid.toString());
-    formData.append('filename', file, filename);
+    // The third argument to append() is for the filename in the multipart request
+    formData.append('file', file, filename);
 
-    return this._uploadRequest("uploadfile", formData, onProgress);
+    const endpoint = 'uploadfile';
+    const url = new URL(`${PCLOUD_API_BASE_URL}${endpoint}`);
+    url.searchParams.append('auth', this.authToken);
+
+    try {
+      const response = await fetch(url.toString(), {
+        method: 'POST',
+        body: formData,
+      });
+      
+      const data = await response.json();
+
+      if (data.result !== 0) {
+        throw new Error(`pCloud API Error (${data.result}): ${data.error || 'Unknown error'}`);
+      }
+      return data;
+    } catch (error) {
+      console.error(`Error calling pCloud API endpoint ${endpoint}:`, error);
+      throw error;
+    }
   }
 
   /**
@@ -94,79 +114,16 @@ class PCloudAPIClient {
    * Corresponds to pCloud API: /listfolder
    * @returns {Promise<object>} The metadata of the root folder, containing nested contents.
    */
-  async listAllFolders() {
-    const params = {
-      path: '/',
-      recursive: '1',
-      nofiles: '1'
-    };
-    return this._request("listfolder", params);
+    async listAllFolders() {
+      const params = {
+        path: '/',
+        recursive: '1',
+        nofiles: '1'
+      };
+      return this._request("listfolder", params);
+    }
+  
+    // Add more API methods as needed (e.g., listfolder, deletefile, etc.)
   }
-
-  /**
-   * Makes an authenticated upload request using XMLHttpRequest for progress tracking.
-   * @param {string} endpoint The API endpoint (e.g., "uploadfile").
-   * @param {FormData} formData The FormData object to upload.
-   * @param {function(number): void} onProgress A callback function to report upload progress (0-100).
-   * @returns {Promise<object>} The JSON response from the API.
-   * @private
-   */
-  _uploadRequest(endpoint, formData, onProgress) {
-    return new Promise((resolve, reject) => {
-      const xhr = new XMLHttpRequest();
-      const url = new URL(`${PCLOUD_API_BASE_URL}${endpoint}`);
-      url.searchParams.append('auth', this.authToken);
-
-      xhr.open("POST", url.toString(), true);
-
-      xhr.upload.onprogress = (event) => {
-        if (event.lengthComputable) {
-          const percentComplete = Math.round((event.loaded / event.total) * 100);
-          if (onProgress) {
-            onProgress(percentComplete);
-          }
-        }
-      };
-
-      xhr.onload = () => {
-        if (xhr.status >= 200 && xhr.status < 300) {
-          try {
-            console.log("--- Upload Response ---");
-            console.log(xhr.responseText);
-            console.log("-----------------------");
-            const data = JSON.parse(xhr.responseText);
-            if (data.result !== 0) {
-              reject(new Error(`pCloud API Error (${data.result}): ${data.error}`));
-            } else {
-              resolve(data);
-            }
-          } catch (e) {
-            reject(new Error("Failed to parse API response."));
-          }
-        } else {
-          reject(new Error(`Request failed with status: ${xhr.status}`));
-        }
-      };
-
-      xhr.onerror = () => {
-        reject(new Error("Network error during upload."));
-      };
-
-      console.log("--- Upload Parameters ---");
-      for (let [key, value] of formData.entries()) {
-        if (value instanceof File) {
-          console.log(`${key}:`, value.name);
-        } else {
-          console.log(`${key}:`, value);
-        }
-      }
-      console.log("-------------------------");
-
-      xhr.send(formData);
-    });
-  }
-
-  // Add more API methods as needed (e.g., listfolder, deletefile, etc.)
-}
 
 export default PCloudAPIClient;
