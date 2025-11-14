@@ -5,6 +5,7 @@ import PCloudAPIClient from '../core/pcloud-api.js';
 
 const DEFAULT_UPLOAD_FOLDER_ID_KEY = 'default_upload_folder_id';
 const FOLDER_STATE_KEY = 'folder_collapse_state';
+const THEME_KEY = 'selected_theme';
 const IS_DEV_MODE = !('update_url' in chrome.runtime.getManifest());
 
 // --- DOM Elements ---
@@ -12,16 +13,31 @@ const folderTreeContainer = document.getElementById('folder-tree-container');
 const selectedFolderPathDiv = document.getElementById('selected-folder-path');
 const devFolderIdSpan = document.getElementById('dev-folder-id');
 const statusMessage = document.getElementById('status-message');
+const themeSelect = document.getElementById('theme-select');
 
 // --- State ---
 let folderCollapseState = {};
 let folderMap = new Map();
 
-// --- Helper Functions ---
+// --- Theme Management ---
+async function applyTheme(theme) {
+    document.body.className = theme;
+}
 
+async function loadAndApplyTheme() {
+    const { [THEME_KEY]: savedTheme = 'theme-googlestyle' } = await chrome.storage.sync.get(THEME_KEY);
+    themeSelect.value = savedTheme;
+    applyTheme(savedTheme);
+}
+
+// --- Helper Functions ---
 function localizeHtml() {
   document.querySelectorAll('[data-i18n]').forEach(el => {
-    el.textContent = chrome.i18n.getMessage(el.dataset.i18n);
+    const key = el.dataset.i18n;
+    const message = chrome.i18n.getMessage(key);
+    if (message) {
+      el.textContent = message;
+    }
   });
   document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
     el.placeholder = chrome.i18n.getMessage(el.dataset.i18nPlaceholder);
@@ -41,9 +57,8 @@ function showStatusMessage(messageKey, type = 'success') {
 }
 
 // --- Folder Tree Logic ---
-
 function flattenFolders(folder) {
-  folderMap.set(folder.folderid, folder); // Use folderid (number) as key
+  folderMap.set(folder.folderid, folder);
   if (folder.contents) {
     folder.contents.forEach(child => flattenFolders(child));
   }
@@ -63,7 +78,7 @@ function buildPath(folderId) {
 function buildFolderTree(folder, currentFolderId) {
   const li = document.createElement('li');
   const isExpanded = folderCollapseState[folder.folderid] !== false;
-  li.dataset.folderId = folder.folderid; // Store folderid (number)
+  li.dataset.folderId = folder.folderid;
 
   const hasChildren = folder.contents && folder.contents.length > 0;
   if (hasChildren) {
@@ -140,7 +155,7 @@ async function handleTreeClick(e) {
   const li = e.target.closest('li');
   if (!li) return;
 
-  const folderId = parseInt(li.dataset.folderId, 10); // Get folderid (number)
+  const folderId = parseInt(li.dataset.folderId, 10);
   const target = e.target;
 
   if (target.classList.contains('toggle-icon')) {
@@ -163,6 +178,7 @@ async function handleTreeClick(e) {
 // --- Initial Load ---
 document.addEventListener('DOMContentLoaded', async () => {
   localizeHtml();
+  await loadAndApplyTheme();
   document.title = chrome.i18n.getMessage('options_title');
   const state = await chrome.storage.local.get(FOLDER_STATE_KEY);
   folderCollapseState = state[FOLDER_STATE_KEY] || {};
@@ -170,3 +186,8 @@ document.addEventListener('DOMContentLoaded', async () => {
 });
 
 folderTreeContainer.addEventListener('click', handleTreeClick);
+themeSelect.addEventListener('change', async (event) => {
+    const selectedTheme = event.target.value;
+    await chrome.storage.sync.set({ [THEME_KEY]: selectedTheme });
+    applyTheme(selectedTheme);
+});

@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title data-i18n="extensionName"></title>
+    <link rel="stylesheet" href="../assets/css/theme.css">
+    <link rel="stylesheet" href="../assets/css/material.css">
     <link rel="stylesheet" href="../assets/css/popup.css">
 </head>
 <body>
@@ -13,64 +15,68 @@
         </div>
 
         <div id="login-view" class="container hidden">
-            <!-- Email/Password Login Form -->
-            <div id="login-form-password">
-                <h1 data-i18n="login_prompt"></h1>
-                <div class="error-message" id="login-error-password"></div>
-                <input type="email" id="email" data-i18n-placeholder="login_email_placeholder">
-                <input type="password" id="password" data-i18n-placeholder="login_password_placeholder">
-                <button id="login-button-password" data-i18n="login_button_text"></button>
-                <p class="toggle-link"><a href="#" id="switch-to-token" data-i18n="login_switch_to_token"></a></p>
-            </div>
+            <div class="card">
+                <!-- Email/Password Login Form -->
+                <div id="login-form-password">
+                    <h1 data-i18n="login_prompt"></h1>
+                    <div class="error-message" id="login-error-password"></div>
+                    <input type="email" id="email" class="textfield" data-i18n-placeholder="login_email_placeholder">
+                    <input type="password" id="password" class="textfield" data-i18n-placeholder="login_password_placeholder">
+                    <button id="login-button-password" class="button" data-i18n="login_button_text"></button>
+                    <p class="toggle-link"><a href="#" id="switch-to-token" data-i18n="login_switch_to_token"></a></p>
+                </div>
 
-            <!-- Token Login Form -->
-            <div id="login-form-token" class="hidden">
-                <h1 data-i18n="login_token_prompt"></h1>
-                <p class="description" data-i18n="login_token_description"></p>
-                <div class="error-message" id="login-error-token"></div>
-                <textarea id="auth-token" data-i18n-placeholder="login_token_placeholder" rows="4"></textarea>
-                <button id="login-button-token" data-i18n="login_token_button_text"></button>
-                <p class="toggle-link"><a href="#" id="switch-to-password" data-i18n="login_switch_to_password"></a></p>
+                <!-- Token Login Form -->
+                <div id="login-form-token" class="hidden">
+                    <h1 data-i18n="login_token_prompt"></h1>
+                    <p class="description" data-i18n="login_token_description"></p>
+                    <div class="error-message" id="login-error-token"></div>
+                    <textarea id="auth-token" class="textfield" data-i18n-placeholder="login_token_placeholder" rows="4"></textarea>
+                    <button id="login-button-token" class="button" data-i18n="login_token_button_text"></button>
+                    <p class="toggle-link"><a href="#" id="switch-to-password" data-i18n="login_switch_to_password"></a></p>
+                </div>
             </div>
         </div>
 
         <div id="main-view" class="container hidden">
-            <button id="options-button" title="__MSG_options_title__">
-                <img src="../assets/icons/settings.svg" alt="Options" />
-            </button>
-            <div class="user-info">
-                <span id="user-email"></span>
-            </div>
-
-            <!-- Data Usage Bar -->
-            <div id="quota-info" class="hidden">
-                <div id="quota-text"></div>
-                <div class="progress-bar-container quota-bar-container">
-                    <div class="progress-bar" id="quota-progress"></div>
+            <div class="card">
+                <button id="options-button" title="__MSG_options_title__">
+                    <img src="../assets/icons/settings.svg" alt="Options" />
+                </button>
+                <div class="user-info">
+                    <span id="user-email"></span>
                 </div>
+
+                <!-- Data Usage Bar -->
+                <div id="quota-info" class="hidden">
+                    <div id="quota-text"></div>
+                    <div class="progress-bar-container quota-bar-container">
+                        <div class="progress-bar" id="quota-progress"></div>
+                    </div>
+                </div>
+
+                <h1 data-i18n="upload_prompt"></h1>
+                <div class="setting-item-popup">
+                    <label data-i18n="options_default_folder_label"></label>
+                    <div id="current-upload-path" class="selected-path-display">/</div>
+                </div>
+
+                <!-- Upload Area -->
+                <div id="drop-zone">
+                    <div id="upload-list"></div>
+                    <div id="drop-zone-text" data-i18n="upload_drag_and_drop_prompt"></div>
+                    <a href="#" id="select-file-link" data-i18n="upload_select_file_link"></a>
+                </div>
+
+                <input type="file" id="file-input" multiple style="display: none;">
+
+                <div class="success-message hidden" id="upload-success"></div>
+                <div class="error-message hidden" id="upload-error"></div>
+
+                <a href="https://www.pcloud.com/" target="_blank" id="pcloud-website-link" class="button" data-i18n="go_to_pcloud_website"></a>
+
+                <button id="logout-button" class="button" data-i18n="logout_button_text"></button>
             </div>
-
-            <h1 data-i18n="upload_prompt"></h1>
-            <div class="setting-item-popup">
-                <label data-i18n="options_default_folder_label"></label>
-                <div id="current-upload-path" class="selected-path-display">/</div>
-            </div>
-
-            <!-- Upload Area -->
-            <div id="drop-zone">
-                <div id="upload-list"></div>
-                <div id="drop-zone-text" data-i18n="upload_drag_and_drop_prompt"></div>
-                <a href="#" id="select-file-link" data-i18n="upload_select_file_link"></a>
-            </div>
-
-            <input type="file" id="file-input" multiple style="display: none;">
-
-            <div class="success-message hidden" id="upload-success"></div>
-            <div class="error-message hidden" id="upload-error"></div>
-
-            <a href="https://www.pcloud.com/" target="_blank" id="pcloud-website-link" data-i18n="go_to_pcloud_website"></a>
-
-            <button id="logout-button" data-i18n="logout_button_text"></button>
         </div>
     </div>
 
