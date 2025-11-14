@@ -22,12 +22,15 @@ body {
   box-sizing: border-box;
 }
 
-body.options-body {
+html, body.options-body {
+    height: 100%;
     width: 100%;
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
+}
+
+body.options-body {
+    /* Reverted flexbox centering to avoid conflicts with folder tree rendering */
+    padding: 24px;
+    box-sizing: border-box;
 }
 
 #loading-view .spinner {
@@ -176,7 +179,7 @@ body.theme-geek #options-button img {
 .options-container {
     max-width: 800px; /* Increased width */
     width: 100%;
-    margin: 48px auto; /* Increased top margin */
+    margin: 48px auto; /* Ensures horizontal centering */
     padding: 0 24px; /* Added horizontal padding */
     box-sizing: border-box;
 }
