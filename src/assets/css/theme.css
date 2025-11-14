@@ -58,23 +58,24 @@ html.theme-googlestyle {
 }
 
 html.theme-geek {
-  --mdc-theme-primary: #8ab4f8;
-  --mdc-theme-on-primary: #202124;
-  --mdc-theme-secondary: #8ab4f8;
-  --mdc-theme-on-secondary: #202124;
-  --mdc-theme-surface: #2d2e31;
-  --mdc-theme-on-surface: #e8eaed;
-  --mdc-theme-background: #202124;
-  --mdc-theme-on-background: #e8eaed;
-  --mdc-theme-error: #f28b82;
-  --mdc-theme-on-error: #202124;
+  /* High-contrast, low-saturation "Geek" theme inspired by code editors */
+  --mdc-theme-primary: #FFB86C; /* Amber accent */
+  --mdc-theme-on-primary: #282A36;
+  --mdc-theme-secondary: #FFB86C;
+  --mdc-theme-on-secondary: #282A36;
+  --mdc-theme-surface: #282A36; /* Lighter charcoal for cards */
+  --mdc-theme-on-surface: #F8F8F2; /* Off-white text */
+  --mdc-theme-background: #1A1B26; /* Dark blue/charcoal background */
+  --mdc-theme-on-background: #F8F8F2;
+  --mdc-theme-error: #FF5555;
+  --mdc-theme-on-error: #F8F8F2;
 
-  --secondary-text-color: #969ba1;
-  --border-color: #5f6368;
-  --success-color: #81c995;
-  --accent-color-hover: #a5c7fa;
+  --secondary-text-color: rgba(248, 248, 242, 0.7);
+  --border-color: rgba(248, 248, 242, 0.2);
+  --success-color: #50FA7B; /* Matrix green */
+  --accent-color-hover: #ffca8a; /* Lighter amber for hover */
 
   --card-bg-color: var(--mdc-theme-surface);
   --card-shadow: 0 1px 2px 0 rgba(0, 0, 0, .3), 0 2px 6px 2px rgba(0, 0, 0, .15);
-  --progress-bar-bg-color: #3e4e68;
+  --progress-bar-bg-color: #44475a; /* Purlplish-grey from Dracula theme */
 }

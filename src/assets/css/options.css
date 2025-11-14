@@ -9,6 +9,7 @@ body.options-body {
     padding: 24px;
     box-sizing: border-box;
     background-color: var(--mdc-theme-background);
+    color: var(--mdc-theme-on-background);
 }
 
 .options-container {
@@ -46,6 +47,7 @@ body.options-body {
     border: 1px solid var(--border-color);
     border-radius: 4px;
     padding: 8px;
+    color: var(--mdc-theme-on-surface);
 }
 
 .folder-tree ul {

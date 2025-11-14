@@ -1,7 +1,7 @@
 /* src/assets/css/popup.css */
 
 body {
-  width: 400px;
+  width: 360px; /* Set body width to match card content area */
   min-height: 100px;
   background-color: var(--mdc-theme-background);
   color: var(--mdc-theme-on-surface);
@@ -99,10 +99,16 @@ h1 {
 }
 
 .container {
-    padding: 16px;
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+.mdc-card {
+    width: 100%; /* Card takes full width of its container (body) */
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 16px;
 }
 
 .hidden {
