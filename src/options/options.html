@@ -5,21 +5,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title data-i18n="options_title"></title>
     <link rel="stylesheet" href="../assets/css/theme.css">
-    <link rel="stylesheet" href="../assets/css/material.css">
     <link rel="stylesheet" href="../assets/css/options.css">
+    <link rel="stylesheet" href="../assets/vendor/material-components-web.min.css">
 </head>
 <body class="options-body">
     <div class="options-container">
-        <div class="card">
+        <div class="mdc-card">
             <h1 data-i18n="options_title"></h1>
             <p data-i18n="options_description"></p>
 
             <div class="setting-item">
-                <label for="theme-select" data-i18n="options_theme_label"></label>
-                <select id="theme-select">
-                    <option value="theme-googlestyle" data-i18n="options_theme_googlestyle"></option>
-                    <option value="theme-geek" data-i18n="options_theme_geek"></option>
-                </select>
+                <div class="mdc-select mdc-select--filled" id="theme-select">
+                    <div class="mdc-select__anchor">
+                        <span class="mdc-select__ripple"></span>
+                        <span class="mdc-floating-label" data-i18n="options_theme_label"></span>
+                        <span class="mdc-select__selected-text-container">
+                            <span class="mdc-select__selected-text"></span>
+                        </span>
+                        <span class="mdc-select__dropdown-icon">
+                            <svg class="mdc-select__dropdown-icon-graphic" viewBox="7 10 10 5" focusable="false">
+                                <polygon class="mdc-select__dropdown-icon-inactive" stroke="none" fill-rule="evenodd" points="7 10 12 15 17 10"></polygon>
+                                <polygon class="mdc-select__dropdown-icon-active" stroke="none" fill-rule="evenodd" points="7 15 12 10 17 15"></polygon>
+                            </svg>
+                        </span>
+                        <span class="mdc-line-ripple"></span>
+                    </div>
+
+                    <div class="mdc-select__menu mdc-menu mdc-menu-surface">
+                        <ul class="mdc-list">
+                            <li class="mdc-list-item" data-value="theme-googlestyle">
+                                <span class="mdc-list-item__ripple"></span>
+                                <span class="mdc-list-item__text" data-i18n="options_theme_googlestyle"></span>
+                            </li>
+                            <li class="mdc-list-item" data-value="theme-geek">
+                                <span class="mdc-list-item__ripple"></span>
+                                <span class="mdc-list-item__text" data-i18n="options_theme_geek"></span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
             </div>
 
             <div class="setting-item">
@@ -33,6 +57,7 @@
         </div>
     </div>
 
+    <script src="../assets/vendor/material-components-web.min.js"></script>
     <script src="options.js" type="module"></script>
 </body>
 </html>

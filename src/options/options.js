@@ -13,11 +13,12 @@ const folderTreeContainer = document.getElementById('folder-tree-container');
 const selectedFolderPathDiv = document.getElementById('selected-folder-path');
 const devFolderIdSpan = document.getElementById('dev-folder-id');
 const statusMessage = document.getElementById('status-message');
-const themeSelect = document.getElementById('theme-select');
+const themeSelectElement = document.getElementById('theme-select');
 
 // --- State ---
 let folderCollapseState = {};
 let folderMap = new Map();
+let themeSelect;
 
 // --- Theme Management ---
 function applyTheme(theme) {
@@ -27,7 +28,9 @@ function applyTheme(theme) {
 
 async function loadAndApplyTheme() {
     const { [THEME_KEY]: savedTheme = 'theme-googlestyle' } = await chrome.storage.sync.get(THEME_KEY);
-    themeSelect.value = savedTheme;
+    if (themeSelect) {
+        themeSelect.value = savedTheme;
+    }
     applyTheme(savedTheme);
 }
 
@@ -37,7 +40,13 @@ function localizeHtml() {
     const key = el.dataset.i18n;
     const message = chrome.i18n.getMessage(key);
     if (message) {
-      el.textContent = message;
+      // For MDC list items, the text might be in a nested span
+      const textSpan = el.querySelector('.mdc-list-item__text');
+      if (textSpan) {
+          textSpan.textContent = message;
+      } else {
+          el.textContent = message;
+      }
     }
   });
   document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
@@ -178,17 +187,21 @@ async function handleTreeClick(e) {
 
 // --- Initial Load ---
 document.addEventListener('DOMContentLoaded', async () => {
+  // Initialize MDC components
+  themeSelect = new mdc.select.MDCSelect(themeSelectElement);
+
   localizeHtml();
   await loadAndApplyTheme();
   document.title = chrome.i18n.getMessage('options_title');
   const state = await chrome.storage.local.get(FOLDER_STATE_KEY);
   folderCollapseState = state[FOLDER_STATE_KEY] || {};
   await renderFolderTree();
-});
 
-folderTreeContainer.addEventListener('click', handleTreeClick);
-themeSelect.addEventListener('change', async (event) => {
-    const selectedTheme = event.target.value;
-    await chrome.storage.sync.set({ [THEME_KEY]: selectedTheme });
-    applyTheme(selectedTheme);
+  // Event Listeners
+  folderTreeContainer.addEventListener('click', handleTreeClick);
+  themeSelect.listen('MDCSelect:change', async () => {
+      const selectedTheme = themeSelect.value;
+      await chrome.storage.sync.set({ [THEME_KEY]: selectedTheme });
+      applyTheme(selectedTheme);
+  });
 });

@@ -1,19 +1,32 @@
 /* src/assets/css/theme.css */
 
+/* 
+ * Theme variables are mapped to Material Design Components (MDC) CSS Custom Properties.
+ * This allows MDC components to automatically adapt to the selected theme.
+ * https://material.io/develop/web/theming/css-variables
+ */
+
 /* Default to GoogleStyle (Light Theme) */
 :root {
-  --primary-bg-color: #ffffff;
-  --secondary-bg-color: #f1f3f4;
-  --primary-text-color: #202124;
-  --secondary-text-color: #5f6368;
-  --accent-color: #1a73e8;
-  --accent-color-hover: #1b66c9;
-  --accent-text-color: #ffffff;
-  --border-color: #dadce0;
-  --error-color: #d93025;
-  --success-color: #1e8e3e;
+  /* MDC Theme Colors */
+  --mdc-theme-primary: #1a73e8;
+  --mdc-theme-on-primary: #ffffff;
+  --mdc-theme-secondary: #1a73e8; /* Using primary for secondary as well */
+  --mdc-theme-on-secondary: #ffffff;
+  --mdc-theme-surface: #ffffff;
+  --mdc-theme-on-surface: #202124;
+  --mdc-theme-background: #f1f3f4;
+  --mdc-theme-on-background: #202124;
+  --mdc-theme-error: #d93025;
+  --mdc-theme-on-error: #ffffff;
 
-  --card-bg-color: var(--primary-bg-color);
+  /* Custom variables for non-MDC components or overrides */
+  --secondary-text-color: #5f6368;
+  --border-color: #dadce0;
+  --success-color: #1e8e3e;
+  --accent-color-hover: #1b66c9; /* Kept for potential custom components */
+
+  --card-bg-color: var(--mdc-theme-surface);
   --card-shadow: 0 1px 2px 0 rgba(60, 64, 67, .3), 0 2px 6px 2px rgba(60, 64, 67, .15);
   --card-border-radius: 8px;
 
@@ -23,35 +36,45 @@
 }
 
 html.theme-googlestyle {
-  --primary-bg-color: #ffffff;
-  --secondary-bg-color: #f1f3f4;
-  --primary-text-color: #202124;
-  --secondary-text-color: #5f6368;
-  --accent-color: #1a73e8;
-  --accent-color-hover: #1b66c9;
-  --accent-text-color: #ffffff;
-  --border-color: #dadce0;
-  --error-color: #d93025;
-  --success-color: #1e8e3e;
+  --mdc-theme-primary: #1a73e8;
+  --mdc-theme-on-primary: #ffffff;
+  --mdc-theme-secondary: #1a73e8;
+  --mdc-theme-on-secondary: #ffffff;
+  --mdc-theme-surface: #ffffff;
+  --mdc-theme-on-surface: #202124;
+  --mdc-theme-background: #f1f3f4;
+  --mdc-theme-on-background: #202124;
+  --mdc-theme-error: #d93025;
+  --mdc-theme-on-error: #ffffff;
 
-  --card-bg-color: var(--primary-bg-color);
+  --secondary-text-color: #5f6368;
+  --border-color: #dadce0;
+  --success-color: #1e8e3e;
+  --accent-color-hover: #1b66c9;
+  
+  --card-bg-color: var(--mdc-theme-surface);
   --card-shadow: 0 1px 2px 0 rgba(60, 64, 67, .3), 0 2px 6px 2px rgba(60, 64, 67, .15);
   --progress-bar-bg-color: #d1e2fc;
 }
 
 html.theme-geek {
-  --primary-bg-color: #202124;
-  --secondary-bg-color: #3c4043;
-  --primary-text-color: #e8eaed;
-  --secondary-text-color: #969ba1;
-  --accent-color: #8ab4f8;
-  --accent-color-hover: #a5c7fa;
-  --accent-text-color: #202124;
-  --border-color: #5f6368;
-  --error-color: #f28b82;
-  --success-color: #81c995;
+  --mdc-theme-primary: #8ab4f8;
+  --mdc-theme-on-primary: #202124;
+  --mdc-theme-secondary: #8ab4f8;
+  --mdc-theme-on-secondary: #202124;
+  --mdc-theme-surface: #2d2e31;
+  --mdc-theme-on-surface: #e8eaed;
+  --mdc-theme-background: #202124;
+  --mdc-theme-on-background: #e8eaed;
+  --mdc-theme-error: #f28b82;
+  --mdc-theme-on-error: #202124;
 
-  --card-bg-color: #2d2e31;
+  --secondary-text-color: #969ba1;
+  --border-color: #5f6368;
+  --success-color: #81c995;
+  --accent-color-hover: #a5c7fa;
+
+  --card-bg-color: var(--mdc-theme-surface);
   --card-shadow: 0 1px 2px 0 rgba(0, 0, 0, .3), 0 2px 6px 2px rgba(0, 0, 0, .15);
   --progress-bar-bg-color: #3e4e68;
 }

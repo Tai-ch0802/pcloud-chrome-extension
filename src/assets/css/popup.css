@@ -3,8 +3,8 @@
 body {
   width: 400px;
   min-height: 100px;
-  background-color: var(--secondary-bg-color);
-  color: var(--primary-text-color);
+  background-color: var(--mdc-theme-background);
+  color: var(--mdc-theme-on-surface);
   margin: 0;
   box-sizing: border-box;
 }
@@ -13,7 +13,7 @@ body {
     width: 40px;
     height: 40px;
     border: 4px solid rgba(0, 0, 0, 0.1);
-    border-top: 4px solid var(--accent-color);
+    border-top: 4px solid var(--mdc-theme-primary);
     border-radius: 50%;
     animation: spin 1s linear infinite;
 }
@@ -24,7 +24,7 @@ body {
 }
 
 h1 {
-  color: var(--primary-text-color);
+  color: var(--mdc-theme-on-surface);
   font-size: 20px;
   font-weight: 500;
   margin: 0 0 16px 0;
@@ -42,18 +42,15 @@ h1 {
 }
 
 .setting-item-popup .selected-path-display {
-    background-color: var(--secondary-bg-color);
+    background-color: var(--mdc-theme-background);
     padding: 6px 10px;
     border-radius: 4px;
     font-family: 'Roboto Mono', monospace;
     margin-top: 6px;
-    color: var(--primary-text-color);
+    color: var(--mdc-theme-on-surface);
 }
 
-#main-view .card, #login-view .card {
-  position: relative;
-  padding-top: 32px; /* Space for the options button */
-}
+
 
 #options-button {
   position: absolute;
@@ -79,9 +76,7 @@ h1 {
   filter: grayscale(1) brightness(0.5);
 }
 
-body.theme-geek #options-button img {
-    filter: invert(1) brightness(2);
-}
+
 
 .user-info {
     text-align: center;
@@ -122,7 +117,7 @@ body.theme-geek #options-button img {
 }
 
 .toggle-link a {
-    color: var(--accent-color);
+    color: var(--mdc-theme-primary);
     text-decoration: none;
 }
 
@@ -130,14 +125,11 @@ body.theme-geek #options-button img {
     text-decoration: underline;
 }
 
-#login-form-token textarea.textfield {
-    height: 80px;
-    resize: vertical;
-}
+
 
 
 .error-message {
-  color: var(--error-color);
+  color: var(--mdc-theme-error);
   margin-top: -8px;
   margin-bottom: 12px;
   font-size: 12px;
@@ -157,7 +149,7 @@ body.theme-geek #options-button img {
     padding: 24px;
     text-align: center;
     cursor: pointer;
-    background-color: var(--secondary-bg-color);
+    background-color: var(--mdc-theme-background);
     margin-top: 16px;
     margin-bottom: 16px;
     position: relative;
@@ -169,7 +161,7 @@ body.theme-geek #options-button img {
 }
 
 #drop-zone.dragover {
-    border-color: var(--accent-color);
+    border-color: var(--mdc-theme-primary);
     background-color: var(--progress-bar-bg-color);
 }
 
@@ -181,7 +173,7 @@ body.theme-geek #options-button img {
 
 #select-file-link {
     font-size: 14px;
-    color: var(--accent-color);
+    color: var(--mdc-theme-primary);
     text-decoration: none;
     font-weight: 500;
     margin-top: 8px;
@@ -218,7 +210,7 @@ body.theme-geek #options-button img {
 
 .upload-item-info .file-name {
     font-size: 13px;
-    color: var(--primary-text-color);
+    color: var(--mdc-theme-on-surface);
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -228,7 +220,7 @@ body.theme-geek #options-button img {
 .upload-item .item-progress-bar-container {
     width: 100%;
     height: 5px;
-    background-color: var(--secondary-bg-color);
+    background-color: var(--mdc-theme-background);
     border-radius: 5px;
     margin-top: 4px;
     overflow: hidden;
@@ -243,14 +235,14 @@ body.theme-geek #options-button img {
 }
 
 .upload-item .item-progress-bar.in-progress {
-    background-color: var(--accent-color);
+    background-color: var(--mdc-theme-primary);
     background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
     background-size: 1rem 1rem;
     animation: progress-bar-stripes 1s linear infinite;
 }
 
 .upload-item .item-progress-bar.error {
-    background-color: var(--error-color);
+    background-color: var(--mdc-theme-error);
     width: 100%;
 }
 
@@ -271,9 +263,5 @@ body.theme-geek #options-button img {
 }
 
 .upload-item-status.status-error {
-    color: var(--error-color);
-}
-
-.button + .button {
-    margin-top: 12px;
+    color: var(--mdc-theme-error);
 }

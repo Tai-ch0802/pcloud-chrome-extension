@@ -3,6 +3,7 @@
 import { getAuthToken, setAuthToken, clearAuthToken, isAuthenticated } from '../core/auth.js';
 import PCloudAPIClient from '../core/pcloud-api.js';
 
+const { mdc } = window;
 const DEFAULT_UPLOAD_FOLDER_ID_KEY = 'default_upload_folder_id';
 
 // --- DOM Elements ---
@@ -405,6 +406,17 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
 document.addEventListener('DOMContentLoaded', async () => {
   await applyTheme();
   localizeHtml();
+
+  // Initialize MDC components
+  const buttons = document.querySelectorAll('.mdc-button');
+  for (const button of buttons) {
+    mdc.ripple.MDCRipple.attachTo(button);
+  }
+  const textFields = document.querySelectorAll('.mdc-text-field');
+  for (const textField of textFields) {
+    mdc.textField.MDCTextField.attachTo(textField);
+  }
+
   if (await isAuthenticated()) {
     await Promise.all([
       updateCurrentUploadPathDisplay(),

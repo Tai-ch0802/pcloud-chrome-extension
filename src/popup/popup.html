@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title data-i18n="extensionName"></title>
     <link rel="stylesheet" href="../assets/css/theme.css">
-    <link rel="stylesheet" href="../assets/css/material.css">
     <link rel="stylesheet" href="../assets/css/popup.css">
+    <link rel="stylesheet" href="../assets/vendor/material-components-web.min.css">
 </head>
 <body>
     <div id="app">
@@ -15,14 +15,30 @@
         </div>
 
         <div id="login-view" class="container hidden">
-            <div class="card">
+            <div class="mdc-card">
                 <!-- Email/Password Login Form -->
                 <div id="login-form-password">
                     <h1 data-i18n="login_prompt"></h1>
                     <div class="error-message" id="login-error-password"></div>
-                    <input type="email" id="email" class="textfield" data-i18n-placeholder="login_email_placeholder">
-                    <input type="password" id="password" class="textfield" data-i18n-placeholder="login_password_placeholder">
-                    <button id="login-button-password" class="button" data-i18n="login_button_text"></button>
+
+                    <label class="mdc-text-field mdc-text-field--filled">
+                        <span class="mdc-text-field__ripple"></span>
+                        <span class="mdc-floating-label" id="email-label" data-i18n="login_email_placeholder"></span>
+                        <input type="email" id="email" class="mdc-text-field__input" aria-labelledby="email-label">
+                        <span class="mdc-line-ripple"></span>
+                    </label>
+
+                    <label class="mdc-text-field mdc-text-field--filled">
+                        <span class="mdc-text-field__ripple"></span>
+                        <span class="mdc-floating-label" id="password-label" data-i18n="login_password_placeholder"></span>
+                        <input type="password" id="password" class="mdc-text-field__input" aria-labelledby="password-label">
+                        <span class="mdc-line-ripple"></span>
+                    </label>
+
+                    <button id="login-button-password" class="mdc-button mdc-button--raised">
+                        <span class="mdc-button__ripple"></span>
+                        <span class="mdc-button__label" data-i18n="login_button_text"></span>
+                    </button>
                     <p class="toggle-link"><a href="#" id="switch-to-token" data-i18n="login_switch_to_token"></a></p>
                 </div>
 
@@ -31,15 +47,32 @@
                     <h1 data-i18n="login_token_prompt"></h1>
                     <p class="description" data-i18n="login_token_description"></p>
                     <div class="error-message" id="login-error-token"></div>
-                    <textarea id="auth-token" class="textfield" data-i18n-placeholder="login_token_placeholder" rows="4"></textarea>
-                    <button id="login-button-token" class="button" data-i18n="login_token_button_text"></button>
+
+                    <label class="mdc-text-field mdc-text-field--textarea">
+                        <span class="mdc-text-field__ripple"></span>
+                        <span class="mdc-notched-outline">
+                            <span class="mdc-notched-outline__leading"></span>
+                            <span class="mdc-notched-outline__notch">
+                                <span class="mdc-floating-label" id="auth-token-label" data-i18n="login_token_placeholder"></span>
+                            </span>
+                            <span class="mdc-notched-outline__trailing"></span>
+                        </span>
+                        <span class="mdc-text-field__resizer">
+                            <textarea id="auth-token" class="mdc-text-field__input" aria-labelledby="auth-token-label" rows="4"></textarea>
+                        </span>
+                    </label>
+
+                    <button id="login-button-token" class="mdc-button mdc-button--raised">
+                        <span class="mdc-button__ripple"></span>
+                        <span class="mdc-button__label" data-i18n="login_token_button_text"></span>
+                    </button>
                     <p class="toggle-link"><a href="#" id="switch-to-password" data-i18n="login_switch_to_password"></a></p>
                 </div>
             </div>
         </div>
 
         <div id="main-view" class="container hidden">
-            <div class="card">
+            <div class="mdc-card">
                 <button id="options-button" title="__MSG_options_title__">
                     <img src="../assets/icons/settings.svg" alt="Options" />
                 </button>
@@ -73,13 +106,20 @@
                 <div class="success-message hidden" id="upload-success"></div>
                 <div class="error-message hidden" id="upload-error"></div>
 
-                <a href="https://www.pcloud.com/" target="_blank" id="pcloud-website-link" class="button" data-i18n="go_to_pcloud_website"></a>
+                <a href="https://www.pcloud.com/" target="_blank" id="pcloud-website-link" class="mdc-button">
+                    <span class="mdc-button__ripple"></span>
+                    <span class="mdc-button__label" data-i18n="go_to_pcloud_website"></span>
+                </a>
 
-                <button id="logout-button" class="button" data-i18n="logout_button_text"></button>
+                <button id="logout-button" class="mdc-button">
+                    <span class="mdc-button__ripple"></span>
+                    <span class="mdc-button__label" data-i18n="logout_button_text"></span>
+                </button>
             </div>
         </div>
     </div>
 
+    <script src="../assets/vendor/material-components-web.min.js"></script>
     <script src="popup.js" type="module"></script>
 </body>
 </html>
