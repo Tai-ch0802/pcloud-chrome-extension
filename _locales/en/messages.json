@@ -35,6 +35,15 @@
     "message": "Invalid folder ID. Please enter a non-negative number.",
     "description": "Error message for invalid folder ID input."
   },
+  "options_theme_label": {
+    "message": "Theme"
+  },
+  "options_theme_googlestyle": {
+    "message": "Google Style"
+  },
+  "options_theme_geek": {
+    "message": "Geek"
+  },
   "back_button_title": {
     "message": "Back",
     "description": "Title for the back button."

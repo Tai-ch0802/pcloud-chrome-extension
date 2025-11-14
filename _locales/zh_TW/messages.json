@@ -35,6 +35,15 @@
     "message": "無效的資料夾 ID。請輸入一個非負數。",
     "description": "無效資料夾 ID 輸入的錯誤訊息。"
   },
+  "options_theme_label": {
+    "message": "主題"
+  },
+  "options_theme_googlestyle": {
+    "message": "Google 風格"
+  },
+  "options_theme_geek": {
+    "message": "Geek"
+  },
   "back_button_title": {
     "message": "返回",
     "description": "返回按鈕的標題。"
