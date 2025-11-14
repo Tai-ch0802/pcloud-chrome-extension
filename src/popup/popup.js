@@ -56,9 +56,9 @@ let uploads = []; // This is now a local cache of the central state
 // --- Helper Functions ---
 
 async function applyTheme() {
-  const { theme = 'theme-googlestyle' } = await chrome.storage.sync.get('theme');
-  document.body.classList.remove('theme-googlestyle', 'theme-geek');
-  document.body.classList.add(theme);
+  const { selected_theme = 'theme-googlestyle' } = await chrome.storage.sync.get('selected_theme');
+  document.documentElement.classList.remove('theme-googlestyle', 'theme-geek');
+  document.documentElement.classList.add(selected_theme);
 }
 
 function localizeHtml() {
@@ -427,7 +427,7 @@ chrome.storage.onChanged.addListener((changes, namespace) => {
     if (changes[DEFAULT_UPLOAD_FOLDER_ID_KEY]) {
         updateCurrentUploadPathDisplay();
     }
-    if (changes.theme) {
+    if (changes.selected_theme) {
         applyTheme();
     }
   }

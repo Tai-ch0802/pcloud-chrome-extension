@@ -22,7 +22,7 @@
   --progress-bar-bg-color: #d1e2fc;
 }
 
-body.theme-googlestyle {
+html.theme-googlestyle {
   --primary-bg-color: #ffffff;
   --secondary-bg-color: #f1f3f4;
   --primary-text-color: #202124;
@@ -39,7 +39,7 @@ body.theme-googlestyle {
   --progress-bar-bg-color: #d1e2fc;
 }
 
-body.theme-geek {
+html.theme-geek {
   --primary-bg-color: #202124;
   --secondary-bg-color: #3c4043;
   --primary-text-color: #e8eaed;

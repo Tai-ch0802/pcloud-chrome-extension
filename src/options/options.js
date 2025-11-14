@@ -20,8 +20,9 @@ let folderCollapseState = {};
 let folderMap = new Map();
 
 // --- Theme Management ---
-async function applyTheme(theme) {
-    document.body.className = theme;
+function applyTheme(theme) {
+    document.documentElement.classList.remove('theme-googlestyle', 'theme-geek');
+    document.documentElement.classList.add(theme);
 }
 
 async function loadAndApplyTheme() {
