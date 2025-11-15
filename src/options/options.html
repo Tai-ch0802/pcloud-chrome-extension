@@ -5,57 +5,90 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title data-i18n="options_title"></title>
     <link rel="stylesheet" href="../assets/css/theme.css">
-    <link rel="stylesheet" href="../assets/css/options.css">
     <link rel="stylesheet" href="../assets/vendor/material-components-web.min.css">
+    <link rel="stylesheet" href="../assets/css/options.css">
 </head>
 <body class="options-body">
+
+    <header class="options-header">
+        <img src="../assets/icons/pcloud-icon.svg" alt="pCloud Logo" class="logo">
+        <h1 data-i18n="options_title"></h1>
+    </header>
+
     <div class="options-container">
-        <div class="mdc-card">
-            <h1 data-i18n="options_title"></h1>
-            <p data-i18n="options_description"></p>
+        <p class="page-description" data-i18n="options_description"></p>
 
-            <div class="setting-item">
-                <div class="mdc-select mdc-select--filled" id="theme-select">
-                    <div class="mdc-select__anchor">
-                        <span class="mdc-select__ripple"></span>
-                        <span class="mdc-floating-label" data-i18n="options_theme_label"></span>
-                        <span class="mdc-select__selected-text-container">
-                            <span class="mdc-select__selected-text"></span>
-                        </span>
-                        <span class="mdc-select__dropdown-icon">
-                            <svg class="mdc-select__dropdown-icon-graphic" viewBox="7 10 10 5" focusable="false">
-                                <polygon class="mdc-select__dropdown-icon-inactive" stroke="none" fill-rule="evenodd" points="7 10 12 15 17 10"></polygon>
-                                <polygon class="mdc-select__dropdown-icon-active" stroke="none" fill-rule="evenodd" points="7 15 12 10 17 15"></polygon>
-                            </svg>
-                        </span>
-                        <span class="mdc-line-ripple"></span>
-                    </div>
+        <div class="options-grid">
+            <!-- Appearance Card -->
+            <div class="mdc-card setting-card animated-card">
+                <div class="card-header">
+                    <h2 class="mdc-typography--headline6" data-i18n="options_section_appearance">Appearance</h2>
+                </div>
+                <div class="mdc-card__content">
+                    <div class="setting-item">
+                        <div class="mdc-select mdc-select--filled" id="theme-select">
+                            <div class="mdc-select__anchor">
+                                <span class="mdc-select__ripple"></span>
+                                <span class="mdc-floating-label" data-i18n="options_theme_label"></span>
+                                <span class="mdc-select__selected-text-container">
+                                    <span class="mdc-select__selected-text"></span>
+                                </span>
+                                <span class="mdc-select__dropdown-icon">
+                                    <svg class="mdc-select__dropdown-icon-graphic" viewBox="7 10 10 5" focusable="false">
+                                        <polygon class="mdc-select__dropdown-icon-inactive" stroke="none" fill-rule="evenodd" points="7 10 12 15 17 10"></polygon>
+                                        <polygon class="mdc-select__dropdown-icon-active" stroke="none" fill-rule="evenodd" points="7 15 12 10 17 15"></polygon>
+                                    </svg>
+                                </span>
+                                <span class="mdc-line-ripple"></span>
+                            </div>
 
-                    <div class="mdc-select__menu mdc-menu mdc-menu-surface">
-                        <ul class="mdc-list">
-                            <li class="mdc-list-item" data-value="theme-googlestyle">
-                                <span class="mdc-list-item__ripple"></span>
-                                <span class="mdc-list-item__text" data-i18n="options_theme_googlestyle"></span>
-                            </li>
-                            <li class="mdc-list-item" data-value="theme-geek">
-                                <span class="mdc-list-item__ripple"></span>
-                                <span class="mdc-list-item__text" data-i18n="options_theme_geek"></span>
-                            </li>
-                        </ul>
+                            <div class="mdc-select__menu mdc-menu mdc-menu-surface">
+                                <ul class="mdc-list">
+                                    <li class="mdc-list-item" data-value="theme-googlestyle">
+                                        <span class="mdc-list-item__ripple"></span>
+                                        <span class="mdc-list-item__text" data-i18n="options_theme_googlestyle"></span>
+                                    </li>
+                                    <li class="mdc-list-item" data-value="theme-geek">
+                                        <span class="mdc-list-item__ripple"></span>
+                                        <span class="mdc-list-item__text" data-i18n="options_theme_geek"></span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <div class="setting-item">
-                <label data-i18n="options_default_folder_label"></label>
-                <div id="selected-folder-path" class="selected-path-display">/
-                    <span id="dev-folder-id" class="dev-info hidden"></span>
+            <!-- Uploads Card -->
+            <div class="mdc-card setting-card animated-card">
+                <div class="card-header">
+                    <h2 class="mdc-typography--headline6" data-i18n="options_section_uploads">Uploads</h2>
+                </div>
+                <div class="mdc-card__content">
+                    <div class="setting-item">
+                        <label data-i18n="options_default_folder_label"></label>
+                        <div id="selected-folder-path" class="selected-path-display">/
+                            <span id="dev-folder-id" class="dev-info hidden"></span>
+                        </div>
+                    </div>
+                    <div id="folder-tree-container" class="folder-tree"></div>
                 </div>
             </div>
-            <div id="folder-tree-container" class="folder-tree"></div>
-            <div id="status-message" class="success-message hidden"></div>
         </div>
     </div>
+
+    <!-- MDC Snackbar for notifications -->
+    <aside class="mdc-snackbar" id="app-snackbar">
+        <div class="mdc-snackbar__surface" role="status" aria-relevant="additions">
+            <div class="mdc-snackbar__label" aria-atomic="false"></div>
+            <div class="mdc-snackbar__actions">
+                <button type="button" class="mdc-button mdc-snackbar__action">
+                    <div class="mdc-button__ripple"></div>
+                    <span class="mdc-button__label" data-i18n="snackbar_dismiss"></span>
+                </button>
+            </div>
+        </div>
+    </aside>
 
     <script src="../assets/vendor/material-components-web.min.js"></script>
     <script src="options.js" type="module"></script>

@@ -5,20 +5,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title data-i18n="extensionName"></title>
     <link rel="stylesheet" href="../assets/css/theme.css">
-    <link rel="stylesheet" href="../assets/css/popup.css">
     <link rel="stylesheet" href="../assets/vendor/material-components-web.min.css">
+    <link rel="stylesheet" href="../assets/css/popup.css">
 </head>
 <body>
+    <header class="popup-header">
+        <div class="header-left">
+            <img src="../assets/icons/pcloud-icon.svg" alt="pCloud Logo" class="logo">
+            <h1 id="header-title" data-i18n="extensionName"></h1>
+        </div>
+        <div class="header-right">
+            <button id="options-button" class="mdc-icon-button hidden" title="__MSG_options_title__">
+                <div class="mdc-icon-button__ripple"></div>
+                <img src="../assets/icons/settings.svg" alt="Options" />
+            </button>
+        </div>
+    </header>
+
     <div id="app">
-        <div id="loading-view" class="container">
+        <div id="loading-view" class="view-container">
             <div class="spinner"></div>
         </div>
 
-        <div id="login-view" class="container hidden">
+        <div id="login-view" class="view-container hidden">
             <div class="mdc-card">
                 <!-- Email/Password Login Form -->
                 <div id="login-form-password">
-                    <h1 data-i18n="login_prompt"></h1>
+                    <h2 class="form-title" data-i18n="login_prompt"></h2>
                     <div class="error-message" id="login-error-password"></div>
 
                     <label class="mdc-text-field mdc-text-field--filled">
@@ -44,7 +57,7 @@
 
                 <!-- Token Login Form -->
                 <div id="login-form-token" class="hidden">
-                    <h1 data-i18n="login_token_prompt"></h1>
+                    <h2 class="form-title" data-i18n="login_token_prompt"></h2>
                     <p class="description" data-i18n="login_token_description"></p>
                     <div class="error-message" id="login-error-token"></div>
 
@@ -71,50 +84,63 @@
             </div>
         </div>
 
-        <div id="main-view" class="container hidden">
+        <div id="main-view" class="view-container hidden">
             <div class="mdc-card">
-                <button id="options-button" title="__MSG_options_title__">
-                    <img src="../assets/icons/settings.svg" alt="Options" />
-                </button>
-                <div class="user-info">
-                    <span id="user-email"></span>
-                </div>
-
-                <!-- Data Usage Bar -->
-                <div id="quota-info" class="hidden">
-                    <div id="quota-text"></div>
-                    <div class="progress-bar-container quota-bar-container">
-                        <div class="progress-bar" id="quota-progress"></div>
+                <!-- Account Info Section -->
+                <section class="info-section">
+                    <div class="user-info">
+                        <span id="user-email"></span>
                     </div>
-                </div>
+                    <div id="quota-info" class="hidden">
+                        <div id="quota-text"></div>
+                        <div role="progressbar" class="mdc-linear-progress" id="quota-progress-bar">
+                            <div class="mdc-linear-progress__buffer">
+                                <div class="mdc-linear-progress__buffer-bar"></div>
+                                <div class="mdc-linear-progress__buffer-dots"></div>
+                            </div>
+                            <div class="mdc-linear-progress__bar mdc-linear-progress__primary-bar">
+                                <span class="mdc-linear-progress__bar-inner"></span>
+                            </div>
+                            <div class="mdc-linear-progress__bar mdc-linear-progress__secondary-bar">
+                                <span class="mdc-linear-progress__bar-inner"></span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
 
-                <h1 data-i18n="upload_prompt"></h1>
-                <div class="setting-item-popup">
-                    <label data-i18n="options_default_folder_label"></label>
-                    <div id="current-upload-path" class="selected-path-display">/</div>
-                </div>
+                <div class="mdc-divider"></div>
 
-                <!-- Upload Area -->
-                <div id="drop-zone">
-                    <div id="upload-list"></div>
-                    <div id="drop-zone-text" data-i18n="upload_drag_and_drop_prompt"></div>
-                    <a href="#" id="select-file-link" data-i18n="upload_select_file_link"></a>
-                </div>
+                <!-- Upload Section -->
+                <section class="upload-section">
+                    <div class="setting-item-popup">
+                        <label data-i18n="options_default_folder_label"></label>
+                        <div id="current-upload-path" class="selected-path-display">/</div>
+                    </div>
 
-                <input type="file" id="file-input" multiple style="display: none;">
+                    <div id="drop-zone">
+                        <div id="upload-list"></div>
+                        <div id="drop-zone-content">
+                            <svg class="upload-icon" viewBox="0 0 24 24"><path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM14 13v4h-4v-4H7l5-5 5 5h-3z"/></svg>
+                            <div id="drop-zone-text" data-i18n="upload_drag_and_drop_prompt"></div>
+                            <a href="#" id="select-file-link" data-i18n="upload_select_file_link"></a>
+                        </div>
+                    </div>
+                    <input type="file" id="file-input" multiple style="display: none;">
+                </section>
 
-                <div class="success-message hidden" id="upload-success"></div>
-                <div class="error-message hidden" id="upload-error"></div>
+                <div class="mdc-divider"></div>
 
-                <a href="https://www.pcloud.com/" target="_blank" id="pcloud-website-link" class="mdc-button">
-                    <span class="mdc-button__ripple"></span>
-                    <span class="mdc-button__label" data-i18n="go_to_pcloud_website"></span>
-                </a>
-
-                <button id="logout-button" class="mdc-button">
-                    <span class="mdc-button__ripple"></span>
-                    <span class="mdc-button__label" data-i18n="logout_button_text"></span>
-                </button>
+                <!-- Actions Section -->
+                <section class="actions-section">
+                    <a href="https://my.pcloud.com/" target="_blank" id="pcloud-website-link" class="mdc-button">
+                        <span class="mdc-button__ripple"></span>
+                        <span class="mdc-button__label" data-i18n="go_to_pcloud_website"></span>
+                    </a>
+                    <button id="logout-button" class="mdc-button">
+                        <span class="mdc-button__ripple"></span>
+                        <span class="mdc-button__label" data-i18n="logout_button_text"></span>
+                    </button>
+                </section>
             </div>
         </div>
     </div>

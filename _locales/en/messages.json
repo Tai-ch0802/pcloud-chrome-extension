@@ -147,5 +147,29 @@
   "upload_error_no_file": {
     "message": "Please select a file to upload.",
     "description": "Error message when no file is selected for upload."
+  },
+  "options_section_appearance": {
+    "message": "Appearance",
+    "description": "Header for the appearance settings section on the options page."
+  },
+  "options_section_uploads": {
+    "message": "Uploads",
+    "description": "Header for the upload settings section on the options page."
+  },
+  "snackbar_dismiss": {
+    "message": "Dismiss",
+    "description": "Text for the dismiss button on a snackbar notification."
+  },
+  "options_loading_folders": {
+    "message": "Loading folders...",
+    "description": "Message shown while the folder tree is loading."
+  },
+  "options_login_to_load": {
+    "message": "Please log in via the extension popup to load folders.",
+    "description": "Message shown when the user needs to log in to see folders."
+  },
+  "options_error_loading_folders": {
+    "message": "Error loading folders. Please ensure you are logged in and have an internet connection.",
+    "description": "Message shown when the folder tree fails to load."
   }
 }

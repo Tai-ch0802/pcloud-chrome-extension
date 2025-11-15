@@ -1,27 +1,94 @@
 /* src/assets/css/options.css */
 
+/* --- General Layout --- */
 html, body.options-body {
-    height: 100%;
+    height: auto;
+    min-height: 100%;
     width: 100%;
 }
 
 body.options-body {
-    padding: 24px;
+    padding: 0;
     box-sizing: border-box;
     background-color: var(--mdc-theme-background);
     color: var(--mdc-theme-on-background);
+    font-family: 'Roboto', sans-serif;
 }
 
 .options-container {
-    max-width: 800px;
+    max-width: 900px;
     width: 100%;
-    margin: 48px auto;
-    padding: 0 24px;
+    margin: 0 auto;
+    padding: 24px;
     box-sizing: border-box;
 }
 
+/* --- Header --- */
+.options-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 24px 48px;
+    background-color: var(--mdc-theme-surface);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.options-header .logo {
+    height: 32px;
+    width: 32px;
+}
+
+.options-header h1 {
+    font-size: 24px;
+    font-weight: 400;
+    color: var(--mdc-theme-on-surface);
+    margin: 0;
+}
+
+.page-description {
+    text-align: center;
+    margin-bottom: 32px;
+    font-size: 16px;
+    color: var(--secondary-text-color);
+}
+
+/* --- Card & Grid Layout --- */
+.options-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 24px;
+}
+
+.setting-card {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--mdc-theme-surface);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.card-header {
+    padding: 16px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.card-header h2 {
+    margin: 0;
+    font-size: 18px;
+    color: var(--mdc-theme-on-surface);
+}
+
+.mdc-card__content {
+    padding: 16px;
+    flex-grow: 1;
+}
+
 .setting-item {
-    margin-bottom: 16px;
+    margin-bottom: 24px;
+}
+
+.setting-item:last-child {
+    margin-bottom: 0;
 }
 
 .setting-item label {
@@ -29,68 +96,117 @@ body.options-body {
     display: block;
     margin-bottom: 8px;
     color: var(--secondary-text-color);
+    font-size: 14px;
 }
 
+/* --- Animations --- */
+@keyframes slideUpFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animated-card {
+    animation: slideUpFadeIn 0.4s ease-out forwards;
+    opacity: 0;
+}
+
+.animated-card:nth-child(1) { animation-delay: 0.1s; }
+.animated-card:nth-child(2) { animation-delay: 0.2s; }
+
+
+/* --- Selected Path Display --- */
 .selected-path-display {
-    background-color: var(--mdc-theme-background);
-    padding: 10px;
+    background-color: var(--input-background-color);
+    padding: 12px 16px;
     border-radius: 4px;
     font-family: 'Roboto Mono', monospace;
-    font-size: 13px;
+    font-size: 14px;
     word-wrap: break-word;
     color: var(--mdc-theme-on-surface);
+    border: 1px solid var(--border-color);
+    min-height: 20px;
 }
 
+/* --- Folder Tree --- */
 .folder-tree {
-    max-height: 200px;
+    max-height: 300px;
     overflow-y: auto;
     border: 1px solid var(--border-color);
     border-radius: 4px;
     padding: 8px;
-    color: var(--mdc-theme-on-surface);
+    margin-top: 16px;
 }
 
 .folder-tree ul {
     list-style-type: none;
-    padding-left: 16px;
+    padding-left: 22px;
+    overflow: hidden;
+    transition: max-height 0.3s ease-in-out, opacity 0.2s ease-in-out;
+    max-height: 1000px; /* A large value for expanded state */
+    opacity: 1;
+}
+
+.folder-tree ul.hidden {
+    max-height: 0;
+    opacity: 0;
 }
 
 .folder-tree li {
-    padding: 4px 6px;
-    cursor: pointer;
-    border-radius: 4px;
+    padding: 2px 0;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
 }
 
-.folder-tree li:hover {
-    background-color: var(--mdc-theme-background);
+.folder-tree .folder-item {
+    display: flex;
+    align-items: center;
+    padding: 6px 8px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.2s ease;
 }
 
-.folder-tree li.selected > .folder-name {
+.folder-tree .folder-item:hover {
+    background-color: var(--hover-color);
+}
+
+.folder-tree li.selected > .folder-item {
     background-color: var(--mdc-theme-primary);
     color: var(--mdc-theme-on-primary);
-    font-weight: 500;
-    padding: 2px 6px;
-    border-radius: 4px;
+}
+
+.folder-tree .icon {
+    width: 1.2em;
+    height: 1.2em;
+    margin-right: 8px;
+    fill: currentColor;
+    flex-shrink: 0;
 }
 
 .folder-tree .toggle-icon {
-    width: 1em;
-    height: 1em;
-    vertical-align: -0.15em;
-    margin-right: 4px;
+    transition: transform 0.25s ease-out;
+    color: var(--secondary-text-color);
+}
+
+.folder-tree li.collapsed > .folder-item > .toggle-icon {
+    transform: rotate(-90deg);
+}
+
+.folder-tree .folder-name {
+    flex-grow: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .dev-info {
     font-size: 12px;
     color: var(--secondary-text-color);
     margin-left: 8px;
-}
-
-#status-message {
-    margin-top: 16px;
-    font-size: 14px;
-    color: var(--success-color);
 }

@@ -147,5 +147,29 @@
   "upload_error_no_file": {
     "message": "請選擇要上傳的檔案。",
     "description": "未選擇檔案上傳的錯誤訊息。"
+  },
+  "options_section_appearance": {
+    "message": "外觀設定",
+    "description": "選項頁面上外觀設定區塊的標題。"
+  },
+  "options_section_uploads": {
+    "message": "上傳設定",
+    "description": "選項頁面上上傳設定區塊的標題。"
+  },
+  "snackbar_dismiss": {
+    "message": "關閉",
+    "description": "snackbar 通知上關閉按鈕的文字。"
+  },
+  "options_loading_folders": {
+    "message": "正在載入資料夾...",
+    "description": "資料夾樹狀圖載入時顯示的訊息。"
+  },
+  "options_login_to_load": {
+    "message": "請透過擴充功能彈出視窗登入以載入資料夾。",
+    "description": "當使用者需要登入才能看到資料夾時顯示的訊息。"
+  },
+  "options_error_loading_folders": {
+    "message": "載入資料夾時發生錯誤。請確保您已登入並檢查網路連線。",
+    "description": "資料夾樹狀圖載入失敗時顯示的訊息。"
   }
 }

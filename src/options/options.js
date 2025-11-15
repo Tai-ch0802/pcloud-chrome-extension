@@ -12,13 +12,14 @@ const IS_DEV_MODE = !('update_url' in chrome.runtime.getManifest());
 const folderTreeContainer = document.getElementById('folder-tree-container');
 const selectedFolderPathDiv = document.getElementById('selected-folder-path');
 const devFolderIdSpan = document.getElementById('dev-folder-id');
-const statusMessage = document.getElementById('status-message');
 const themeSelectElement = document.getElementById('theme-select');
+const snackbarElement = document.getElementById('app-snackbar');
 
 // --- State ---
 let folderCollapseState = {};
 let folderMap = new Map();
 let themeSelect;
+let snackbar;
 
 // --- Theme Management ---
 function applyTheme(theme) {
@@ -40,11 +41,10 @@ function localizeHtml() {
     const key = el.dataset.i18n;
     const message = chrome.i18n.getMessage(key);
     if (message) {
-      // For MDC list items, the text might be in a nested span
-      const textSpan = el.querySelector('.mdc-list-item__text');
+      const textSpan = el.querySelector('.mdc-list-item__text') || el.querySelector('.mdc-button__label');
       if (textSpan) {
           textSpan.textContent = message;
-      } else {
+      } else if (el.matches('h1, h2, p, span, label')) {
           el.textContent = message;
       }
     }
@@ -57,13 +57,11 @@ function localizeHtml() {
   });
 }
 
-function showStatusMessage(messageKey, type = 'success') {
-  statusMessage.textContent = chrome.i18n.getMessage(messageKey);
-  statusMessage.className = `success-message ${type === 'error' ? 'error-message' : ''}`;
-  statusMessage.classList.remove('hidden');
-  setTimeout(() => {
-    statusMessage.classList.add('hidden');
-  }, 3000);
+function showStatusMessage(messageKey) {
+  if (!snackbar) return;
+  const message = chrome.i18n.getMessage(messageKey);
+  snackbar.labelText = message;
+  snackbar.open();
 }
 
 // --- Folder Tree Logic ---
@@ -85,23 +83,46 @@ function buildPath(folderId) {
   return '/' + path.join('/');
 }
 
-function buildFolderTree(folder, currentFolderId) {
+function buildFolderTree(folder) {
   const li = document.createElement('li');
   const isExpanded = folderCollapseState[folder.folderid] !== false;
   li.dataset.folderId = folder.folderid;
-
-  const hasChildren = folder.contents && folder.contents.length > 0;
-  if (hasChildren) {
-    const toggleIcon = document.createElement('img');
-    toggleIcon.src = isExpanded ? '../assets/icons/arrow-down.svg' : '../assets/icons/arrow-right.svg';
-    toggleIcon.className = 'toggle-icon';
-    li.appendChild(toggleIcon);
+  if (!isExpanded) {
+      li.classList.add('collapsed');
   }
 
+  const hasChildren = folder.contents && folder.contents.length > 0;
+
+  const itemDiv = document.createElement('div');
+  itemDiv.className = 'folder-item';
+
+  // Toggle Icon (Chevron)
+  const toggleIcon = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+  toggleIcon.setAttribute('class', 'icon toggle-icon');
+  toggleIcon.setAttribute('viewBox', '0 0 24 24');
+  toggleIcon.innerHTML = `<path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/>`;
+  if (hasChildren) {
+      itemDiv.appendChild(toggleIcon);
+  } else {
+      // Add a placeholder to maintain alignment
+      const placeholder = document.createElement('span');
+      placeholder.className = 'icon';
+      itemDiv.appendChild(placeholder);
+  }
+
+  // Folder Icon
+  const folderIcon = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+  folderIcon.setAttribute('class', 'icon folder-icon');
+  folderIcon.setAttribute('viewBox', '0 0 24 24');
+  folderIcon.innerHTML = `<path d="M10 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2h-8l-2-2z"/>`;
+  itemDiv.appendChild(folderIcon);
+
+  // Folder Name
   const nameSpan = document.createElement('span');
   nameSpan.className = 'folder-name';
-  nameSpan.textContent = folder.name;
-  li.appendChild(nameSpan);
+  nameSpan.textContent = folder.name === '/' ? 'pCloud' : folder.name;
+  itemDiv.appendChild(nameSpan);
+  li.appendChild(itemDiv);
 
   if (hasChildren) {
     const ul = document.createElement('ul');
@@ -109,7 +130,7 @@ function buildFolderTree(folder, currentFolderId) {
       ul.classList.add('hidden');
     }
     folder.contents.forEach(child => {
-      ul.appendChild(buildFolderTree(child, currentFolderId));
+      ul.appendChild(buildFolderTree(child));
     });
     li.appendChild(ul);
   }
@@ -118,11 +139,11 @@ function buildFolderTree(folder, currentFolderId) {
 }
 
 async function renderFolderTree() {
-  folderTreeContainer.textContent = 'Loading folders...';
+  folderTreeContainer.textContent = chrome.i18n.getMessage('options_loading_folders');
   try {
     const authToken = await getAuthToken();
     if (!authToken) {
-      folderTreeContainer.textContent = 'Please log in via the extension popup to load folders.';
+      folderTreeContainer.textContent = chrome.i18n.getMessage('options_login_to_load');
       return;
     }
     const client = new PCloudAPIClient(authToken);
@@ -134,7 +155,7 @@ async function renderFolderTree() {
     const { [DEFAULT_UPLOAD_FOLDER_ID_KEY]: currentFolderId = 0 } = await chrome.storage.sync.get(DEFAULT_UPLOAD_FOLDER_ID_KEY);
 
     folderTreeContainer.innerHTML = '';
-    const tree = buildFolderTree(folderData.metadata, currentFolderId);
+    const tree = buildFolderTree(folderData.metadata);
     folderTreeContainer.appendChild(tree);
 
     const selectedLi = folderTreeContainer.querySelector(`li[data-folder-id="${currentFolderId}"]`);
@@ -145,7 +166,7 @@ async function renderFolderTree() {
 
   } catch (error) {
     console.error('Failed to load folder tree:', error);
-    folderTreeContainer.textContent = 'Error loading folders.';
+    folderTreeContainer.textContent = chrome.i18n.getMessage('options_error_loading_folders');
     updateSelectedPathDisplay('Error', '');
   }
 }
@@ -153,7 +174,7 @@ async function renderFolderTree() {
 function updateSelectedPathDisplay(path, id) {
   selectedFolderPathDiv.textContent = path;
   if (IS_DEV_MODE) {
-    devFolderIdSpan.textContent = `(folder id: ${id})`;
+    devFolderIdSpan.textContent = `(id: ${id})`;
     devFolderIdSpan.classList.remove('hidden');
   } else {
     devFolderIdSpan.textContent = '';
@@ -162,26 +183,29 @@ function updateSelectedPathDisplay(path, id) {
 }
 
 async function handleTreeClick(e) {
-  const li = e.target.closest('li');
-  if (!li) return;
+  const itemDiv = e.target.closest('.folder-item');
+  if (!itemDiv) return;
 
+  const li = itemDiv.parentElement;
   const folderId = parseInt(li.dataset.folderId, 10);
   const target = e.target;
 
-  if (target.classList.contains('toggle-icon')) {
+  // Click on toggle icon
+  if (target.closest('.toggle-icon')) {
     const ul = li.querySelector('ul');
     if (ul) {
-      const isHidden = ul.classList.toggle('hidden');
-      folderCollapseState[folderId] = !isHidden;
+      const isCollapsing = !li.classList.contains('collapsed');
+      li.classList.toggle('collapsed');
+      ul.classList.toggle('hidden');
+      folderCollapseState[folderId] = !isCollapsing;
       await chrome.storage.local.set({ [FOLDER_STATE_KEY]: folderCollapseState });
-      target.src = isHidden ? '../assets/icons/arrow-right.svg' : '../assets/icons/arrow-down.svg';
     }
-  } else if (target.classList.contains('folder-name') || target.tagName === 'LI') {
+  } else { // Click on folder name or item body
     await chrome.storage.sync.set({ [DEFAULT_UPLOAD_FOLDER_ID_KEY]: folderId });
     document.querySelectorAll('.folder-tree li.selected').forEach(el => el.classList.remove('selected'));
     li.classList.add('selected');
     updateSelectedPathDisplay(buildPath(folderId), folderId);
-    showStatusMessage('options_saved_message', 'success');
+    showStatusMessage('options_saved_message');
   }
 }
 
@@ -189,6 +213,7 @@ async function handleTreeClick(e) {
 document.addEventListener('DOMContentLoaded', async () => {
   // Initialize MDC components
   themeSelect = new mdc.select.MDCSelect(themeSelectElement);
+  snackbar = new mdc.snackbar.MDCSnackbar(snackbarElement);
 
   localizeHtml();
   await loadAndApplyTheme();
