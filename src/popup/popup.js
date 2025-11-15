@@ -7,10 +7,10 @@ const { mdc } = window;
 const DEFAULT_UPLOAD_FOLDER_ID_KEY = 'default_upload_folder_id';
 
 // --- DOM Elements ---
-
 const loadingView = document.getElementById('loading-view');
 const loginView = document.getElementById('login-view');
 const mainView = document.getElementById('main-view');
+const headerTitle = document.getElementById('header-title');
 
 // Login forms and toggles
 const loginFormPassword = document.getElementById('login-form-password');
@@ -32,30 +32,27 @@ const loginErrorToken = document.getElementById('login-error-token');
 // Main view elements
 const logoutButton = document.getElementById('logout-button');
 const optionsButton = document.getElementById('options-button');
-const userEmailSpan = document.getElementById('user-email'); // New element
+const userEmailSpan = document.getElementById('user-email');
 const quotaInfoDiv = document.getElementById('quota-info');
 const quotaTextDiv = document.getElementById('quota-text');
-const quotaProgressBar = document.getElementById('quota-progress');
+const quotaProgressBarElement = document.getElementById('quota-progress-bar');
 const currentUploadPathDiv = document.getElementById('current-upload-path');
 const fileInput = document.getElementById('file-input');
 
-// New upload UI elements
+// Upload UI elements
 const dropZone = document.getElementById('drop-zone');
-const dropZoneText = document.getElementById('drop-zone-text');
+const dropZoneContent = document.getElementById('drop-zone-content');
 const uploadList = document.getElementById('upload-list');
 const selectFileLink = document.getElementById('select-file-link');
 
-// General status messages
-const uploadSuccess = document.getElementById('upload-success');
-const uploadError = document.getElementById('upload-error');
-const pcloudWebsiteLink = document.getElementById('pcloud-website-link'); // New element
+// --- MDC Component Instances ---
+let quotaProgressBar;
 
 // --- State ---
 let folderMap = new Map();
 let uploads = []; // This is now a local cache of the central state
 
 // --- Helper Functions ---
-
 async function applyTheme() {
   const { selected_theme = 'theme-googlestyle' } = await chrome.storage.sync.get('selected_theme');
   document.documentElement.classList.remove('theme-googlestyle', 'theme-geek');
@@ -64,7 +61,17 @@ async function applyTheme() {
 
 function localizeHtml() {
   document.querySelectorAll('[data-i18n]').forEach(el => {
-    el.textContent = chrome.i18n.getMessage(el.dataset.i18n);
+    const key = el.dataset.i18n;
+    const message = chrome.i18n.getMessage(key);
+    if (message) {
+        // Handle MDC button labels and other specific text containers
+        const textSpan = el.querySelector('.mdc-button__label') || el.querySelector('.mdc-list-item__text');
+        if (textSpan) {
+            textSpan.textContent = message;
+        } else {
+            el.textContent = message;
+        }
+    }
   });
   document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
     el.placeholder = chrome.i18n.getMessage(el.dataset.i18nPlaceholder);
@@ -77,8 +84,15 @@ function localizeHtml() {
 function showView(view) {
   [loadingView, loginView, mainView].forEach(v => v.classList.add('hidden'));
   view.classList.remove('hidden');
-}
 
+  if (view === mainView) {
+    optionsButton.classList.remove('hidden');
+    headerTitle.textContent = chrome.i18n.getMessage('upload_prompt');
+  } else {
+    optionsButton.classList.add('hidden');
+    headerTitle.textContent = chrome.i18n.getMessage('extensionName');
+  }
+}
 
 function displayLoginError(message, formType) {
   const errorEl = formType === 'password' ? loginErrorPassword : loginErrorToken;
@@ -86,14 +100,12 @@ function displayLoginError(message, formType) {
   errorEl.classList.remove('hidden');
 }
 
-
 function clearLoginErrors() {
   loginErrorPassword.textContent = '';
   loginErrorPassword.classList.add('hidden');
   loginErrorToken.textContent = '';
   loginErrorToken.classList.add('hidden');
 }
-
 
 function formatBytes(bytes, decimals = 2) {
     if (bytes === 0) return '0 Bytes';
@@ -104,7 +116,6 @@ function formatBytes(bytes, decimals = 2) {
     return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + ' ' + sizes[i];
 }
 
-
 async function handleSuccessfulLogin(token) {
   await setAuthToken(token);
   await Promise.all([
@@ -114,17 +125,13 @@ async function handleSuccessfulLogin(token) {
   showView(mainView);
 }
 
-
 // --- Path and Upload Logic ---
-
-
 function flattenFolders(folder) {
   folderMap.set(folder.folderid, folder);
   if (folder.contents) {
     folder.contents.forEach(child => flattenFolders(child));
   }
 }
-
 
 function buildPath(folderId) {
   if (!folderMap.has(folderId)) return '/';
@@ -136,7 +143,6 @@ function buildPath(folderId) {
   }
   return '/' + path.join('/');
 }
-
 
 async function updateCurrentUploadPathDisplay() {
   try {
@@ -158,7 +164,6 @@ async function updateCurrentUploadPathDisplay() {
   }
 }
 
-
 async function updateUserInfoDisplay() {
   try {
     const authToken = await getAuthToken();
@@ -174,11 +179,12 @@ async function updateUserInfoDisplay() {
         const { quota, usedquota } = userInfo;
         const usedFormatted = formatBytes(usedquota);
         const totalFormatted = formatBytes(quota);
-        const percentage = quota === 0 ? 0 : (usedquota / quota) * 100;
+        const percentage = quota === 0 ? 0 : (usedquota / quota);
 
         quotaTextDiv.textContent = `${usedFormatted} / ${totalFormatted}`;
-        quotaProgressBar.style.width = `${percentage.toFixed(2)}%`;
-        quotaProgressBar.textContent = `${percentage.toFixed(2)}%`;
+        if (quotaProgressBar) {
+            quotaProgressBar.progress = percentage;
+        }
         quotaInfoDiv.classList.remove('hidden');
     }
 
@@ -188,10 +194,7 @@ async function updateUserInfoDisplay() {
   }
 }
 
-
 // --- Event Listeners ---
-
-
 // View Toggling
 switchToTokenLink.addEventListener('click', (e) => {
   e.preventDefault();
@@ -200,7 +203,6 @@ switchToTokenLink.addEventListener('click', (e) => {
   clearLoginErrors();
 });
 
-
 switchToPasswordLink.addEventListener('click', (e) => {
   e.preventDefault();
   loginFormToken.classList.add('hidden');
@@ -208,11 +210,9 @@ switchToPasswordLink.addEventListener('click', (e) => {
   clearLoginErrors();
 });
 
-
 optionsButton.addEventListener('click', () => {
   chrome.runtime.openOptionsPage();
 });
-
 
 // Login/Logout
 loginButtonPassword.addEventListener('click', async () => {
@@ -243,7 +243,6 @@ loginButtonPassword.addEventListener('click', async () => {
   }
 });
 
-
 loginButtonToken.addEventListener('click', async () => {
   clearLoginErrors();
   const token = authTokenInput.value.trim();
@@ -263,7 +262,7 @@ loginButtonToken.addEventListener('click', async () => {
     }
   });
   
-  logoutButton.addEventListener('click', async () => {
+logoutButton.addEventListener('click', async () => {
     await clearAuthToken();
     showView(loginView);
     loginFormToken.classList.add('hidden');
@@ -279,23 +278,21 @@ loginButtonToken.addEventListener('click', async () => {
     uploads = [];
     fileInput.value = '';
     renderUploads();
-  });
+});
   
-  pcloudWebsiteLink.addEventListener('click', (e) => {
-      e.preventDefault();
-      chrome.tabs.create({ url: 'https://my.pcloud.com/' });
-  });
+document.getElementById('pcloud-website-link').addEventListener('click', (e) => {
+    e.preventDefault();
+    chrome.tabs.create({ url: 'https://my.pcloud.com/' });
+});
   
-  // --- Upload UI Logic (Refactored) ---
-
-
+// --- Upload UI Logic ---
 function renderUploads() {
     uploadList.innerHTML = '';
 
     if (uploads.length > 0) {
-        dropZoneText.classList.add('hidden');
+        uploadList.classList.remove('hidden');
     } else {
-        dropZoneText.classList.remove('hidden');
+        uploadList.classList.add('hidden');
     }
 
     uploads.forEach(upload => {
@@ -303,40 +300,37 @@ function renderUploads() {
         item.className = 'upload-item';
         item.id = `upload-${upload.id}`;
 
-                let statusHTML = '';
+        let statusHTML = '';
+        let progressBarWidth = upload.progress;
+        let progressBarClass = 'item-progress-bar';
 
-                let progressBarWidth = upload.progress;
+        if (upload.status === 'fetching' || upload.status === 'starting') {
+            statusHTML = `<div class="upload-item-status">Starting...</div>`;
+        } else if (upload.status === 'uploading') {
+            statusHTML = `<div class="upload-item-status">Uploading...</div>`;
+            progressBarWidth = 100; // Full width for animation
+            progressBarClass += ' in-progress';
+        } else if (upload.status === 'done') {
+            statusHTML = `<div class="upload-item-status status-done">Done</div>`;
+        } else if (upload.status === 'clearing') {
+            statusHTML = `<div class="upload-item-status">Removing in ${upload.countdown}s...</div>`;
+        } else if (upload.status === 'error') {
+            statusHTML = `<div class="upload-item-status status-error">Error</div>`;
+            progressBarClass += ' error';
+        }
 
-                let progressBarClass = 'item-progress-bar';
-        
-                if (upload.status === 'fetching' || upload.status === 'starting') {
-                    statusHTML = `<div class="upload-item-status">Starting...</div>`;
-                } else if (upload.status === 'uploading') {
-                    statusHTML = `<div class="upload-item-status">Uploading...</div>`;
-                    progressBarWidth = 100; // Full width for animation
-                    progressBarClass += ' in-progress';
-                } else if (upload.status === 'done') {
-                    statusHTML = `<div class="upload-item-status status-done">Done</div>`;
-                } else if (upload.status === 'clearing') {
-                    statusHTML = `<div class="upload-item-status">Removing in ${upload.countdown}s...</div>`;
-                } else if (upload.status === 'error') {
-                    statusHTML = `<div class="upload-item-status status-error">Error</div>`;
-                    progressBarClass += ' error';
-                }
-        
-                item.innerHTML = `
-                    <div class="upload-item-info">
-                        <div class="file-name" title="${upload.fileName}">${upload.fileName}</div>
-                        <div class="item-progress-bar-container">
-                            <div class="${progressBarClass}" style="width: ${progressBarWidth}%"></div>
-                        </div>
-                    </div>
-                    ${statusHTML}
-                `;
+        item.innerHTML = `
+            <div class="upload-item-info">
+                <div class="file-name" title="${upload.fileName}">${upload.fileName}</div>
+                <div class="item-progress-bar-container">
+                    <div class="${progressBarClass}" style="width: ${progressBarWidth}%"></div>
+                </div>
+            </div>
+            ${statusHTML}
+        `;
         uploadList.appendChild(item);
     });
 }
-
 
 function handleFiles(files) {
     if (!files || files.length === 0) return;
@@ -355,25 +349,19 @@ function handleFiles(files) {
         };
         reader.readAsDataURL(file);
     }
-    // Clear the input so the user can select the same file again
     fileInput.value = '';
 }
 
-
 // --- Event Listeners for Upload ---
-
-
 dropZone.addEventListener('dragover', (e) => {
     e.preventDefault();
     dropZone.classList.add('dragover');
 });
 
-
 dropZone.addEventListener('dragleave', (e) => {
     e.preventDefault();
     dropZone.classList.remove('dragover');
 });
-
 
 dropZone.addEventListener('drop', (e) => {
     e.preventDefault();
@@ -381,17 +369,14 @@ dropZone.addEventListener('drop', (e) => {
     handleFiles(e.dataTransfer.files);
 });
 
-
 selectFileLink.addEventListener('click', (e) => {
     e.preventDefault();
     fileInput.click();
 });
 
-
 fileInput.addEventListener('change', () => {
     handleFiles(fileInput.files);
 });
-
 
 // --- Message Listener for State Updates ---
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
@@ -401,21 +386,16 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
     }
 });
 
-
 // --- Initial Load ---
 document.addEventListener('DOMContentLoaded', async () => {
   await applyTheme();
   localizeHtml();
 
   // Initialize MDC components
-  const buttons = document.querySelectorAll('.mdc-button');
-  for (const button of buttons) {
-    mdc.ripple.MDCRipple.attachTo(button);
-  }
-  const textFields = document.querySelectorAll('.mdc-text-field');
-  for (const textField of textFields) {
-    mdc.textField.MDCTextField.attachTo(textField);
-  }
+  document.querySelectorAll('.mdc-button').forEach(el => mdc.ripple.MDCRipple.attachTo(el));
+  document.querySelectorAll('.mdc-text-field').forEach(el => mdc.textField.MDCTextField.attachTo(el));
+  document.querySelectorAll('.mdc-icon-button').forEach(el => mdc.ripple.MDCRipple.attachTo(el));
+  quotaProgressBar = new mdc.linearProgress.MDCLinearProgress(quotaProgressBarElement);
 
   if (await isAuthenticated()) {
     await Promise.all([
@@ -423,7 +403,6 @@ document.addEventListener('DOMContentLoaded', async () => {
       updateUserInfoDisplay()
     ]);
     showView(mainView);
-    // Request the current upload state from the service worker
     chrome.runtime.sendMessage({ type: 'requestInitialState' });
   } else {
     showView(loginView);
@@ -431,7 +410,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     loginFormPassword.classList.remove('hidden');
   }
 });
-
 
 // Listen for changes from the options page
 chrome.storage.onChanged.addListener((changes, namespace) => {
