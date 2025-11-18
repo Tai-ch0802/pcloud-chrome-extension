@@ -123,6 +123,18 @@ class PCloudAPIClient {
       return this._request("listfolder", params);
     }
   
+    /**
+     * Creates a folder if it doesn't already exist.
+     * NOTE: This is assumed to be recursive when using the `path` parameter,
+     * creating any necessary parent directories.
+     * Corresponds to pCloud API: /createfolderifnotexists
+     * @param {string} path The full path of the folder to create (e.g., "/My Folder/New Subfolder").
+     * @returns {Promise<object>} The metadata of the folder.
+     */
+    async createFolderIfNotExists(path) {
+        return this._request("createfolderifnotexists", { path });
+    }
+
     // Add more API methods as needed (e.g., listfolder, deletefile, etc.)
   }
 

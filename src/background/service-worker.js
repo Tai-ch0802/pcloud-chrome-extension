@@ -2,7 +2,7 @@
 
 import { getAuthToken } from '../core/auth.js';
 import PCloudAPIClient from '../core/pcloud-api.js';
-import { initializeContextMenuDownloader } from '../features/free/contextMenuDownloader.js';
+import { initializeContextMenuDownloader } from '../features/free/contextMenuImageDownloader.js';
 
 // --- Centralized Global State ---
 let uploads = [];
@@ -40,7 +40,7 @@ function initiateUpload(file, options = {}) {
 
 // --- Core Upload Logic ---
 async function startUpload(uploadId, file, options = {}) {
-    const { showNotifications = false } = options;
+    const { showNotifications = false, folderId: optionFolderId } = options;
     const upload = uploads.find(u => u.id === uploadId);
     if (!upload) return;
 
@@ -61,12 +61,17 @@ async function startUpload(uploadId, file, options = {}) {
         if (!authToken) throw new Error('Not authenticated');
         
         const client = new PCloudAPIClient(authToken);
-        const { [DEFAULT_UPLOAD_FOLDER_ID_KEY]: folderId = 0 } = await chrome.storage.sync.get(DEFAULT_UPLOAD_FOLDER_ID_KEY);
+        
+        let uploadFolderId = optionFolderId;
+        if (uploadFolderId === undefined) {
+            const { [DEFAULT_UPLOAD_FOLDER_ID_KEY]: storedFolderId = 0 } = await chrome.storage.sync.get(DEFAULT_UPLOAD_FOLDER_ID_KEY);
+            uploadFolderId = storedFolderId;
+        }
 
         upload.status = 'uploading';
         broadcastState();
 
-        const result = await client.uploadFile(file, folderId);
+        const result = await client.uploadFile(file, uploadFolderId);
 
         if (result.metadata && result.metadata.length > 0) {
             upload.progress = 100;

@@ -1,9 +1,8 @@
-// src/options/options.js
-
 import { getAuthToken } from '../core/auth.js';
 import PCloudAPIClient from '../core/pcloud-api.js';
 
 const DEFAULT_UPLOAD_FOLDER_ID_KEY = 'default_upload_folder_id';
+const DEFAULT_UPLOAD_FOLDER_PATH_KEY = 'default_upload_folder_path';
 const FILENAME_CONFIG_KEY = 'filename_config';
 const FOLDER_STATE_KEY = 'folder_collapse_state';
 const THEME_KEY = 'selected_theme';
@@ -87,7 +86,7 @@ function updateFilenamePreview() {
             preview += sampleData[id] + separator;
         }
     });
-    filenamePreview.textContent = preview + '.jpg';
+    filenamePreview.textContent = preview.replace(/\/$/, '') + '.jpg';
 }
 
 async function saveFilenameConfig() {
@@ -204,6 +203,7 @@ function flattenFolders(folder) {
 }
 
 function buildPath(folderId) {
+  if (folderId === 0) return '/';
   if (!folderMap.has(folderId)) return '/';
   let path = [];
   let current = folderMap.get(folderId);
