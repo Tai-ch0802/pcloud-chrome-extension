@@ -171,5 +171,61 @@
   "options_error_loading_folders": {
     "message": "Error loading folders. Please ensure you are logged in and have an internet connection.",
     "description": "Message shown when the folder tree fails to load."
+  },
+  "context_menu_save_image": {
+    "message": "Save image to pCloud",
+    "description": "Context menu item text for saving an image."
+  },
+  "notification_upload_started_title": {
+    "message": "Image Upload",
+    "description": "Title for the notification when image upload starts."
+  },
+  "notification_upload_started_message": {
+    "message": "Saving image to your pCloud...",
+    "description": "Message for the notification when image upload starts."
+  },
+  "notification_upload_success_title": {
+    "message": "Upload Complete",
+    "description": "Title for the notification when image upload is successful."
+  },
+  "notification_upload_success_message": {
+    "message": "Image successfully saved to pCloud.",
+    "description": "Message for the notification when image upload is successful."
+  },
+  "notification_upload_error_title": {
+    "message": "Upload Failed",
+    "description": "Title for the notification when image upload fails."
+  },
+  "notification_upload_error_message": {
+    "message": "Could not save image to pCloud. Please try again.",
+    "description": "Message for the notification when image upload fails."
+  },
+  "notification_auth_error_message": {
+    "message": "Please log in to the pCloud extension to save files.",
+    "description": "Message for the notification when the user is not logged in."
+  },
+  "options_section_filename": {
+    "message": "Image Filename",
+    "description": "Header for the image filename settings section on the options page."
+  },
+  "options_filename_description": {
+    "message": "Drag and drop to reorder filename parts. Uncheck to exclude.",
+    "description": "Description for the filename configuration UI."
+  },
+  "options_filename_part_sorting_number": {
+    "message": "Sorting Number",
+    "description": "Label for the 'Sorting Number' filename part."
+  },
+  "options_filename_part_page_title": {
+    "message": "Page Title",
+    "description": "Label for the 'Page Title' filename part."
+  },
+  "options_filename_part_timestamp": {
+    "message": "Timestamp",
+    "description": "Label for the 'Timestamp' filename part."
+  },
+  "options_filename_separator_label": {
+    "message": "Separator",
+    "description": "Label for the separator input field between filename parts."
   }
 }

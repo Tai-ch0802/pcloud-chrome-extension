@@ -171,5 +171,61 @@
   "options_error_loading_folders": {
     "message": "載入資料夾時發生錯誤。請確保您已登入並檢查網路連線。",
     "description": "資料夾樹狀圖載入失敗時顯示的訊息。"
+  },
+  "context_menu_save_image": {
+    "message": "將圖片儲存至 pCloud",
+    "description": "儲存圖片的右鍵選單項目文字。"
+  },
+  "notification_upload_started_title": {
+    "message": "圖片上傳",
+    "description": "圖片上傳開始時通知的標題。"
+  },
+  "notification_upload_started_message": {
+    "message": "正在儲存圖片至您的 pCloud...",
+    "description": "圖片上傳開始時通知的訊息。"
+  },
+  "notification_upload_success_title": {
+    "message": "上傳完成",
+    "description": "圖片上傳成功時通知的標題。"
+  },
+  "notification_upload_success_message": {
+    "message": "圖片已成功儲存至 pCloud。",
+    "description": "圖片上傳成功時通知的訊息。"
+  },
+  "notification_upload_error_title": {
+    "message": "上傳失敗",
+    "description": "圖片上傳失敗時通知的標題。"
+  },
+  "notification_upload_error_message": {
+    "message": "無法儲存圖片至 pCloud。請再試一次。",
+    "description": "圖片上傳失敗時通知的訊息。"
+  },
+  "notification_auth_error_message": {
+    "message": "請登入 pCloud 擴充功能以儲存檔案。",
+    "description": "使用者未登入時通知的訊息。"
+  },
+  "options_section_filename": {
+    "message": "圖片檔名設定",
+    "description": "選項頁面上圖片檔名設定區塊的標題。"
+  },
+  "options_filename_description": {
+    "message": "拖放以重新排序檔名部分。取消勾選以排除。",
+    "description": "檔名設定 UI 的描述文字。"
+  },
+  "options_filename_part_sorting_number": {
+    "message": "排序數字",
+    "description": "「排序數字」檔名部分的標籤。"
+  },
+  "options_filename_part_page_title": {
+    "message": "分頁標題",
+    "description": "「分頁標題」檔名部分的標籤。"
+  },
+  "options_filename_part_timestamp": {
+    "message": "時間戳",
+    "description": "「時間戳」檔名部分的標籤。"
+  },
+  "options_filename_separator_label": {
+    "message": "分隔符號",
+    "description": "檔名部分之間分隔符號輸入欄位的標籤。"
   }
 }

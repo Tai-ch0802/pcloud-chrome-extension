@@ -2,17 +2,20 @@
 
 import { getAuthToken } from '../core/auth.js';
 import PCloudAPIClient from '../core/pcloud-api.js';
+import { initializeContextMenuDownloader } from '../features/free/contextMenuDownloader.js';
 
 // --- Centralized Global State ---
 let uploads = [];
 const DEFAULT_UPLOAD_FOLDER_ID_KEY = 'default_upload_folder_id';
+const PCLOUD_ICON_PATH = '/src/assets/icons/icon128.png';
+
+// --- Initialize Features ---
+initializeContextMenuDownloader(initiateUpload);
 
 // --- Helper to broadcast state to all UIs ---
 function broadcastState() {
     const state = { type: 'uploadStateUpdate', payload: uploads };
-    // Send to popup
     chrome.runtime.sendMessage(state).catch(() => {});
-    // Send to all content scripts
     chrome.tabs.query({}, (tabs) => {
         tabs.forEach(tab => {
             chrome.tabs.sendMessage(tab.id, state).catch(() => {});
@@ -20,16 +23,38 @@ function broadcastState() {
     });
 }
 
-// --- File Conversion Helper ---
-async function dataUrlToBlob(dataUrl) {
-    const res = await fetch(dataUrl);
-    return await res.blob();
+// --- Unified Upload Initiation ---
+function initiateUpload(file, options = {}) {
+    const uploadId = Date.now() + '-' + Math.random();
+    const newUpload = {
+        id: uploadId,
+        fileName: file.name,
+        progress: 0,
+        status: 'starting',
+        countdown: 30,
+    };
+    uploads.unshift(newUpload); // Add to the top of the list
+    broadcastState();
+    startUpload(uploadId, file, options);
 }
 
-// --- Unified Upload Logic ---
-async function startUpload(uploadId, file) {
+// --- Core Upload Logic ---
+async function startUpload(uploadId, file, options = {}) {
+    const { showNotifications = false } = options;
     const upload = uploads.find(u => u.id === uploadId);
     if (!upload) return;
+
+    const notificationId = `notification-${uploadId}`;
+
+    if (showNotifications) {
+        chrome.notifications.create(notificationId, {
+            type: 'basic',
+            iconUrl: PCLOUD_ICON_PATH,
+            title: chrome.i18n.getMessage('notification_upload_started_title'),
+            message: chrome.i18n.getMessage('notification_upload_started_message'),
+            silent: true,
+        });
+    }
 
     try {
         const authToken = await getAuthToken();
@@ -44,10 +69,15 @@ async function startUpload(uploadId, file) {
         const result = await client.uploadFile(file, folderId);
 
         if (result.metadata && result.metadata.length > 0) {
-            upload.progress = 100; // Set to 100 on completion
+            upload.progress = 100;
             upload.status = 'done';
-            broadcastState();
-
+            if (showNotifications) {
+                chrome.notifications.update(notificationId, {
+                    title: chrome.i18n.getMessage('notification_upload_success_title'),
+                    message: chrome.i18n.getMessage('notification_upload_success_message'),
+                });
+            }
+            
             setTimeout(() => {
                 upload.status = 'clearing';
                 const intervalId = setInterval(() => {
@@ -66,8 +96,15 @@ async function startUpload(uploadId, file) {
         console.error('Upload failed:', error);
         if (upload) {
             upload.status = 'error';
-            broadcastState();
         }
+        if (showNotifications) {
+            chrome.notifications.update(notificationId, {
+                title: chrome.i18n.getMessage('notification_upload_error_title'),
+                message: chrome.i18n.getMessage('notification_upload_error_message'),
+            });
+        }
+    } finally {
+        broadcastState();
     }
 }
 
@@ -76,60 +113,24 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
     const { type, payload } = message;
 
     if (type === 'startUploadFromUrl' && payload.imageUrl) {
-        const uploadId = Date.now() + '-' + Math.random();
-        const newUpload = {
-            id: uploadId,
-            fileName: payload.imageUrl.substring(payload.imageUrl.lastIndexOf('/') + 1).split('?')[0] || 'upload.jpg',
-            progress: 0,
-            status: 'fetching',
-            countdown: 30,
-        };
-        uploads.push(newUpload);
-        broadcastState();
-
         fetch(payload.imageUrl)
             .then(response => response.blob())
-            .then(blob => new File([blob], newUpload.fileName, { type: blob.type }))
-            .then(file => startUpload(uploadId, file))
-            .catch(error => {
-                console.error('URL fetch failed:', error);
-                const upload = uploads.find(u => u.id === uploadId);
-                if (upload) {
-                    upload.status = 'error';
-                    broadcastState();
-                }
-            });
+            .then(blob => new File([blob], payload.fileName, { type: blob.type }))
+            .then(file => initiateUpload(file, { showNotifications: false }))
+            .catch(error => console.error('URL fetch failed for content script:', error));
         return true;
     }
     
     if (type === 'startUploadFromFile' && payload.dataUrl) {
-        const uploadId = Date.now() + '-' + Math.random();
-        const newUpload = {
-            id: uploadId,
-            fileName: payload.name,
-            progress: 0,
-            status: 'starting',
-            countdown: 30,
-        };
-        uploads.push(newUpload);
-        broadcastState();
-
-        dataUrlToBlob(payload.dataUrl)
+        fetch(payload.dataUrl)
+            .then(res => res.blob())
             .then(blob => new File([blob], payload.name, { type: payload.type }))
-            .then(file => startUpload(uploadId, file))
-            .catch(error => {
-                console.error('File conversion failed:', error);
-                const upload = uploads.find(u => u.id === uploadId);
-                if (upload) {
-                    upload.status = 'error';
-                    broadcastState();
-                }
-            });
+            .then(file => initiateUpload(file, { showNotifications: false }))
+            .catch(error => console.error('File conversion failed for popup:', error));
         return true;
     }
 
     if (type === 'requestInitialState') {
-        // A UI has loaded and is requesting the current state
         broadcastState();
     }
 });

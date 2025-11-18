@@ -20,7 +20,9 @@
     "type": "module"
   },
   "permissions": [
-    "storage"
+    "storage",
+    "contextMenus",
+    "notifications"
   ],
     "options_page": "src/options/options.html",
     "content_scripts": [

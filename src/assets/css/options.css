@@ -210,3 +210,85 @@ body.options-body {
     color: var(--secondary-text-color);
     margin-left: 8px;
 }
+
+/* --- Filename Config --- */
+.filename-parts-list {
+    list-style: none;
+    padding: 0;
+    margin: 16px 0;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+}
+
+.filename-part-item {
+    display: flex;
+    align-items: center;
+    padding: 12px;
+    background-color: var(--mdc-theme-surface-variant);
+    border-bottom: 1px solid var(--border-color);
+    cursor: grab;
+    user-select: none;
+    transition: background-color 0.2s ease;
+}
+
+.filename-part-item:last-child {
+    border-bottom: none;
+}
+
+.filename-part-item.dragging {
+    opacity: 0.5;
+    background-color: var(--mdc-theme-primary);
+    color: var(--mdc-theme-on-primary);
+}
+
+.filename-part-item .drag-handle {
+    font-size: 20px;
+    margin-right: 8px;
+    color: var(--secondary-text-color);
+}
+
+.filename-part-item .mdc-checkbox {
+    margin-right: 8px;
+}
+
+.filename-part-item .part-label {
+    flex-grow: 1;
+    font-weight: 500;
+}
+
+.filename-part-item .separator-label {
+    margin: 0 8px;
+    font-size: 12px;
+    color: var(--secondary-text-color);
+}
+
+.filename-part-item .separator-input {
+    width: 40px;
+    font-family: 'Roboto Mono', monospace;
+    text-align: center;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    padding: 4px;
+    background-color: var(--input-background-color);
+    color: var(--mdc-theme-on-surface);
+}
+
+.filename-preview-container {
+    margin-top: 24px;
+    padding: 12px;
+    background-color: var(--input-background-color);
+    border-radius: 4px;
+    border: 1px solid var(--border-color);
+}
+
+.filename-preview-container .mdc-typography--overline {
+    display: block;
+    margin-bottom: 4px;
+    color: var(--secondary-text-color);
+}
+
+.filename-preview {
+    font-family: 'Roboto Mono', monospace;
+    font-size: 14px;
+    word-break: break-all;
+}
