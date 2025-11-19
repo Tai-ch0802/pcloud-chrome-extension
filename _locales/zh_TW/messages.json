@@ -68,6 +68,14 @@
     "message": "登入",
     "description": "登入按鈕的文字。"
   },
+  "login_oauth_button": {
+    "message": "使用 pCloud 登入",
+    "description": "OAuth 登入按鈕的文字。"
+  },
+  "login_oauth_error": {
+    "message": "認證失敗，請再試一次。",
+    "description": "OAuth 登入失敗的通用錯誤訊息。"
+  },
   "login_error_empty_credentials": {
     "message": "請輸入電子郵件/使用者名稱和密碼。",
     "description": "登入欄位為空的錯誤訊息。"
@@ -208,6 +216,10 @@
     "message": "圖片檔名設定",
     "description": "選項頁面上圖片檔名設定區塊的標題。"
   },
+  "options_section_text_filename": {
+    "message": "文字檔案上傳設定",
+    "description": "選項頁面上文字檔名設定區塊的標題。"
+  },
   "options_filename_description": {
     "message": "拖放以重新排序檔名部分。取消勾選以排除。",
     "description": "檔名設定 UI 的描述文字。"
@@ -227,5 +239,37 @@
   "options_filename_separator_label": {
     "message": "分隔符號",
     "description": "檔名部分之間分隔符號輸入欄位的標籤。"
+  },
+  "contextMenuItemUploadSelection": {
+    "message": "上傳選取範圍至 pCloud",
+    "description": "上傳選取文字的右鍵選單項目文字。"
+  },
+  "notificationUploadTextStartedTitle": {
+    "message": "文字上傳",
+    "description": "文字上傳開始時通知的標題。"
+  },
+  "notificationUploadTextStartedMessage": {
+    "message": "正在儲存選取文字至您的 pCloud...",
+    "description": "文字上傳開始時通知的訊息。"
+  },
+  "notificationUploadTextSuccessTitle": {
+    "message": "上傳完成",
+    "description": "文字上傳成功時通知的標題。"
+  },
+  "notificationUploadTextSuccessMessage": {
+    "message": "選取文字已成功儲存至 pCloud。",
+    "description": "文字上傳成功時通知的訊息。"
+  },
+  "notificationUploadTextErrorTitle": {
+    "message": "上傳失敗",
+    "description": "文字上傳失敗時通知的標題。"
+  },
+  "notificationUploadTextErrorMessage": {
+    "message": "無法儲存選取文字至 pCloud。請再試一次。",
+    "description": "文字上傳失敗時通知的訊息。"
+  },
+  "notification_error_stale_content_script": {
+    "message": "無法連接到頁面。請重新載入分頁後再試一次。",
+    "description": "當內容腳本過時或無法使用時的錯誤訊息。"
   }
 }

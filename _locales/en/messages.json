@@ -68,6 +68,14 @@
     "message": "Login",
     "description": "Text for the login button."
   },
+  "login_oauth_button": {
+    "message": "Login with pCloud",
+    "description": "Text for the OAuth login button."
+  },
+  "login_oauth_error": {
+    "message": "Authentication failed. Please try again.",
+    "description": "Generic error message for OAuth login failure."
+  },
   "login_error_empty_credentials": {
     "message": "Please enter both email/username and password.",
     "description": "Error message for empty login fields."
@@ -208,6 +216,10 @@
     "message": "Image Filename",
     "description": "Header for the image filename settings section on the options page."
   },
+  "options_section_text_filename": {
+    "message": "Text Filename",
+    "description": "Header for the text filename settings section on the options page."
+  },
   "options_filename_description": {
     "message": "Drag and drop to reorder filename parts. Uncheck to exclude.",
     "description": "Description for the filename configuration UI."
@@ -227,5 +239,37 @@
   "options_filename_separator_label": {
     "message": "Separator",
     "description": "Label for the separator input field between filename parts."
+  },
+  "contextMenuItemUploadSelection": {
+    "message": "Upload selection to pCloud",
+    "description": "Context menu item text for uploading selected text."
+  },
+  "notificationUploadTextStartedTitle": {
+    "message": "Text Upload",
+    "description": "Title for the notification when text upload starts."
+  },
+  "notificationUploadTextStartedMessage": {
+    "message": "Saving selected text to your pCloud...",
+    "description": "Message for the notification when text upload starts."
+  },
+  "notificationUploadTextSuccessTitle": {
+    "message": "Upload Complete",
+    "description": "Title for the notification when text upload is successful."
+  },
+  "notificationUploadTextSuccessMessage": {
+    "message": "Selected text successfully saved to pCloud.",
+    "description": "Message for the notification when text upload is successful."
+  },
+  "notificationUploadTextErrorTitle": {
+    "message": "Upload Failed",
+    "description": "Title for the notification when text upload fails."
+  },
+  "notificationUploadTextErrorMessage": {
+    "message": "Could not save selected text to pCloud. Please try again.",
+    "description": "Message for the notification when text upload fails."
+  },
+  "notification_error_stale_content_script": {
+    "message": "Cannot connect to the page. Please reload the tab and try again.",
+    "description": "Error message when the content script is outdated or not available."
   }
 }

@@ -28,59 +28,13 @@
         </div>
 
         <div id="login-view" class="view-container hidden">
-            <div class="mdc-card">
-                <!-- Email/Password Login Form -->
-                <div id="login-form-password">
-                    <h2 class="form-title" data-i18n="login_prompt"></h2>
-                    <div class="error-message" id="login-error-password"></div>
-
-                    <label class="mdc-text-field mdc-text-field--filled">
-                        <span class="mdc-text-field__ripple"></span>
-                        <span class="mdc-floating-label" id="email-label" data-i18n="login_email_placeholder"></span>
-                        <input type="email" id="email" class="mdc-text-field__input" aria-labelledby="email-label">
-                        <span class="mdc-line-ripple"></span>
-                    </label>
-
-                    <label class="mdc-text-field mdc-text-field--filled">
-                        <span class="mdc-text-field__ripple"></span>
-                        <span class="mdc-floating-label" id="password-label" data-i18n="login_password_placeholder"></span>
-                        <input type="password" id="password" class="mdc-text-field__input" aria-labelledby="password-label">
-                        <span class="mdc-line-ripple"></span>
-                    </label>
-
-                    <button id="login-button-password" class="mdc-button mdc-button--raised">
-                        <span class="mdc-button__ripple"></span>
-                        <span class="mdc-button__label" data-i18n="login_button_text"></span>
-                    </button>
-                    <p class="toggle-link"><a href="#" id="switch-to-token" data-i18n="login_switch_to_token"></a></p>
-                </div>
-
-                <!-- Token Login Form -->
-                <div id="login-form-token" class="hidden">
-                    <h2 class="form-title" data-i18n="login_token_prompt"></h2>
-                    <p class="description" data-i18n="login_token_description"></p>
-                    <div class="error-message" id="login-error-token"></div>
-
-                    <label class="mdc-text-field mdc-text-field--textarea">
-                        <span class="mdc-text-field__ripple"></span>
-                        <span class="mdc-notched-outline">
-                            <span class="mdc-notched-outline__leading"></span>
-                            <span class="mdc-notched-outline__notch">
-                                <span class="mdc-floating-label" id="auth-token-label" data-i18n="login_token_placeholder"></span>
-                            </span>
-                            <span class="mdc-notched-outline__trailing"></span>
-                        </span>
-                        <span class="mdc-text-field__resizer">
-                            <textarea id="auth-token" class="mdc-text-field__input" aria-labelledby="auth-token-label" rows="4"></textarea>
-                        </span>
-                    </label>
-
-                    <button id="login-button-token" class="mdc-button mdc-button--raised">
-                        <span class="mdc-button__ripple"></span>
-                        <span class="mdc-button__label" data-i18n="login_token_button_text"></span>
-                    </button>
-                    <p class="toggle-link"><a href="#" id="switch-to-password" data-i18n="login_switch_to_password"></a></p>
-                </div>
+            <div class="mdc-card oauth-login-card">
+                <h2 class="form-title" data-i18n="login_prompt"></h2>
+                <div class="error-message" id="login-error"></div>
+                <button id="login-button-oauth" class="mdc-button mdc-button--raised">
+                    <span class="mdc-button__ripple"></span>
+                    <span class="mdc-button__label" data-i18n="login_oauth_button"></span>
+                </button>
             </div>
         </div>
 

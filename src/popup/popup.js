@@ -1,6 +1,6 @@
 // src/popup/popup.js
 
-import { getAuthToken, setAuthToken, clearAuthToken, isAuthenticated } from '../core/auth.js';
+import { getAuthToken, setAuthToken, clearAuthToken, isAuthenticated, authenticateWithOAuth } from '../core/auth.js';
 import PCloudAPIClient from '../core/pcloud-api.js';
 
 const { mdc } = window;
@@ -12,22 +12,9 @@ const loginView = document.getElementById('login-view');
 const mainView = document.getElementById('main-view');
 const headerTitle = document.getElementById('header-title');
 
-// Login forms and toggles
-const loginFormPassword = document.getElementById('login-form-password');
-const loginFormToken = document.getElementById('login-form-token');
-const switchToTokenLink = document.getElementById('switch-to-token');
-const switchToPasswordLink = document.getElementById('switch-to-password');
-
-// Password login elements
-const emailInput = document.getElementById('email');
-const passwordInput = document.getElementById('password');
-const loginButtonPassword = document.getElementById('login-button-password');
-const loginErrorPassword = document.getElementById('login-error-password');
-
-// Token login elements
-const authTokenInput = document.getElementById('auth-token');
-const loginButtonToken = document.getElementById('login-button-token');
-const loginErrorToken = document.getElementById('login-error-token');
+// New OAuth Login Elements
+const loginButtonOAuth = document.getElementById('login-button-oauth');
+const loginError = document.getElementById('login-error');
 
 // Main view elements
 const logoutButton = document.getElementById('logout-button');
@@ -64,7 +51,6 @@ function localizeHtml() {
     const key = el.dataset.i18n;
     const message = chrome.i18n.getMessage(key);
     if (message) {
-        // Handle MDC button labels and other specific text containers
         const textSpan = el.querySelector('.mdc-button__label') || el.querySelector('.mdc-list-item__text');
         if (textSpan) {
             textSpan.textContent = message;
@@ -94,17 +80,14 @@ function showView(view) {
   }
 }
 
-function displayLoginError(message, formType) {
-  const errorEl = formType === 'password' ? loginErrorPassword : loginErrorToken;
-  errorEl.textContent = message;
-  errorEl.classList.remove('hidden');
+function displayLoginError(message) {
+  loginError.textContent = message;
+  loginError.classList.remove('hidden');
 }
 
 function clearLoginErrors() {
-  loginErrorPassword.textContent = '';
-  loginErrorPassword.classList.add('hidden');
-  loginErrorToken.textContent = '';
-  loginErrorToken.classList.add('hidden');
+  loginError.textContent = '';
+  loginError.classList.add('hidden');
 }
 
 function formatBytes(bytes, decimals = 2) {
@@ -116,8 +99,9 @@ function formatBytes(bytes, decimals = 2) {
     return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + ' ' + sizes[i];
 }
 
-async function handleSuccessfulLogin(token) {
-  await setAuthToken(token);
+async function handleSuccessfulLogin() {
+  console.log('[Debug] handleSuccessfulLogin called. Updating UI.');
+  // The token is already set by authenticateWithOAuth, we just need to update the UI
   await Promise.all([
     updateCurrentUploadPathDisplay(),
     updateUserInfoDisplay()
@@ -195,86 +179,41 @@ async function updateUserInfoDisplay() {
 }
 
 // --- Event Listeners ---
-// View Toggling
-switchToTokenLink.addEventListener('click', (e) => {
-  e.preventDefault();
-  loginFormPassword.classList.add('hidden');
-  loginFormToken.classList.remove('hidden');
-  clearLoginErrors();
-});
-
-switchToPasswordLink.addEventListener('click', (e) => {
-  e.preventDefault();
-  loginFormToken.classList.add('hidden');
-  loginFormPassword.classList.remove('hidden');
-  clearLoginErrors();
-});
-
 optionsButton.addEventListener('click', () => {
   chrome.runtime.openOptionsPage();
 });
 
-// Login/Logout
-loginButtonPassword.addEventListener('click', async () => {
-  clearLoginErrors();
-  const email = emailInput.value;
-  const password = passwordInput.value;
-  if (!email || !password) {
-    displayLoginError(chrome.i18n.getMessage('login_error_empty_credentials'), 'password');
-    return;
-  }
-  loginButtonPassword.disabled = true;
-  try {
-    const authUrl = new URL(`https://api.pcloud.com/userinfo`);
-    authUrl.searchParams.append('username', email);
-    authUrl.searchParams.append('password', password);
-    authUrl.searchParams.append('getauth', '1');
-    const response = await fetch(authUrl.toString());
-    const data = await response.json();
-    if (data.result === 0 && data.auth) {
-      await handleSuccessfulLogin(data.auth);
-    } else {
-      displayLoginError(chrome.i18n.getMessage('login_error_invalid_credentials'), 'password');
-    }
-  } catch (error) {
-    displayLoginError(chrome.i18n.getMessage('login_error_generic'), 'password');
-  } finally {
-    loginButtonPassword.disabled = false;
-  }
-});
-
-loginButtonToken.addEventListener('click', async () => {
-  clearLoginErrors();
-  const token = authTokenInput.value.trim();
-  if (!token) {
-    displayLoginError(chrome.i18n.getMessage('login_error_invalid_token'), 'token');
-    return;
-  }
-  loginButtonToken.disabled = true;
-  try {
-    const tempClient = new PCloudAPIClient(token);
-    await tempClient.getUserInfo();
-    await handleSuccessfulLogin(token);
-  } catch (error) {
-    displayLoginError(chrome.i18n.getMessage('login_error_invalid_token'), 'token');
+loginButtonOAuth.addEventListener('click', async () => {
+    clearLoginErrors();
+    loginButtonOAuth.disabled = true;
+    try {
+        const token = await authenticateWithOAuth();
+        if (token) {
+            await handleSuccessfulLogin();
+        } else {
+            // This case should ideally not be hit if errors are thrown correctly
+            displayLoginError(chrome.i18n.getMessage('login_oauth_error'));
+        }
+    } catch (error) {
+        console.error("OAuth login failed:", error);
+        // User cancellation is a common case, don't show a scary error for it.
+        if (error.message.includes('cancelled by the user')) {
+            // Optionally do nothing or show a subtle message
+        } else {
+            displayLoginError(chrome.i18n.getMessage('login_oauth_error'));
+        }
     } finally {
-      loginButtonToken.disabled = false;
+        loginButtonOAuth.disabled = false;
     }
-  });
+});
   
 logoutButton.addEventListener('click', async () => {
     await clearAuthToken();
     showView(loginView);
-    loginFormToken.classList.add('hidden');
-    loginFormPassword.classList.remove('hidden');
-    emailInput.value = '';
-    passwordInput.value = '';
-    authTokenInput.value = '';
     userEmailSpan.textContent = '';
     quotaInfoDiv.classList.add('hidden');
     clearLoginErrors();
     
-    // Clear upload state
     uploads = [];
     fileInput.value = '';
     renderUploads();
@@ -406,8 +345,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     chrome.runtime.sendMessage({ type: 'requestInitialState' });
   } else {
     showView(loginView);
-    loginFormToken.classList.add('hidden');
-    loginFormPassword.classList.remove('hidden');
   }
 });
 

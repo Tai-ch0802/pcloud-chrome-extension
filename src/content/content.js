@@ -115,3 +115,32 @@ document.addEventListener('drop', (e) => {
 
 // --- Initialization ---
 createElements();
+
+// --- Function to get selected HTML ---
+function getSelectionHtml() {
+    let html = "";
+    const selection = window.getSelection();
+    if (selection.rangeCount > 0) {
+        const range = selection.getRangeAt(0);
+        const fragment = range.cloneContents();
+        const div = document.createElement("div");
+        div.appendChild(fragment);
+        html = div.innerHTML;
+    }
+    return html;
+}
+
+// --- Listener for messages from the background script ---
+chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
+    if (request.action === "getMarkdownFromSelection") {
+        const selectedHtml = getSelectionHtml();
+        if (selectedHtml && typeof TurndownService === 'function') {
+            const turndownService = new TurndownService();
+            const markdown = turndownService.turndown(selectedHtml);
+            sendResponse({ markdown: markdown });
+        } else {
+            sendResponse({ markdown: "" });
+        }
+        return true; // Indicate that sendResponse will be called asynchronously
+    }
+});

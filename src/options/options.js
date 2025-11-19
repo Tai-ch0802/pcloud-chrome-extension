@@ -1,9 +1,10 @@
 import { getAuthToken } from '../core/auth.js';
 import PCloudAPIClient from '../core/pcloud-api.js';
 
+// --- Storage Keys ---
 const DEFAULT_UPLOAD_FOLDER_ID_KEY = 'default_upload_folder_id';
-const DEFAULT_UPLOAD_FOLDER_PATH_KEY = 'default_upload_folder_path';
 const FILENAME_CONFIG_KEY = 'filename_config';
+const TEXT_FILENAME_CONFIG_KEY = 'text_filename_config';
 const FOLDER_STATE_KEY = 'folder_collapse_state';
 const THEME_KEY = 'selected_theme';
 const IS_DEV_MODE = !('update_url' in chrome.runtime.getManifest());
@@ -14,19 +15,28 @@ const selectedFolderPathDiv = document.getElementById('selected-folder-path');
 const devFolderIdSpan = document.getElementById('dev-folder-id');
 const themeSelectElement = document.getElementById('theme-select');
 const snackbarElement = document.getElementById('app-snackbar');
-const filenamePartsList = document.getElementById('filename-parts-list');
-const filenamePreview = document.getElementById('filename-preview');
 
+// Image Filename Elements
+const imageFilenamePartsList = document.getElementById('filename-parts-list');
+const imageFilenamePreview = document.getElementById('filename-preview');
+
+// Text Filename Elements
+const textFilenamePartsList = document.getElementById('text-filename-parts-list');
+const textFilenamePreview = document.getElementById('text-filename-preview');
 
 // --- State ---
 let folderCollapseState = {};
 let folderMap = new Map();
 let themeSelect;
 let snackbar;
-let mdcInstances = [];
 
-const defaultFilenameConfig = [
+const defaultImageFilenameConfig = [
     { id: 'SORTING_NUMBER', labelKey: 'options_filename_part_sorting_number', enabled: true, separator: '_' },
+    { id: 'PAGE_TITLE', labelKey: 'options_filename_part_page_title', enabled: true, separator: '_' },
+    { id: 'TIMESTAMP', labelKey: 'options_filename_part_timestamp', enabled: true, separator: '' }
+];
+
+const defaultTextFilenameConfig = [
     { id: 'PAGE_TITLE', labelKey: 'options_filename_part_page_title', enabled: true, separator: '_' },
     { id: 'TIMESTAMP', labelKey: 'options_filename_part_timestamp', enabled: true, separator: '' }
 ];
@@ -68,129 +78,138 @@ function showStatusMessage(messageKey) {
   snackbar.open();
 }
 
-// --- Filename Config Logic ---
-function updateFilenamePreview() {
-    let preview = '';
-    const sampleData = {
-        SORTING_NUMBER: Date.now(),
-        PAGE_TITLE: 'Sample Page Title',
-        TIMESTAMP: new Date().toISOString().slice(0, 19).replace(/[-T:]/g, '').replace(' ', '_')
-    };
-    
-    document.querySelectorAll('.filename-part-item').forEach(item => {
-        const id = item.dataset.id;
-        const isEnabled = item.querySelector('.mdc-checkbox__native-control').checked;
-        const separator = item.querySelector('.separator-input').value;
+// --- Filename Configurator Factory ---
+function initializeFilenameConfigurator({ listEl, previewEl, storageKey, defaultConfig, extension }) {
+    let mdcInstances = [];
 
-        if (isEnabled) {
-            preview += sampleData[id] + separator;
-        }
-    });
-    filenamePreview.textContent = preview.replace(/\/$/, '') + '.jpg';
-}
+    function updatePreview() {
+        let preview = '';
+        const sampleData = {
+            SORTING_NUMBER: Date.now(),
+            PAGE_TITLE: 'Sample Page Title',
+            TIMESTAMP: new Date().toISOString().slice(0, 19).replace(/[-T:]/g, '').replace(' ', '_')
+        };
+        
+        listEl.querySelectorAll('.filename-part-item').forEach(item => {
+            const id = item.dataset.id;
+            const isEnabled = item.querySelector('.mdc-checkbox__native-control').checked;
+            const separator = item.querySelector('.separator-input').value;
 
-async function saveFilenameConfig() {
-    const config = [];
-    document.querySelectorAll('.filename-part-item').forEach(item => {
-        config.push({
-            id: item.dataset.id,
-            labelKey: item.dataset.labelKey,
-            enabled: item.querySelector('.mdc-checkbox__native-control').checked,
-            separator: item.querySelector('.separator-input').value
+            if (isEnabled && sampleData[id]) {
+                preview += sampleData[id] + separator;
+            }
         });
-    });
-    await chrome.storage.sync.set({ [FILENAME_CONFIG_KEY]: config });
-    showStatusMessage('options_saved_message');
-    updateFilenamePreview();
-}
+        previewEl.textContent = preview.replace(/\/$/, '') + extension;
+    }
 
-function renderFilenameConfig(config) {
-    filenamePartsList.innerHTML = '';
-    mdcInstances.forEach(inst => inst.destroy());
-    mdcInstances = [];
+    async function saveConfig() {
+        const config = [];
+        listEl.querySelectorAll('.filename-part-item').forEach(item => {
+            config.push({
+                id: item.dataset.id,
+                labelKey: item.dataset.labelKey,
+                enabled: item.querySelector('.mdc-checkbox__native-control').checked,
+                separator: item.querySelector('.separator-input').value
+            });
+        });
+        await chrome.storage.sync.set({ [storageKey]: config });
+        showStatusMessage('options_saved_message');
+        updatePreview();
+    }
 
-    config.forEach(part => {
-        const li = document.createElement('li');
-        li.className = 'filename-part-item';
-        li.dataset.id = part.id;
-        li.dataset.labelKey = part.labelKey;
-        li.draggable = true;
+    function render(config) {
+        listEl.innerHTML = '';
+        mdcInstances.forEach(inst => inst.destroy());
+        mdcInstances = [];
 
-        li.innerHTML = `
-            <span class="drag-handle">⠿</span>
-            <div class="mdc-checkbox">
-                <input type="checkbox" class="mdc-checkbox__native-control" id="check-${part.id}"/>
-                <div class="mdc-checkbox__background">
-                    <svg class="mdc-checkbox__checkmark" viewBox="0 0 24 24">
-                        <path class="mdc-checkbox__checkmark-path" fill="none" d="M1.73,12.91 8.1,19.28 22.79,4.59"/>
-                    </svg>
-                    <div class="mdc-checkbox__mixedmark"></div>
+        config.forEach(part => {
+            const li = document.createElement('li');
+            li.className = 'filename-part-item';
+            li.dataset.id = part.id;
+            li.dataset.labelKey = part.labelKey;
+            li.draggable = true;
+
+            li.innerHTML = `
+                <span class="drag-handle">⠿</span>
+                <div class="mdc-checkbox">
+                    <input type="checkbox" class="mdc-checkbox__native-control" id="check-${storageKey}-${part.id}"/>
+                    <div class="mdc-checkbox__background">
+                        <svg class="mdc-checkbox__checkmark" viewBox="0 0 24 24">
+                            <path class="mdc-checkbox__checkmark-path" fill="none" d="M1.73,12.91 8.1,19.28 22.79,4.59"/>
+                        </svg>
+                        <div class="mdc-checkbox__mixedmark"></div>
+                    </div>
+                    <div class="mdc-checkbox__ripple"></div>
                 </div>
-                <div class="mdc-checkbox__ripple"></div>
-            </div>
-            <label for="check-${part.id}" class="part-label">${chrome.i18n.getMessage(part.labelKey)}</label>
-            <label class="separator-label">${chrome.i18n.getMessage('options_filename_separator_label')}:</label>
-            <input type="text" class="separator-input" value="${part.separator}" maxlength="3">
-        `;
+                <label for="check-${storageKey}-${part.id}" class="part-label">${chrome.i18n.getMessage(part.labelKey)}</label>
+                <label class="separator-label">${chrome.i18n.getMessage('options_filename_separator_label')}:</label>
+                <input type="text" class="separator-input" value="${part.separator}" maxlength="3">
+            `;
 
-        const checkbox = li.querySelector('.mdc-checkbox');
-        const checkboxInput = li.querySelector('.mdc-checkbox__native-control');
-        const separatorInput = li.querySelector('.separator-input');
+            const checkbox = li.querySelector('.mdc-checkbox');
+            const checkboxInput = li.querySelector('.mdc-checkbox__native-control');
+            const separatorInput = li.querySelector('.separator-input');
 
-        checkboxInput.checked = part.enabled;
-        const mdcCheckbox = new mdc.checkbox.MDCCheckbox(checkbox);
-        mdcInstances.push(mdcCheckbox);
+            checkboxInput.checked = part.enabled;
+            const mdcCheckbox = new mdc.checkbox.MDCCheckbox(checkbox);
+            mdcInstances.push(mdcCheckbox);
 
-        checkbox.addEventListener('change', saveFilenameConfig);
-        separatorInput.addEventListener('input', saveFilenameConfig);
+            checkbox.addEventListener('change', saveConfig);
+            separatorInput.addEventListener('input', saveConfig);
 
-        filenamePartsList.appendChild(li);
-    });
-}
+            listEl.appendChild(li);
+        });
+    }
 
-async function loadFilenameConfig() {
-    const { [FILENAME_CONFIG_KEY]: savedConfig } = await chrome.storage.sync.get(FILENAME_CONFIG_KEY);
-    renderFilenameConfig(savedConfig || defaultFilenameConfig);
-    updateFilenamePreview();
-}
+    async function load() {
+        const { [storageKey]: savedConfig } = await chrome.storage.sync.get(storageKey);
+        render(savedConfig || defaultConfig);
+        updatePreview();
+    }
 
-function setupDragAndDrop() {
-    let draggedItem = null;
+    function setupDragAndDrop() {
+        let draggedItem = null;
+        listEl.addEventListener('dragstart', e => {
+            draggedItem = e.target.closest('.filename-part-item');
+            if (draggedItem) {
+              setTimeout(() => draggedItem.classList.add('dragging'), 0);
+            }
+        });
+        listEl.addEventListener('dragend', e => {
+            if (draggedItem) {
+              draggedItem.classList.remove('dragging');
+              draggedItem = null;
+              saveConfig();
+            }
+        });
+        listEl.addEventListener('dragover', e => {
+            e.preventDefault();
+            const afterElement = getDragAfterElement(listEl, e.clientY);
+            const currentElement = listEl.querySelector('.dragging');
+            if (currentElement) {
+                if (afterElement == null) {
+                    listEl.appendChild(currentElement);
+                } else {
+                    listEl.insertBefore(currentElement, afterElement);
+                }
+            }
+        });
+    }
 
-    filenamePartsList.addEventListener('dragstart', e => {
-        draggedItem = e.target;
-        setTimeout(() => e.target.classList.add('dragging'), 0);
-    });
+    function getDragAfterElement(container, y) {
+        const draggableElements = [...container.querySelectorAll('.filename-part-item:not(.dragging)')];
+        return draggableElements.reduce((closest, child) => {
+            const box = child.getBoundingClientRect();
+            const offset = y - box.top - box.height / 2;
+            if (offset < 0 && offset > closest.offset) {
+                return { offset: offset, element: child };
+            } else {
+                return closest;
+            }
+        }, { offset: Number.NEGATIVE_INFINITY }).element;
+    }
 
-    filenamePartsList.addEventListener('dragend', e => {
-        draggedItem.classList.remove('dragging');
-        draggedItem = null;
-        saveFilenameConfig();
-    });
-
-    filenamePartsList.addEventListener('dragover', e => {
-        e.preventDefault();
-        const afterElement = getDragAfterElement(filenamePartsList, e.clientY);
-        const currentElement = document.querySelector('.dragging');
-        if (afterElement == null) {
-            filenamePartsList.appendChild(currentElement);
-        } else {
-            filenamePartsList.insertBefore(currentElement, afterElement);
-        }
-    });
-}
-
-function getDragAfterElement(container, y) {
-    const draggableElements = [...container.querySelectorAll('.filename-part-item:not(.dragging)')];
-    return draggableElements.reduce((closest, child) => {
-        const box = child.getBoundingClientRect();
-        const offset = y - box.top - box.height / 2;
-        if (offset < 0 && offset > closest.offset) {
-            return { offset: offset, element: child };
-        } else {
-            return closest;
-        }
-    }, { offset: Number.NEGATIVE_INFINITY }).element;
+    return { load, setupDragAndDrop };
 }
 
 
@@ -321,7 +340,28 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   localizeHtml();
   await loadAndApplyTheme();
-  await loadFilenameConfig();
+
+  // Initialize Image Filename Configurator
+  const imageConfigurator = initializeFilenameConfigurator({
+    listEl: imageFilenamePartsList,
+    previewEl: imageFilenamePreview,
+    storageKey: FILENAME_CONFIG_KEY,
+    defaultConfig: defaultImageFilenameConfig,
+    extension: '.jpg'
+  });
+  await imageConfigurator.load();
+  imageConfigurator.setupDragAndDrop();
+
+  // Initialize Text Filename Configurator
+  const textConfigurator = initializeFilenameConfigurator({
+    listEl: textFilenamePartsList,
+    previewEl: textFilenamePreview,
+    storageKey: TEXT_FILENAME_CONFIG_KEY,
+    defaultConfig: defaultTextFilenameConfig,
+    extension: '.md'
+  });
+  await textConfigurator.load();
+  textConfigurator.setupDragAndDrop();
   
   document.title = chrome.i18n.getMessage('options_title');
   const state = await chrome.storage.local.get(FOLDER_STATE_KEY);
@@ -335,5 +375,4 @@ document.addEventListener('DOMContentLoaded', async () => {
       await chrome.storage.sync.set({ [THEME_KEY]: selectedTheme });
       applyTheme(selectedTheme);
   });
-  setupDragAndDrop();
 });

@@ -1,35 +1,18 @@
-// src/features/free/contextMenuImageDownloader.js
+// src/features/free/contextMenuTextUploader.js
 
 import { getAuthToken } from '../../core/auth.js';
 import PCloudAPIClient from '../../core/pcloud-api.js';
 
 const PCLOUD_ICON_PATH = '/src/assets/icons/icon128.png';
-const FILENAME_CONFIG_KEY = 'filename_config';
+const TEXT_FILENAME_CONFIG_KEY = 'text_filename_config';
 const DEFAULT_UPLOAD_FOLDER_ID_KEY = 'default_upload_folder_id';
 const DEFAULT_UPLOAD_FOLDER_PATH_KEY = 'default_upload_folder_path';
 
-const defaultFilenameConfig = [
-    { id: 'SORTING_NUMBER', labelKey: 'options_filename_part_sorting_number', enabled: true, separator: '_' },
+const defaultTextFilenameConfig = [
     { id: 'PAGE_TITLE', labelKey: 'options_filename_part_page_title', enabled: true, separator: '_' },
     { id: 'TIMESTAMP', labelKey: 'options_filename_part_timestamp', enabled: true, separator: '' }
 ];
 
-// --- Helper to get file extension from MIME type ---
-function getExtensionFromMime(mimeType) {
-    if (!mimeType) return '.jpg';
-    const mime = mimeType.split(';')[0].trim();
-    const map = {
-        'image/jpeg': '.jpg',
-        'image/png': '.png',
-        'image/gif': '.gif',
-        'image/webp': '.webp',
-        'image/svg+xml': '.svg',
-        'image/bmp': '.bmp',
-    };
-    return map[mime] || '.jpg';
-}
-
-// --- Helper to get formatted timestamp ---
 function getFormattedTimestamp() {
     const now = new Date();
     const YYYY = now.getFullYear();
@@ -45,8 +28,7 @@ async function handleContextMenuClick(info, tab, initiateUpload) {
     const authToken = await getAuthToken();
     if (!authToken) {
         chrome.notifications.create({
-            type: 'basic',
-            iconUrl: PCLOUD_ICON_PATH,
+            type: 'basic', iconUrl: PCLOUD_ICON_PATH,
             title: chrome.i18n.getMessage('notification_upload_error_title'),
             message: chrome.i18n.getMessage('notification_auth_error_message'),
         });
@@ -54,32 +36,42 @@ async function handleContextMenuClick(info, tab, initiateUpload) {
     }
 
     try {
-        const response = await fetch(info.srcUrl);
-        if (!response.ok) throw new Error(`Failed to fetch: ${response.statusText}`);
-        const blob = await response.blob();
+        const response = await chrome.tabs.sendMessage(tab.id, { action: "getMarkdownFromSelection" });
+        if (!response || typeof response.markdown === 'undefined') {
+            throw new Error("No valid response from content script.");
+        }
 
-        // --- Get configs from storage ---
-        const { 
-            [FILENAME_CONFIG_KEY]: config = defaultFilenameConfig,
+        const markdown = response.markdown;
+        if (!markdown) {
+            chrome.notifications.create({
+                type: 'basic', iconUrl: PCLOUD_ICON_PATH,
+                title: chrome.i18n.getMessage("notificationUploadTextErrorTitle"),
+                message: chrome.i18n.getMessage("notificationUploadTextErrorMessage")
+            });
+            return;
+        }
+
+        const {
+            [TEXT_FILENAME_CONFIG_KEY]: config = defaultTextFilenameConfig,
             [DEFAULT_UPLOAD_FOLDER_PATH_KEY]: basePath = '/',
             [DEFAULT_UPLOAD_FOLDER_ID_KEY]: baseFolderId = 0
-        } = await chrome.storage.sync.get([FILENAME_CONFIG_KEY, DEFAULT_UPLOAD_FOLDER_PATH_KEY, DEFAULT_UPLOAD_FOLDER_ID_KEY]);
+        } = await chrome.storage.sync.get([TEXT_FILENAME_CONFIG_KEY, DEFAULT_UPLOAD_FOLDER_PATH_KEY, DEFAULT_UPLOAD_FOLDER_ID_KEY]);
 
         const nameParts = {
-            SORTING_NUMBER: Date.now(),
             PAGE_TITLE: (tab.title || 'Untitled').replace(/[\\/:*?"<>|]/g, '_').substring(0, 100),
             TIMESTAMP: getFormattedTimestamp()
         };
 
-        // --- Build path and filename from config ---
         let fullPathString = '';
         const enabledParts = config.filter(p => p.enabled);
         enabledParts.forEach(part => {
-            fullPathString += nameParts[part.id] + part.separator;
+            if (nameParts[part.id]) {
+                fullPathString += nameParts[part.id] + part.separator;
+            }
         });
 
         const allPathSegments = fullPathString.split('/').map(s => s.trim()).filter(s => s);
-        const finalBasename = allPathSegments.pop() || nameParts.SORTING_NUMBER.toString();
+        const finalBasename = allPathSegments.pop() || nameParts.TIMESTAMP.toString();
         const subfolderPath = allPathSegments.join('/');
         
         let targetFolderId = baseFolderId;
@@ -95,34 +87,37 @@ async function handleContextMenuClick(info, tab, initiateUpload) {
                 }
             }
         }
+        
+        const filename = finalBasename.replace(/\/$/, '') + '.md';
+        const fileToUpload = new File([new Blob([markdown], { type: 'text/markdown' })], filename, { type: 'text/markdown' });
 
-        const extension = getExtensionFromMime(blob.type);
-        const filename = finalBasename.replace(/\/$/, '') + extension;
-        const file = new File([blob], filename, { type: blob.type });
+        initiateUpload(fileToUpload, { showNotifications: true, folderId: targetFolderId });
 
-        initiateUpload(file, { showNotifications: true, folderId: targetFolderId });
     } catch (error) {
-        console.error("Context menu upload failed:", error);
-        chrome.notifications.create({
-            type: 'basic',
-            iconUrl: PCLOUD_ICON_PATH,
-            title: chrome.i18n.getMessage('notification_upload_error_title'),
-            message: chrome.i18n.getMessage('notification_upload_error_message'),
+        console.error("Error uploading selected text:", error);
+        let message = chrome.i18n.getMessage("notificationUploadTextErrorMessage");
+        if (error.message && (error.message.includes("Receiving end does not exist") || error.message.includes("No valid response"))) {
+            message = chrome.i18n.getMessage("notification_error_stale_content_script");
+        }
+        chrome.notifications.create('', {
+            type: 'basic', iconUrl: PCLOUD_ICON_PATH,
+            title: chrome.i18n.getMessage("notificationUploadTextErrorTitle"),
+            message: message
         });
     }
 }
 
-export function initializeContextMenuImageDownloader(initiateUpload) {
+export function initializeContextMenuTextDownloader(initiateUpload) {
     chrome.runtime.onInstalled.addListener(() => {
         chrome.contextMenus.create({
-            id: 'pcloud-save-image',
-            title: chrome.i18n.getMessage('context_menu_save_image'),
-            contexts: ['image'],
+            id: 'uploadSelectedText',
+            title: chrome.i18n.getMessage('contextMenuItemUploadSelection'),
+            contexts: ['selection'],
         });
     });
 
     chrome.contextMenus.onClicked.addListener((info, tab) => {
-        if (info.menuItemId === 'pcloud-save-image') {
+        if (info.menuItemId === 'uploadSelectedText') {
             handleContextMenuClick(info, tab, initiateUpload);
         }
     });

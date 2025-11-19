@@ -29,7 +29,7 @@ class PCloudAPIClient {
    */
   async _request(endpoint, params = {}, method = "GET", body = null) {
     const url = new URL(`${PCLOUD_API_BASE_URL}${endpoint}`);
-    url.searchParams.append('auth', this.authToken);
+    url.searchParams.append('access_token', this.authToken);
 
     // Add other parameters for GET requests
     if (method === "GET" || method === "DELETE") {
@@ -50,8 +50,10 @@ class PCloudAPIClient {
     }
 
     try {
+      console.log(`[Debug] pCloud API Request: ${method} ${url.toString()}`);
       const response = await fetch(url.toString(), options);
       const data = await response.json();
+      console.log('[Debug] pCloud API Response Data:', data);
 
       if (data.result !== 0) {
         throw new Error(`pCloud API Error (${data.result}): ${data.error}`);
@@ -89,7 +91,7 @@ class PCloudAPIClient {
 
     const endpoint = 'uploadfile';
     const url = new URL(`${PCLOUD_API_BASE_URL}${endpoint}`);
-    url.searchParams.append('auth', this.authToken);
+    url.searchParams.append('access_token', this.authToken);
 
     try {
       const response = await fetch(url.toString(), {

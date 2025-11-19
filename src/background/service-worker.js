@@ -2,7 +2,9 @@
 
 import { getAuthToken } from '../core/auth.js';
 import PCloudAPIClient from '../core/pcloud-api.js';
-import { initializeContextMenuDownloader } from '../features/free/contextMenuImageDownloader.js';
+import { initializeContextMenuImageDownloader } from '../features/free/contextMenuImageDownloader.js';
+import { initializeContextMenuTextDownloader } from '../features/free/contextMenuTextUploader.js';
+
 
 // --- Centralized Global State ---
 let uploads = [];
@@ -10,7 +12,8 @@ const DEFAULT_UPLOAD_FOLDER_ID_KEY = 'default_upload_folder_id';
 const PCLOUD_ICON_PATH = '/src/assets/icons/icon128.png';
 
 // --- Initialize Features ---
-initializeContextMenuDownloader(initiateUpload);
+initializeContextMenuImageDownloader(initiateUpload);
+initializeContextMenuTextDownloader(initiateUpload);
 
 // --- Helper to broadcast state to all UIs ---
 function broadcastState() {
@@ -46,19 +49,15 @@ async function startUpload(uploadId, file, options = {}) {
 
     const notificationId = `notification-${uploadId}`;
 
-    if (showNotifications) {
-        chrome.notifications.create(notificationId, {
-            type: 'basic',
-            iconUrl: PCLOUD_ICON_PATH,
-            title: chrome.i18n.getMessage('notification_upload_started_title'),
-            message: chrome.i18n.getMessage('notification_upload_started_message'),
-            silent: true,
-        });
-    }
+    // The initial "upload started" notification is now handled within each feature module
+    // to provide more context-specific feedback.
 
     try {
         const authToken = await getAuthToken();
-        if (!authToken) throw new Error('Not authenticated');
+        if (!authToken) {
+            // Auth error is now also handled in the feature module, but this is a good safeguard.
+            throw new Error('Not authenticated');
+        }
         
         const client = new PCloudAPIClient(authToken);
         
@@ -71,15 +70,18 @@ async function startUpload(uploadId, file, options = {}) {
         upload.status = 'uploading';
         broadcastState();
 
-        const result = await client.uploadFile(file, uploadFolderId);
+        // The 'file' parameter is now guaranteed to be a File/Blob object by the feature module.
+        const uploadResult = await client.uploadFile(file, uploadFolderId);
 
-        if (result.metadata && result.metadata.length > 0) {
+        if (uploadResult && uploadResult.metadata) {
             upload.progress = 100;
             upload.status = 'done';
             if (showNotifications) {
-                chrome.notifications.update(notificationId, {
+                chrome.notifications.create(notificationId, { // Create a new success notification
+                    type: 'basic',
+                    iconUrl: PCLOUD_ICON_PATH,
                     title: chrome.i18n.getMessage('notification_upload_success_title'),
-                    message: chrome.i18n.getMessage('notification_upload_success_message'),
+                    message: file.name, // Use the filename in the success message
                 });
             }
             
@@ -103,9 +105,11 @@ async function startUpload(uploadId, file, options = {}) {
             upload.status = 'error';
         }
         if (showNotifications) {
-            chrome.notifications.update(notificationId, {
+            chrome.notifications.create(notificationId, { // Create a new error notification
+                type: 'basic',
+                iconUrl: PCLOUD_ICON_PATH,
                 title: chrome.i18n.getMessage('notification_upload_error_title'),
-                message: chrome.i18n.getMessage('notification_upload_error_message'),
+                message: error.message === 'Not authenticated' ? chrome.i18n.getMessage('notification_auth_error_message') : chrome.i18n.getMessage('notification_upload_error_message'),
             });
         }
     } finally {
