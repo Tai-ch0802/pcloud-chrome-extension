@@ -41,7 +41,7 @@ async function handleContextMenuClick(info, tab, initiateUpload) {
             throw new Error("No valid response from content script.");
         }
 
-        const markdown = response.markdown;
+        let markdown = response.markdown;
         if (!markdown) {
             chrome.notifications.create({
                 type: 'basic', iconUrl: PCLOUD_ICON_PATH,
@@ -50,6 +50,13 @@ async function handleContextMenuClick(info, tab, initiateUpload) {
             });
             return;
         }
+
+        // Post-processing: Unwrap images that are wrapped in links
+        // Pattern: [ \n ![]() \n ](link) -> ![]()
+        markdown = markdown.replace(/\[\s*(!\[.*?\]\(.*?\))\s*\]\(.*?\)/g, '$1');
+
+        // Post-processing: Collapse excessive newlines
+        markdown = markdown.replace(/\n{3,}/g, '\n\n');
 
         const {
             [TEXT_FILENAME_CONFIG_KEY]: config = defaultTextFilenameConfig,
@@ -73,13 +80,13 @@ async function handleContextMenuClick(info, tab, initiateUpload) {
         const allPathSegments = fullPathString.split('/').map(s => s.trim()).filter(s => s);
         const finalBasename = allPathSegments.pop() || nameParts.TIMESTAMP.toString();
         const subfolderPath = allPathSegments.join('/');
-        
+
         let targetFolderId = baseFolderId;
 
         if (subfolderPath) {
             const client = new PCloudAPIClient(authToken);
             const fullTargetPath = [basePath, subfolderPath].join('/').replace(/\/+/g, '/').replace(/\/$/, '');
-            
+
             if (fullTargetPath && fullTargetPath !== '/') {
                 const folderMeta = await client.createFolderIfNotExists(fullTargetPath);
                 if (folderMeta && folderMeta.metadata && folderMeta.metadata.folderid) {
@@ -87,7 +94,7 @@ async function handleContextMenuClick(info, tab, initiateUpload) {
                 }
             }
         }
-        
+
         const filename = finalBasename.replace(/\/$/, '') + '.md';
         const fileToUpload = new File([new Blob([markdown], { type: 'text/markdown' })], filename, { type: 'text/markdown' });
 
