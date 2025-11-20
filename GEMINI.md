@@ -67,4 +67,4 @@ To ensure session continuity and effective context management, Gemini will adher
 
 ## Special Instruction for Gemini
 
-When GEMINI receives a task request, it should use English for its chain of thought and reasoning process. The final response delivered to the end-user must be in Traditional Chinese.
+When communicating with the user, always use **Traditional Chinese (繁體中文)**. However, during the **reasoning and chain-of-thought** process, you MUST use **English**. This ensures that the quality of logic and reasoning is not compromised by language translation nuances.

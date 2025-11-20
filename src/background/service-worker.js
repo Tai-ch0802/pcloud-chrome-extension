@@ -4,6 +4,7 @@ import { getAuthToken } from '../core/auth.js';
 import PCloudAPIClient from '../core/pcloud-api.js';
 import { initializeContextMenuImageDownloader } from '../features/free/contextMenuImageDownloader.js';
 import { initializeContextMenuTextDownloader } from '../features/free/contextMenuTextUploader.js';
+import { initializeContextMenuDocumentDownloader } from '../features/paid/contextMenuDocumentDownloader.js';
 
 
 // --- Centralized Global State ---
@@ -14,14 +15,15 @@ const PCLOUD_ICON_PATH = '/src/assets/icons/icon128.png';
 // --- Initialize Features ---
 initializeContextMenuImageDownloader(initiateUpload);
 initializeContextMenuTextDownloader(initiateUpload);
+initializeContextMenuDocumentDownloader(initiateUpload);
 
 // --- Helper to broadcast state to all UIs ---
 function broadcastState() {
     const state = { type: 'uploadStateUpdate', payload: uploads };
-    chrome.runtime.sendMessage(state).catch(() => {});
+    chrome.runtime.sendMessage(state).catch(() => { });
     chrome.tabs.query({}, (tabs) => {
         tabs.forEach(tab => {
-            chrome.tabs.sendMessage(tab.id, state).catch(() => {});
+            chrome.tabs.sendMessage(tab.id, state).catch(() => { });
         });
     });
 }
@@ -58,9 +60,9 @@ async function startUpload(uploadId, file, options = {}) {
             // Auth error is now also handled in the feature module, but this is a good safeguard.
             throw new Error('Not authenticated');
         }
-        
+
         const client = new PCloudAPIClient(authToken);
-        
+
         let uploadFolderId = optionFolderId;
         if (uploadFolderId === undefined) {
             const { [DEFAULT_UPLOAD_FOLDER_ID_KEY]: storedFolderId = 0 } = await chrome.storage.sync.get(DEFAULT_UPLOAD_FOLDER_ID_KEY);
@@ -84,7 +86,7 @@ async function startUpload(uploadId, file, options = {}) {
                     message: file.name, // Use the filename in the success message
                 });
             }
-            
+
             setTimeout(() => {
                 upload.status = 'clearing';
                 const intervalId = setInterval(() => {
@@ -129,7 +131,7 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
             .catch(error => console.error('URL fetch failed for content script:', error));
         return true;
     }
-    
+
     if (type === 'startUploadFromFile' && payload.dataUrl) {
         fetch(payload.dataUrl)
             .then(res => res.blob())

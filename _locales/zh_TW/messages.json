@@ -120,22 +120,22 @@
     "message": "登出",
     "description": "登出按鈕的文字。"
   },
-    "upload_select_file_button": {
-        "message": "選擇檔案",
-        "description": "開啟檔案選擇器的按鈕"
-    },
-    "upload_drag_and_drop_prompt": {
-        "message": "將檔案拖曳至此處上傳",
-        "description": "拖曳上傳區域的文字"
-    },
-    "upload_select_file_link": {
-        "message": "或選擇檔案",
-        "description": "替代拖曳上傳的文字連結"
-    },
-    "go_to_pcloud_website": {
-        "message": "前往 pCloud",
-        "description": "pCloud 網站連結"
-    },
+  "upload_select_file_button": {
+    "message": "選擇檔案",
+    "description": "開啟檔案選擇器的按鈕"
+  },
+  "upload_drag_and_drop_prompt": {
+    "message": "將檔案拖曳至此處上傳",
+    "description": "拖曳上傳區域的文字"
+  },
+  "upload_select_file_link": {
+    "message": "或選擇檔案",
+    "description": "替代拖曳上傳的文字連結"
+  },
+  "go_to_pcloud_website": {
+    "message": "前往 pCloud",
+    "description": "pCloud 網站連結"
+  },
   "upload_button_text": {
     "message": "上傳",
     "description": "上傳按鈕的文字。"
@@ -241,7 +241,7 @@
     "description": "檔名部分之間分隔符號輸入欄位的標籤。"
   },
   "contextMenuItemUploadSelection": {
-    "message": "上傳選取範圍至 pCloud",
+    "message": "上傳選取文字至 pCloud",
     "description": "上傳選取文字的右鍵選單項目文字。"
   },
   "notificationUploadTextStartedTitle": {
@@ -269,6 +269,40 @@
     "description": "文字上傳失敗時通知的訊息。"
   },
   "notification_error_stale_content_script": {
+    "message": "無法連接到頁面。請重新載入分頁後再試一次。",
+    "description": "當內容腳本過時或無法使用時的錯誤訊息。"
+  },
+  "context_menu_save_selection": {
+    "message": "將選取內容儲存為文件至 pCloud"
+  },
+  "options_section_document_downloader": {
+    "message": "文件下載器"
+  },
+  "options_document_format_label": {
+    "message": "文件格式"
+  },
+  "options_document_include_metadata_label": {
+    "message": "包含 Metadata (僅限 Markdown)"
+  },
+  "notification_document_processing_title": {
+    "message": "正在處理文件"
+  },
+  "notification_document_processing_message": {
+    "message": "正在轉換並上傳您的選取內容..."
+  },
+  "notification_document_success_title": {
+    "message": "文件已儲存"
+  },
+  "notification_document_success_message": {
+    "message": "文件已成功儲存至 pCloud。"
+  },
+  "notification_document_error_title": {
+    "message": "儲存失敗"
+  },
+  "notification_document_error_message": {
+    "message": "無法儲存文件。請再試一次。"
+  },
+  "error_connection_lost_refresh": {
     "message": "無法連接到頁面。請重新載入分頁後再試一次。",
     "description": "當內容腳本過時或無法使用時的錯誤訊息。"
   }

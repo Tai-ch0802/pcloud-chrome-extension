@@ -120,22 +120,22 @@
     "message": "Logout",
     "description": "Text for the logout button."
   },
-    "upload_select_file_button": {
-        "message": "Select File",
-        "description": "Button to open file selector."
-    },
-    "upload_drag_and_drop_prompt": {
-        "message": "Drag & drop files here to upload",
-        "description": "Text for the drag and drop area."
-    },
-    "upload_select_file_link": {
-        "message": "Or select files",
-        "description": "Link text to open file selector as an alternative to drag and drop."
-    },
-    "go_to_pcloud_website": {
-        "message": "Go to pCloud Website",
-        "description": "Link to pCloud website."
-    },
+  "upload_select_file_button": {
+    "message": "Select File",
+    "description": "Button to open file selector."
+  },
+  "upload_drag_and_drop_prompt": {
+    "message": "Drag & drop files here to upload",
+    "description": "Text for the drag and drop area."
+  },
+  "upload_select_file_link": {
+    "message": "Or select files",
+    "description": "Link text to open file selector as an alternative to drag and drop."
+  },
+  "go_to_pcloud_website": {
+    "message": "Go to pCloud Website",
+    "description": "Link to pCloud website."
+  },
   "upload_button_text": {
     "message": "Upload",
     "description": "Text for the upload button."
@@ -241,7 +241,7 @@
     "description": "Label for the separator input field between filename parts."
   },
   "contextMenuItemUploadSelection": {
-    "message": "Upload selection to pCloud",
+    "message": "Upload Selected Text to pCloud",
     "description": "Context menu item text for uploading selected text."
   },
   "notificationUploadTextStartedTitle": {
@@ -269,6 +269,40 @@
     "description": "Message for the notification when text upload fails."
   },
   "notification_error_stale_content_script": {
+    "message": "Cannot connect to the page. Please reload the tab and try again.",
+    "description": "Error message when the content script is outdated or not available."
+  },
+  "context_menu_save_selection": {
+    "message": "Save Selection as Document to pCloud"
+  },
+  "options_section_document_downloader": {
+    "message": "Document Downloader"
+  },
+  "options_document_format_label": {
+    "message": "Document Format"
+  },
+  "options_document_include_metadata_label": {
+    "message": "Include Metadata (Markdown only)"
+  },
+  "notification_document_processing_title": {
+    "message": "Processing Document"
+  },
+  "notification_document_processing_message": {
+    "message": "Converting and uploading your selection..."
+  },
+  "notification_document_success_title": {
+    "message": "Document Saved"
+  },
+  "notification_document_success_message": {
+    "message": "Document successfully saved to pCloud."
+  },
+  "notification_document_error_title": {
+    "message": "Save Failed"
+  },
+  "notification_document_error_message": {
+    "message": "Could not save document. Please try again."
+  },
+  "error_connection_lost_refresh": {
     "message": "Cannot connect to the page. Please reload the tab and try again.",
     "description": "Error message when the content script is outdated or not available."
   }

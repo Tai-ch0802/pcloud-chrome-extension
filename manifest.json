@@ -1,9 +1,10 @@
 {
   "manifest_version": 3,
   "name": "__MSG_extensionName__",
-      "version": "1.0",
-      "default_locale": "en",
-      "description": "__MSG_extensionDescription__",  "icons": {
+  "version": "1.0",
+  "default_locale": "en",
+  "description": "__MSG_extensionDescription__",
+  "icons": {
     "16": "src/assets/icons/icon16.png",
     "48": "src/assets/icons/icon48.png",
     "128": "src/assets/icons/icon128.png"
@@ -23,26 +24,34 @@
     "storage",
     "contextMenus",
     "notifications",
-    "identity"
+    "identity",
+    "activeTab"
   ],
-    "options_page": "src/options/options.html",
-    "content_scripts": [
-        {
-            "matches": ["<all_urls>"],
-            "js": [
-                "src/assets/vendor/turndown.js",
-                "src/content/content.js"
-            ],
-            "css": ["src/content/content.css"]
-        }
-    ],
-    "web_accessible_resources": [
-        {
-            "resources": [
-                "src/content/upload_ui.html",
-                "src/assets/icons/icon128.png"
-            ],
-            "matches": ["<all_urls>"]
-        }
-    ]
+  "options_page": "src/options/options.html",
+  "content_scripts": [
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": [
+        "src/assets/vendor/turndown.js",
+        "src/assets/vendor/html-docx.js",
+        "src/content/content.js"
+      ],
+      "css": [
+        "src/content/content.css"
+      ]
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "src/content/upload_ui.html",
+        "src/assets/icons/icon128.png"
+      ],
+      "matches": [
+        "<all_urls>"
+      ]
+    }
+  ]
 }

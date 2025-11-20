@@ -116,18 +116,49 @@ document.addEventListener('drop', (e) => {
 // --- Initialization ---
 createElements();
 
-// --- Function to get selected HTML ---
+// --- Function to get selected HTML with absolute URLs ---
 function getSelectionHtml() {
     let html = "";
     const selection = window.getSelection();
     if (selection.rangeCount > 0) {
         const range = selection.getRangeAt(0);
         const fragment = range.cloneContents();
+
+        // Resolve relative URLs
+        const images = fragment.querySelectorAll('img');
+        images.forEach(img => {
+            img.src = img.src; // Accessing .src property returns absolute URL
+        });
+        const links = fragment.querySelectorAll('a');
+        links.forEach(a => {
+            a.href = a.href; // Accessing .href property returns absolute URL
+        });
+
         const div = document.createElement("div");
         div.appendChild(fragment);
         html = div.innerHTML;
     }
     return html;
+}
+
+// --- Helper to embed images into HTML for PDF/DOC generation ---
+async function embedImagesInHtml(html, images) {
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(html, 'text/html');
+    const imgTags = doc.querySelectorAll('img');
+
+    for (let img of imgTags) {
+        const src = img.getAttribute('src');
+        // Find the base64 data for this image
+        // We assume 'images' is an array of { originalUrl, base64Url }
+        // But matching might be tricky if src changed.
+        // Actually, we can just replace by matching original URL.
+        const match = images.find(i => i.originalUrl === src);
+        if (match && match.base64Url) {
+            img.src = match.base64Url;
+        }
+    }
+    return doc.body.innerHTML;
 }
 
 // --- Listener for messages from the background script ---
@@ -142,5 +173,74 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
             sendResponse({ markdown: "" });
         }
         return true; // Indicate that sendResponse will be called asynchronously
+    }
+
+    if (request.action === "getSelectionData") {
+        const selectedHtml = getSelectionHtml();
+        let markdown = "";
+        if (selectedHtml && typeof TurndownService === 'function') {
+            const turndownService = new TurndownService();
+            // Configure Turndown to keep images
+            turndownService.addRule('keepImages', {
+                filter: 'img',
+                replacement: function (content, node) {
+                    return `![${node.alt}](${node.src})`;
+                }
+            });
+            // Unwrap images from links (e.g. <a href="..."><img ...></a> -> ![...](...))
+            turndownService.addRule('unwrapLinkedImages', {
+                filter: function (node, options) {
+                    return node.nodeName === 'A' && node.querySelector('img');
+                },
+                replacement: function (content, node) {
+                    return content;
+                }
+            });
+            markdown = turndownService.turndown(selectedHtml);
+        }
+        sendResponse({ html: selectedHtml, markdown: markdown });
+        return true;
+    }
+
+
+
+    if (request.action === "generateDoc") {
+        (async () => {
+            try {
+                const { dataKey } = request;
+                const storageData = await chrome.storage.local.get(dataKey);
+                const { html, images } = storageData[dataKey];
+
+                const embeddedHtml = await embedImagesInHtml(html, images);
+
+                // Wrap in full HTML for Word
+                const fullHtml = `<!DOCTYPE html><html><head><meta charset="UTF-8"></head><body>${embeddedHtml}</body></html>`;
+
+                // html-docx-js should be global 'htmlDocx' or similar
+                // Check how it's exported. Usually 'htmlDocx'.
+                // If it's a module, it might be tricky. But unpkg version is usually UMD/Global.
+
+                let converted = null;
+                if (typeof htmlDocx !== 'undefined') {
+                    converted = htmlDocx.asBlob(fullHtml);
+                } else if (window.htmlDocx) {
+                    converted = window.htmlDocx.asBlob(fullHtml);
+                } else {
+                    throw new Error("html-docx library not found");
+                }
+
+                const reader = new FileReader();
+                reader.onloadend = () => sendResponse({ dataUrl: reader.result });
+                reader.readAsDataURL(converted);
+            } catch (e) {
+                console.error("DOC Generation Error", e);
+                sendResponse({ error: e.message });
+            }
+        })();
+        return true;
+    }
+    if (request.action === "ping") {
+        sendResponse({ status: "pong" });
+        return true;
     }
 });

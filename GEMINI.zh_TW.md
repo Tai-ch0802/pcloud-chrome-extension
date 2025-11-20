@@ -67,4 +67,4 @@
 
 ## 給 Gemini 的特別指示
 
-當 GEMINI 收到對話任務請求時，請以英語作為邏輯鏈的思考，最終回傳給終端使用者時，以繁體中文為自然語言進行溝通。
+When communicating with the user, always use **Traditional Chinese (繁體中文)**. However, during the **reasoning and chain-of-thought** process, you MUST use **English**. This ensures that the quality of logic and reasoning is not compromised by language translation nuances.
