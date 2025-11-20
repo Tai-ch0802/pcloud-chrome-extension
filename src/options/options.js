@@ -9,6 +9,7 @@ const TEXT_FILENAME_CONFIG_KEY = 'text_filename_config';
 const DOC_FILENAME_CONFIG_KEY = 'doc_filename_config';
 const DOC_FORMAT_KEY = 'doc_format';
 const DOC_INCLUDE_METADATA_KEY = 'doc_include_metadata';
+const TEXT_INCLUDE_METADATA_KEY = 'text_include_metadata';
 const FOLDER_STATE_KEY = 'folder_collapse_state';
 const THEME_KEY = 'selected_theme';
 const IS_DEV_MODE = !('update_url' in chrome.runtime.getManifest());
@@ -27,6 +28,7 @@ const imageFilenamePreview = document.getElementById('filename-preview');
 // Text Filename Elements
 const textFilenamePartsList = document.getElementById('text-filename-parts-list');
 const textFilenamePreview = document.getElementById('text-filename-preview');
+const textMetadataCheckbox = document.getElementById('text-include-metadata');
 
 // Document Downloader Elements
 const docFilenamePartsList = document.getElementById('doc-filename-parts-list');
@@ -383,6 +385,15 @@ document.addEventListener('DOMContentLoaded', async () => {
   });
   await textConfigurator.load();
   textConfigurator.setupDragAndDrop();
+
+  // Initialize Text Metadata Checkbox
+  const { [TEXT_INCLUDE_METADATA_KEY]: savedTextMetadata = false } = await chrome.storage.sync.get(TEXT_INCLUDE_METADATA_KEY);
+  textMetadataCheckbox.checked = savedTextMetadata;
+
+  textMetadataCheckbox.addEventListener('change', async () => {
+    await chrome.storage.sync.set({ [TEXT_INCLUDE_METADATA_KEY]: textMetadataCheckbox.checked });
+    showStatusMessage('options_saved_message');
+  });
 
   // Initialize Document Filename Configurator
   const docConfigurator = initializeFilenameConfigurator({

@@ -5,6 +5,7 @@ import PCloudAPIClient from '../../core/pcloud-api.js';
 
 const PCLOUD_ICON_PATH = '/src/assets/icons/icon128.png';
 const TEXT_FILENAME_CONFIG_KEY = 'text_filename_config';
+const TEXT_INCLUDE_METADATA_KEY = 'text_include_metadata';
 const DEFAULT_UPLOAD_FOLDER_ID_KEY = 'default_upload_folder_id';
 const DEFAULT_UPLOAD_FOLDER_PATH_KEY = 'default_upload_folder_path';
 
@@ -60,9 +61,31 @@ async function handleContextMenuClick(info, tab, initiateUpload) {
 
         const {
             [TEXT_FILENAME_CONFIG_KEY]: config = defaultTextFilenameConfig,
+            [TEXT_INCLUDE_METADATA_KEY]: includeMetadata = false,
             [DEFAULT_UPLOAD_FOLDER_PATH_KEY]: basePath = '/',
             [DEFAULT_UPLOAD_FOLDER_ID_KEY]: baseFolderId = 0
-        } = await chrome.storage.sync.get([TEXT_FILENAME_CONFIG_KEY, DEFAULT_UPLOAD_FOLDER_PATH_KEY, DEFAULT_UPLOAD_FOLDER_ID_KEY]);
+        } = await chrome.storage.sync.get([TEXT_FILENAME_CONFIG_KEY, TEXT_INCLUDE_METADATA_KEY, DEFAULT_UPLOAD_FOLDER_PATH_KEY, DEFAULT_UPLOAD_FOLDER_ID_KEY]);
+
+        // Add Metadata if enabled
+        if (includeMetadata) {
+            const metadata = [
+                '---',
+                `title: ${tab.title}`,
+                `source_url: ${tab.url}`,
+                `captured_at: ${new Date().toISOString()}`,
+                '---',
+                '',
+                ''
+            ].join('\n');
+            markdown = metadata + markdown;
+        }
+
+        // Post-processing: Unwrap images that are wrapped in links
+        // Pattern: [ \n ![]() \n ](link) -> ![]()
+        markdown = markdown.replace(/\[\s*(!\[.*?\]\(.*?\))\s*\]\(.*?\)/g, '$1');
+
+        // Post-processing: Collapse excessive newlines
+        markdown = markdown.replace(/\n{3,}/g, '\n\n');
 
         const nameParts = {
             PAGE_TITLE: (tab.title || 'Untitled').replace(/[\\/:*?"<>|]/g, '_').substring(0, 100),

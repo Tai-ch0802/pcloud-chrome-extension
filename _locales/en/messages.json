@@ -282,7 +282,10 @@
     "message": "Document Format"
   },
   "options_document_include_metadata_label": {
-    "message": "Include Metadata (Markdown only)"
+    "message": "Include Metadata (YAML Frontmatter)"
+  },
+  "options_text_include_metadata_label": {
+    "message": "Include Metadata (YAML Frontmatter)"
   },
   "notification_document_processing_title": {
     "message": "Processing Document"
