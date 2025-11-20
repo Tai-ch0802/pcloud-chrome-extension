@@ -65,6 +65,42 @@ To ensure session continuity and effective context management, Gemini will adher
 
 ---
 
+## 6. Commit Message Guidelines
+
+We follow the Conventional Commits specification.
+
+**Format:**
+```
+<type>: <subject>
+
+<body (optional)>
+
+<footer (optional)>
+```
+
+**Types:**
+- `feat`: A new feature
+- `fix`: A bug fix
+- `docs`: Documentation only changes
+- `style`: Changes that do not affect the meaning of the code (white-space, formatting, etc)
+- `refactor`: A code change that neither fixes a bug nor adds a feature
+- `perf`: A code change that improves performance
+- `test`: Adding missing tests or correcting existing tests
+- `chore`: Changes to the build process or auxiliary tools and libraries such as documentation generation
+
+**Example:**
+```
+feat: Implement Document Downloader and update project guidelines
+
+This commit introduces a new feature allowing users to save selected web content as Markdown or Word documents to pCloud.
+
+Key Features & Changes:
+1.  **Document Downloader:** Implemented `contextMenuDocumentDownloader.js`.
+2.  **Cleanup:** Removed unused PDF dependencies.
+```
+
+---
+
 ## Special Instruction for Gemini
 
 When communicating with the user, always use **Traditional Chinese (繁體中文)**. However, during the **reasoning and chain-of-thought** process, you MUST use **English**. This ensures that the quality of logic and reasoning is not compromised by language translation nuances.
