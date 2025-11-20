@@ -1,6 +1,6 @@
 # 專案架構與指南
 
-本文件概述了 pCloud Chrome 擴充功能套件的架構、其核心原則以及給予 Gemini 的特別指示。
+本文件概述了 HyperFetch for pCloud 的架構、其核心原則以及給予 Gemini 的特別指示。
 
 ## 1. 目錄結構
 
