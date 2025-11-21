@@ -307,3 +307,22 @@ body {
   font-size: 12px;
   text-align: center;
 }
+
+.folder-path {
+    font-size: 11px;
+    color: var(--secondary-text-color);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-top: 2px;
+}
+
+.upload-item.clickable {
+    cursor: pointer;
+    transition: background-color 0.2s;
+    border-radius: 4px;
+}
+
+.upload-item.clickable:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+}

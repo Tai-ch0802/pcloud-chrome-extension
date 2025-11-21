@@ -5,6 +5,7 @@ import PCloudAPIClient from '../core/pcloud-api.js';
 import { initializeContextMenuImageDownloader } from '../features/free/contextMenuImageDownloader.js';
 import { initializeContextMenuTextDownloader } from '../features/free/contextMenuTextUploader.js';
 import { initializeContextMenuDocumentDownloader } from '../features/paid/contextMenuDocumentDownloader.js';
+import { processImageUpload } from '../features/free/imageUploadUtils.js';
 
 
 // --- Centralized Global State ---
@@ -69,6 +70,7 @@ async function startUpload(uploadId, file, options = {}) {
             uploadFolderId = storedFolderId;
         }
 
+        upload.folderId = uploadFolderId; // Store folder ID for UI
         upload.status = 'uploading';
         broadcastState();
 
@@ -124,11 +126,21 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
     const { type, payload } = message;
 
     if (type === 'startUploadFromUrl' && payload.imageUrl) {
-        fetch(payload.imageUrl)
-            .then(response => response.blob())
-            .then(blob => new File([blob], payload.fileName, { type: blob.type }))
-            .then(file => initiateUpload(file, { showNotifications: false }))
-            .catch(error => console.error('URL fetch failed for content script:', error));
+        (async () => {
+            try {
+                const authToken = await getAuthToken();
+                if (!authToken) throw new Error('Not authenticated');
+
+                const response = await fetch(payload.imageUrl);
+                const blob = await response.blob();
+
+                const { file, folderId } = await processImageUpload(blob, payload.pageTitle, authToken);
+
+                initiateUpload(file, { showNotifications: false, folderId });
+            } catch (error) {
+                console.error('URL fetch or processing failed for content script:', error);
+            }
+        })();
         return true;
     }
 

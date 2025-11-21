@@ -51,12 +51,12 @@ function localizeHtml() {
     const key = el.dataset.i18n;
     const message = chrome.i18n.getMessage(key);
     if (message) {
-        const textSpan = el.querySelector('.mdc-button__label') || el.querySelector('.mdc-list-item__text');
-        if (textSpan) {
-            textSpan.textContent = message;
-        } else {
-            el.textContent = message;
-        }
+      const textSpan = el.querySelector('.mdc-button__label') || el.querySelector('.mdc-list-item__text');
+      if (textSpan) {
+        textSpan.textContent = message;
+      } else {
+        el.textContent = message;
+      }
     }
   });
   document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
@@ -91,12 +91,12 @@ function clearLoginErrors() {
 }
 
 function formatBytes(bytes, decimals = 2) {
-    if (bytes === 0) return '0 Bytes';
-    const k = 1024;
-    const dm = decimals < 0 ? 0 : decimals;
-    const sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'];
-    const i = Math.floor(Math.log(bytes) / Math.log(k));
-    return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + ' ' + sizes[i];
+  if (bytes === 0) return '0 Bytes';
+  const k = 1024;
+  const dm = decimals < 0 ? 0 : decimals;
+  const sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'];
+  const i = Math.floor(Math.log(bytes) / Math.log(k));
+  return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + ' ' + sizes[i];
 }
 
 async function handleSuccessfulLogin() {
@@ -160,16 +160,16 @@ async function updateUserInfoDisplay() {
     }
 
     if (userInfo && typeof userInfo.quota !== 'undefined' && typeof userInfo.usedquota !== 'undefined') {
-        const { quota, usedquota } = userInfo;
-        const usedFormatted = formatBytes(usedquota);
-        const totalFormatted = formatBytes(quota);
-        const percentage = quota === 0 ? 0 : (usedquota / quota);
+      const { quota, usedquota } = userInfo;
+      const usedFormatted = formatBytes(usedquota);
+      const totalFormatted = formatBytes(quota);
+      const percentage = quota === 0 ? 0 : (usedquota / quota);
 
-        quotaTextDiv.textContent = `${usedFormatted} / ${totalFormatted}`;
-        if (quotaProgressBar) {
-            quotaProgressBar.progress = percentage;
-        }
-        quotaInfoDiv.classList.remove('hidden');
+      quotaTextDiv.textContent = `${usedFormatted} / ${totalFormatted}`;
+      if (quotaProgressBar) {
+        quotaProgressBar.progress = percentage;
+      }
+      quotaInfoDiv.classList.remove('hidden');
     }
 
   } catch (error) {
@@ -184,145 +184,157 @@ optionsButton.addEventListener('click', () => {
 });
 
 loginButtonOAuth.addEventListener('click', async () => {
-    clearLoginErrors();
-    loginButtonOAuth.disabled = true;
-    try {
-        const token = await authenticateWithOAuth();
-        if (token) {
-            await handleSuccessfulLogin();
-        } else {
-            // This case should ideally not be hit if errors are thrown correctly
-            displayLoginError(chrome.i18n.getMessage('login_oauth_error'));
-        }
-    } catch (error) {
-        console.error("OAuth login failed:", error);
-        // User cancellation is a common case, don't show a scary error for it.
-        if (error.message.includes('cancelled by the user')) {
-            // Optionally do nothing or show a subtle message
-        } else {
-            displayLoginError(chrome.i18n.getMessage('login_oauth_error'));
-        }
-    } finally {
-        loginButtonOAuth.disabled = false;
+  clearLoginErrors();
+  loginButtonOAuth.disabled = true;
+  try {
+    const token = await authenticateWithOAuth();
+    if (token) {
+      await handleSuccessfulLogin();
+    } else {
+      // This case should ideally not be hit if errors are thrown correctly
+      displayLoginError(chrome.i18n.getMessage('login_oauth_error'));
     }
+  } catch (error) {
+    console.error("OAuth login failed:", error);
+    // User cancellation is a common case, don't show a scary error for it.
+    if (error.message.includes('cancelled by the user')) {
+      // Optionally do nothing or show a subtle message
+    } else {
+      displayLoginError(chrome.i18n.getMessage('login_oauth_error'));
+    }
+  } finally {
+    loginButtonOAuth.disabled = false;
+  }
 });
-  
+
 logoutButton.addEventListener('click', async () => {
-    await clearAuthToken();
-    showView(loginView);
-    userEmailSpan.textContent = '';
-    quotaInfoDiv.classList.add('hidden');
-    clearLoginErrors();
-    
-    uploads = [];
-    fileInput.value = '';
-    renderUploads();
+  await clearAuthToken();
+  showView(loginView);
+  userEmailSpan.textContent = '';
+  quotaInfoDiv.classList.add('hidden');
+  clearLoginErrors();
+
+  uploads = [];
+  fileInput.value = '';
+  renderUploads();
 });
-  
+
 document.getElementById('pcloud-website-link').addEventListener('click', (e) => {
-    e.preventDefault();
-    chrome.tabs.create({ url: 'https://my.pcloud.com/' });
+  e.preventDefault();
+  chrome.tabs.create({ url: 'https://my.pcloud.com/' });
 });
-  
+
 // --- Upload UI Logic ---
 function renderUploads() {
-    uploadList.innerHTML = '';
+  uploadList.innerHTML = '';
 
-    if (uploads.length > 0) {
-        uploadList.classList.remove('hidden');
-    } else {
-        uploadList.classList.add('hidden');
+  if (uploads.length > 0) {
+    uploadList.classList.remove('hidden');
+  } else {
+    uploadList.classList.add('hidden');
+  }
+
+  uploads.forEach(upload => {
+    const item = document.createElement('div');
+    item.className = 'upload-item';
+    item.id = `upload-${upload.id}`;
+
+    let statusHTML = '';
+    let progressBarWidth = upload.progress;
+    let progressBarClass = 'item-progress-bar';
+
+    if (upload.status === 'fetching' || upload.status === 'starting') {
+      statusHTML = `<div class="upload-item-status">Starting...</div>`;
+    } else if (upload.status === 'uploading') {
+      statusHTML = `<div class="upload-item-status">Uploading...</div>`;
+      progressBarWidth = 100; // Full width for animation
+      progressBarClass += ' in-progress';
+    } else if (upload.status === 'done') {
+      statusHTML = `<div class="upload-item-status status-done">Done</div>`;
+    } else if (upload.status === 'clearing') {
+      statusHTML = `<div class="upload-item-status">Removing in ${upload.countdown}s...</div>`;
+    } else if (upload.status === 'error') {
+      statusHTML = `<div class="upload-item-status status-error">Error</div>`;
+      progressBarClass += ' error';
     }
 
-    uploads.forEach(upload => {
-        const item = document.createElement('div');
-        item.className = 'upload-item';
-        item.id = `upload-${upload.id}`;
+    const folderPath = upload.folderId ? buildPath(upload.folderId) : '/';
 
-        let statusHTML = '';
-        let progressBarWidth = upload.progress;
-        let progressBarClass = 'item-progress-bar';
-
-        if (upload.status === 'fetching' || upload.status === 'starting') {
-            statusHTML = `<div class="upload-item-status">Starting...</div>`;
-        } else if (upload.status === 'uploading') {
-            statusHTML = `<div class="upload-item-status">Uploading...</div>`;
-            progressBarWidth = 100; // Full width for animation
-            progressBarClass += ' in-progress';
-        } else if (upload.status === 'done') {
-            statusHTML = `<div class="upload-item-status status-done">Done</div>`;
-        } else if (upload.status === 'clearing') {
-            statusHTML = `<div class="upload-item-status">Removing in ${upload.countdown}s...</div>`;
-        } else if (upload.status === 'error') {
-            statusHTML = `<div class="upload-item-status status-error">Error</div>`;
-            progressBarClass += ' error';
-        }
-
-        item.innerHTML = `
+    item.innerHTML = `
             <div class="upload-item-info">
                 <div class="file-name" title="${upload.fileName}">${upload.fileName}</div>
+                <div class="folder-path" title="${folderPath}">in ${folderPath}</div>
                 <div class="item-progress-bar-container">
                     <div class="${progressBarClass}" style="width: ${progressBarWidth}%"></div>
                 </div>
             </div>
             ${statusHTML}
         `;
-        uploadList.appendChild(item);
-    });
+
+    // Add click listener to open pCloud folder
+    if (upload.folderId) {
+      item.classList.add('clickable');
+      item.addEventListener('click', () => {
+        chrome.tabs.create({ url: `https://my.pcloud.com/#/filemanager?folder=${upload.folderId}` });
+      });
+    }
+
+    uploadList.appendChild(item);
+  });
 }
 
 function handleFiles(files) {
-    if (!files || files.length === 0) return;
+  if (!files || files.length === 0) return;
 
-    for (const file of files) {
-        const reader = new FileReader();
-        reader.onload = (e) => {
-            chrome.runtime.sendMessage({
-                type: 'startUploadFromFile',
-                payload: {
-                    name: file.name,
-                    type: file.type,
-                    dataUrl: e.target.result
-                }
-            });
-        };
-        reader.readAsDataURL(file);
-    }
-    fileInput.value = '';
+  for (const file of files) {
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      chrome.runtime.sendMessage({
+        type: 'startUploadFromFile',
+        payload: {
+          name: file.name,
+          type: file.type,
+          dataUrl: e.target.result
+        }
+      });
+    };
+    reader.readAsDataURL(file);
+  }
+  fileInput.value = '';
 }
 
 // --- Event Listeners for Upload ---
 dropZone.addEventListener('dragover', (e) => {
-    e.preventDefault();
-    dropZone.classList.add('dragover');
+  e.preventDefault();
+  dropZone.classList.add('dragover');
 });
 
 dropZone.addEventListener('dragleave', (e) => {
-    e.preventDefault();
-    dropZone.classList.remove('dragover');
+  e.preventDefault();
+  dropZone.classList.remove('dragover');
 });
 
 dropZone.addEventListener('drop', (e) => {
-    e.preventDefault();
-    dropZone.classList.remove('dragover');
-    handleFiles(e.dataTransfer.files);
+  e.preventDefault();
+  dropZone.classList.remove('dragover');
+  handleFiles(e.dataTransfer.files);
 });
 
 selectFileLink.addEventListener('click', (e) => {
-    e.preventDefault();
-    fileInput.click();
+  e.preventDefault();
+  fileInput.click();
 });
 
 fileInput.addEventListener('change', () => {
-    handleFiles(fileInput.files);
+  handleFiles(fileInput.files);
 });
 
 // --- Message Listener for State Updates ---
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
-    if (message.type === 'uploadStateUpdate') {
-        uploads = message.payload;
-        renderUploads();
-    }
+  if (message.type === 'uploadStateUpdate') {
+    uploads = message.payload;
+    renderUploads();
+  }
 });
 
 // --- Initial Load ---
@@ -352,10 +364,10 @@ document.addEventListener('DOMContentLoaded', async () => {
 chrome.storage.onChanged.addListener((changes, namespace) => {
   if (namespace === 'sync') {
     if (changes[DEFAULT_UPLOAD_FOLDER_ID_KEY]) {
-        updateCurrentUploadPathDisplay();
+      updateCurrentUploadPathDisplay();
     }
     if (changes.selected_theme) {
-        applyTheme();
+      applyTheme();
     }
   }
 });

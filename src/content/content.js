@@ -42,9 +42,18 @@ function addIconEventListeners() {
 
         const imageUrl = e.dataTransfer.getData('text/uri-list');
         if (imageUrl) {
+            if (!chrome.runtime?.id) {
+                console.error("pCloud Extension: Context invalidated. Please refresh the page.");
+                alert("pCloud Extension: Connection lost. Please refresh the page.");
+                return;
+            }
+
             chrome.runtime.sendMessage({
                 type: 'startUploadFromUrl',
-                payload: { imageUrl }
+                payload: {
+                    imageUrl,
+                    pageTitle: document.title
+                }
             });
             // Show the iframe immediately to display progress
             pcloudUploadIframe.classList.add('visible');

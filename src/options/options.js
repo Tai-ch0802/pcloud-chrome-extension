@@ -448,7 +448,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     showStatusMessage('options_saved_message');
   });
 
-  document.title = chrome.i18n.getMessage('options_title');
+  document.title = chrome.i18n.getMessage('extensionName');
   const state = await chrome.storage.local.get(FOLDER_STATE_KEY);
   folderCollapseState = state[FOLDER_STATE_KEY] || {};
   await renderFolderTree();
