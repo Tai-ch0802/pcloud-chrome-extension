@@ -134,7 +134,7 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
                 const response = await fetch(payload.imageUrl);
                 const blob = await response.blob();
 
-                const { file, folderId } = await processImageUpload(blob, payload.pageTitle, authToken);
+                const { file, folderId } = await processImageUpload(blob, payload.pageTitle, authToken, sender.tab.url);
 
                 initiateUpload(file, { showNotifications: false, folderId });
             } catch (error) {

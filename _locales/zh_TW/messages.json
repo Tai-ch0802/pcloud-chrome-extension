@@ -308,5 +308,68 @@
   "error_connection_lost_refresh": {
     "message": "無法連接到頁面。請重新載入分頁後再試一次。",
     "description": "當內容腳本過時或無法使用時的錯誤訊息。"
+  },
+  "options_domain_rules_title": {
+    "message": "透過 domain 指定上傳路徑"
+  },
+  "options_domain_rules_test_playground_title": {
+    "message": "測試匹配"
+  },
+  "options_domain_rules_test_placeholder": {
+    "message": "輸入網址以測試規則..."
+  },
+  "options_domain_rules_test_result_match": {
+    "message": "✅ 匹配規則：{rule}"
+  },
+  "options_domain_rules_test_result_no_match": {
+    "message": "無符合的規則。"
+  },
+  "options_dialog_cancel": {
+    "message": "取消"
+  },
+  "options_dialog_save": {
+    "message": "儲存"
+  },
+  "options_dialog_select": {
+    "message": "選擇"
+  },
+  "options_dialog_ok": {
+    "message": "確定"
+  },
+  "options_folder_picker_title": {
+    "message": "選擇資料夾"
+  },
+  "options_domain_rules_help_icon_tooltip": {
+    "message": "規則說明"
+  },
+  "options_domain_rules_help_dialog_title": {
+    "message": "規則優先級說明"
+  },
+  "options_domain_rules_help_dialog_content": {
+    "message": "規則由上而下進行比對，第一個符合的規則將被採用。您可以拖曳調整順序。建議使用上方的「測試匹配」來驗證您的設定。"
+  },
+  "options_domain_rules_add_button": {
+    "message": "新增規則"
+  },
+  "options_domain_rules_delete_button": {
+    "message": "刪除規則"
+  },
+  "options_domain_rules_col_domain": {
+    "message": "domain (支援萬用字元)"
+  },
+  "options_domain_rules_col_path": {
+    "message": "pcloud 指定上傳路徑"
+  },
+  "options_domain_rules_dialog_title_add": {
+    "message": "新增規則"
+  },
+  "options_domain_rules_dialog_title_edit": {
+    "message": "編輯規則"
+  },
+  "options_domain_rules_folder_picker_create_btn": {
+    "message": "建立新資料夾"
+  },
+  "options_domain_rules_confirm_delete": {
+    "message": "您確定要刪除此規則嗎？"
   }
 }

@@ -24,7 +24,7 @@ async function handleContextMenuClick(info, tab, initiateUpload) {
         if (!response.ok) throw new Error(`Failed to fetch: ${response.statusText}`);
         const blob = await response.blob();
 
-        const { file, folderId } = await processImageUpload(blob, tab.title, authToken);
+        const { file, folderId } = await processImageUpload(blob, tab.title, authToken, info.pageUrl);
 
         initiateUpload(file, { showNotifications: true, folderId: folderId });
     } catch (error) {

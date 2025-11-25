@@ -37,20 +37,63 @@ export function getFormattedTimestamp() {
     return `${YYYY}${MM}${DD}_${HH}${mm}${ss}`;
 }
 
+const DOMAIN_RULES_KEY = 'domain_upload_rules';
+
 /**
  * Processes an image blob for upload: generates filename based on config and ensures target folder exists.
  * @param {Blob} blob - The image blob.
  * @param {string} pageTitle - The title of the page the image was found on.
  * @param {string} authToken - The pCloud auth token.
+ * @param {string} sourceUrl - The URL of the page or image source for domain matching.
  * @returns {Promise<{file: File, folderId: number}>}
  */
-export async function processImageUpload(blob, pageTitle, authToken) {
+export async function processImageUpload(blob, pageTitle, authToken, sourceUrl) {
     // --- Get configs from storage ---
     const {
         [FILENAME_CONFIG_KEY]: config = defaultFilenameConfig,
         [DEFAULT_UPLOAD_FOLDER_PATH_KEY]: basePath = '/',
-        [DEFAULT_UPLOAD_FOLDER_ID_KEY]: baseFolderId = 0
-    } = await chrome.storage.sync.get([FILENAME_CONFIG_KEY, DEFAULT_UPLOAD_FOLDER_PATH_KEY, DEFAULT_UPLOAD_FOLDER_ID_KEY]);
+        [DEFAULT_UPLOAD_FOLDER_ID_KEY]: baseFolderId = 0,
+        [DOMAIN_RULES_KEY]: domainRules = []
+    } = await chrome.storage.sync.get([FILENAME_CONFIG_KEY, DEFAULT_UPLOAD_FOLDER_PATH_KEY, DEFAULT_UPLOAD_FOLDER_ID_KEY, DOMAIN_RULES_KEY]);
+
+    // --- Domain Rule Matching ---
+    let targetFolderId = baseFolderId;
+    let targetPath = basePath;
+    let matchedRule = null;
+
+    if (sourceUrl && domainRules.length > 0) {
+        let domain;
+        try {
+            domain = new URL(sourceUrl).hostname;
+        } catch (e) {
+            domain = sourceUrl;
+        }
+
+        matchedRule = domainRules.find(rule => {
+            if (!rule.enabled) return false;
+            const regexPattern = '^' + rule.domainPattern.replace(/\./g, '\\.').replace(/\*/g, '.*') + '$';
+            try {
+                return new RegExp(regexPattern).test(domain);
+            } catch (e) {
+                return false;
+            }
+        });
+
+        if (matchedRule) {
+            targetPath = matchedRule.targetPath;
+            // If we have a cached folder ID, use it, otherwise we might need to resolve path to ID
+            // Ideally, we should resolve path to ID if ID is missing or 0
+            if (matchedRule.targetFolderId) {
+                targetFolderId = matchedRule.targetFolderId;
+            } else {
+                // We need to resolve path to ID. 
+                // Since we are about to createFolderIfNotExists anyway, we can just use the path.
+                // But createFolderIfNotExists takes a path string.
+                // Let's rely on createFolderIfNotExists to handle the path and return the ID.
+                targetFolderId = 0; // Reset to root so we build full path from root
+            }
+        }
+    }
 
     const nameParts = {
         SORTING_NUMBER: Date.now(),
@@ -69,18 +112,35 @@ export async function processImageUpload(blob, pageTitle, authToken) {
     const finalBasename = allPathSegments.pop() || nameParts.SORTING_NUMBER.toString();
     const subfolderPath = allPathSegments.join('/');
 
-    let targetFolderId = baseFolderId;
+    const client = new PCloudAPIClient(authToken);
 
-    if (subfolderPath) {
-        const client = new PCloudAPIClient(authToken);
-        const fullTargetPath = [basePath, subfolderPath].join('/').replace(/\/+/g, '/').replace(/\/$/, '');
+    // If we matched a rule, the targetPath is the rule's path.
+    // If not, it's the default base path.
+    // We append any subfolders defined in the filename config (though usually filename config shouldn't have folders, but logic supports it)
 
-        if (fullTargetPath && fullTargetPath !== '/') {
-            const folderMeta = await client.createFolderIfNotExists(fullTargetPath);
-            if (folderMeta && folderMeta.metadata && folderMeta.metadata.folderid) {
-                targetFolderId = folderMeta.metadata.folderid;
-            }
+    // Construct the full absolute path for pCloud
+    // If targetFolderId is known and valid (non-zero), we could use it, but createFolderIfNotExists works best with paths or we need a method to create by ID + subpath.
+    // The current createFolderIfNotExists implementation likely takes a full path string.
+    // Let's assume targetPath is absolute like '/MyFolder'.
+
+    let effectiveBasePath = targetPath;
+    if (matchedRule && matchedRule.targetFolderId) {
+        // Optimization: If we have an ID, we might want to use it directly if no subfolders.
+        // But to be safe and consistent, we'll ensure the folder exists by path.
+        // Or if we trust the ID, we just use it.
+        // For now, let's stick to path-based creation to ensure existence.
+    }
+
+    const fullTargetPath = [effectiveBasePath, subfolderPath].join('/').replace(/\/+/g, '/').replace(/\/$/, '');
+
+    if (fullTargetPath && fullTargetPath !== '/') {
+        const folderMeta = await client.createFolderIfNotExists(fullTargetPath);
+        if (folderMeta && folderMeta.metadata && folderMeta.metadata.folderid) {
+            targetFolderId = folderMeta.metadata.folderid;
         }
+    } else {
+        // Root folder
+        targetFolderId = 0;
     }
 
     const extension = getExtensionFromMime(blob.type);

@@ -9,6 +9,7 @@ const DOC_FORMAT_KEY = 'doc_format';
 const DOC_INCLUDE_METADATA_KEY = 'doc_include_metadata';
 const DEFAULT_UPLOAD_FOLDER_ID_KEY = 'default_upload_folder_id';
 const DEFAULT_UPLOAD_FOLDER_PATH_KEY = 'default_upload_folder_path';
+const DOMAIN_RULES_KEY = 'domain_upload_rules';
 
 const defaultDocFilenameConfig = [
     { id: 'PAGE_TITLE', labelKey: 'options_filename_part_page_title', enabled: true, separator: '/' },
@@ -84,11 +85,46 @@ async function handleContextMenuClick(info, tab, initiateUpload) {
             [DOC_FORMAT_KEY]: format = 'md',
             [DOC_INCLUDE_METADATA_KEY]: includeMetadata = false,
             [DEFAULT_UPLOAD_FOLDER_PATH_KEY]: basePath = '/',
-            [DEFAULT_UPLOAD_FOLDER_ID_KEY]: baseFolderId = 0
+            [DEFAULT_UPLOAD_FOLDER_ID_KEY]: baseFolderId = 0,
+            [DOMAIN_RULES_KEY]: domainRules = []
         } = await chrome.storage.sync.get([
             DOC_FILENAME_CONFIG_KEY, DOC_FORMAT_KEY, DOC_INCLUDE_METADATA_KEY,
-            DEFAULT_UPLOAD_FOLDER_PATH_KEY, DEFAULT_UPLOAD_FOLDER_ID_KEY
+            DEFAULT_UPLOAD_FOLDER_PATH_KEY, DEFAULT_UPLOAD_FOLDER_ID_KEY, DOMAIN_RULES_KEY
         ]);
+
+        // --- Domain Rule Matching ---
+        let targetFolderId = baseFolderId;
+        let targetPath = basePath;
+        let matchedRule = null;
+        const pageUrl = tab.url;
+
+        if (pageUrl && domainRules.length > 0) {
+            let domain;
+            try {
+                domain = new URL(pageUrl).hostname;
+            } catch (e) {
+                domain = pageUrl;
+            }
+
+            matchedRule = domainRules.find(rule => {
+                if (!rule.enabled) return false;
+                const regexPattern = '^' + rule.domainPattern.replace(/\./g, '\\.').replace(/\*/g, '.*') + '$';
+                try {
+                    return new RegExp(regexPattern).test(domain);
+                } catch (e) {
+                    return false;
+                }
+            });
+
+            if (matchedRule) {
+                targetPath = matchedRule.targetPath;
+                if (matchedRule.targetFolderId) {
+                    targetFolderId = matchedRule.targetFolderId;
+                } else {
+                    targetFolderId = 0;
+                }
+            }
+        }
 
         // 3. Determine Filename
         const nameParts = {
@@ -105,14 +141,19 @@ async function handleContextMenuClick(info, tab, initiateUpload) {
 
         // 4. Prepare Upload Folder
         const client = new PCloudAPIClient(authToken);
-        let targetFolderId = baseFolderId;
-        let fullTargetFolderPath = basePath;
+        let fullTargetFolderPath = targetPath;
 
         if (subfolderPath) {
-            fullTargetFolderPath = [basePath, subfolderPath].join('/').replace(/\/+/g, '/').replace(/\/$/, '');
-            if (fullTargetFolderPath && fullTargetFolderPath !== '/') {
-                const folderMeta = await client.createFolderIfNotExists(fullTargetFolderPath);
-                if (folderMeta?.metadata?.folderid) targetFolderId = folderMeta.metadata.folderid;
+            fullTargetFolderPath = [targetPath, subfolderPath].join('/').replace(/\/+/g, '/').replace(/\/$/, '');
+        }
+
+        if (fullTargetFolderPath && fullTargetFolderPath !== '/') {
+            const folderMeta = await client.createFolderIfNotExists(fullTargetFolderPath);
+            if (folderMeta?.metadata?.folderid) targetFolderId = folderMeta.metadata.folderid;
+        } else {
+            // If root and no subfolder, targetFolderId is already set correctly (0 or matchedRule ID)
+            if (!matchedRule && !subfolderPath) {
+                targetFolderId = baseFolderId;
             }
         }
 

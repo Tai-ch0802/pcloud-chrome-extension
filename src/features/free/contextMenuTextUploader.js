@@ -8,6 +8,7 @@ const TEXT_FILENAME_CONFIG_KEY = 'text_filename_config';
 const TEXT_INCLUDE_METADATA_KEY = 'text_include_metadata';
 const DEFAULT_UPLOAD_FOLDER_ID_KEY = 'default_upload_folder_id';
 const DEFAULT_UPLOAD_FOLDER_PATH_KEY = 'default_upload_folder_path';
+const DOMAIN_RULES_KEY = 'domain_upload_rules';
 
 const defaultTextFilenameConfig = [
     { id: 'PAGE_TITLE', labelKey: 'options_filename_part_page_title', enabled: true, separator: '_' },
@@ -63,8 +64,43 @@ async function handleContextMenuClick(info, tab, initiateUpload) {
             [TEXT_FILENAME_CONFIG_KEY]: config = defaultTextFilenameConfig,
             [TEXT_INCLUDE_METADATA_KEY]: includeMetadata = false,
             [DEFAULT_UPLOAD_FOLDER_PATH_KEY]: basePath = '/',
-            [DEFAULT_UPLOAD_FOLDER_ID_KEY]: baseFolderId = 0
-        } = await chrome.storage.sync.get([TEXT_FILENAME_CONFIG_KEY, TEXT_INCLUDE_METADATA_KEY, DEFAULT_UPLOAD_FOLDER_PATH_KEY, DEFAULT_UPLOAD_FOLDER_ID_KEY]);
+            [DEFAULT_UPLOAD_FOLDER_ID_KEY]: baseFolderId = 0,
+            [DOMAIN_RULES_KEY]: domainRules = []
+        } = await chrome.storage.sync.get([TEXT_FILENAME_CONFIG_KEY, TEXT_INCLUDE_METADATA_KEY, DEFAULT_UPLOAD_FOLDER_PATH_KEY, DEFAULT_UPLOAD_FOLDER_ID_KEY, DOMAIN_RULES_KEY]);
+
+        // --- Domain Rule Matching ---
+        let targetFolderId = baseFolderId;
+        let targetPath = basePath;
+        let matchedRule = null;
+        const pageUrl = tab.url;
+
+        if (pageUrl && domainRules.length > 0) {
+            let domain;
+            try {
+                domain = new URL(pageUrl).hostname;
+            } catch (e) {
+                domain = pageUrl;
+            }
+
+            matchedRule = domainRules.find(rule => {
+                if (!rule.enabled) return false;
+                const regexPattern = '^' + rule.domainPattern.replace(/\./g, '\\.').replace(/\*/g, '.*') + '$';
+                try {
+                    return new RegExp(regexPattern).test(domain);
+                } catch (e) {
+                    return false;
+                }
+            });
+
+            if (matchedRule) {
+                targetPath = matchedRule.targetPath;
+                if (matchedRule.targetFolderId) {
+                    targetFolderId = matchedRule.targetFolderId;
+                } else {
+                    targetFolderId = 0;
+                }
+            }
+        }
 
         // Add Metadata if enabled
         if (includeMetadata) {
@@ -104,17 +140,20 @@ async function handleContextMenuClick(info, tab, initiateUpload) {
         const finalBasename = allPathSegments.pop() || nameParts.TIMESTAMP.toString();
         const subfolderPath = allPathSegments.join('/');
 
-        let targetFolderId = baseFolderId;
-
-        if (subfolderPath) {
+        // Ensure the full path exists (base + subfolder)
+        if (subfolderPath || (matchedRule && targetPath)) {
             const client = new PCloudAPIClient(authToken);
-            const fullTargetPath = [basePath, subfolderPath].join('/').replace(/\/+/g, '/').replace(/\/$/, '');
+            // Use targetPath (which is either default basePath or rule path)
+            const fullTargetPath = [targetPath, subfolderPath].join('/').replace(/\/+/g, '/').replace(/\/$/, '');
 
             if (fullTargetPath && fullTargetPath !== '/') {
                 const folderMeta = await client.createFolderIfNotExists(fullTargetPath);
                 if (folderMeta && folderMeta.metadata && folderMeta.metadata.folderid) {
                     targetFolderId = folderMeta.metadata.folderid;
                 }
+            } else {
+                // Root folder
+                targetFolderId = 0;
             }
         }
 

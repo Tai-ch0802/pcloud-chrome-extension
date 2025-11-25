@@ -98,7 +98,7 @@ class PCloudAPIClient {
         method: 'POST',
         body: formData,
       });
-      
+
       const data = await response.json();
 
       if (data.result !== 0) {
@@ -116,28 +116,59 @@ class PCloudAPIClient {
    * Corresponds to pCloud API: /listfolder
    * @returns {Promise<object>} The metadata of the root folder, containing nested contents.
    */
-    async listAllFolders() {
-      const params = {
-        path: '/',
-        recursive: '1',
-        nofiles: '1'
-      };
-      return this._request("listfolder", params);
-    }
-  
-    /**
-     * Creates a folder if it doesn't already exist.
-     * NOTE: This is assumed to be recursive when using the `path` parameter,
-     * creating any necessary parent directories.
-     * Corresponds to pCloud API: /createfolderifnotexists
-     * @param {string} path The full path of the folder to create (e.g., "/My Folder/New Subfolder").
-     * @returns {Promise<object>} The metadata of the folder.
-     */
-    async createFolderIfNotExists(path) {
-        return this._request("createfolderifnotexists", { path });
-    }
-
-    // Add more API methods as needed (e.g., listfolder, deletefile, etc.)
+  async listAllFolders() {
+    const params = {
+      path: '/',
+      recursive: '1',
+      nofiles: '1'
+    };
+    return this._request("listfolder", params);
   }
+
+  /**
+   * Creates a folder if it doesn't already exist.
+   * NOTE: This is assumed to be recursive when using the `path` parameter,
+   * creating any necessary parent directories.
+   * Corresponds to pCloud API: /createfolderifnotexists
+   * @param {string} path The full path of the folder to create (e.g., "/My Folder/New Subfolder").
+   * @returns {Promise<object>} The metadata of the folder.
+   */
+  async createFolderIfNotExists(path) {
+    return this._request("createfolderifnotexists", { path });
+  }
+
+  // Add more API methods as needed (e.g., listfolder, deletefile, etc.)
+
+  /**
+   * Lists contents of a specific folder (non-recursive).
+   * Useful for lazy loading folder structures.
+   * Corresponds to pCloud API: /listfolder
+   * @param {number} folderid The ID of the folder to list.
+   * @returns {Promise<object>} The metadata of the folder.
+   */
+  async listFolder(folderid) {
+    const params = {
+      folderid: folderid,
+      recursive: '0',
+      nofiles: '1'
+    };
+    return this._request("listfolder", params);
+  }
+
+  /**
+   * Creates a new folder.
+   * Corresponds to pCloud API: /createfolder
+   * @param {number} folderid The parent folder ID.
+   * @param {string} name The name of the new folder.
+   * @returns {Promise<object>} The metadata of the created folder.
+   */
+  async createFolder(folderid, name) {
+    const params = {
+      folderid: folderid,
+      name: name
+    };
+    return this._request("createfolder", params);
+  }
+}
 
 export default PCloudAPIClient;

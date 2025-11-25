@@ -1,7 +1,8 @@
 /* src/assets/css/options.css */
 
 /* --- General Layout --- */
-html, body.options-body {
+html,
+body.options-body {
     height: auto;
     min-height: 100%;
     width: 100%;
@@ -105,6 +106,7 @@ body.options-body {
         opacity: 0;
         transform: translateY(15px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -116,8 +118,13 @@ body.options-body {
     opacity: 0;
 }
 
-.animated-card:nth-child(1) { animation-delay: 0.1s; }
-.animated-card:nth-child(2) { animation-delay: 0.2s; }
+.animated-card:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.animated-card:nth-child(2) {
+    animation-delay: 0.2s;
+}
 
 
 /* --- Selected Path Display --- */
@@ -148,7 +155,8 @@ body.options-body {
     padding-left: 22px;
     overflow: hidden;
     transition: max-height 0.3s ease-in-out, opacity 0.2s ease-in-out;
-    max-height: 1000px; /* A large value for expanded state */
+    max-height: 1000px;
+    /* A large value for expanded state */
     opacity: 1;
 }
 
@@ -177,7 +185,7 @@ body.options-body {
     background-color: var(--hover-color);
 }
 
-.folder-tree li.selected > .folder-item {
+.folder-tree li.selected>.folder-item {
     background-color: var(--mdc-theme-primary);
     color: var(--mdc-theme-on-primary);
 }
@@ -195,7 +203,7 @@ body.options-body {
     color: var(--secondary-text-color);
 }
 
-.folder-tree li.collapsed > .folder-item > .toggle-icon {
+.folder-tree li.collapsed>.folder-item>.toggle-icon {
     transform: rotate(-90deg);
 }
 
@@ -291,4 +299,239 @@ body.options-body {
     font-family: 'Roboto Mono', monospace;
     font-size: 14px;
     word-break: break-all;
+}
+
+/* --- Domain Rules Section --- */
+.header-title-group {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.header-actions {
+    display: flex;
+    gap: 8px;
+    margin-left: auto;
+}
+
+/* Test Playground */
+.test-playground {
+    padding: 16px;
+    background-color: var(--mdc-theme-background);
+    /* Use background color instead of surface-variant */
+    border-bottom: 1px solid var(--border-color);
+    transition: all 0.3s ease;
+}
+
+.test-playground.hidden {
+    display: none;
+}
+
+.test-result {
+    margin-top: 8px;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 14px;
+    min-height: 20px;
+    color: var(--mdc-theme-on-surface);
+    /* Ensure text color follows theme */
+}
+
+/* Rules Table */
+.mdc-data-table {
+    width: 100%;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    background-color: var(--mdc-theme-surface);
+    /* Ensure background follows theme */
+}
+
+.mdc-data-table__table {
+    width: 100%;
+}
+
+.mdc-data-table__header-cell {
+    font-weight: 500;
+    color: var(--mdc-theme-on-surface);
+    /* Ensure text color follows theme */
+    border-bottom: 1px solid var(--border-color);
+}
+
+.mdc-data-table__cell {
+    color: var(--mdc-theme-on-surface);
+    /* Ensure text color follows theme */
+    border-bottom: 1px solid var(--border-color);
+}
+
+.domain-rule-row {
+    cursor: grab;
+    background-color: var(--mdc-theme-surface);
+}
+
+.domain-rule-row:hover {
+    background-color: var(--mdc-theme-background);
+    /* Slight contrast on hover */
+}
+
+.domain-rule-row.dragging {
+    opacity: 0.5;
+    background-color: var(--mdc-theme-primary);
+    color: var(--mdc-theme-on-primary);
+}
+
+.rule-actions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 0;
+    padding: 0 8px !important;
+    /* Reduce default padding */
+    white-space: nowrap;
+}
+
+.rule-actions .mdc-icon-button {
+    color: var(--secondary-text-color);
+    padding: 6px;
+    width: 36px;
+    height: 36px;
+    font-size: 20px;
+}
+
+/* Dialogs */
+.mdc-dialog__surface {
+    min-width: 700px;
+    max-width: 800px;
+    background-color: var(--mdc-theme-surface) !important;
+    font-family: 'Roboto', sans-serif !important;
+}
+
+.mdc-dialog__title {
+    color: var(--mdc-theme-on-surface) !important;
+    font-family: 'Roboto', sans-serif !important;
+}
+
+.mdc-dialog__content {
+    color: var(--mdc-theme-on-surface) !important;
+    font-family: 'Roboto', sans-serif !important;
+}
+
+/* Fix MDC Text Field Theming */
+.mdc-text-field {
+    background-color: var(--mdc-theme-surface-variant) !important;
+}
+
+.mdc-text-field:not(.mdc-text-field--disabled) .mdc-text-field__input {
+    color: var(--mdc-theme-on-surface) !important;
+}
+
+.mdc-text-field:not(.mdc-text-field--disabled) .mdc-floating-label {
+    color: var(--secondary-text-color) !important;
+}
+
+.mdc-text-field--focused:not(.mdc-text-field--disabled) .mdc-floating-label {
+    color: var(--mdc-theme-primary) !important;
+}
+
+.mdc-text-field--outlined:not(.mdc-text-field--disabled) .mdc-notched-outline__leading,
+.mdc-text-field--outlined:not(.mdc-text-field--disabled) .mdc-notched-outline__notch,
+.mdc-text-field--outlined:not(.mdc-text-field--disabled) .mdc-notched-outline__trailing {
+    border-color: var(--border-color) !important;
+}
+
+.mdc-text-field--outlined:not(.mdc-text-field--disabled).mdc-text-field--focused .mdc-notched-outline__leading,
+.mdc-text-field--outlined:not(.mdc-text-field--disabled).mdc-text-field--focused .mdc-notched-outline__notch,
+.mdc-text-field--outlined:not(.mdc-text-field--disabled).mdc-text-field--focused .mdc-notched-outline__trailing {
+    border-color: var(--mdc-theme-primary) !important;
+}
+
+/* Fix Icon Button Theming */
+.mdc-icon-button {
+    color: var(--mdc-theme-on-surface) !important;
+}
+
+.rule-editor-form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding-top: 8px;
+}
+
+.path-input-group {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.path-input-group .mdc-text-field {
+    flex-grow: 1;
+}
+
+.w-100 {
+    width: 100%;
+}
+
+/* Dialog Actions Fix */
+.mdc-dialog__actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+    padding: 8px 24px 20px 24px;
+}
+
+/* Folder Picker Dialog */
+#picker-folder-tree {
+    height: 300px;
+    overflow-y: auto;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    margin-bottom: 16px;
+    background-color: var(--mdc-theme-surface);
+    color: var(--mdc-theme-on-surface);
+}
+
+.create-folder-group {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.create-folder-group .mdc-text-field {
+    flex-grow: 1;
+}
+
+/* Ensure icons in dialogs match theme */
+.create-folder-group .mdc-icon-button,
+.path-input-group .mdc-icon-button {
+    color: var(--mdc-theme-on-surface);
+}
+
+/* Utility Classes for JS-generated content */
+.text-primary {
+    color: var(--mdc-theme-primary) !important;
+}
+
+.text-error {
+    color: var(--mdc-theme-error) !important;
+}
+
+.text-on-surface {
+    color: var(--mdc-theme-on-surface) !important;
+}
+
+/* Force Folder Tree Item Color */
+.folder-tree .folder-item {
+    color: var(--mdc-theme-on-surface);
+}
+
+.folder-tree .folder-item:hover {
+    background-color: var(--mdc-theme-surface-variant, rgba(0, 0, 0, 0.04));
+}
+
+.folder-tree li.selected>.folder-item {
+    background-color: var(--mdc-theme-primary);
+    color: var(--mdc-theme-on-primary);
+}
+
+.folder-tree li.selected>.folder-item .icon {
+    color: var(--mdc-theme-on-primary);
+    fill: currentColor;
 }

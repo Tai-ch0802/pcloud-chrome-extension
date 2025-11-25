@@ -308,5 +308,68 @@
   "error_connection_lost_refresh": {
     "message": "Cannot connect to the page. Please reload the tab and try again.",
     "description": "Error message when the content script is outdated or not available."
+  },
+  "options_domain_rules_title": {
+    "message": "Upload Path by Domain"
+  },
+  "options_domain_rules_test_playground_title": {
+    "message": "Test Playground"
+  },
+  "options_domain_rules_test_placeholder": {
+    "message": "Enter URL to test rules..."
+  },
+  "options_domain_rules_test_result_match": {
+    "message": "✅ Matched Rule: {rule}"
+  },
+  "options_domain_rules_test_result_no_match": {
+    "message": "No matching rule found."
+  },
+  "options_dialog_cancel": {
+    "message": "Cancel"
+  },
+  "options_dialog_save": {
+    "message": "Save"
+  },
+  "options_dialog_select": {
+    "message": "Select"
+  },
+  "options_dialog_ok": {
+    "message": "OK"
+  },
+  "options_folder_picker_title": {
+    "message": "Select Folder"
+  },
+  "options_domain_rules_help_icon_tooltip": {
+    "message": "Rule Help"
+  },
+  "options_domain_rules_help_dialog_title": {
+    "message": "Rule Priority Help"
+  },
+  "options_domain_rules_help_dialog_content": {
+    "message": "Rules are matched from top to bottom. The first matching rule will be applied. You can drag and drop to reorder rules. We recommend using the 'Test Playground' above to verify your configuration."
+  },
+  "options_domain_rules_add_button": {
+    "message": "Add Rule"
+  },
+  "options_domain_rules_delete_button": {
+    "message": "Delete Rule"
+  },
+  "options_domain_rules_col_domain": {
+    "message": "Domain (supports wildcards)"
+  },
+  "options_domain_rules_col_path": {
+    "message": "Target pCloud Path"
+  },
+  "options_domain_rules_dialog_title_add": {
+    "message": "Add New Rule"
+  },
+  "options_domain_rules_dialog_title_edit": {
+    "message": "Edit Rule"
+  },
+  "options_domain_rules_folder_picker_create_btn": {
+    "message": "Create New Folder"
+  },
+  "options_domain_rules_confirm_delete": {
+    "message": "Are you sure you want to delete this rule?"
   }
 }

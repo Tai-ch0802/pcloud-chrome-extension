@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title data-i18n="extensionName"></title>
     <link rel="stylesheet" href="../assets/css/theme.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="../assets/vendor/material-components-web.min.css">
     <link rel="stylesheet" href="../assets/css/options.css">
 </head>
@@ -78,6 +79,176 @@
                     </div>
                     <div id="folder-tree-container" class="folder-tree"></div>
                 </div>
+            </div>
+
+            <!-- Domain Rules Card -->
+            <div class="mdc-card setting-card animated-card">
+                <div class="card-header">
+                    <div class="header-title-group">
+                        <h2 class="mdc-typography--headline6" data-i18n="options_domain_rules_title">Upload Path by
+                            Domain</h2>
+                        <button id="domain-rules-help-btn" class="mdc-icon-button material-icons"
+                            data-i18n-title="options_domain_rules_help_icon_tooltip">help_outline</button>
+                    </div>
+                    <div class="header-actions">
+                        <button id="test-playground-toggle-btn" class="mdc-button mdc-button--outlined">
+                            <span class="mdc-button__ripple"></span>
+                            <span class="mdc-button__label" data-i18n="options_domain_rules_test_playground_title">Test
+                                Playground</span>
+                        </button>
+                        <button id="add-rule-btn" class="mdc-button mdc-button--raised">
+                            <span class="mdc-button__ripple"></span>
+                            <span class="mdc-button__label" data-i18n="options_domain_rules_add_button">Add Rule</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div id="test-playground" class="test-playground hidden">
+                    <div class="mdc-text-field mdc-text-field--outlined w-100">
+                        <input type="text" id="test-url-input" class="mdc-text-field__input">
+                        <span class="mdc-notched-outline">
+                            <span class="mdc-notched-outline__leading"></span>
+                            <span class="mdc-notched-outline__notch">
+                                <span class="mdc-floating-label" data-i18n="options_domain_rules_test_placeholder">Enter
+                                    URL to test rules...</span>
+                            </span>
+                            <span class="mdc-notched-outline__trailing"></span>
+                        </span>
+                    </div>
+                    <div id="test-result" class="test-result"></div>
+                </div>
+
+                <div class="mdc-card__content">
+                    <div class="mdc-data-table">
+                        <div class="mdc-data-table__table-container">
+                            <table class="mdc-data-table__table" aria-label="Domain Rules">
+                                <thead>
+                                    <tr class="mdc-data-table__header-row">
+                                        <th class="mdc-data-table__header-cell" role="columnheader" scope="col">Status
+                                        </th>
+                                        <th class="mdc-data-table__header-cell" role="columnheader" scope="col"
+                                            data-i18n="options_domain_rules_col_domain">Domain</th>
+                                        <th class="mdc-data-table__header-cell" role="columnheader" scope="col"
+                                            data-i18n="options_domain_rules_col_path">Path</th>
+                                        <th class="mdc-data-table__header-cell" role="columnheader" scope="col">Actions
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody class="mdc-data-table__content" id="domain-rules-list">
+                                    <!-- Rules will be dynamically generated -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Rule Editor Dialog -->
+            <div class="mdc-dialog" id="rule-editor-dialog">
+                <div class="mdc-dialog__container">
+                    <div class="mdc-dialog__surface" role="alertdialog" aria-modal="true">
+                        <h2 class="mdc-dialog__title" id="rule-editor-title">Edit Rule</h2>
+                        <div class="mdc-dialog__content">
+                            <div class="rule-editor-form">
+                                <div class="mdc-text-field mdc-text-field--outlined w-100">
+                                    <input type="text" id="rule-domain-input" class="mdc-text-field__input">
+                                    <span class="mdc-notched-outline">
+                                        <span class="mdc-notched-outline__leading"></span>
+                                        <span class="mdc-notched-outline__notch">
+                                            <span class="mdc-floating-label"
+                                                data-i18n="options_domain_rules_col_domain">Domain</span>
+                                        </span>
+                                        <span class="mdc-notched-outline__trailing"></span>
+                                    </span>
+                                </div>
+                                <div class="path-input-group">
+                                    <div class="mdc-text-field mdc-text-field--outlined w-100">
+                                        <input type="text" id="rule-path-input" class="mdc-text-field__input" readonly>
+                                        <input type="hidden" id="rule-folder-id-input">
+                                        <span class="mdc-notched-outline">
+                                            <span class="mdc-notched-outline__leading"></span>
+                                            <span class="mdc-notched-outline__notch">
+                                                <span class="mdc-floating-label"
+                                                    data-i18n="options_domain_rules_col_path">Path</span>
+                                            </span>
+                                            <span class="mdc-notched-outline__trailing"></span>
+                                        </span>
+                                    </div>
+                                    <button id="rule-folder-picker-btn"
+                                        class="mdc-icon-button material-icons">create_new_folder</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mdc-dialog__actions">
+                            <button type="button" class="mdc-button mdc-dialog__button" data-mdc-dialog-action="close">
+                                <div class="mdc-button__ripple"></div>
+                                <span class="mdc-button__label" data-i18n="options_dialog_cancel">Cancel</span>
+                            </button>
+                            <button type="button" class="mdc-button mdc-dialog__button" data-mdc-dialog-action="save">
+                                <div class="mdc-button__ripple"></div>
+                                <span class="mdc-button__label" data-i18n="options_dialog_save">Save</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="mdc-dialog__scrim"></div>
+            </div>
+
+            <!-- Folder Picker Dialog -->
+            <div class="mdc-dialog" id="folder-picker-dialog">
+                <div class="mdc-dialog__container">
+                    <div class="mdc-dialog__surface" role="alertdialog" aria-modal="true">
+                        <h2 class="mdc-dialog__title" data-i18n="options_folder_picker_title">Select Folder</h2>
+                        <div class="mdc-dialog__content">
+                            <div id="picker-folder-tree" class="folder-tree"></div>
+                            <div class="create-folder-group">
+                                <div class="mdc-text-field mdc-text-field--outlined mdc-text-field--dense">
+                                    <input type="text" id="new-folder-name-input" class="mdc-text-field__input">
+                                    <span class="mdc-notched-outline">
+                                        <span class="mdc-notched-outline__leading"></span>
+                                        <span class="mdc-notched-outline__trailing"></span>
+                                    </span>
+                                </div>
+                                <button id="create-folder-btn" class="mdc-button mdc-button--outlined">
+                                    <span class="mdc-button__ripple"></span>
+                                    <span class="mdc-button__label"
+                                        data-i18n="options_domain_rules_folder_picker_create_btn">Create</span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="mdc-dialog__actions">
+                            <button type="button" class="mdc-button mdc-dialog__button" data-mdc-dialog-action="close">
+                                <div class="mdc-button__ripple"></div>
+                                <span class="mdc-button__label" data-i18n="options_dialog_cancel">Cancel</span>
+                            </button>
+                            <button type="button" class="mdc-button mdc-dialog__button" data-mdc-dialog-action="select">
+                                <div class="mdc-button__ripple"></div>
+                                <span class="mdc-button__label" data-i18n="options_dialog_select">Select</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="mdc-dialog__scrim"></div>
+            </div>
+
+            <!-- Help Dialog -->
+            <div class="mdc-dialog" id="help-dialog">
+                <div class="mdc-dialog__container">
+                    <div class="mdc-dialog__surface" role="alertdialog" aria-modal="true">
+                        <h2 class="mdc-dialog__title" data-i18n="options_domain_rules_help_dialog_title">Rule Priority
+                            Help</h2>
+                        <div class="mdc-dialog__content" data-i18n="options_domain_rules_help_dialog_content">
+                            Rules are matched from top to bottom...
+                        </div>
+                        <div class="mdc-dialog__actions">
+                            <button type="button" class="mdc-button mdc-dialog__button" data-mdc-dialog-action="close">
+                                <div class="mdc-button__ripple"></div>
+                                <span class="mdc-button__label" data-i18n="options_dialog_ok">OK</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="mdc-dialog__scrim"></div>
             </div>
 
             <!-- Image Filename Config Card -->
