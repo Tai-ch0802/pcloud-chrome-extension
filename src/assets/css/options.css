@@ -12,8 +12,13 @@ body.options-body {
     padding: 0;
     box-sizing: border-box;
     background-color: var(--mdc-theme-background);
-    color: var(--mdc-theme-on-background);
-    font-family: 'Roboto', sans-serif;
+    color: var(--mdc-theme-text-primary-on-background);
+    margin: 0;
+    font-family: Roboto, sans-serif;
+}
+
+.hidden {
+    display: none !important;
 }
 
 .options-container {
@@ -496,6 +501,129 @@ body.options-body {
 
 .create-folder-group .mdc-text-field {
     flex-grow: 1;
+}
+
+/* --- Premium Upgrade Card --- */
+.premium-card {
+    border: 2px solid transparent;
+    transition: border-color 0.3s ease;
+}
+
+.premium-card.active {
+    border-color: var(--mdc-theme-secondary);
+}
+
+.premium-badge {
+    background-color: var(--mdc-theme-secondary);
+    color: var(--mdc-theme-on-secondary);
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    margin-left: auto;
+}
+
+.pricing-selection-container {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 16px;
+    margin-bottom: 24px;
+    padding: 16px;
+    background-color: var(--mdc-theme-surface-variant);
+    border-radius: 8px;
+}
+
+.pricing-selection-container .mdc-form-field {
+    display: flex;
+    align-items: center;
+    height: auto;
+    /* Override default height */
+}
+
+.pricing-selection-container label {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    cursor: pointer;
+    align-items: center;
+}
+
+.tier-name {
+    font-weight: 500;
+    font-size: 1rem;
+}
+
+.tier-price {
+    font-weight: bold;
+    font-size: 1.1rem;
+    color: var(--mdc-theme-primary);
+}
+
+.tier-details {
+    margin-left: 52px;
+    /* Align with text, skipping radio button */
+    margin-top: -8px;
+    color: var(--mdc-theme-text-secondary-on-background);
+}
+
+.pricing-action {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 50px;
+    margin-bottom: 16px;
+}
+
+#paypal-button-container {
+    width: 100%;
+    max-width: 300px;
+    z-index: 1;
+}
+
+.restore-purchase-container {
+    text-align: center;
+}
+
+.premium-success-message {
+    text-align: center;
+    padding: 24px;
+    color: var(--mdc-theme-secondary);
+}
+
+.success-icon {
+    font-size: 48px;
+    margin-bottom: 16px;
+}
+
+.current-plan-info {
+    margin-top: 16px;
+    font-weight: 500;
+    color: var(--mdc-theme-text-hint-on-background);
+}
+
+/* Pricing Action & Upgrade Buttons */
+.upgrade-button {
+    --mdc-theme-primary: #0070ba;
+    --mdc-theme-on-primary: white;
+    min-width: 200px;
+    margin: 8px;
+    font-weight: 600;
+    transition: transform 0.2s;
+}
+
+.upgrade-button:hover {
+    transform: translateY(-2px);
+}
+
+.upgrade-button--master {
+    --mdc-theme-primary: #ff9500;
+}
+
+.upgrade-hint {
+    margin-top: 12px;
+    font-size: 14px;
+    color: var(--mdc-theme-text-secondary-on-background);
 }
 
 /* Ensure icons in dialogs match theme */

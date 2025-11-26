@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "@paypal/paypal-js": "^9.0.1",
+    "@paypal/paypal-server-sdk": "^1.0.0"
+  }
+}

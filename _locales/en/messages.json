@@ -371,5 +371,62 @@
   },
   "options_domain_rules_confirm_delete": {
     "message": "Are you sure you want to delete this rule?"
+  },
+  "options_section_premium": {
+    "message": "Premium Upgrade"
+  },
+  "options_premium_active": {
+    "message": "PREMIUM ACTIVE"
+  },
+  "options_premium_description": {
+    "message": "Unlock advanced features like Document Downloader (Markdown/Word) and more!"
+  },
+  "options_tier_pcloud_name": {
+    "message": "HyperFetch for pCloud"
+  },
+  "options_tier_pcloud_desc": {
+    "message": "Unlocks features for this extension only."
+  },
+  "options_tier_master_name": {
+    "message": "HyperFetch Master"
+  },
+  "options_tier_master_desc": {
+    "message": "Unlocks ALL HyperFetch extensions (pCloud, S3, etc.)."
+  },
+  "options_restore_purchase": {
+    "message": "Restore Purchase"
+  },
+  "options_premium_thank_you": {
+    "message": "Thank you for your support!"
+  },
+  "options_premium_active_desc": {
+    "message": "You have access to all premium features."
+  },
+  "options_payment_success": {
+    "message": "Payment successful! Premium features unlocked."
+  },
+  "options_payment_failed": {
+    "message": "Payment failed. Please try again."
+  },
+  "options_restore_success": {
+    "message": "Purchase restored successfully!"
+  },
+  "options_restore_failed": {
+    "message": "No license found for this email."
+  },
+  "notification_premium_required_title": {
+    "message": "Premium Feature"
+  },
+  "notification_premium_required_message": {
+    "message": "This feature requires a Premium license. Upgrade now to unlock!"
+  },
+  "notification_premium_upgrade_button": {
+    "message": "Upgrade Now"
+  },
+  "options_upgrade_now": {
+    "message": "Upgrade Now"
+  },
+  "options_payment_page_opening": {
+    "message": "Opening payment page... (Mock - Development Mode)"
   }
 }

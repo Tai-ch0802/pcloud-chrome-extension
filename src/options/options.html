@@ -9,6 +9,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="../assets/vendor/material-components-web.min.css">
     <link rel="stylesheet" href="../assets/css/options.css">
+    <script src="../assets/vendor/paypal/standard/client/html/src/app.js"></script>
 </head>
 
 <body class="options-body">
@@ -78,6 +79,98 @@
                         </div>
                     </div>
                     <div id="folder-tree-container" class="folder-tree"></div>
+                </div>
+            </div>
+
+            <!-- Premium Upgrade Card -->
+            <div class="mdc-card setting-card animated-card premium-card" id="premium-card">
+                <div class="card-header">
+                    <h2 class="mdc-typography--headline6" data-i18n="options_section_premium">Premium Upgrade</h2>
+                    <span class="premium-badge hidden" id="premium-status-badge"
+                        data-i18n="options_premium_active">PREMIUM ACTIVE</span>
+                </div>
+                <div class="mdc-card__content">
+                    <div id="premium-promo-content">
+                        <p class="mdc-typography--body1" data-i18n="options_premium_description">Unlock advanced
+                            features like Document Downloader (Markdown/Word) and more!</p>
+
+                        <div class="pricing-selection-container">
+                            <div class="mdc-form-field">
+                                <div class="mdc-radio">
+                                    <input class="mdc-radio__native-control" type="radio" id="tier-pcloud"
+                                        name="pricing-tier" value="hf4pcloud" checked>
+                                    <div class="mdc-radio__background">
+                                        <div class="mdc-radio__outer-circle"></div>
+                                        <div class="mdc-radio__inner-circle"></div>
+                                    </div>
+                                    <div class="mdc-radio__ripple"></div>
+                                </div>
+                                <label for="tier-pcloud">
+                                    <span class="tier-name" data-i18n="options_tier_pcloud_name">HyperFetch for
+                                        pCloud</span>
+                                    <span class="tier-price">$1.99</span>
+                                </label>
+                            </div>
+                            <div class="tier-details">
+                                <small data-i18n="options_tier_pcloud_desc">Unlocks features for this extension
+                                    only.</small>
+                            </div>
+
+                            <div class="mdc-form-field">
+                                <div class="mdc-radio">
+                                    <input class="mdc-radio__native-control" type="radio" id="tier-master"
+                                        name="pricing-tier" value="hf4master">
+                                    <div class="mdc-radio__background">
+                                        <div class="mdc-radio__outer-circle"></div>
+                                        <div class="mdc-radio__inner-circle"></div>
+                                    </div>
+                                    <div class="mdc-radio__ripple"></div>
+                                </div>
+                                <label for="tier-master">
+                                    <span class="tier-name" data-i18n="options_tier_master_name">HyperFetch
+                                        Master</span>
+                                    <span class="tier-price">$5.00</span>
+                                </label>
+                            </div>
+                            <div class="tier-details">
+                                <small data-i18n="options_tier_master_desc">Unlocks ALL HyperFetch extensions (pCloud,
+                                    S3, etc.).</small>
+                            </div>
+                        </div>
+
+                        <div class="pricing-action">
+                            <button id="upgrade-pcloud-btn" class="mdc-button mdc-button--raised upgrade-button">
+                                <span class="mdc-button__ripple"></span>
+                                <span class="mdc-button__label" data-i18n="options_upgrade_now">Upgrade Now</span>
+                            </button>
+                            <button id="upgrade-master-btn"
+                                class="mdc-button mdc-button--raised upgrade-button upgrade-button--master">
+                                <span class="mdc-button__ripple"></span>
+                                <span class="mdc-button__label" data-i18n="options_upgrade_now">Upgrade Now</span>
+                            </button>
+                            <p id="result-message" class="upgrade-hint"></p>
+                        </div>
+
+                        <div class="restore-purchase-container">
+                            <button id="restore-purchase-btn" class="mdc-button">
+                                <span class="mdc-button__ripple"></span>
+                                <span class="mdc-button__label" data-i18n="options_restore_purchase">Restore
+                                    Purchase</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div id="premium-active-content" class="hidden">
+                        <div class="premium-success-message">
+                            <span class="material-icons success-icon">verified</span>
+                            <h3 class="mdc-typography--headline5" data-i18n="options_premium_thank_you">Thank you for
+                                your support!</h3>
+                            <p class="mdc-typography--body1" data-i18n="options_premium_active_desc">You have access to
+                                all premium features.</p>
+                            <p class="mdc-typography--body2 current-plan-info">Current Plan: <span
+                                    id="current-plan-name"></span></p>
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -214,6 +307,67 @@
                                     <span class="mdc-button__label"
                                         data-i18n="options_domain_rules_folder_picker_create_btn">Create</span>
                                 </button>
+                            </div>
+                            <div id="premium-promo-content">
+                                <p class="mdc-typography--body1" data-i18n="options_premium_description">Unlock advanced
+                                    features like Document Downloader (Markdown/Word) and more!</p>
+
+                                <div class="pricing-selection-container">
+                                    <div class="mdc-form-field">
+                                        <div class="mdc-radio">
+                                            <input class="mdc-radio__native-control" type="radio" id="tier-pcloud"
+                                                name="pricing-tier" value="hf4pcloud" checked>
+                                            <div class="mdc-radio__background">
+                                                <div class="mdc-radio__outer-circle"></div>
+                                                <div class="mdc-radio__inner-circle"></div>
+                                            </div>
+                                            <div class="mdc-radio__ripple"></div>
+                                        </div>
+                                        <label for="tier-pcloud">
+                                            <span class="tier-name" data-i18n="options_tier_pcloud_name">HyperFetch for
+                                                pCloud</span>
+                                            <span class="tier-price">$1.99</span>
+                                        </label>
+                                    </div>
+                                    <div class="tier-details">
+                                        <small data-i18n="options_tier_pcloud_desc">Unlocks features for this extension
+                                            only.</small>
+                                    </div>
+
+                                    <div class="mdc-form-field">
+                                        <div class="mdc-radio">
+                                            <input class="mdc-radio__native-control" type="radio" id="tier-master"
+                                                name="pricing-tier" value="hf4master">
+                                            <div class="mdc-radio__background">
+                                                <div class="mdc-radio__outer-circle"></div>
+                                                <div class="mdc-radio__inner-circle"></div>
+                                            </div>
+                                            <div class="mdc-radio__ripple"></div>
+                                        </div>
+                                        <label for="tier-master">
+                                            <span class="tier-name" data-i18n="options_tier_master_name">HyperFetch
+                                                Master</span>
+                                            <span class="tier-price">$5.00</span>
+                                        </label>
+                                    </div>
+                                    <div class="tier-details">
+                                        <small data-i18n="options_tier_master_desc">Unlocks ALL HyperFetch extensions
+                                            (pCloud, S3, etc.).</small>
+                                    </div>
+                                </div>
+
+                                <div class="pricing-action">
+                                    <div id="paypal-button-container"></div>
+                                    <p id="result-message"></p>
+                                </div>
+
+                                <div class="restore-purchase-container">
+                                    <button id="restore-purchase-btn" class="mdc-button">
+                                        <span class="mdc-button__ripple"></span>
+                                        <span class="mdc-button__label" data-i18n="options_restore_purchase">Restore
+                                            Purchase</span>
+                                    </button>
+                                </div>
                             </div>
                         </div>
                         <div class="mdc-dialog__actions">

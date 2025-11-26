@@ -1,5 +1,6 @@
 import { getAuthToken } from '../core/auth.js';
 import PCloudAPIClient from '../core/pcloud-api.js';
+import { licenseManager } from '../core/license-manager.js';
 
 // --- Storage Keys ---
 const DEFAULT_UPLOAD_FOLDER_ID_KEY = 'default_upload_folder_id';
@@ -464,6 +465,10 @@ document.addEventListener('DOMContentLoaded', async () => {
   // Initialize Domain Rules Manager
   const domainRulesManager = new DomainRulesManager();
   await domainRulesManager.init();
+
+  // Initialize Payment Manager
+  const paymentManager = new PaymentManager();
+  await paymentManager.init();
 });
 
 // --- Domain Rules Manager ---
@@ -919,6 +924,146 @@ class DomainRulesManager {
     } catch (error) {
       console.error('Create folder failed', error);
       alert('Failed to create folder: ' + error.message);
+    }
+  }
+}
+
+// --- Payment Manager ---
+// Sandbox Client ID (Same for both tiers in dev, but logic supports different ones)
+const PAYPAL_CLIENT_ID = 'ASIxhJYAlMUVAvBcQGtXSP5fsH9caU6n6zfWneS36yXTPIEajc99yzCwHA2VqbinPgikHvfJ0xLkv0Sv';
+
+class PaymentManager {
+  constructor() {
+    this.premiumCard = document.getElementById('premium-card');
+    this.premiumStatusBadge = document.getElementById('premium-status-badge');
+    this.promoContent = document.getElementById('premium-promo-content');
+    this.activeContent = document.getElementById('premium-active-content');
+    this.restoreBtn = document.getElementById('restore-purchase-btn');
+    this.upgradePcloudBtn = document.getElementById('upgrade-pcloud-btn');
+    this.upgradeMasterBtn = document.getElementById('upgrade-master-btn');
+    this.currentPlanNameEl = document.getElementById('current-plan-name');
+    this.resultMessage = document.getElementById('result-message');
+
+    this.tierRadios = document.querySelectorAll('input[name="pricing-tier"]');
+    this.selectedTier = 'hf4pcloud'; // Default
+    this.currentUserEmail = null;
+  }
+
+  async init() {
+    await licenseManager.init();
+
+    // Fetch user email for binding
+    try {
+      const authToken = await getAuthToken();
+      if (authToken) {
+        const client = new PCloudAPIClient(authToken);
+        const userInfo = await client.getUserInfo();
+        this.currentUserEmail = userInfo.email;
+        console.log('[PaymentManager] User email:', this.currentUserEmail);
+      }
+    } catch (e) {
+      console.error('[PaymentManager] Failed to fetch user info:', e);
+    }
+
+    this.updateUI();
+    licenseManager.addListener(() => this.updateUI());
+
+    // Setup button listeners
+    this.restoreBtn.addEventListener('click', () => this.restorePurchase());
+    this.upgradePcloudBtn.addEventListener('click', () => this.openPaymentPage('hf4pcloud'));
+    this.upgradeMasterBtn.addEventListener('click', () => this.openPaymentPage('hf4master'));
+
+    // Listen for tier changes to show appropriate button
+    this.tierRadios.forEach(radio => {
+      radio.addEventListener('change', (e) => {
+        this.selectedTier = e.target.value;
+        this.updateUpgradeButtons();
+      });
+    });
+
+    this.updateUpgradeButtons();
+  }
+
+  updateUI() {
+    const isPremium = licenseManager.isPremium();
+    const license = licenseManager.getLicenseInfo();
+
+    if (isPremium) {
+      this.premiumCard.classList.add('active');
+      this.premiumStatusBadge.classList.remove('hidden');
+      this.promoContent.classList.add('hidden');
+      this.activeContent.classList.remove('hidden');
+
+      if (license) {
+        const planNameKey = license.productType === 'hf4master' ? 'options_tier_master_name' : 'options_tier_pcloud_name';
+        this.currentPlanNameEl.textContent = chrome.i18n.getMessage(planNameKey);
+      }
+    } else {
+      this.premiumCard.classList.remove('active');
+      this.premiumStatusBadge.classList.add('hidden');
+      this.promoContent.classList.remove('hidden');
+      this.activeContent.classList.add('hidden');
+    }
+  }
+
+  updateUpgradeButtons() {
+    // Show/hide buttons based on selected tier
+    if (this.selectedTier === 'hf4pcloud') {
+      this.upgradePcloudBtn.style.display = 'inline-flex';
+      this.upgradeMasterBtn.style.display = 'none';
+    } else {
+      this.upgradePcloudBtn.style.display = 'none';
+      this.upgradeMasterBtn.style.display = 'inline-flex';
+    }
+  }
+
+  openPaymentPage(tier) {
+    if (!this.currentUserEmail) {
+      showStatusMessage('options_error_loading_folders');
+      console.error('[PaymentManager] No user email found');
+      return;
+    }
+
+    // Mock URL for development
+    // TODO: Replace with actual payment page URL when ready
+    const MOCK_PAYMENT_URL = 'about:blank';
+    const tierNames = {
+      'hf4pcloud': 'HyperFetch for pCloud ($1.99)',
+      'hf4master': 'HyperFetch Master ($5.00)'
+    };
+
+    console.log(`[PaymentManager] Opening payment page for ${tierNames[tier]}`);
+    console.log(`[PaymentManager] Email: ${this.currentUserEmail}`);
+    console.log(`[PaymentManager] Tier: ${tier}`);
+
+    // In production, this will be:
+    // const paymentUrl = `https://payment.hyperfetch.com/checkout?tier=${tier}&email=${encodeURIComponent(this.currentUserEmail)}`;
+
+    chrome.tabs.create({
+      url: MOCK_PAYMENT_URL
+    }, (tab) => {
+      console.log(`[PaymentManager] Opened tab ${tab.id}`);
+      this.resultMessage.textContent = chrome.i18n.getMessage('options_payment_page_opening');
+    });
+  }
+
+  async restorePurchase() {
+    if (!this.currentUserEmail) {
+      alert(chrome.i18n.getMessage('options_error_loading_folders')); // Fallback
+      return;
+    }
+
+    try {
+      const license = await licenseManager.restorePurchase(this.currentUserEmail);
+      if (license) {
+        await licenseManager.saveLicense(license);
+        showStatusMessage('options_restore_success');
+      } else {
+        showStatusMessage('options_restore_failed');
+      }
+    } catch (e) {
+      console.error('Restore failed', e);
+      showStatusMessage('options_restore_failed');
     }
   }
 }
