@@ -2,6 +2,7 @@
 
 import { getAuthToken } from '../../core/auth.js';
 import PCloudAPIClient from '../../core/pcloud-api.js';
+import { licenseManager } from '../../core/license-manager.js';
 
 const PCLOUD_ICON_PATH = '/src/assets/icons/icon128.png';
 const DOC_FILENAME_CONFIG_KEY = 'doc_filename_config';
@@ -44,6 +45,28 @@ async function fetchImageAsBase64(url) {
 }
 
 async function handleContextMenuClick(info, tab, initiateUpload) {
+    // Check for Premium License
+    await licenseManager.init();
+    if (!licenseManager.isPremium()) {
+        chrome.notifications.create({
+            type: 'basic',
+            iconUrl: PCLOUD_ICON_PATH,
+            title: chrome.i18n.getMessage('notification_premium_required_title'),
+            message: chrome.i18n.getMessage('notification_premium_required_message'),
+            buttons: [{ title: chrome.i18n.getMessage('notification_premium_upgrade_button') }]
+        }, (notificationId) => {
+            // Add listener for button click to open options page
+            const listener = (clickedId, buttonIndex) => {
+                if (clickedId === notificationId && buttonIndex === 0) {
+                    chrome.runtime.openOptionsPage();
+                    chrome.notifications.onButtonClicked.removeListener(listener);
+                }
+            };
+            chrome.notifications.onButtonClicked.addListener(listener);
+        });
+        return;
+    }
+
     const authToken = await getAuthToken();
     if (!authToken) {
         chrome.notifications.create({

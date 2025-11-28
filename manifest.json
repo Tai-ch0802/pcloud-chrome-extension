@@ -47,10 +47,12 @@
     {
       "resources": [
         "src/content/upload_ui.html",
-        "src/assets/icons/icon128.png"
+        "src/assets/icons/icon128.png",
+        "src/options/options.html"
       ],
       "matches": [
-        "<all_urls>"
+        "<all_urls>",
+        "https://payment.hyperfetch.com/*"
       ]
     }
   ]

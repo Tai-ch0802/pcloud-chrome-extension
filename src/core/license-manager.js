@@ -95,16 +95,53 @@ export class LicenseManager {
      */
     async restorePurchase(email) {
         console.log(`[LicenseManager] Restoring purchase for ${email}`);
-        await new Promise(resolve => setTimeout(resolve, 1000));
 
-        // MOCK BACKEND: Query local storage
-        const { mock_backend_db = {} } = await chrome.storage.local.get('mock_backend_db');
-        const license = mock_backend_db[email];
+        try {
+            const response = await fetch('https://hyper-fetch-lisence-api.taislife.work/api/restore', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ email })
+            });
 
-        if (license) {
-            return license;
+            if (!response.ok) {
+                console.error('[LicenseManager] Restore API failed:', response.status, response.statusText);
+                return null;
+            }
+
+            const data = await response.json();
+
+            if (data.success && data.license) {
+                console.log('[LicenseManager] License restored successfully:', data.license);
+
+                // Map API response to internal license format if necessary, 
+                // but it seems the API returns the correct structure based on the comment.
+                // Ensuring consistent property naming (camelCase vs snake_case from comment example vs internal use)
+                // The comment example used mixed casing: productType vs product_type. 
+                // Let's assume the API returns what we need or map it.
+                // Internal structure uses: status, productType, key, email, orderID, purchaseDate
+                // API example: status, product_type, license_key, email, order_id, created_at
+
+                const license = {
+                    status: data.license.status,
+                    productType: data.license.productType || data.license.product_type,
+                    key: data.license.key || data.license.license_key,
+                    email: data.license.email,
+                    orderID: data.license.orderID || data.license.order_id,
+                    purchaseDate: data.license.purchaseDate || data.license.created_at || data.license.purchase_date
+                };
+
+                await this.saveLicense(license);
+                return license;
+            } else {
+                console.log('[LicenseManager] No license found in response:', data);
+                return null;
+            }
+        } catch (error) {
+            console.error('[LicenseManager] Error restoring purchase:', error);
+            return null;
         }
-        return null;
     }
 }
 

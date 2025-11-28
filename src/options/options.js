@@ -959,13 +959,14 @@ class PaymentManager {
         const client = new PCloudAPIClient(authToken);
         const userInfo = await client.getUserInfo();
         this.currentUserEmail = userInfo.email;
-        console.log('[PaymentManager] User email:', this.currentUserEmail);
+        console.log('User email fetched:', this.currentUserEmail);
       }
     } catch (e) {
-      console.error('[PaymentManager] Failed to fetch user info:', e);
+      console.error('Failed to fetch user info:', e);
     }
 
     this.updateUI();
+
     licenseManager.addListener(() => this.updateUI());
 
     // Setup button listeners
@@ -982,6 +983,47 @@ class PaymentManager {
     });
 
     this.updateUpgradeButtons();
+
+    // Check for payment redirect parameters
+    await this.checkPaymentRedirect();
+  }
+
+  async checkPaymentRedirect() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const status = urlParams.get('status');
+    const licenseKey = urlParams.get('license_key') || urlParams.get('license');
+
+    if (status === 'success' && licenseKey) {
+      console.log('[PaymentManager] Payment successful, checking license...');
+
+      if (!this.currentUserEmail) {
+        console.warn('[PaymentManager] No user email found during redirect handling.');
+        // If we don't have the email, we can't verify against the backend properly 
+        // unless we prompt the user or retry. For now, we abort.
+        showStatusMessage('options_error_loading_folders'); // Reusing generic error or add new one
+        return;
+      }
+
+      try {
+        // Verify and restore the license from the backend
+        const license = await licenseManager.restorePurchase(this.currentUserEmail);
+
+        if (license) {
+          showStatusMessage('options_payment_success');
+          // Clean up URL
+          const newUrl = window.location.pathname;
+          window.history.replaceState({}, document.title, newUrl);
+        } else {
+          console.error('[PaymentManager] License verification failed after redirect.');
+          showStatusMessage('options_payment_failed');
+        }
+      } catch (error) {
+        console.error('[PaymentManager] Failed to verify license:', error);
+        showStatusMessage('options_payment_failed');
+      }
+    } else if (status === 'cancel') {
+      showStatusMessage('options_payment_failed');
+    }
   }
 
   updateUI() {
@@ -1026,7 +1068,8 @@ class PaymentManager {
 
     // Mock URL for development
     // TODO: Replace with actual payment page URL when ready
-    const MOCK_PAYMENT_URL = 'about:blank';
+    const PAYMENT_URL = 'https://paypal-payment.taislife.work';
+    const redirectUrl = chrome.runtime.getURL("src/options/options.html");
     const tierNames = {
       'hf4pcloud': 'HyperFetch for pCloud ($1.99)',
       'hf4master': 'HyperFetch Master ($5.00)'
@@ -1037,10 +1080,10 @@ class PaymentManager {
     console.log(`[PaymentManager] Tier: ${tier}`);
 
     // In production, this will be:
-    // const paymentUrl = `https://payment.hyperfetch.com/checkout?tier=${tier}&email=${encodeURIComponent(this.currentUserEmail)}`;
+    const paymentUrl = `${PAYMENT_URL}?tier=${tier}&email=${encodeURIComponent(this.currentUserEmail)}&client_id=${PAYPAL_CLIENT_ID}&redirect_url=${encodeURIComponent(redirectUrl)}`;
 
     chrome.tabs.create({
-      url: MOCK_PAYMENT_URL
+      url: paymentUrl
     }, (tab) => {
       console.log(`[PaymentManager] Opened tab ${tab.id}`);
       this.resultMessage.textContent = chrome.i18n.getMessage('options_payment_page_opening');
