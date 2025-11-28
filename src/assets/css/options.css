@@ -12,7 +12,7 @@ body.options-body {
     padding: 0;
     box-sizing: border-box;
     background-color: var(--mdc-theme-background);
-    color: var(--mdc-theme-text-primary-on-background);
+    color: var(--mdc-theme-on-background);
     margin: 0;
     font-family: Roboto, sans-serif;
 }
@@ -87,6 +87,7 @@ body.options-body {
 .mdc-card__content {
     padding: 16px;
     flex-grow: 1;
+    color: var(--mdc-theme-on-surface);
 }
 
 .setting-item {
@@ -352,6 +353,8 @@ body.options-body {
 
 .mdc-data-table__table {
     width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
 }
 
 .mdc-data-table__header-cell {
@@ -365,6 +368,26 @@ body.options-body {
     color: var(--mdc-theme-on-surface);
     /* Ensure text color follows theme */
     border-bottom: 1px solid var(--border-color);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding: 0 16px;
+    height: 52px;
+    /* Fixed row height */
+    vertical-align: middle;
+}
+
+/* Column Widths */
+.mdc-data-table__header-cell:nth-child(1),
+.mdc-data-table__cell:nth-child(1) {
+    width: 80px;
+    /* Status */
+}
+
+.mdc-data-table__header-cell:nth-child(4),
+.mdc-data-table__cell:nth-child(4) {
+    width: 100px;
+    /* Actions */
 }
 
 .domain-rule-row {
@@ -599,7 +622,7 @@ body.options-body {
 .current-plan-info {
     margin-top: 16px;
     font-weight: 500;
-    color: var(--mdc-theme-text-hint-on-background);
+    color: var(--mdc-theme-on-surface);
 }
 
 /* Pricing Action & Upgrade Buttons */

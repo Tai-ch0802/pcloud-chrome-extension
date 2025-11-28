@@ -23,6 +23,8 @@ The project is organized to be scalable, maintainable, and ready for future mone
 │   ├── background/       # Background service worker scripts
 │   ├── popup/            # UI/logic for the extension's popup
 │   ├── options/          # UI/logic for the extension's options page
+│   │   ├── sections/     # Modular feature sections (e.g., appearance, uploads)
+│   │   └── shared/       # Shared utilities for options
 │   └── assets/           # Static assets like icons, CSS, fonts
 ├── manifest.json         # The extension's manifest file
 └── ...

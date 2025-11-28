@@ -23,6 +23,8 @@
 │   ├── background/       # 背景 Service Worker 腳本
 │   ├── popup/            # 擴充功能彈出視窗的 UI 與邏輯
 │   ├── options/          # 擴充功能選項頁面的 UI 與邏輯
+│   │   ├── sections/     # 模組化的功能區塊 (例如：外觀、上傳)
+│   │   └── shared/       # 選項頁面的共享工具程式
 │   └── assets/           # 圖示、CSS、字體等靜態資源
 ├── manifest.json         # 擴充功能的清單檔
 └── ...
