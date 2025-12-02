@@ -428,5 +428,20 @@
   },
   "options_payment_page_opening": {
     "message": "正在開啟付款頁面...（模擬 - 開發模式）"
+  },
+  "toast_uploading_to_pcloud": {
+    "message": "正在上傳至 pCloud..."
+  },
+  "toast_upload_started": {
+    "message": "上傳已開始！"
+  },
+  "toast_processing_images": {
+    "message": "正在處理圖片 ($1/$2)..."
+  },
+  "toast_generating_document": {
+    "message": "正在產生文件..."
+  },
+  "toast_view_button": {
+    "message": "查看"
   }
 }

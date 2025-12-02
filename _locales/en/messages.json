@@ -428,5 +428,20 @@
   },
   "options_payment_page_opening": {
     "message": "Opening payment page... (Mock - Development Mode)"
+  },
+  "toast_uploading_to_pcloud": {
+    "message": "Uploading to pCloud..."
+  },
+  "toast_upload_started": {
+    "message": "Upload started!"
+  },
+  "toast_processing_images": {
+    "message": "Processing images ($1/$2)..."
+  },
+  "toast_generating_document": {
+    "message": "Generating document..."
+  },
+  "toast_view_button": {
+    "message": "View"
   }
 }

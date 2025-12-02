@@ -37,6 +37,22 @@ async function handleContextMenuClick(info, tab, initiateUpload) {
         return;
     }
 
+    // Helper to send toast
+    const sendToast = async (message, type = 'loading', duration = 0) => {
+        try {
+            await chrome.tabs.sendMessage(tab.id, {
+                action: "showToast",
+                message,
+                toastType: type,
+                duration
+            });
+        } catch (e) {
+            console.warn("Could not send toast to tab", e);
+        }
+    };
+
+    await sendToast(chrome.i18n.getMessage('notification_document_processing_message'), 'loading');
+
     try {
         const response = await chrome.tabs.sendMessage(tab.id, { action: "getMarkdownFromSelection" });
         if (!response || typeof response.markdown === 'undefined') {
@@ -45,11 +61,7 @@ async function handleContextMenuClick(info, tab, initiateUpload) {
 
         let markdown = response.markdown;
         if (!markdown) {
-            chrome.notifications.create({
-                type: 'basic', iconUrl: PCLOUD_ICON_PATH,
-                title: chrome.i18n.getMessage("notificationUploadTextErrorTitle"),
-                message: chrome.i18n.getMessage("notificationUploadTextErrorMessage")
-            });
+            await sendToast(chrome.i18n.getMessage("notificationUploadTextErrorMessage"), 'error', 5000);
             return;
         }
 
@@ -160,7 +172,9 @@ async function handleContextMenuClick(info, tab, initiateUpload) {
         const filename = finalBasename.replace(/\/$/, '') + '.md';
         const fileToUpload = new File([new Blob([markdown], { type: 'text/markdown' })], filename, { type: 'text/markdown' });
 
+        await sendToast(chrome.i18n.getMessage('toast_uploading_to_pcloud'), 'loading');
         initiateUpload(fileToUpload, { showNotifications: true, folderId: targetFolderId });
+        await sendToast(chrome.i18n.getMessage('toast_upload_started'), 'success', 3000);
 
     } catch (error) {
         console.error("Error uploading selected text:", error);
@@ -168,11 +182,7 @@ async function handleContextMenuClick(info, tab, initiateUpload) {
         if (error.message && (error.message.includes("Receiving end does not exist") || error.message.includes("No valid response"))) {
             message = chrome.i18n.getMessage("notification_error_stale_content_script");
         }
-        chrome.notifications.create('', {
-            type: 'basic', iconUrl: PCLOUD_ICON_PATH,
-            title: chrome.i18n.getMessage("notificationUploadTextErrorTitle"),
-            message: message
-        });
+        await sendToast(message, 'error', 5000);
     }
 }
 

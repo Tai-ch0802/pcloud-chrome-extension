@@ -1,33 +1,66 @@
 /* src/content/upload_ui.css */
 :root {
-  --primary-color: #00579D;
-  --secondary-color: #FFDA1A;
-  --background-color: #f4f7f6;
-  --text-color: #333333;
-  --border-color: #cccccc;
-  --error-color: #dc3545;
-  --success-color: #28a745;
+    --primary-color: #00579D;
+    --secondary-color: #FFDA1A;
+    --background-color: #f4f7f6;
+    --text-color: #333333;
+    --border-color: #cccccc;
+    --error-color: #dc3545;
+    --success-color: #28a745;
 }
 
 body {
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  background-color: var(--background-color);
-  color: var(--text-color);
-  margin: 0;
-  padding: 10px;
-  overflow: hidden;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    margin: 0;
+    padding: 10px;
+    overflow: hidden;
 }
 
 h3 {
-  color: var(--primary-color);
-  font-size: 1.2em;
-  margin-top: 0;
-  margin-bottom: 10px;
-  text-align: center;
+    color: var(--primary-color);
+    font-size: 1.2em;
+    margin-top: 0;
+    margin-bottom: 10px;
+    text-align: center;
 }
 
 #upload-container {
     width: 100%;
+    position: relative;
+}
+
+.close-btn {
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    width: 24px;
+    height: 24px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 200ms cubic-bezier(0.2, 0, 0, 1);
+    padding: 0;
+    z-index: 10;
+}
+
+.close-btn:hover {
+    background-color: rgba(0, 0, 0, 0.08);
+}
+
+.close-btn:active {
+    background-color: rgba(0, 0, 0, 0.12);
+}
+
+.close-btn svg {
+    width: 16px;
+    height: 16px;
+    fill: #666;
 }
 
 #drop-zone {
@@ -127,17 +160,20 @@ h3 {
 .upload-item-status {
     font-size: 12px;
     color: #888;
-    width: 80px; /* Wider for 'Removing in Xs...' */
+    width: 80px;
+    /* Wider for 'Removing in Xs...' */
     text-align: right;
     flex-shrink: 0;
 }
+
 @keyframes progress-bar-stripes {
-  from {
-    background-position: 1rem 0;
-  }
-  to {
-    background-position: 0 0;
-  }
+    from {
+        background-position: 1rem 0;
+    }
+
+    to {
+        background-position: 0 0;
+    }
 }
 
 

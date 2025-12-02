@@ -157,3 +157,16 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
         broadcastState();
     }
 });
+
+// --- Command Listener ---
+chrome.commands.onCommand.addListener((command) => {
+    if (command === 'toggle-upload-widget') {
+        chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
+            if (tabs.length > 0) {
+                chrome.tabs.sendMessage(tabs[0].id, { action: 'toggleUploadWidget' }).catch(() => {
+                    // Ignore errors if content script is not ready
+                });
+            }
+        });
+    }
+});

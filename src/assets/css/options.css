@@ -575,6 +575,7 @@ body.options-body {
 .tier-name {
     font-weight: 500;
     font-size: 1rem;
+    color: var(--mdc-theme-primary);
 }
 
 .tier-price {
@@ -587,7 +588,7 @@ body.options-body {
     margin-left: 52px;
     /* Align with text, skipping radio button */
     margin-top: -8px;
-    color: var(--mdc-theme-text-secondary-on-background);
+    color: var(--mdc-theme-on-surface);
 }
 
 .pricing-action {

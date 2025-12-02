@@ -43,6 +43,15 @@
       ]
     }
   ],
+  "commands": {
+    "toggle-upload-widget": {
+      "suggested_key": {
+        "default": "Ctrl+U",
+        "mac": "Command+U"
+      },
+      "description": "Toggle pCloud Upload Widget"
+    }
+  },
   "web_accessible_resources": [
     {
       "resources": [

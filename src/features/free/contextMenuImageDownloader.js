@@ -19,6 +19,22 @@ async function handleContextMenuClick(info, tab, initiateUpload) {
         return;
     }
 
+    // Helper to send toast
+    const sendToast = async (message, type = 'loading', duration = 0) => {
+        try {
+            await chrome.tabs.sendMessage(tab.id, {
+                action: "showToast",
+                message,
+                toastType: type,
+                duration
+            });
+        } catch (e) {
+            console.warn("Could not send toast to tab", e);
+        }
+    };
+
+    await sendToast(chrome.i18n.getMessage('notification_document_processing_message'), 'loading');
+
     try {
         const response = await fetch(info.srcUrl);
         if (!response.ok) throw new Error(`Failed to fetch: ${response.statusText}`);
@@ -26,15 +42,12 @@ async function handleContextMenuClick(info, tab, initiateUpload) {
 
         const { file, folderId } = await processImageUpload(blob, tab.title, authToken, info.pageUrl);
 
+        await sendToast(chrome.i18n.getMessage('toast_uploading_to_pcloud'), 'loading');
         initiateUpload(file, { showNotifications: true, folderId: folderId });
+        await sendToast(chrome.i18n.getMessage('toast_upload_started'), 'success', 3000);
     } catch (error) {
         console.error("Context menu upload failed:", error);
-        chrome.notifications.create({
-            type: 'basic',
-            iconUrl: PCLOUD_ICON_PATH,
-            title: chrome.i18n.getMessage('notification_upload_error_title'),
-            message: chrome.i18n.getMessage('notification_upload_error_message'),
-        });
+        await sendToast(chrome.i18n.getMessage('notification_upload_error_message'), 'error', 5000);
     }
 }
 

@@ -77,14 +77,21 @@ async function handleContextMenuClick(info, tab, initiateUpload) {
         return;
     }
 
-    // Notify user: Processing
-    const notificationId = `doc-process-${Date.now()}`;
-    chrome.notifications.create(notificationId, {
-        type: 'progress', iconUrl: PCLOUD_ICON_PATH,
-        title: chrome.i18n.getMessage('notification_document_processing_title'),
-        message: chrome.i18n.getMessage('notification_document_processing_message'),
-        progress: 0
-    });
+    // Notify user: Processing (Toast)
+    const sendToast = async (message, type = 'loading', duration = 0) => {
+        try {
+            await chrome.tabs.sendMessage(tab.id, {
+                action: "showToast",
+                message,
+                toastType: type,
+                duration
+            });
+        } catch (e) {
+            console.warn("Could not send toast to tab", e);
+        }
+    };
+
+    await sendToast(chrome.i18n.getMessage('notification_document_processing_message'), 'loading');
 
     try {
         // 0. Connectivity Check
@@ -207,7 +214,11 @@ async function handleContextMenuClick(info, tab, initiateUpload) {
             const assetsFolderMeta = await client.createFolderIfNotExists(assetsFolderPath);
             if (assetsFolderMeta?.metadata?.folderid) assetsFolderId = assetsFolderMeta.metadata.folderid;
 
+            let processedCount = 0;
             for (const url of imagesToProcess) {
+                processedCount++;
+                await sendToast(chrome.i18n.getMessage('toast_processing_images', [processedCount, imagesToProcess.length]), 'loading');
+
                 const result = await fetchImageAsBase64(url);
                 if (result) {
                     const { blob, base64 } = result;
@@ -215,16 +226,11 @@ async function handleContextMenuClick(info, tab, initiateUpload) {
                     const ext = blob.type.split('/')[1] || 'png';
                     const imgFilename = `img_${Date.now()}_${Math.random().toString(36).substr(2, 5)}.${ext}`;
 
-                    // Upload image
-                    // We use initiateUpload? No, that's for user feedback. We want silent upload here or part of the process.
-                    // We should use client.uploadFile directly.
-                    // But initiateUpload handles the UI list.
-                    // Since these are "assets", maybe we don't want to clutter the upload list?
-                    // Let's do silent upload for assets.
-
                     try {
                         const file = new File([blob], imgFilename, { type: blob.type });
-                        await client.uploadFile(file, assetsFolderId);
+
+                        // Use initiateUpload to show in UI list
+                        initiateUpload(file, { showNotifications: false, folderId: assetsFolderId });
 
                         processedImages.push({
                             originalUrl: url,
@@ -239,6 +245,8 @@ async function handleContextMenuClick(info, tab, initiateUpload) {
         }
 
         // 6. Generate Final Document
+        await sendToast(chrome.i18n.getMessage('toast_generating_document'), 'loading');
+
         let finalFile = null;
         let finalFilename = finalBasename;
 
@@ -267,10 +275,17 @@ async function handleContextMenuClick(info, tab, initiateUpload) {
             }
 
             // Post-processing: Unwrap images that are wrapped in links
-            // Pattern: [ \n ![]() \n ](link) -> ![]()
+            // Pattern: [ ![alt](url) ](link) -> ![alt](url)
             finalMarkdown = finalMarkdown.replace(/\[\s*(!\[.*?\]\(.*?\))\s*\]\(.*?\)/g, '$1');
 
-            // Post-processing: Collapse excessive newlines
+            // Post-processing: Fix broken link patterns
+            // Pattern: ][  -> proper spacing
+            finalMarkdown = finalMarkdown.replace(/\]\s*\[/g, ']\n\n[');
+
+            // Pattern: Links with excessive line breaks inside
+            finalMarkdown = finalMarkdown.replace(/\[([^\]]*?)\n+([^\]]*?)\]/g, '[$1 $2]');
+
+            // Collapse excessive newlines
             finalMarkdown = finalMarkdown.replace(/\n{3,}/g, '\n\n');
 
             finalFilename += '.md';
@@ -301,20 +316,17 @@ async function handleContextMenuClick(info, tab, initiateUpload) {
 
         // 7. Upload Final Document
         if (finalFile) {
+            await sendToast(chrome.i18n.getMessage('toast_uploading_to_pcloud'), 'loading');
             // Use initiateUpload to show progress and success
             initiateUpload(finalFile, { showNotifications: true, folderId: targetFolderId });
-        }
 
-        chrome.notifications.clear(notificationId);
+            // Show success toast briefly before letting initiateUpload handle the rest
+            await sendToast(chrome.i18n.getMessage('toast_upload_started'), 'success', 3000);
+        }
 
     } catch (error) {
         console.error("Document download failed:", error);
-        chrome.notifications.create({
-            type: 'basic', iconUrl: PCLOUD_ICON_PATH,
-            title: chrome.i18n.getMessage('notification_document_error_title'),
-            message: error.message || chrome.i18n.getMessage('notification_document_error_message'),
-        });
-        chrome.notifications.clear(notificationId);
+        await sendToast(`Error: ${error.message}`, 'error', 5000);
     }
 }
 
