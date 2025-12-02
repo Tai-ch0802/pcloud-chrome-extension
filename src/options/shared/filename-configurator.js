@@ -13,9 +13,13 @@ export function initializeFilenameConfigurator({ listEl, previewEl, storageKey, 
             const id = item.dataset.id;
             const isEnabled = item.querySelector('.mdc-checkbox__native-control').checked;
             const separator = item.querySelector('.separator-input').value;
+            const customValue = item.querySelector('.free-key-input')?.value || 'content';
 
-            if (isEnabled && sampleData[id]) {
-                preview += sampleData[id] + separator;
+            if (isEnabled) {
+                const value = id === 'FREE_KEY' ? customValue : sampleData[id];
+                if (value) {
+                    preview += value + separator;
+                }
             }
         });
         previewEl.textContent = preview.replace(/\/$/, '') + extension;
@@ -28,7 +32,8 @@ export function initializeFilenameConfigurator({ listEl, previewEl, storageKey, 
                 id: item.dataset.id,
                 labelKey: item.dataset.labelKey,
                 enabled: item.querySelector('.mdc-checkbox__native-control').checked,
-                separator: item.querySelector('.separator-input').value
+                separator: item.querySelector('.separator-input').value,
+                customValue: item.querySelector('.free-key-input')?.value || 'content'
             });
         });
         await chrome.storage.sync.set({ [storageKey]: config });
@@ -61,6 +66,10 @@ export function initializeFilenameConfigurator({ listEl, previewEl, storageKey, 
                     <div class="mdc-checkbox__ripple"></div>
                 </div>
                 <label for="check-${storageKey}-${part.id}" class="part-label">${chrome.i18n.getMessage(part.labelKey)}</label>
+                ${part.id === 'FREE_KEY' ?
+                    `<input type="text" class="free-key-input" value="${part.customValue || 'content'}" placeholder="content" style="margin-left: 8px; width: 80px;">` :
+                    ''
+                }
                 <label class="separator-label">${chrome.i18n.getMessage('options_filename_separator_label')}:</label>
                 <input type="text" class="separator-input" value="${part.separator}" maxlength="3">
             `;
@@ -68,6 +77,7 @@ export function initializeFilenameConfigurator({ listEl, previewEl, storageKey, 
             const checkbox = li.querySelector('.mdc-checkbox');
             const checkboxInput = li.querySelector('.mdc-checkbox__native-control');
             const separatorInput = li.querySelector('.separator-input');
+            const freeKeyInput = li.querySelector('.free-key-input');
 
             checkboxInput.checked = part.enabled;
             const mdcCheckbox = new mdc.checkbox.MDCCheckbox(checkbox);
@@ -75,6 +85,9 @@ export function initializeFilenameConfigurator({ listEl, previewEl, storageKey, 
 
             checkbox.addEventListener('change', saveConfig);
             separatorInput.addEventListener('input', saveConfig);
+            if (freeKeyInput) {
+                freeKeyInput.addEventListener('input', saveConfig);
+            }
 
             listEl.appendChild(li);
         });
@@ -82,7 +95,32 @@ export function initializeFilenameConfigurator({ listEl, previewEl, storageKey, 
 
     async function load() {
         const { [storageKey]: savedConfig } = await chrome.storage.sync.get(storageKey);
-        render(savedConfig || defaultConfig);
+
+        let finalConfig = defaultConfig;
+        if (savedConfig) {
+            // Merge saved config with default config to ensure new items (like FREE_KEY) are present
+            // 1. Keep existing saved items (preserving order and enabled state)
+            // 2. Add any new items from defaultConfig that are missing in savedConfig
+
+            const savedIds = new Set(savedConfig.map(item => item.id));
+            const newItems = defaultConfig.filter(item => !savedIds.has(item.id));
+
+            // We want to respect the user's order, but new items need to go somewhere.
+            // Appending them to the end is a safe default.
+            finalConfig = [...savedConfig, ...newItems];
+
+            // Also update separators/defaults for existing items if we want to enforce new defaults?
+            // The user requested: "Update 'Page Title' separator default to '/'".
+            // If the user already has a config, we shouldn't overwrite their custom separator unless they reset.
+            // BUT, for the new FREE_KEY, it will be added.
+
+            // However, if the user specifically asked for "Page Title separator default to /", 
+            // strictly speaking, for *existing* users, we might not want to change their existing setting 
+            // unless we force a migration. 
+            // But for the FREE_KEY, it's a new item, so it will get the default from defaultConfig.
+        }
+
+        render(finalConfig);
         updatePreview();
     }
 

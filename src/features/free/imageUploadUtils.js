@@ -6,7 +6,8 @@ const DEFAULT_UPLOAD_FOLDER_PATH_KEY = 'default_upload_folder_path';
 
 const defaultFilenameConfig = [
     { id: 'SORTING_NUMBER', labelKey: 'options_filename_part_sorting_number', enabled: true, separator: '_' },
-    { id: 'PAGE_TITLE', labelKey: 'options_filename_part_page_title', enabled: true, separator: '_' },
+    { id: 'PAGE_TITLE', labelKey: 'options_filename_part_page_title', enabled: true, separator: '/' },
+    { id: 'FREE_KEY', labelKey: 'options_filename_part_free_key', enabled: true, separator: '_' },
     { id: 'TIMESTAMP', labelKey: 'options_filename_part_timestamp', enabled: true, separator: '' }
 ];
 
@@ -105,7 +106,11 @@ export async function processImageUpload(blob, pageTitle, authToken, sourceUrl) 
     let fullPathString = '';
     const enabledParts = config.filter(p => p.enabled);
     enabledParts.forEach(part => {
-        fullPathString += nameParts[part.id] + part.separator;
+        if (part.id === 'FREE_KEY') {
+            fullPathString += (part.customValue || 'content') + part.separator;
+        } else {
+            fullPathString += nameParts[part.id] + part.separator;
+        }
     });
 
     const allPathSegments = fullPathString.split('/').map(s => s.trim()).filter(s => s);

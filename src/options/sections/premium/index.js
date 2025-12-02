@@ -2,7 +2,7 @@ import { licenseManager } from '../../../core/license-manager.js';
 import { getAuthToken } from '../../../core/auth.js';
 import PCloudAPIClient from '../../../core/pcloud-api.js';
 
-const PAYPAL_CLIENT_ID = 'ASIxhJYAlMUVAvBcQGtXSP5fsH9caU6n6zfWneS36yXTPIEajc99yzCwHA2VqbinPgikHvfJ0xLkv0Sv';
+
 
 export default class PremiumSection {
     constructor() {
@@ -150,10 +150,31 @@ export default class PremiumSection {
         }
     }
 
-    openPaymentPage(tier) {
+    async fetchPayPalClientId() {
+        try {
+            const response = await fetch('https://hyper-fetch-lisence-api.taislife.work/api/client-id');
+            if (!response.ok) {
+                throw new Error(`Failed to fetch client ID: ${response.statusText}`);
+            }
+            const data = await response.json();
+            return data.client_id;
+        } catch (error) {
+            console.error('[PremiumSection] Error fetching PayPal Client ID:', error);
+            return null;
+        }
+    }
+
+    async openPaymentPage(tier) {
         if (!this.currentUserEmail) {
             this.showStatusMessage('options_error_loading_folders');
             console.error('[PremiumSection] No user email found');
+            return;
+        }
+
+        const clientId = await this.fetchPayPalClientId();
+        if (!clientId) {
+            this.showStatusMessage('options_payment_failed'); // Or a more specific error if available
+            console.error('[PremiumSection] Cannot open payment page without Client ID');
             return;
         }
 
@@ -162,7 +183,7 @@ export default class PremiumSection {
 
         console.log(`[PremiumSection] Opening payment page for ${tier}`);
 
-        const paymentUrl = `${PAYMENT_URL}?tier=${tier}&email=${encodeURIComponent(this.currentUserEmail)}&client_id=${PAYPAL_CLIENT_ID}&redirect_url=${encodeURIComponent(redirectUrl)}`;
+        const paymentUrl = `${PAYMENT_URL}?tier=${tier}&email=${encodeURIComponent(this.currentUserEmail)}&client_id=${clientId}&redirect_url=${encodeURIComponent(redirectUrl)}`;
 
         chrome.tabs.create({
             url: paymentUrl

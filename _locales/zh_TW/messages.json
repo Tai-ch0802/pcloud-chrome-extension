@@ -236,6 +236,10 @@
     "message": "時間戳",
     "description": "「時間戳」檔名部分的標籤。"
   },
+  "options_filename_part_free_key": {
+    "message": "自定義文字",
+    "description": "「自定義文字」檔名部分的標籤。"
+  },
   "options_filename_separator_label": {
     "message": "分隔符號",
     "description": "檔名部分之間分隔符號輸入欄位的標籤。"

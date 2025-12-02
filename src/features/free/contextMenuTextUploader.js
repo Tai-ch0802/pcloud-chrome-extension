@@ -11,7 +11,8 @@ const DEFAULT_UPLOAD_FOLDER_PATH_KEY = 'default_upload_folder_path';
 const DOMAIN_RULES_KEY = 'domain_upload_rules';
 
 const defaultTextFilenameConfig = [
-    { id: 'PAGE_TITLE', labelKey: 'options_filename_part_page_title', enabled: true, separator: '_' },
+    { id: 'PAGE_TITLE', labelKey: 'options_filename_part_page_title', enabled: true, separator: '/' },
+    { id: 'FREE_KEY', labelKey: 'options_filename_part_free_key', enabled: true, separator: '_' },
     { id: 'TIMESTAMP', labelKey: 'options_filename_part_timestamp', enabled: true, separator: '' }
 ];
 
@@ -143,7 +144,9 @@ async function handleContextMenuClick(info, tab, initiateUpload) {
         let fullPathString = '';
         const enabledParts = config.filter(p => p.enabled);
         enabledParts.forEach(part => {
-            if (nameParts[part.id]) {
+            if (part.id === 'FREE_KEY') {
+                fullPathString += (part.customValue || 'content') + part.separator;
+            } else if (nameParts[part.id]) {
                 fullPathString += nameParts[part.id] + part.separator;
             }
         });

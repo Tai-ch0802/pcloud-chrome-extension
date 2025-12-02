@@ -4,7 +4,8 @@ const TEXT_FILENAME_CONFIG_KEY = 'text_filename_config';
 const TEXT_INCLUDE_METADATA_KEY = 'text_include_metadata';
 
 const defaultTextFilenameConfig = [
-    { id: 'PAGE_TITLE', labelKey: 'options_filename_part_page_title', enabled: true, separator: '_' },
+    { id: 'PAGE_TITLE', labelKey: 'options_filename_part_page_title', enabled: true, separator: '/' },
+    { id: 'FREE_KEY', labelKey: 'options_filename_part_free_key', enabled: true, separator: '_' },
     { id: 'TIMESTAMP', labelKey: 'options_filename_part_timestamp', enabled: true, separator: '' }
 ];
 

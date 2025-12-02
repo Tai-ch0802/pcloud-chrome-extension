@@ -236,6 +236,10 @@
     "message": "Timestamp",
     "description": "Label for the 'Timestamp' filename part."
   },
+  "options_filename_part_free_key": {
+    "message": "Custom Text",
+    "description": "Label for the 'Custom Text' filename part."
+  },
   "options_filename_separator_label": {
     "message": "Separator",
     "description": "Label for the separator input field between filename parts."
