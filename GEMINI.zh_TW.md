@@ -56,9 +56,31 @@
 - **pCloud API 官方文件:** [https://docs.pcloud.com/](https://docs.pcloud.com/)
 - **pCloud JS SDK (供參考):** [https://github.com/pCloud/pcloud-sdk-js](https://github.com/pCloud/pcloud-sdk-js)
 
+## 5. 建置與發布流程 (Build & Release Workflow)
+
+我們使用 `make` 來管理建置和打包流程。這確保了建置的一致性並保持源代碼控制的整潔。
+
+### Makefile 指令 targets
+
+*   **`make` / `make package` (開發用)**:
+    *   建立 `build-dev` 目錄。
+    *   複製 `src`, `_locales`, 和 `manifest.json`。
+    *   將內容壓縮為 `pcloud-chrome-extension-vX.X-dev.zip`。
+    *   **不進行** 程式碼最小化 (Minification)。請使用此版本測試本地更動。
+
+*   **`make release` (生產用)**:
+    *   建立 `build-prod` 目錄。
+    *   複製源代碼檔案。
+    *   使用 `esbuild` 原地 **最小化 (Minify)** 所有 `.js` 和 `.css` 檔案。
+    *   將內容壓縮為 `pcloud-chrome-extension-vX.X.zip`。
+    *   請使用此 zip 檔案上傳至 Chrome Web Store。
+
+*   **`make clean`**:
+    *   移除 `build-dev`, `build-prod` 目錄以及所有 `*.zip` 檔案。
+
 ---
 
-## 5. 上下文工程 (Context Engineering)
+## 6. 上下文工程 (Context Engineering)
 
 為了確保 session 的連續性和有效的上下文管理，Gemini 在啟動新 session 時將遵循以下流程：
 

@@ -1,0 +1,25 @@
+SINGLE PURPOSE DESCRIPTION:
+This extension allows users to directly save web content (images, selected text, PDFs, and full pages) from their browser to their pCloud storage account via context menus and overlay interfaces.
+
+PERMISSION JUSTIFICATIONS:
+
+1. Request for "storage":
+Used to securely save the user's pCloud OAuth access token for authentication, and to persist user preferences such as filename patterns, default upload folders, and domain-specific rules.
+
+2. Request for "contextMenus":
+Used to add specific "Save to pCloud" options to the browser's context menu. This allows users to right-click on images, selected text, or the page itself to initiate uploads to their pCloud account.
+
+3. Request for "notifications":
+Used to provide immediate, non-intrusive feedback to the user regarding the status of their background tasks, such as confirming a successful file upload or alerting them to an error.
+
+4. Request for "identity":
+Used to securely handle the OAuth 2.0 authentication flow (`chrome.identity.launchWebAuthFlow`) with pCloud. This ensures that the user can log in safely without exposing their credentials to the extension.
+
+5. Request for "activeTab":
+Used to grant the extension temporary access to the current tab's information (such as title and URL) and content necessary for generating filenames and processing page content when the user explicitly triggers an extension command.
+
+6. Request for Site Access (Host Permissions / Content Scripts on <all_urls>):
+The extension requires access to web pages to:
+1. Inject the content scripts necessary for the "Save Selection" and "PDF Viewer" features to function on any site the user visits.
+2. Fetch image data (via `fetch`) from third-party domains to process and upload them to pCloud.
+3. Detect when a PDF is being viewed to display the "Save to pCloud" overlay.

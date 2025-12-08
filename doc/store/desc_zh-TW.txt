@@ -1,0 +1,38 @@
+🚀 HyperFetch for pCloud：您的終極雲端儲存神器！☁️
+
+直接在瀏覽器中釋放 pCloud 的完整潛力！HyperFetch 將 pCloud 無縫整合到您的日常工作中，讓儲存內容比以往更快速、更輕鬆。
+
+✨ 核心功能：
+
+🖼️ 智慧圖片儲存
+• 右鍵點擊即可將任何圖片上傳至 pCloud。
+• 自動將上傳的檔案整理到自訂資料夾中。
+• 再也不需要手動下載再重新上傳！
+
+📝 文字選取轉 Markdown
+• 選取文字 -> 右鍵點擊 -> 儲存！
+• 瞬間在您的雲端建立 Markdown 筆記。
+• 研究和做筆記的完美幫手。
+
+📄 網頁轉文件 (Premium)
+• 將任何網頁內容轉換為乾淨的 Markdown 或 Word 文件。
+• 圖片會自動下載、上傳至 pCloud，並在文件中建立連結！🤯
+• 讓您的筆記豐富且易於攜帶。
+
+📂 智慧 PDF 整合
+• 在 Chrome 中瀏覽 PDF 時，會出現精美的懸浮按鈕。
+• 一鍵將 PDF 直接儲存到指定的 pCloud 資料夾。
+• [Premium] 瞬間將 PDF 轉換為 Markdown！
+
+⚡ 進階使用者工具
+• 可自訂檔案名稱（日期、標題、自訂關鍵字）。
+• 網域規則 (Domain Rules)：為不同網站設定不同的上傳資料夾！
+• 智慧 fallback 機制確保您永遠不會遺失檔案。
+
+🔒 安全與隱私
+• 使用官方 pCloud OAuth 2.0 認證。
+• 您的憑證永遠不會離開您的瀏覽器。
+
+立即使用 HyperFetch for pCloud 提升您的生產力！🚀
+
+#pCloud #生產力 #ChromeExtension #雲端儲存 #Markdown #研究

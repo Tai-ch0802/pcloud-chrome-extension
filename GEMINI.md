@@ -56,9 +56,31 @@ All user-facing strings must be managed through the `_locales` system.
 - **pCloud API Documentation:** [https://docs.pcloud.com/](https://docs.pcloud.com/)
 - **pCloud JS SDK (for reference):** [https://github.com/pCloud/pcloud-sdk-js](https://github.com/pCloud/pcloud-sdk-js)
 
+## 5. Build & Release Workflow
+
+We use `make` to manage the build and packaging process. This ensures consistent builds and cleaner source control.
+
+### Makefile Targets
+
+*   **`make` / `make package` (Development)**:
+    *   Creates a `build-dev` directory.
+    *   Copies `src`, `_locales`, and `manifest.json`.
+    *   Zips the content into `pcloud-chrome-extension-vX.X-dev.zip`.
+    *   **NO** minification is performed. Use this for testing local changes.
+
+*   **`make release` (Production)**:
+    *   Creates a `build-prod` directory.
+    *   Copies source files.
+    *   **Minifies** all `.js` and `.css` files in-place using `esbuild`.
+    *   Zips the content into `pcloud-chrome-extension-vX.X.zip`.
+    *   Use this zip file for Chrome Web Store uploads.
+
+*   **`make clean`**:
+    *   Removes `build-dev`, `build-prod` directories and all `*.zip` files.
+
 ---
 
-## 5. Context Engineering
+## 6. Context Engineering
 
 To ensure session continuity and effective context management, Gemini will adhere to the following process upon starting a new session:
 

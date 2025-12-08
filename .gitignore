@@ -29,3 +29,8 @@ yarn-error.log*
 .Spotlight-V100
 .Trashes
 Thumbs.db
+
+build-prod/
+build-dev/
+pcloud-chrome-extension-*.zip
+pcloud-chrome-extension-*/

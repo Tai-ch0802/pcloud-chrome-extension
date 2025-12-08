@@ -38,6 +38,30 @@ A powerful Chrome extension that integrates pCloud into your browsing experience
     *   Default upload locations.
     *   Document format preferences (Markdown/Word).
 
+## Development & Packaging
+
+This project includes a `Makefile` to simplify packaging for development and production.
+
+-   **Development Build**:
+    ```bash
+    make
+    # or
+    make package
+    ```
+    Creates an unminified zip file (e.g., `pcloud-chrome-extension-v1.0-dev.zip`) in the root directory.
+
+-   **Production Release**:
+    ```bash
+    make release
+    ```
+    Creates a minified, production-ready zip file (e.g., `pcloud-chrome-extension-v1.0.zip`) with optimized CSS and JS resources.
+
+-   **Clean**:
+    ```bash
+    make clean
+    ```
+    Removes all build artifacts and zip files.
+
 ## Project Structure
 
 See [GEMINI.md](GEMINI.md) for detailed architecture and development guidelines.
