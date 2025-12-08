@@ -41,6 +41,20 @@
       "css": [
         "src/content/content.css"
       ]
+    },
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": [
+        "src/assets/vendor/pdf.js",
+        "src/core/pdf-to-markdown.js",
+        "src/content/pdf-viewer.js"
+      ],
+      "css": [
+        "src/content/pdf-viewer.css"
+      ],
+      "run_at": "document_idle"
     }
   ],
   "commands": {
@@ -57,7 +71,8 @@
       "resources": [
         "src/content/upload_ui.html",
         "src/assets/icons/icon128.png",
-        "src/options/options.html"
+        "src/options/options.html",
+        "src/assets/vendor/pdf.worker.js"
       ],
       "matches": [
         "<all_urls>",

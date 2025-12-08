@@ -447,5 +447,17 @@
   },
   "toast_view_button": {
     "message": "View"
+  },
+  "pdf_download_to_pcloud": {
+    "message": "Save to pCloud"
+  },
+  "pdf_download_as_markdown": {
+    "message": "Download as Markdown to pCloud"
+  },
+  "pdf_error_not_pdf": {
+    "message": "This page is not a PDF."
+  },
+  "pdf_error_fetch_failed": {
+    "message": "Failed to fetch PDF data."
   }
 }

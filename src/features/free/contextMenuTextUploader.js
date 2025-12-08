@@ -2,6 +2,7 @@
 
 import { getAuthToken } from '../../core/auth.js';
 import PCloudAPIClient from '../../core/pcloud-api.js';
+import { matchDomainRule } from '../../core/utils.js';
 
 const PCLOUD_ICON_PATH = '/src/assets/icons/icon128.png';
 const TEXT_FILENAME_CONFIG_KEY = 'text_filename_config';
@@ -84,34 +85,14 @@ async function handleContextMenuClick(info, tab, initiateUpload) {
         // --- Domain Rule Matching ---
         let targetFolderId = baseFolderId;
         let targetPath = basePath;
-        let matchedRule = null;
-        const pageUrl = tab.url;
+        const matchedRule = matchDomainRule(pageUrl, domainRules);
 
-        if (pageUrl && domainRules.length > 0) {
-            let domain;
-            try {
-                domain = new URL(pageUrl).hostname;
-            } catch (e) {
-                domain = pageUrl;
-            }
-
-            matchedRule = domainRules.find(rule => {
-                if (!rule.enabled) return false;
-                const regexPattern = '^' + rule.domainPattern.replace(/\./g, '\\.').replace(/\*/g, '.*') + '$';
-                try {
-                    return new RegExp(regexPattern).test(domain);
-                } catch (e) {
-                    return false;
-                }
-            });
-
-            if (matchedRule) {
-                targetPath = matchedRule.targetPath;
-                if (matchedRule.targetFolderId) {
-                    targetFolderId = matchedRule.targetFolderId;
-                } else {
-                    targetFolderId = 0;
-                }
+        if (matchedRule) {
+            targetPath = matchedRule.targetPath;
+            if (matchedRule.targetFolderId) {
+                targetFolderId = matchedRule.targetFolderId;
+            } else {
+                targetFolderId = 0;
             }
         }
 

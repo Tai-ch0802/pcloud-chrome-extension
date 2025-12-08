@@ -447,5 +447,17 @@
   },
   "toast_view_button": {
     "message": "查看"
+  },
+  "pdf_download_to_pcloud": {
+    "message": "儲存至 pCloud"
+  },
+  "pdf_download_as_markdown": {
+    "message": "下載為 Markdown 至 pCloud"
+  },
+  "pdf_error_not_pdf": {
+    "message": "此頁面不是 PDF。"
+  },
+  "pdf_error_fetch_failed": {
+    "message": "無法取得 PDF 資料。"
   }
 }

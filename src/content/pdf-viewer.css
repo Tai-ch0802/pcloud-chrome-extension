@@ -1,0 +1,135 @@
+/* src/content/pdf-viewer.css */
+
+#pcloud-pdf-overlay {
+    position: fixed;
+    top: 60px;
+    right: 20px;
+    z-index: 2147483647;
+    /* Max z-index */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    font-family: 'Roboto', 'Segoe UI', Tahoma, sans-serif;
+    pointer-events: none;
+    /* Let clicks pass through if not on button */
+}
+
+#pcloud-pdf-overlay>* {
+    pointer-events: auto;
+    /* Re-enable clicks for children */
+}
+
+#pcloud-pdf-fab {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background-color: #333;
+    /* Dark background like Chrome toolbar */
+    color: white;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease-in-out;
+    opacity: 0.5;
+    margin-bottom: 10px;
+}
+
+#pcloud-pdf-fab:hover {
+    opacity: 1;
+    transform: scale(1.1);
+    background-color: #000;
+}
+
+#pcloud-pdf-fab svg {
+    width: 24px;
+    height: 24px;
+    fill: currentColor;
+}
+
+#pcloud-pdf-menu {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    min-width: 200px;
+    display: none;
+    flex-direction: column;
+    animation: fadeIn 0.2s;
+    margin-right: 5px;
+    /* Align slightly */
+}
+
+#pcloud-pdf-menu.show {
+    display: flex;
+}
+
+.pcloud-pdf-menu-item {
+    padding: 12px 16px;
+    cursor: pointer;
+    font-size: 14px;
+    color: #333;
+    display: flex;
+    align-items: center;
+    transition: background-color 0.1s;
+    background: none;
+    border: none;
+    text-align: left;
+    width: 100%;
+}
+
+.pcloud-pdf-menu-item:hover {
+    background-color: #f5f5f5;
+}
+
+.pcloud-pdf-menu-item svg {
+    margin-right: 10px;
+    width: 18px;
+    height: 18px;
+    fill: #666;
+}
+
+/* Toast Notification Styles */
+/* Toast Notification Styles - Matched with content.css */
+.pcloud-pdf-toast {
+    margin-top: 10px;
+    background-color: #323232;
+    color: white;
+    padding: 14px 24px;
+    border-radius: 4px;
+    box-shadow: 0 3px 5px -1px rgba(0, 0, 0, .2), 0 6px 10px 0 rgba(0, 0, 0, .14), 0 1px 18px 0 rgba(0, 0, 0, .12);
+    font-family: Roboto, sans-serif;
+    font-size: 14px;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    max-width: 300px;
+    /* Keep max-width for overlay context */
+}
+
+.pcloud-pdf-toast.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.pcloud-pdf-toast.error {
+    background-color: #d32f2f;
+    /* Keep specific error color if needed, or stick to consistent dark approach? User probably OK with error color differentiation. */
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-5px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

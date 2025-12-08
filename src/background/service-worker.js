@@ -6,6 +6,7 @@ import { initializeContextMenuImageDownloader } from '../features/free/contextMe
 import { initializeContextMenuTextDownloader } from '../features/free/contextMenuTextUploader.js';
 import { initializeContextMenuDocumentDownloader } from '../features/paid/contextMenuDocumentDownloader.js';
 import { processImageUpload } from '../features/free/imageUploadUtils.js';
+import { matchDomainRule } from '../core/utils.js';
 
 
 // --- Centralized Global State ---
@@ -145,11 +146,58 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
     }
 
     if (type === 'startUploadFromFile' && payload.dataUrl) {
-        fetch(payload.dataUrl)
-            .then(res => res.blob())
-            .then(blob => new File([blob], payload.name, { type: payload.type }))
-            .then(file => initiateUpload(file, { showNotifications: false }))
-            .catch(error => console.error('File conversion failed for popup:', error));
+        (async () => {
+            try {
+                // Determine folder ID based on domain rules
+                let folderId = undefined;
+                const sourceUrl = payload.sourceUrl;
+
+                if (sourceUrl) {
+                    const DOMAIN_RULES_KEY = 'domain_upload_rules';
+                    const { [DOMAIN_RULES_KEY]: domainRules = [] } = await chrome.storage.sync.get(DOMAIN_RULES_KEY);
+                    const matchedRule = matchDomainRule(sourceUrl, domainRules);
+
+                    if (matchedRule) {
+                        // Logic similar to other modules: use ID if available, else 0 (root) and ensure path exists
+                        // Here we only set folderId passed to initiateUpload. 
+                        // initiateUpload -> startUpload -> uses folderId if present.
+                        // BUT initiateUpload/startUpload logic assumes if folderId is undefined, it fetches default.
+                        // If we pass 0, it uses 0 (Root).
+
+                        if (matchedRule.targetFolderId) {
+                            folderId = matchedRule.targetFolderId;
+                        } else {
+                            // If targetFolderId is 0 or missing, but we have a targetPath, we need to create it.
+                            // startUpload doesn't create folders from path currently (it just takes ID).
+                            // So we should probably resolve path to ID here.
+                            const client = new PCloudAPIClient(await getAuthToken());
+                            const targetPath = matchedRule.targetPath || '/';
+                            if (targetPath !== '/') {
+                                const folderMeta = await client.createFolderIfNotExists(targetPath);
+                                if (folderMeta && folderMeta.metadata && folderMeta.metadata.folderid) {
+                                    folderId = folderMeta.metadata.folderid;
+                                }
+                            } else {
+                                folderId = 0;
+                            }
+                        }
+                    }
+                }
+
+                fetch(payload.dataUrl)
+                    .then(res => res.blob())
+                    .then(blob => new File([blob], payload.name, { type: payload.type }))
+                    .then(file => initiateUpload(file, { showNotifications: false, folderId: folderId }))
+                    .catch(error => console.error('File conversion failed for popup:', error));
+            } catch (e) {
+                console.error('Error handling startUploadFromFile:', e);
+                // Fallback to default
+                fetch(payload.dataUrl)
+                    .then(res => res.blob())
+                    .then(blob => new File([blob], payload.name, { type: payload.type }))
+                    .then(file => initiateUpload(file, { showNotifications: false }))
+            }
+        })();
         return true;
     }
 

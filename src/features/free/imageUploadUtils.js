@@ -1,4 +1,5 @@
 import PCloudAPIClient from '../../core/pcloud-api.js';
+import { matchDomainRule } from '../../core/utils.js';
 
 const FILENAME_CONFIG_KEY = 'filename_config';
 const DEFAULT_UPLOAD_FOLDER_ID_KEY = 'default_upload_folder_id';
@@ -60,39 +61,22 @@ export async function processImageUpload(blob, pageTitle, authToken, sourceUrl) 
     // --- Domain Rule Matching ---
     let targetFolderId = baseFolderId;
     let targetPath = basePath;
-    let matchedRule = null;
 
-    if (sourceUrl && domainRules.length > 0) {
-        let domain;
-        try {
-            domain = new URL(sourceUrl).hostname;
-        } catch (e) {
-            domain = sourceUrl;
-        }
+    // Use shared utility for matching
+    const matchedRule = matchDomainRule(sourceUrl, domainRules);
 
-        matchedRule = domainRules.find(rule => {
-            if (!rule.enabled) return false;
-            const regexPattern = '^' + rule.domainPattern.replace(/\./g, '\\.').replace(/\*/g, '.*') + '$';
-            try {
-                return new RegExp(regexPattern).test(domain);
-            } catch (e) {
-                return false;
-            }
-        });
-
-        if (matchedRule) {
-            targetPath = matchedRule.targetPath;
-            // If we have a cached folder ID, use it, otherwise we might need to resolve path to ID
-            // Ideally, we should resolve path to ID if ID is missing or 0
-            if (matchedRule.targetFolderId) {
-                targetFolderId = matchedRule.targetFolderId;
-            } else {
-                // We need to resolve path to ID. 
-                // Since we are about to createFolderIfNotExists anyway, we can just use the path.
-                // But createFolderIfNotExists takes a path string.
-                // Let's rely on createFolderIfNotExists to handle the path and return the ID.
-                targetFolderId = 0; // Reset to root so we build full path from root
-            }
+    if (matchedRule) {
+        targetPath = matchedRule.targetPath;
+        // If we have a cached folder ID, use it, otherwise we might need to resolve path to ID
+        // Ideally, we should resolve path to ID if ID is missing or 0
+        if (matchedRule.targetFolderId) {
+            targetFolderId = matchedRule.targetFolderId;
+        } else {
+            // We need to resolve path to ID. 
+            // Since we are about to createFolderIfNotExists anyway, we can just use the path.
+            // But createFolderIfNotExists takes a path string.
+            // Let's rely on createFolderIfNotExists to handle the path and return the ID.
+            targetFolderId = 0; // Reset to root so we build full path from root
         }
     }
 

@@ -1,5 +1,6 @@
 import { getAuthToken } from '../../../core/auth.js';
 import PCloudAPIClient from '../../../core/pcloud-api.js';
+import { matchDomainRule } from '../../../core/utils.js';
 
 const DOMAIN_RULES_KEY = 'domain_upload_rules';
 
@@ -252,21 +253,7 @@ export default class DomainRulesSection {
             return;
         }
 
-        const matchedRule = this.rules.find(rule => {
-            if (!rule.enabled) return false;
-            const regexPattern = '^' + rule.domainPattern.replace(/\./g, '\\.').replace(/\*/g, '.*') + '$';
-            try {
-                let domain;
-                try {
-                    domain = new URL(url).hostname;
-                } catch (e) {
-                    domain = url;
-                }
-                return new RegExp(regexPattern).test(domain);
-            } catch (e) {
-                return false;
-            }
-        });
+        const matchedRule = matchDomainRule(url, this.rules);
 
         this.testResult.className = 'test-result';
         if (matchedRule) {
