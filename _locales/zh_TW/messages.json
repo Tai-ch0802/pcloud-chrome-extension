@@ -459,5 +459,9 @@
   },
   "pdf_error_fetch_failed": {
     "message": "無法取得 PDF 資料。"
+  },
+  "visit_official_website": {
+    "message": "造訪官方網站",
+    "description": "官方網站連結文字。"
   }
 }

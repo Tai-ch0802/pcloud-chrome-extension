@@ -43,6 +43,118 @@ async function initPdfViewerIntegration() {
 function injectOverlay() {
     if (document.getElementById('pcloud-pdf-overlay')) return;
 
+    const style = document.createElement('style');
+    style.textContent = `
+        #pcloud-pdf-overlay-styles {
+            font-family: 'Roboto', 'Segoe UI', Tahoma, sans-serif;
+        }
+        #pcloud-pdf-overlay {
+            position: fixed;
+            top: 60px;
+            right: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            pointer-events: none;
+            z-index: 2147483647; /* Ensure it's on top */
+        }
+        #pcloud-pdf-overlay > * {
+            pointer-events: auto;
+        }
+        #pcloud-pdf-fab {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background-color: #333;
+            color: white;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease-in-out;
+            opacity: 0.5;
+            margin-bottom: 10px;
+        }
+        #pcloud-pdf-fab:hover {
+            opacity: 1;
+            transform: scale(1.1);
+            background-color: #000;
+        }
+        #pcloud-pdf-fab svg {
+            width: 24px;
+            height: 24px;
+            fill: currentColor;
+        }
+        #pcloud-pdf-menu {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            min-width: 200px;
+            display: none;
+            flex-direction: column;
+            animation: fadeIn 0.2s;
+            margin-right: 5px;
+        }
+        #pcloud-pdf-menu.show {
+            display: flex;
+        }
+        .pcloud-pdf-menu-item {
+            padding: 12px 16px;
+            cursor: pointer;
+            font-size: 14px;
+            color: #333;
+            display: flex;
+            align-items: center;
+            transition: background-color 0.1s;
+            background: none;
+            border: none;
+            text-align: left;
+            width: 100%;
+        }
+        .pcloud-pdf-menu-item:hover {
+            background-color: #f5f5f5;
+        }
+        .pcloud-pdf-menu-item svg {
+            margin-right: 10px;
+            width: 18px;
+            height: 18px;
+            fill: #666;
+        }
+        /* Toast Styles */
+        .pcloud-pdf-toast {
+            margin-top: 10px;
+            background-color: #323232;
+            color: white;
+            padding: 14px 24px;
+            border-radius: 4px;
+            box-shadow: 0 3px 5px -1px rgba(0, 0, 0, .2), 0 6px 10px 0 rgba(0, 0, 0, .14), 0 1px 18px 0 rgba(0, 0, 0, .12);
+            font-size: 14px;
+            opacity: 0;
+            transform: translateY(-10px);
+            transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            max-width: 300px;
+        }
+        .pcloud-pdf-toast.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .pcloud-pdf-toast.error {
+            background-color: #d32f2f;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-5px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    `;
+    style.id = 'pcloud-pdf-overlay-styles';
+    document.head.appendChild(style);
+
     const overlay = document.createElement('div');
     overlay.id = 'pcloud-pdf-overlay';
 
@@ -55,16 +167,6 @@ function injectOverlay() {
     // Menu Logic
     const menu = document.createElement('div');
     menu.id = 'pcloud-pdf-menu';
-
-    // Menu Item 1: Save to pCloud (Same as FAB click, but explicit option in menu)
-    // Actually, user spec says: "icon 點擊以後會往下展開兩個" (Clicking icon expands two options)
-    // AND "UI以半透明呈現，當 hover 時，再些微放大並且改為全實現。" (Semi-transparent, hover -> opaque)
-
-    // Clarification: 
-    // Spec: "icon 點擊以後會往下展開兩個" -> Click opens menu.
-    // Previous plan: "Main Fab: Save to pCloud", "Dropdown: Toggle menu".
-    // User latest request: "icon 點擊以後會往下展開兩個" -> The icon itself is the toggle?
-    // Let's implement: Click FAB -> Toggle Menu. Menu has 2 items: "Save PDF to pCloud", "Save Markdown to pCloud".
 
     fab.onclick = (e) => {
         e.stopPropagation();
@@ -186,7 +288,8 @@ async function getPdfData() {
 async function handleDownloadToPCloud() {
     console.log('[pCloud] "Download to pCloud" clicked');
     // Close menu
-    document.getElementById('pcloud-pdf-menu')?.classList.remove('show');
+    // Close menu
+    pcloudPdfShadow?.getElementById('pcloud-pdf-menu')?.classList.remove('show');
 
     const pdfData = await getPdfData();
     if (!pdfData) return;
@@ -222,7 +325,8 @@ async function checkPremium() {
 async function handleDownloadAsMarkdown() {
     console.log('[pCloud] "Download as Markdown" clicked');
     // Close menu
-    document.getElementById('pcloud-pdf-menu')?.classList.remove('show');
+    // Close menu
+    pcloudPdfShadow?.getElementById('pcloud-pdf-menu')?.classList.remove('show');
 
     const isPremium = await checkPremium();
     if (!isPremium) {

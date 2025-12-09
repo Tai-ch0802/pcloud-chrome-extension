@@ -178,7 +178,7 @@ export default class PremiumSection {
             return;
         }
 
-        const PAYMENT_URL = 'https://paypal-payment.taislife.work';
+        const PAYMENT_URL = 'https://hyper-fetch.taislife.work/payment';
         const redirectUrl = chrome.runtime.getURL("src/options/options.html");
 
         console.log(`[PremiumSection] Opening payment page for ${tier}`);

@@ -459,5 +459,9 @@
   },
   "pdf_error_fetch_failed": {
     "message": "Failed to fetch PDF data."
+  },
+  "visit_official_website": {
+    "message": "Visit Official Website",
+    "description": "Link text to the official product website."
   }
 }

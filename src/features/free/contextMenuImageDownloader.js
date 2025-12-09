@@ -20,6 +20,7 @@ async function handleContextMenuClick(info, tab, initiateUpload) {
     }
 
     // Helper to send toast
+    // Helper to send toast with fallback to native notification
     const sendToast = async (message, type = 'loading', duration = 0) => {
         try {
             await chrome.tabs.sendMessage(tab.id, {
@@ -29,7 +30,16 @@ async function handleContextMenuClick(info, tab, initiateUpload) {
                 duration
             });
         } catch (e) {
-            console.warn("Could not send toast to tab", e);
+            console.warn("Could not send toast to tab. Falling back to notification.", e);
+            // Fallback: Use native notification for critical errors or success
+            if (type === 'error' || type === 'success') {
+                chrome.notifications.create({
+                    type: 'basic',
+                    iconUrl: PCLOUD_ICON_PATH,
+                    title: type === 'error' ? 'Error' : 'Success',
+                    message: message
+                });
+            }
         }
     };
 
