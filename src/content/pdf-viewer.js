@@ -205,7 +205,7 @@ function injectOverlay() {
     }
 }
 
-function showToast(message, type = 'info') {
+function showPdfToast(message, type = 'info') {
     const overlay = document.getElementById('pcloud-pdf-overlay');
     if (!overlay) return;
 
@@ -280,7 +280,7 @@ async function getPdfData() {
 
     } catch (e) {
         console.error('[pCloud] Failed to fetch PDF:', e);
-        showToast(chrome.i18n.getMessage('pdf_error_fetch_failed') || 'Failed to fetch PDF data.', 'error');
+        showPdfToast(chrome.i18n.getMessage('pdf_error_fetch_failed') || 'Failed to fetch PDF data.', 'error');
         return null;
     }
 }
@@ -307,7 +307,7 @@ async function handleDownloadToPCloud() {
                 sourceUrl: window.location.href
             }
         });
-        showToast(chrome.i18n.getMessage('toast_upload_started') || 'Upload started!');
+        showPdfToast(chrome.i18n.getMessage('toast_upload_started') || 'Upload started!');
     };
     reader.readAsDataURL(blob);
 }
@@ -330,11 +330,11 @@ async function handleDownloadAsMarkdown() {
 
     const isPremium = await checkPremium();
     if (!isPremium) {
-        showToast(chrome.i18n.getMessage('notification_premium_required_message') || 'Premium license required!', 'error');
+        showPdfToast(chrome.i18n.getMessage('notification_premium_required_message') || 'Premium license required!', 'error');
         return;
     }
 
-    showToast(chrome.i18n.getMessage('toast_generating_document') || 'Converting...', 'info');
+    showPdfToast(chrome.i18n.getMessage('toast_generating_document') || 'Converting...', 'info');
 
     const pdfData = await getPdfData();
     if (!pdfData) return;
@@ -361,13 +361,13 @@ async function handleDownloadAsMarkdown() {
                     sourceUrl: window.location.href
                 }
             });
-            showToast(chrome.i18n.getMessage('toast_upload_started') || 'Conversion done. Upload started!');
+            showPdfToast(chrome.i18n.getMessage('toast_upload_started') || 'Conversion done. Upload started!');
         };
         reader.readAsDataURL(blobMd);
 
     } catch (e) {
         console.error(e);
-        showToast('Conversion failed: ' + e.message, 'error');
+        showPdfToast('Conversion failed: ' + e.message, 'error');
     }
 }
 
