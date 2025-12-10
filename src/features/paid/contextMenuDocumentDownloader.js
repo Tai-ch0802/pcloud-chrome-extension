@@ -16,6 +16,7 @@ const DOMAIN_RULES_KEY = 'domain_upload_rules';
 const defaultDocFilenameConfig = [
     { id: 'PAGE_TITLE', labelKey: 'options_filename_part_page_title', enabled: true, separator: '/' },
     { id: 'FREE_KEY', labelKey: 'options_filename_part_free_key', enabled: true, separator: '_' },
+    { id: 'DATE', labelKey: 'options_filename_part_date', enabled: false, separator: '_', dateFormat: 'YYYY-MM-DD' },
     { id: 'TIMESTAMP', labelKey: 'options_filename_part_timestamp', enabled: true, separator: '' }
 ];
 
@@ -28,6 +29,21 @@ function getFormattedTimestamp() {
     const mm = String(now.getMinutes()).padStart(2, '0');
     const ss = String(now.getSeconds()).padStart(2, '0');
     return `${YYYY}${MM}${DD}_${HH}${mm}${ss}`;
+}
+
+function getFormattedDate(format) {
+    const now = new Date();
+    const YYYY = now.getFullYear();
+    const MM = String(now.getMonth() + 1).padStart(2, '0');
+    const DD = String(now.getDate()).padStart(2, '0');
+    switch (format) {
+        case 'YYYY-MM-DD': return `${YYYY}-${MM}-${DD}`;
+        case 'YYYY_MM_DD': return `${YYYY}_${MM}_${DD}`;
+        case 'YYYYMMDD': return `${YYYY}${MM}${DD}`;
+        case 'MM-DD-YYYY': return `${MM}-${DD}-${YYYY}`;
+        case 'DD-MM-YYYY': return `${DD}-${MM}-${YYYY}`;
+        default: return `${YYYY}-${MM}-${DD}`;
+    }
 }
 
 async function fetchImageAsBase64(url) {
@@ -158,6 +174,8 @@ async function handleContextMenuClick(info, tab, initiateUpload) {
         config.filter(p => p.enabled).forEach(part => {
             if (part.id === 'FREE_KEY') {
                 fullPathString += (part.customValue || 'content') + part.separator;
+            } else if (part.id === 'DATE') {
+                fullPathString += getFormattedDate(part.dateFormat || 'YYYY-MM-DD') + part.separator;
             } else if (nameParts[part.id]) {
                 fullPathString += nameParts[part.id] + part.separator;
             }

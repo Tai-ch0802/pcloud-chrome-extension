@@ -240,6 +240,10 @@
     "message": "自定義文字",
     "description": "「自定義文字」檔名部分的標籤。"
   },
+  "options_filename_part_date": {
+    "message": "日期",
+    "description": "「日期」檔名部分的標籤。"
+  },
   "options_filename_separator_label": {
     "message": "分隔符號",
     "description": "檔名部分之間分隔符號輸入欄位的標籤。"
@@ -461,7 +465,11 @@
     "message": "無法取得 PDF 資料。"
   },
   "visit_official_website": {
-    "message": "造訪官方網站",
+    "message": "造訪 HyperFetch 官方網站",
     "description": "官方網站連結文字。"
+  },
+  "options_promotion_text": {
+    "message": "推廣中！限時免費",
+    "description": "推廣活動圖示旁的文案。"
   }
 }

@@ -240,6 +240,10 @@
     "message": "Custom Text",
     "description": "Label for the 'Custom Text' filename part."
   },
+  "options_filename_part_date": {
+    "message": "Date",
+    "description": "Label for the 'Date' filename part."
+  },
   "options_filename_separator_label": {
     "message": "Separator",
     "description": "Label for the separator input field between filename parts."
@@ -461,7 +465,11 @@
     "message": "Failed to fetch PDF data."
   },
   "visit_official_website": {
-    "message": "Visit Official Website",
+    "message": "Visit 'HyperFetch' Website",
     "description": "Link text to the official product website."
+  },
+  "options_promotion_text": {
+    "message": "Limited Free!",
+    "description": "Promotional text shown next to promotion icon."
   }
 }

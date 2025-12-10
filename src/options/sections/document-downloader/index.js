@@ -7,6 +7,7 @@ const DOC_INCLUDE_METADATA_KEY = 'doc_include_metadata';
 const defaultDocFilenameConfig = [
     { id: 'PAGE_TITLE', labelKey: 'options_filename_part_page_title', enabled: true, separator: '/' },
     { id: 'FREE_KEY', labelKey: 'options_filename_part_free_key', enabled: true, separator: '_' },
+    { id: 'DATE', labelKey: 'options_filename_part_date', enabled: false, separator: '_', dateFormat: 'YYYY-MM-DD' },
     { id: 'TIMESTAMP', labelKey: 'options_filename_part_timestamp', enabled: true, separator: '' }
 ];
 

@@ -52,6 +52,9 @@ export default class PremiumSection {
                 const userInfo = await client.getUserInfo();
                 this.currentUserEmail = userInfo.email;
                 console.log('User email fetched:', this.currentUserEmail);
+
+                // Check if promotion is available and show icon
+                await this.checkPromotionAvailability();
             }
         } catch (e) {
             console.error('Failed to fetch user info:', e);
@@ -210,6 +213,35 @@ export default class PremiumSection {
         } catch (e) {
             console.error('Restore failed', e);
             this.showStatusMessage('options_restore_failed');
+        }
+    }
+
+    async checkPromotionAvailability() {
+        const PROMOTION_BASE_URL = 'https://hyper-fetch.taislife.work/promotion/';
+        const promotionLink = this.element.querySelector('#promotion-link');
+
+        if (!promotionLink) return;
+
+        try {
+            // Check if promotion URL is available (returns 200)
+            const response = await fetch(PROMOTION_BASE_URL, { method: 'HEAD' });
+
+            if (response.ok) {
+                // Promotion is active, show the icon and set the link with user email
+                const promotionUrl = this.currentUserEmail
+                    ? `${PROMOTION_BASE_URL}?email=${encodeURIComponent(this.currentUserEmail)}`
+                    : PROMOTION_BASE_URL;
+
+                promotionLink.href = promotionUrl;
+                promotionLink.classList.remove('hidden');
+                console.log('[PremiumSection] Promotion is active, showing icon');
+            } else {
+                // Promotion is not active, keep icon hidden
+                console.log('[PremiumSection] Promotion is not active (status:', response.status, ')');
+            }
+        } catch (e) {
+            // Network error or promotion page not available
+            console.log('[PremiumSection] Promotion check failed:', e.message);
         }
     }
 }
