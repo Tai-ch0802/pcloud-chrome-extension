@@ -314,8 +314,8 @@ async function handleDownloadToPCloud() {
 
 async function checkPremium() {
     try {
-        const { hyperfetch_license } = await chrome.storage.sync.get('hyperfetch_license');
-        return hyperfetch_license && (hyperfetch_license.status === 'premium' || hyperfetch_license.status === 'master');
+        const { hypercmdc_license } = await chrome.storage.sync.get('hypercmdc_license');
+        return hypercmdc_license && (hypercmdc_license.status === 'premium' || hypercmdc_license.status === 'master');
     } catch (e) {
         console.error('[pCloud] Failed to check license:', e);
         return false;

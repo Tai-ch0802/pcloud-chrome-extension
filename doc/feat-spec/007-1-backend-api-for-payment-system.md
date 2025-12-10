@@ -1,7 +1,7 @@
 # 功能規格書：後端 API (Cloudflare Workers + D1) + 外部付款頁面
 
 ## 1. 概述 (Overview)
-本文件定義了 HyperFetch 付費系統的後端架構與 API 介面。系統由以下組件構成：
+本文件定義了 HyperCmdC 付費系統的後端架構與 API 介面。系統由以下組件構成：
 - **擴充功能 (Extension)**：引導用戶到外部付款頁面
 - **付款頁面 (Payment Page)**：託管於 Cloudflare Pages（或其他靜態主機），集成 PayPal SDK
 - **後端 API (Backend API)**：部署於 **Cloudflare Workers**，使用 **Cloudflare D1** (SQLite) 作為資料庫
@@ -42,7 +42,12 @@
 
 1. **用戶在 Extension 中點擊「升級」**
    - Extension 獲取用戶的 pCloud Email
-   - 開啟新分頁到付款頁面：`https://payment.hyperfetch.com/checkout?tier=hf4pcloud&email=user@example.com`
+   - 開啟新分頁到付款頁面：`https://hyper-cmdc.taislife.work/payment?tier=hf4pcloud&email=user@example.com`
+
+   **範例 Request:**
+   ```http
+   GET https://hyper-cmdc.taislife.work/payment?tier=hf4pcloud&email=test@example.com
+   ```
 
 2. **付款頁面顯示定價與 PayPal 按鈕**
    - 根據 URL 參數 `tier` 顯示對應價格
@@ -58,6 +63,15 @@
    - Extension 調用：`POST /api/restore`
    - 後端根據 Email 查詢授權
    - 授權資訊同步到 `chrome.storage.sync`
+
+### 3. 付款成功處理 (Frontend)
+
+1.  使用者在 PayPal 完成付款。
+2.  PayPal 重導向回 `return_url` (即 `https://hyper-cmdc.taislife.work/payment/success`)。
+3.  前端頁面 (`payment/success`) 顯示 "Payment Successful" 訊息。
+4.  (Optional) 前端頁面嘗試透過 `window.opener.postMessage` 通知擴充功能 (如果是由擴充功能開啟的 popup)。
+    *   **更好作法：** 擴充功能 Options 頁面本身就在輪詢 (Polling) License API，或者提供 "Refresh Status" 按鈕。
+5.  使用者關閉付款分頁，回到擴充功能 Options 頁面。
 
 ## 3. 資料庫設計 (Database Schema)
 

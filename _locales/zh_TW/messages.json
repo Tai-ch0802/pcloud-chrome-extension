@@ -1,6 +1,6 @@
 {
   "extensionName": {
-    "message": "HyperFetch for pCloud",
+    "message": "HyperCmdC for pCloud",
     "description": "擴充功能的名稱。"
   },
   "extensionDescription": {
@@ -390,16 +390,16 @@
     "message": "解鎖進階功能，例如文件下載器 (Markdown/Word) 以及更多！"
   },
   "options_tier_pcloud_name": {
-    "message": "HyperFetch for pCloud"
+    "message": "HyperCmdC for pCloud"
   },
   "options_tier_pcloud_desc": {
     "message": "僅解鎖此擴充功能 (pCloud) 的進階功能。"
   },
   "options_tier_master_name": {
-    "message": "HyperFetch Master"
+    "message": "HyperCmdC Master"
   },
   "options_tier_master_desc": {
-    "message": "解鎖所有 HyperFetch 系列擴充功能 (pCloud, S3 等)。"
+    "message": "解鎖所有 HyperCmdC 系列擴充功能 (pCloud, S3 等)。"
   },
   "options_restore_purchase": {
     "message": "恢復購買"
@@ -465,7 +465,7 @@
     "message": "無法取得 PDF 資料。"
   },
   "visit_official_website": {
-    "message": "造訪 HyperFetch 官方網站",
+    "message": "造訪 HyperCmdC 官方網站",
     "description": "官方網站連結文字。"
   },
   "options_promotion_text": {

@@ -1,6 +1,6 @@
 // src/core/license-manager.js
 
-const LICENSE_STORAGE_KEY = 'hyperfetch_license';
+const LICENSE_STORAGE_KEY = 'hypercmdc_license';
 
 export class LicenseManager {
     constructor() {
@@ -97,7 +97,7 @@ export class LicenseManager {
         console.log(`[LicenseManager] Restoring purchase for ${email}`);
 
         try {
-            const response = await fetch('https://hyper-fetch-lisence-api.taislife.work/api/restore', {
+            const response = await fetch('https://hyper-cmdc-license-api.taislife.work/api/restore', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

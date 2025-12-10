@@ -155,12 +155,12 @@ export default class PremiumSection {
 
     async fetchPayPalClientId() {
         try {
-            const response = await fetch('https://hyper-fetch-lisence-api.taislife.work/api/client-id');
+            const response = await fetch('https://hyper-cmdc-license-api.taislife.work/api/client-id');
             if (!response.ok) {
                 throw new Error(`Failed to fetch client ID: ${response.statusText}`);
             }
             const data = await response.json();
-            return data.client_id;
+            return data.clientId;
         } catch (error) {
             console.error('[PremiumSection] Error fetching PayPal Client ID:', error);
             return null;
@@ -181,7 +181,7 @@ export default class PremiumSection {
             return;
         }
 
-        const PAYMENT_URL = 'https://hyper-fetch.taislife.work/payment';
+        const PAYMENT_URL = 'https://hyper-cmdc.taislife.work/payment';
         const redirectUrl = chrome.runtime.getURL("src/options/options.html");
 
         console.log(`[PremiumSection] Opening payment page for ${tier}`);
@@ -217,7 +217,7 @@ export default class PremiumSection {
     }
 
     async checkPromotionAvailability() {
-        const PROMOTION_BASE_URL = 'https://hyper-fetch.taislife.work/promotion/';
+        const PROMOTION_BASE_URL = 'https://hyper-cmdc.taislife.work/promotion/';
         const promotionLink = this.element.querySelector('#promotion-link');
 
         if (!promotionLink) return;

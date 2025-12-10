@@ -1,6 +1,6 @@
-🚀 HyperFetch for pCloud：您的終極雲端儲存神器！☁️
+🚀 HyperCmdC for pCloud：您的終極雲端儲存神器！☁️
 
-直接在瀏覽器中釋放 pCloud 的完整潛力！HyperFetch 將 pCloud 無縫整合到您的日常工作中，讓儲存內容比以往更快速、更輕鬆。
+直接在瀏覽器中釋放 pCloud 的完整潛力！HyperCmdC 將 pCloud 無縫整合到您的日常工作中，讓儲存內容比以往更快速、更輕鬆。
 
 ✨ 核心功能：
 
@@ -33,6 +33,6 @@
 • 使用官方 pCloud OAuth 2.0 認證。
 • 您的憑證永遠不會離開您的瀏覽器。
 
-立即使用 HyperFetch for pCloud 提升您的生產力！🚀
+立即使用 HyperCmdC for pCloud 提升您的生產力！🚀
 
 #pCloud #生產力 #ChromeExtension #雲端儲存 #Markdown #研究

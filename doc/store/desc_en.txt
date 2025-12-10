@@ -1,6 +1,6 @@
-🚀 HyperFetch for pCloud: The Ultimate Cloud Savings Tool! ☁️
+🚀 HyperCmdC for pCloud: The Ultimate Cloud Savings Tool! ☁️
 
-Unlock the full power of pCloud directly from your browser! HyperFetch seamlessly integrates pCloud into your daily workflow, making saving content faster and easier than ever.
+Unlock the full power of pCloud directly from your browser! HyperCmdC seamlessly integrates pCloud into your daily workflow, making saving content faster and easier than ever.
 
 ✨ KEY FEATURES:
 
@@ -33,6 +33,6 @@ Unlock the full power of pCloud directly from your browser! HyperFetch seamlessl
 • Uses official pCloud OAuth 2.0.
 • Your credentials never leave your browser.
 
-Upgrade your productivity today with HyperFetch for pCloud! 🚀
+Upgrade your productivity today with HyperCmdC for pCloud! 🚀
 
 #pCloud #Productivity #ChromeExtension #CloudStorage #Markdown #Research

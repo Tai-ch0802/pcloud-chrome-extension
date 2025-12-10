@@ -1,6 +1,6 @@
 # Project Architecture and Guidelines
 
-This document outlines the architecture for HyperFetch for pCloud, its core principles, and special instructions for Gemini.
+This document outlines the architecture for HyperCmdC for pCloud, its core principles, and special instructions for Gemini.
 
 ## 1. Directory Structure
 

@@ -1,6 +1,6 @@
 {
   "extensionName": {
-    "message": "HyperFetch for pCloud",
+    "message": "HyperCmdC for pCloud",
     "description": "The name of the extension."
   },
   "extensionDescription": {
@@ -390,16 +390,16 @@
     "message": "Unlock advanced features like Document Downloader (Markdown/Word) and more!"
   },
   "options_tier_pcloud_name": {
-    "message": "HyperFetch for pCloud"
+    "message": "HyperCmdC for pCloud"
   },
   "options_tier_pcloud_desc": {
     "message": "Unlocks features for this extension only."
   },
   "options_tier_master_name": {
-    "message": "HyperFetch Master"
+    "message": "HyperCmdC Master"
   },
   "options_tier_master_desc": {
-    "message": "Unlocks ALL HyperFetch extensions (pCloud, S3, etc.)."
+    "message": "Unlocks ALL HyperCmdC extensions (pCloud, S3, etc.)."
   },
   "options_restore_purchase": {
     "message": "Restore Purchase"
@@ -465,7 +465,7 @@
     "message": "Failed to fetch PDF data."
   },
   "visit_official_website": {
-    "message": "Visit 'HyperFetch' Website",
+    "message": "Visit 'HyperCmdC' Website",
     "description": "Link text to the official product website."
   },
   "options_promotion_text": {

@@ -1,29 +1,29 @@
-# HyperFetch for pCloud: Comprehensive Feature Breakdown
+# HyperCmdC for pCloud: Comprehensive Feature Breakdown
 
-HyperFetch for pCloud is a sophisticated Google Chrome extension designed to bridge the gap between web browsing and cloud storage. It transforms pCloud from a passive storage locker into an active productivity tool, allowing users to capture, organize, and archive web content with unprecedented ease.
+HyperCmdC for pCloud is a sophisticated Google Chrome extension designed to bridge the gap between web browsing and cloud storage. It transforms pCloud from a passive storage locker into an active productivity tool, allowing users to capture, organize, and archive web content with unprecedented ease.
 
 ## Core Value Proposition
 
-For researchers, students, and power users, the traditional workflow of "Right-click Save As -> Find Folder -> Save -> Open pCloud -> Upload" is friction-heavy. HyperFetch eliminates these steps, creating a direct pipeline from the browser to the cloud.
+For researchers, students, and power users, the traditional workflow of "Right-click Save As -> Find Folder -> Save -> Open pCloud -> Upload" is friction-heavy. HyperCmdC eliminates these steps, creating a direct pipeline from the browser to the cloud.
 
 ## Detailed Feature Set
 
 ### 1. Context Menu Integration
-HyperFetch embeds deep into the browser's context menu, providing instant access to pCloud wherever you are.
+HyperCmdC embeds deep into the browser's context menu, providing instant access to pCloud wherever you are.
 
 -   **Save Image to pCloud**: Instantly uploads the image under your cursor.
 -   **Save Selection**: Highlights text and saves it as a text/markdown file.
 -   **Save Selection as Document**: A powerful scraper that takes the selected HTML, including images, and converts it into a standalone document.
 
 ### 2. Intelligent Asset Management
-When saving web content, HyperFetch doesn't just save text. It acts as an intelligent asset manager:
+When saving web content, HyperCmdC doesn't just save text. It acts as an intelligent asset manager:
 
 -   **Automatic Image Handling**: When saving a selection as a document, the extension detects all images within the selection.
 -   **Cloud-Side Asset Storage**: Instead of keeping hotlinks (which die) or embedding base64 (which is heavy), it downloads every image, uploads it to a dedicated assets folder in your pCloud, and rewrites the document links to point to your permanent cloud copy.
 -   **Connectivity Assurance**: Includes a "ping" check to ensure pCloud connectivity before attempting complex operations.
 
 ### 3. PDF Viewer Integration
-HyperFetch injects a seamless, native-feeling UI into standard PDF files viewed in Chrome.
+HyperCmdC injects a seamless, native-feeling UI into standard PDF files viewed in Chrome.
 
 -   **Floating Overlay**: A non-intrusive floating action button (FAB) appears on PDF pages.
 -   **Direct Upload**: One click saves the current PDF to your cloud.
@@ -55,4 +55,4 @@ This is a game-changer for organized hoarders.
 2.  **The Designer**: Collecting mood board assets. Right-clicks images across the web. All are auto-saved to `/Assets/Inspiration` without ever opening a file dialog.
 3.  **The Writer**: Researching an article. Highlights paragraphs of text. Saves them as Markdown. They appear in pCloud, ready to be opened in Obsidian or any Markdown editor on their phone or tablet.
 
-HyperFetch for pCloud isn't just an uploader; it's your web-to-cloud productivity engine.
+HyperCmdC for pCloud isn't just an uploader; it's your web-to-cloud productivity engine.

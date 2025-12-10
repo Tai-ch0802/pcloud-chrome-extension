@@ -1,7 +1,7 @@
 # 功能規格書：PDF 檢視器整合
 
 ## 1. 概述
-本功能旨在將 HyperFetch for pCloud 直接整合至 Chrome PDF 檢視器中。它為使用者提供了一種便捷的方式，可以直接將 PDF 檔案儲存至 pCloud 儲存空間，並作為進階功能，將其轉換並儲存為 Markdown 文件。
+本功能旨在將 HyperCmdC for pCloud 直接整合至 Chrome PDF 檢視器中。它為使用者提供了一種便捷的方式，可以直接將 PDF 檔案儲存至 pCloud 儲存空間，並作為進階功能，將其轉換並儲存為 Markdown 文件。
 
 ## 2. 使用者介面
 

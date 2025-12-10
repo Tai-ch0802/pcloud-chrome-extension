@@ -1,4 +1,4 @@
-# HyperFetch for pCloud
+# HyperCmdC for pCloud
 
 A powerful Chrome extension that integrates pCloud into your browsing experience. Save images, text selections, and entire document sections directly to your pCloud account with a single click.
 

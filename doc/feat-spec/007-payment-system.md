@@ -1,7 +1,7 @@
 # 功能規格書：付費系統 (PayPal Checkout 整合)
 
 ## 1. 概述 (Overview)
-本功能旨在為 HyperFetch 擴充功能引入付費機制。透過整合 **PayPal Checkout (Standard)**，提供兩種付費方案供使用者選擇。系統將利用使用者的 **pCloud Email** 作為身份識別，以實現跨裝置的「恢復購買」功能。
+本功能旨在為 HyperCmdC 擴充功能引入付費機制。透過整合 **PayPal Checkout (Standard)**，提供兩種付費方案供使用者選擇。系統將利用使用者的 **pCloud Email** 作為身份識別，以實現跨裝置的「恢復購買」功能。
 
 ## 2. 目標 (Goals)
 *   **多樣化方案**：提供單一產品授權與全系列產品授權兩種選擇。
@@ -13,8 +13,8 @@
 
 | 方案名稱 | 價格 (USD) | 代碼 (`productType`) | 說明 | PayPal Client ID |
 | :--- | :--- | :--- | :--- | :--- |
-| **HyperFetch for pCloud** | $1.99 | `hf4pcloud` | 僅解鎖本擴充功能 (pCloud) 的進階功能。 | Credential A |
-| **HyperFetch Master** | $5.00 | `hf4master` | 解鎖本擴充功能及未來所有 HyperFetch 系列產品 (如 S3 版本)。 | Credential B |
+| **HyperCmdC for pCloud** | $1.99 | `hf4pcloud` | 僅解鎖本擴充功能 (pCloud) 的進階功能。 | Credential A |
+| **HyperCmdC Master** | $5.00 | `hf4master` | 解鎖本擴充功能及未來所有 HyperCmdC 系列產品 (如 S3 版本)。 | Credential B |
 
 > **注意**：使用者可在介面上切換選擇方案。由於兩個方案使用不同的 PayPal Client ID，切換時需動態重新載入 PayPal SDK。
 
