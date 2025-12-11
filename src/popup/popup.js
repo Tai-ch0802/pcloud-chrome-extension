@@ -2,6 +2,7 @@
 
 import { getAuthToken, setAuthToken, clearAuthToken, isAuthenticated, authenticateWithOAuth } from '../core/auth.js';
 import PCloudAPIClient from '../core/pcloud-api.js';
+import { licenseManager } from '../core/license-manager.js';
 
 const { mdc } = window;
 const DEFAULT_UPLOAD_FOLDER_ID_KEY = 'default_upload_folder_id';
@@ -104,7 +105,13 @@ async function handleSuccessfulLogin() {
   // The token is already set by authenticateWithOAuth, we just need to update the UI
   await Promise.all([
     updateCurrentUploadPathDisplay(),
-    updateUserInfoDisplay()
+    (async () => {
+      const userInfo = await updateUserInfoDisplay();
+      if (userInfo && userInfo.email) {
+        console.log('[Popup] checking license for:', userInfo.email);
+        await licenseManager.restorePurchase(userInfo.email);
+      }
+    })()
   ]);
   showView(mainView);
 }
@@ -172,9 +179,12 @@ async function updateUserInfoDisplay() {
       quotaInfoDiv.classList.remove('hidden');
     }
 
+    return userInfo;
+
   } catch (error) {
     console.error('Could not fetch user info:', error);
     userEmailSpan.textContent = 'Could not load user';
+    return null;
   }
 }
 
@@ -208,6 +218,7 @@ loginButtonOAuth.addEventListener('click', async () => {
 });
 
 logoutButton.addEventListener('click', async () => {
+  await licenseManager.clearLicense();
   await clearAuthToken();
   showView(loginView);
   userEmailSpan.textContent = '';
