@@ -15,21 +15,26 @@ HyperCmdC 深入整合至瀏覽器的右鍵選單，無論您身在何處，都�
 -   **儲存選取內容**：選取文字並將其儲存為純文字/Markdown 檔案。
 -   **儲存選取內容為文件**：強大的擷取器，可選取 HTML 內容（包含圖片）並將其轉換為獨立文件。
 
-### 2. 智慧資產管理 (Intelligent Asset Management)
+### 2. 直覺拖曳上傳 (Drag & Drop)
+除了右鍵選單，HyperCmdC 也支援最直覺的操作方式。
+-   **拖曳即上傳**：直接將瀏覽器畫面上的圖片拖曳，即可透過懸浮視窗快速上傳至 pCloud。
+
+
+### 3. 智慧資產管理 (Intelligent Asset Management)
 儲存網頁內容時，HyperCmdC 不僅僅是儲存文字。它就像一位智慧資產管理員：
 
 -   **自動圖片處理**：將選取內容儲存為文件時，擴充功能會偵測選取範圍內的所有圖片。
 -   **雲端資產儲存**：它不會保留（容易失效的）連結或嵌入（檔案過大的）Base64 代碼，而是下載每張圖片，將其上傳至您 pCloud 中的專屬資產資料夾，並重寫文件連結以指向您的永久雲端備份。
 -   **連線保證**：在嘗試複雜操作之前，包含「Ping」檢查以確保 pCloud 連線正常。
 
-### 3. PDF Viewer 整合
+### 4. PDF Viewer 整合
 HyperCmdC 在 Chrome 中瀏覽標準 PDF 檔案時，注入了無縫且原生感十足的 UI。
 
 -   **懸浮介面**：在 PDF 頁面上出現一個不干擾閱讀的懸浮動作按鈕 (FAB)。
 -   **直接上傳**：一鍵將目前的 PDF 儲存至您的雲端。
--   **PDF 轉 Markdown (Premium)**：使用客戶端 PDF 解析引擎 (`pdf.js`) 從 PDF 中提取文字並將其轉換為乾淨的 Markdown 筆記，非常適合摘要或 AI 處理。
+-   **PDF 轉 Markdown (Premium)**：嘗試將 PDF 轉換為 Markdown 筆記，方便後續整理或餵給 AI 模型、甚至其他應用所使用。
 
-### 4. 進階自訂與邏輯
+### 5. 進階自訂與邏輯
 
 #### 檔案名稱模板
 使用者可以使用區塊式構建器精確定義檔案的命名方式。
@@ -44,7 +49,7 @@ HyperCmdC 在 Chrome 中瀏覽標準 PDF 檔案時，注入了無縫且原生感
     -   *範例*：所有來自 `arxiv.org` 的 PDF 都會存入 `/Research/Papers`。
     -   *範例*：所有來自 `pinterest.com` 的圖片都會存入 `/Inspiration/Design`。
 
-### 5. 技術架構
+### 6. 技術架構
 -   **安全性**：建立在 OAuth 2.0 之上，使用官方 pCloud API。憑證安全地儲存在 `chrome.storage.sync` 中。
 -   **現代技術**：在 Vanilla JS (Shadow DOM) 中使用類 React 的狀態管理，實現隔離、無衝突的 UI 注入。
 -   **效能**：背景 Service Workers 處理繁重工作（上傳），保持瀏覽體驗流暢。
@@ -55,4 +60,4 @@ HyperCmdC 在 Chrome 中瀏覽標準 PDF 檔案時，注入了無縫且原生感
 2.  **設計師**：收集情緒板素材。在網路上右鍵點擊圖片。所有圖片都會自動儲存至 `/Assets/Inspiration`，完全無需開啟檔案對話方塊。
 3.  **作家**：研究文章。選取段落文字。儲存為 Markdown。它們會出現在 pCloud 中，隨時可以使用 Obsidian 或手機/平板上的任何 Markdown 編輯器開啟。
 
-HyperCmdC for pCloud 不僅僅是一個上傳工具；它是您的網頁到雲端生產力引擎。
+HyperCmdC for pCloud 不僅僅是一個上傳工具；它是您的網頁到雲端生產力加速器。

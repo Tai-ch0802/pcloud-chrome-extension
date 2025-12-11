@@ -14,22 +14,27 @@ HyperCmdC embeds deep into the browser's context menu, providing instant access 
 -   **Save Image to pCloud**: Instantly uploads the image under your cursor.
 -   **Save Selection**: Highlights text and saves it as a text/markdown file.
 -   **Save Selection as Document**: A powerful scraper that takes the selected HTML, including images, and converts it into a standalone document.
+    
+### 2. Intuitive Drag & Drop
+Beyond the context menu, HyperCmdC supports the most natural interaction.
+-   **Drag to Upload**: Creating a seamless flow, simply drag any image *from the webpage* directly to the floating overlay to instantly upload it to pCloud.
 
-### 2. Intelligent Asset Management
+
+### 3. Intelligent Asset Management
 When saving web content, HyperCmdC doesn't just save text. It acts as an intelligent asset manager:
 
 -   **Automatic Image Handling**: When saving a selection as a document, the extension detects all images within the selection.
 -   **Cloud-Side Asset Storage**: Instead of keeping hotlinks (which die) or embedding base64 (which is heavy), it downloads every image, uploads it to a dedicated assets folder in your pCloud, and rewrites the document links to point to your permanent cloud copy.
 -   **Connectivity Assurance**: Includes a "ping" check to ensure pCloud connectivity before attempting complex operations.
 
-### 3. PDF Viewer Integration
+### 4. PDF Viewer Integration
 HyperCmdC injects a seamless, native-feeling UI into standard PDF files viewed in Chrome.
 
 -   **Floating Overlay**: A non-intrusive floating action button (FAB) appears on PDF pages.
 -   **Direct Upload**: One click saves the current PDF to your cloud.
--   **PDF to Markdown (Premium)**: Uses a client-side PDF parsing engine (`pdf.js`) to extract text from the PDF and convert it into a clean Markdown note, perfect for summarization or AI processing.
+-   **PDF to Markdown (Premium)**：Attempts to convert the PDF into a Markdown note, making it easy to organize, feed into AI models, or use in other applications.
 
-### 4. Advanced Customization & Logic
+### 5. Advanced Customization & Logic
 
 #### Filename Templating
 Users can define exactly how files are named using a block-based builder.
@@ -44,7 +49,7 @@ This is a game-changer for organized hoarders.
     -   *Example*: All PDFs from `arxiv.org` go to `/Research/Papers`.
     -   *Example*: All images from `pinterest.com` go to `/Inspiration/Design`.
 
-### 5. Technical Architecture
+### 6. Technical Architecture
 -   **Security**: Built on OAuth 2.0 with the official pCloud API. Tokens are stored securely in `chrome.storage.sync`.
 -   **Modern Tech**: Uses React-like state management in Vanilla JS (Shadow DOM) for isolated, conflict-free UI injection.
 -   **Performance**: Background Service Workers handle heavy lifting (uploads) to keep the browsing experience snappy.

@@ -9,6 +9,10 @@ Unlock the full power of pCloud directly from your browser! HyperCmdC seamlessly
 • Auto-organize uploads into custom folders.
 • No more manual downloading and re-uploading!
 
+📥 Intuitive Drag & Drop
+• Drag any image from the webpage directly to the overlay to upload! 
+• Effortless and fast.
+
 📝 Text Selection to Markdown
 • Highlight text -> Right-click -> Save!
 • Instantly creates a Markdown note in your cloud.
@@ -22,7 +26,7 @@ Unlock the full power of pCloud directly from your browser! HyperCmdC seamlessly
 📂 Smart PDF Integration
 • A beautiful floating button appears on any PDF you view in Chrome.
 • Save PDFs directly to specific pCloud folders with one click.
-• [Premium] Convert PDFs to Markdown instantly!
+• [Premium] Attempts to convert PDFs to Markdown for AI or other apps!
 
 ⚡ Power User Tools
 • Customizable filenames (Date, Title, Custom Keys).
