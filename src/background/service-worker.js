@@ -10,7 +10,9 @@ import { matchDomainRule } from '../core/utils.js';
 
 
 // --- Centralized Global State ---
-let uploads = [];
+// --- Centralized Global State ---
+// STORAGE KEY for persistence
+const UPLOADS_STORAGE_KEY = 'upload_state_queue';
 const DEFAULT_UPLOAD_FOLDER_ID_KEY = 'default_upload_folder_id';
 const PCLOUD_ICON_PATH = '/src/assets/icons/icon128.png';
 
@@ -20,7 +22,19 @@ initializeContextMenuTextDownloader(initiateUpload);
 initializeContextMenuDocumentDownloader(initiateUpload);
 
 // --- Helper to broadcast state to all UIs ---
-function broadcastState() {
+// --- State Management Helpers ---
+async function getUploads() {
+    const result = await chrome.storage.local.get(UPLOADS_STORAGE_KEY);
+    return result[UPLOADS_STORAGE_KEY] || [];
+}
+
+async function saveUploads(uploads) {
+    await chrome.storage.local.set({ [UPLOADS_STORAGE_KEY]: uploads });
+}
+
+// --- Helper to broadcast state to all UIs ---
+async function broadcastState() {
+    const uploads = await getUploads();
     const state = { type: 'uploadStateUpdate', payload: uploads };
     chrome.runtime.sendMessage(state).catch(() => { });
     chrome.tabs.query({}, (tabs) => {
@@ -31,7 +45,8 @@ function broadcastState() {
 }
 
 // --- Unified Upload Initiation ---
-function initiateUpload(file, options = {}) {
+// --- Unified Upload Initiation ---
+async function initiateUpload(file, options = {}) {
     const uploadId = Date.now() + '-' + Math.random();
     const newUpload = {
         id: uploadId,
@@ -40,15 +55,21 @@ function initiateUpload(file, options = {}) {
         status: 'starting',
         countdown: 30,
     };
+
+    const uploads = await getUploads();
     uploads.unshift(newUpload); // Add to the top of the list
-    broadcastState();
+    await saveUploads(uploads);
+
+    await broadcastState();
     startUpload(uploadId, file, options);
 }
 
 // --- Core Upload Logic ---
 async function startUpload(uploadId, file, options = {}) {
     const { showNotifications = false, folderId: optionFolderId } = options;
-    const upload = uploads.find(u => u.id === uploadId);
+
+    let uploads = await getUploads();
+    let upload = uploads.find(u => u.id === uploadId);
     if (!upload) return;
 
     const notificationId = `notification-${uploadId}`;
@@ -73,14 +94,28 @@ async function startUpload(uploadId, file, options = {}) {
 
         upload.folderId = uploadFolderId; // Store folder ID for UI
         upload.status = 'uploading';
-        broadcastState();
+
+        // Save state before upload
+        uploads = uploads.map(u => u.id === uploadId ? upload : u);
+        await saveUploads(uploads);
+        await broadcastState();
 
         // The 'file' parameter is now guaranteed to be a File/Blob object by the feature module.
         const uploadResult = await client.uploadFile(file, uploadFolderId);
 
+        // Re-fetch in case state changed
+        uploads = await getUploads();
+        upload = uploads.find(u => u.id === uploadId);
+        if (!upload) return; // Upload might have been removed
+
         if (uploadResult && uploadResult.metadata) {
             upload.progress = 100;
             upload.status = 'done';
+
+            // Save state success
+            uploads = uploads.map(u => u.id === uploadId ? upload : u);
+            await saveUploads(uploads);
+
             if (showNotifications) {
                 chrome.notifications.create(notificationId, { // Create a new success notification
                     type: 'basic',
@@ -90,24 +125,48 @@ async function startUpload(uploadId, file, options = {}) {
                 });
             }
 
-            setTimeout(() => {
-                upload.status = 'clearing';
-                const intervalId = setInterval(() => {
-                    upload.countdown--;
-                    if (upload.countdown <= 0) {
-                        clearInterval(intervalId);
-                        uploads = uploads.filter(u => u.id !== uploadId);
-                    }
-                    broadcastState();
-                }, 1000);
+            setTimeout(async () => {
+                // Update specific upload to clearing
+                uploads = await getUploads();
+                const uToClear = uploads.find(u => u.id === uploadId);
+                if (uToClear) {
+                    uToClear.status = 'clearing';
+                    await saveUploads(uploads);
+
+                    const intervalId = setInterval(async () => {
+                        // We need to re-fetch/save inside interval
+                        const currentUploads = await getUploads();
+                        const currentUpload = currentUploads.find(u => u.id === uploadId);
+
+                        if (currentUpload) {
+                            currentUpload.countdown--;
+                            if (currentUpload.countdown <= 0) {
+                                clearInterval(intervalId);
+                                const filteredUploads = currentUploads.filter(u => u.id !== uploadId);
+                                await saveUploads(filteredUploads);
+                            } else {
+                                await saveUploads(currentUploads);
+                            }
+                            broadcastState();
+                        } else {
+                            clearInterval(intervalId);
+                        }
+                    }, 1000);
+                }
             }, 500);
         } else {
             throw new Error('Upload completed but no metadata received.');
         }
     } catch (error) {
         console.error('Upload failed:', error);
+
+        // Re-fetch to mark error
+        uploads = await getUploads();
+        upload = uploads.find(u => u.id === uploadId);
+
         if (upload) {
             upload.status = 'error';
+            await saveUploads(uploads); // Persistence
         }
         if (showNotifications) {
             chrome.notifications.create(notificationId, { // Create a new error notification
@@ -118,7 +177,7 @@ async function startUpload(uploadId, file, options = {}) {
             });
         }
     } finally {
-        broadcastState();
+        await broadcastState();
     }
 }
 

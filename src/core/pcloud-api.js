@@ -50,7 +50,11 @@ class PCloudAPIClient {
     }
 
     try {
-      console.log(`[Debug] pCloud API Request: ${method} ${url.toString()}`);
+      const logUrl = new URL(url.toString());
+      if (logUrl.searchParams.has('access_token')) {
+        logUrl.searchParams.set('access_token', 'REDACTED');
+      }
+      console.log(`[Debug] pCloud API Request: ${method} ${logUrl.toString()}`);
       const response = await fetch(url.toString(), options);
       const data = await response.json();
       console.log('[Debug] pCloud API Response Data:', data);
