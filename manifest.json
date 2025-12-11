@@ -75,8 +75,7 @@
         "src/assets/vendor/pdf.worker.js"
       ],
       "matches": [
-        "<all_urls>",
-        "https://hyper-cmdc.taislife.work/*"
+        "<all_urls>"
       ]
     }
   ]

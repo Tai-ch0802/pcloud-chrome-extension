@@ -289,7 +289,7 @@ async function handleDownloadToPCloud() {
     console.log('[pCloud] "Download to pCloud" clicked');
     // Close menu
     // Close menu
-    pcloudPdfShadow?.getElementById('pcloud-pdf-menu')?.classList.remove('show');
+    document.getElementById('pcloud-pdf-menu')?.classList.remove('show');
 
     const pdfData = await getPdfData();
     if (!pdfData) return;
@@ -326,7 +326,7 @@ async function handleDownloadAsMarkdown() {
     console.log('[pCloud] "Download as Markdown" clicked');
     // Close menu
     // Close menu
-    pcloudPdfShadow?.getElementById('pcloud-pdf-menu')?.classList.remove('show');
+    document.getElementById('pcloud-pdf-menu')?.classList.remove('show');
 
     const isPremium = await checkPremium();
     if (!isPremium) {
