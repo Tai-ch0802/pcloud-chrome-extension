@@ -1,0 +1,43 @@
+🚀 HyperCmdC for pCloud: Công cụ Tiết kiệm Đám mây Tối thượng! [MÃ NGUỒN MỞ & MIỄN PHÍ] ☁️
+
+Mở khóa toàn bộ sức mạnh của pCloud ngay từ trình duyệt của bạn! HyperCmdC hiện hoàn toàn là Mã nguồn mở và Miễn phí, tích hợp pCloud một cách liền mạch vào quy trình làm việc hàng ngày của bạn.
+
+✨ CÁC TÍNH NĂNG CHÍNH:
+
+🖼️ Trình Tiết kiệm Hình ảnh Thông minh
+• Nhấp chuột phải để tải lên ngay lập tức bất kỳ hình ảnh nào lên pCloud.
+• Tự động sắp xếp các nội dung tải lên vào các thư mục tùy chỉnh.
+• Không còn phải tải xuống và tải lên lại thủ công nữa!
+
+📥 Kéo và Thả Trực quan
+• Kéo bất kỳ hình ảnh nào từ trang web trực tiếp vào lớp phủ để tải lên!
+• Nhanh chóng và không tốn nhiều công sức.
+
+📝 Lựa chọn Văn bản sang Markdown
+• Bôi đen văn bản -> Nhấp chuột phải -> Lưu!
+• Tạo ngay ghi chú Markdown trong đám mây của bạn.
+• Hoàn hảo cho việc nghiên cứu và ghi chú.
+
+📄 Web sang Tài liệu
+• Biến bất kỳ nội dung web nào thành tài liệu Markdown hoặc Word sạch sẽ.
+• Hình ảnh được tự động tải xuống, tải lên pCloud và liên kết trong tài liệu của bạn! 🤯
+• Giữ cho ghi chú của bạn phong phú và dễ mang theo.
+
+📂 Tích hợp PDF Thông minh
+• Một nút nổi đẹp mắt xuất hiện trên bất kỳ tệp PDF nào bạn xem trong Chrome.
+• Lưu PDF trực tiếp vào các thư mục pCloud cụ thể chỉ bằng một cú nhấp chuột.
+• Cố gắng chuyển đổi PDF sang Markdown cho AI hoặc các ứng dụng khác!
+
+⚡ Công cụ cho Người dùng Nâng cao
+• Tên tệp có thể tùy chỉnh (Ngày, Tiêu đề, Khóa tùy chỉnh).
+• Quy tắc Tên miền: Đặt các thư mục tải lên khác nhau cho các trang web khác nhau!
+• Các bản sao lưu thông minh đảm bảo bạn không bao giờ mất tệp.
+
+🔒 An toàn & Riêng tư
+• Cơ sở mã nguồn mở - Tự xác minh trên GitHub!
+• Sử dụng pCloud OAuth 2.0 chính thức.
+• Thông tin đăng nhập của bạn không bao giờ rời khỏi trình duyệt.
+
+Nâng cấp năng suất của bạn ngay hôm nay với HyperCmdC for pCloud! 🚀
+
+#pCloud #Productivity #ChromeExtension #CloudStorage #Markdown #Research

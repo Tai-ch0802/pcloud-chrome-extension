@@ -1,0 +1,43 @@
+🚀 HyperCmdC for pCloud: Nihai Bulut Tasarruf Aracı! [AÇIK KAYNAK VE ÜCRETSİZ] ☁️
+
+Tarayıcınızdan doğrudan pCloud'un tüm gücünü açığa çıkarın! HyperCmdC artık tamamen Açık Kaynak ve Ücretsiz, pCloud'u günlük iş akışınıza sorunsuz bir şekilde entegre ediyor.
+
+✨ TEMEL ÖZELLİKLER:
+
+🖼️ Akıllı Resim Kaydedici
+• Herhangi bir resmi anında pCloud'a yüklemek için sağ tıklayın.
+• Yüklemeleri özel klasörlere otomatik olarak düzenleyin.
+• Artık manuel indirme ve yeniden yükleme yok!
+
+📥 Sezgisel Sürükle ve Bırak
+• Yüklemek için herhangi bir resmi web sayfasından doğrudan yer paylaşımına sürükleyin!
+• Zahmetsiz ve hızlı.
+
+📝 Metin Seçiminden Markdown'a
+• Metni vurgulayın -> Sağ tıklayın -> Kaydet!
+• Bulutunuzda anında bir Markdown notu oluşturur.
+• Araştırma ve not alma için mükemmeldir.
+
+📄 Web'den Belgeye
+• Herhangi bir web içeriğini temiz bir Markdown veya Word belgesine dönüştürün.
+• Resimler otomatik olarak indirilir, pCloud'a yüklenir ve belgenize bağlanır! 🤯
+• Notlarınızı zengin ve taşınabilir tutar.
+
+📂 Akıllı PDF Entegrasyonu
+• Chrome'da görüntülediğiniz herhangi bir PDF'de güzel bir kayan düğme görünür.
+• PDF'leri tek bir tıklamayla doğrudan belirli pCloud klasörlerine kaydedin.
+• Yapay zeka veya diğer uygulamalar için PDF'leri Markdown'a dönüştürmeye çalışır!
+
+⚡ Güçlü Kullanıcı Araçları
+• Özelleştirilebilir dosya adları (Tarih, Başlık, Özel Anahtarlar).
+• Etki Alanı Kuralları: Farklı web siteleri için farklı yükleme klasörleri ayarlayın!
+• Akıllı yedekler, hiçbir dosyayı kaybetmemenizi sağlar.
+
+🔒 Güvenli ve Gizli
+• Açık Kaynak Kod Tabanı - GitHub'da kendiniz doğrulayın!
+• Resmi pCloud OAuth 2.0 kullanır.
+• Kimlik bilgileriniz tarayıcınızdan asla çıkmaz.
+
+HyperCmdC for pCloud ile üretkenliğinizi bugün yükseltin! 🚀
+
+#pCloud #Productivity #ChromeExtension #CloudStorage #Markdown #Research

@@ -1,6 +1,6 @@
-# HyperCmdC for pCloud: Comprehensive Feature Breakdown
+# HyperCmdC for pCloud: Comprehensive Feature Breakdown [OPEN SOURCE]
 
-HyperCmdC for pCloud is a sophisticated Google Chrome extension designed to bridge the gap between web browsing and cloud storage. It transforms pCloud from a passive storage locker into an active productivity tool, allowing users to capture, organize, and archive web content with unprecedented ease.
+HyperCmdC for pCloud is a sophisticated, **open-source** Google Chrome extension designed to bridge the gap between web browsing and cloud storage. It transforms pCloud from a passive storage locker into an active productivity tool, allowing users to capture, organize, and archive web content with unprecedented ease. All features are now completely **free**.
 
 ## Core Value Proposition
 
@@ -32,7 +32,7 @@ HyperCmdC injects a seamless, native-feeling UI into standard PDF files viewed i
 
 -   **Floating Overlay**: A non-intrusive floating action button (FAB) appears on PDF pages.
 -   **Direct Upload**: One click saves the current PDF to your cloud.
--   **PDF to Markdown (Premium)**：Attempts to convert the PDF into a Markdown note, making it easy to organize, feed into AI models, or use in other applications.
+-   **PDF to Markdown**：Attempts to convert the PDF into a Markdown note, making it easy to organize, feed into AI models, or use in other applications.
 
 ### 5. Advanced Customization & Logic
 

@@ -1,0 +1,479 @@
+{
+    "extensionName": {
+        "message": "HyperCmdC for pCloud",
+        "description": "扩展程序的名称。"
+    },
+    "extensionDescription": {
+        "message": "将 pCloud 无缝集成到您的 Chrome 浏览器中，轻松管理文件。",
+        "description": "扩展程序的描述。"
+    },
+    "options_title": {
+        "message": "pCloud 扩展选项",
+        "description": "选项页面的标题。"
+    },
+    "options_description": {
+        "message": "在此配置您的 pCloud Chrome 扩展程序设置。",
+        "description": "选项页面的描述。"
+    },
+    "options_default_folder_label": {
+        "message": "当前选择路径：",
+        "description": "当前选择路径显示的标签。"
+    },
+    "options_default_folder_placeholder": {
+        "message": "例如：0 代表根文件夹",
+        "description": "默认上传文件夹 ID 输入框的占位符。"
+    },
+    "options_save_button_text": {
+        "message": "保存设置",
+        "description": "保存选项按钮的文本。"
+    },
+    "options_saved_message": {
+        "message": "设置已保存！",
+        "description": "设置保存后显示的消息。"
+    },
+    "options_invalid_folder_id": {
+        "message": "无效的文件夹 ID。请输入一个非负数。",
+        "description": "无效文件夹 ID 输入的错误消息。"
+    },
+    "options_theme_label": {
+        "message": "主题"
+    },
+    "options_theme_googlestyle": {
+        "message": "Google 风格"
+    },
+    "options_theme_geek": {
+        "message": "极客风格"
+    },
+    "back_button_title": {
+        "message": "返回",
+        "description": "返回按钮的标题。"
+    },
+    "login_token_prompt": {
+        "message": "使用令牌验证",
+        "description": "令牌登录界面的提示。"
+    },
+    "login_prompt": {
+        "message": "登录 pCloud",
+        "description": "登录界面的提示。"
+    },
+    "login_email_placeholder": {
+        "message": "电子邮件或用户名",
+        "description": "电子邮件/用户名输入框的占位符。"
+    },
+    "login_password_placeholder": {
+        "message": "密码",
+        "description": "密码输入框的占位符。"
+    },
+    "login_button_text": {
+        "message": "登录",
+        "description": "登录按钮的文本。"
+    },
+    "login_oauth_button": {
+        "message": "使用 pCloud 登录",
+        "description": "OAuth 登录按钮的文本。"
+    },
+    "login_oauth_error": {
+        "message": "认证失败，请重试。",
+        "description": "OAuth 登录失败的通用错误消息。"
+    },
+    "login_error_empty_credentials": {
+        "message": "请输入电子邮件/用户名和密码。",
+        "description": "登录字段为空的错误消息。"
+    },
+    "login_error_invalid_credentials": {
+        "message": "登录失败。请检查您的凭据。",
+        "description": "登录无效的错误消息。"
+    },
+    "login_token_description": {
+        "message": "请在另一个选项卡中登录 my.pcloud.com，然后将 'auth' 令牌粘贴到此处。",
+        "description": "关于如何获取 auth 令牌的描述。"
+    },
+    "login_token_placeholder": {
+        "message": "在此粘贴您的 auth 令牌",
+        "description": "auth 令牌文本区域的占位符。"
+    },
+    "login_token_button_text": {
+        "message": "验证并保存令牌",
+        "description": "令牌登录按钮的文本。"
+    },
+    "login_switch_to_token": {
+        "message": "或使用 auth 令牌登录",
+        "description": "切换到令牌登录的链接。"
+    },
+    "login_switch_to_password": {
+        "message": "或使用电子邮件和密码登录",
+        "description": "切换到密码登录的链接。"
+    },
+    "login_error_invalid_token": {
+        "message": "令牌无效。请检查令牌并重试。",
+        "description": "无效 auth 令牌的错误消息。"
+    },
+    "login_error_generic": {
+        "message": "验证过程中发生意外错误。请重试。",
+        "description": "令牌验证的通用错误消息。"
+    },
+    "upload_prompt": {
+        "message": "上传到 pCloud",
+        "description": "上传界面的提示。"
+    },
+    "logout_button_text": {
+        "message": "登出",
+        "description": "登出按钮的文本。"
+    },
+    "upload_select_file_button": {
+        "message": "选择文件",
+        "description": "打开文件选择器的按钮。"
+    },
+    "upload_drag_and_drop_prompt": {
+        "message": "将文件拖放到此处上传",
+        "description": "拖放区域的文本。"
+    },
+    "upload_select_file_link": {
+        "message": "或选择文件",
+        "description": "作为拖放替代方案打开文件选择器的链接文本。"
+    },
+    "go_to_pcloud_website": {
+        "message": "前往 pCloud 网站",
+        "description": "pCloud 网站链接。"
+    },
+    "upload_button_text": {
+        "message": "上传",
+        "description": "上传按钮的文本。"
+    },
+    "upload_success_message": {
+        "message": "文件上传成功！",
+        "description": "上传成功后的消息。"
+    },
+    "upload_error_generic": {
+        "message": "上传失败，请重试。",
+        "description": "上传的通用错误消息。"
+    },
+    "upload_error_no_auth": {
+        "message": "认证错误，请重新登录。",
+        "description": "上传时未认证的错误消息。"
+    },
+    "upload_error_no_file": {
+        "message": "请选择要上传的文件。",
+        "description": "未选择文件上传的错误消息。"
+    },
+    "options_section_appearance": {
+        "message": "外观",
+        "description": "选项页面上外观设置部分的标题。"
+    },
+    "options_section_uploads": {
+        "message": "上传",
+        "description": "选项页面上传设置部分的标题。"
+    },
+    "snackbar_dismiss": {
+        "message": "关闭",
+        "description": "snackbar 通知上关闭按钮的文本。"
+    },
+    "options_loading_folders": {
+        "message": "正在加载文件夹...",
+        "description": "文件夹树加载时显示的消息。"
+    },
+    "options_login_to_load": {
+        "message": "请通过扩展程序弹出窗口登录以加载文件夹。",
+        "description": "当用户需要登录才能看到文件夹时显示的消息。"
+    },
+    "options_error_loading_folders": {
+        "message": "加载文件夹时出错。请确保您已登录并检查互联网连接。",
+        "description": "文件夹树加载失败时显示的消息。"
+    },
+    "context_menu_save_image": {
+        "message": "将图片保存到 pCloud",
+        "description": "保存图片的上下文菜单项文本。"
+    },
+    "notification_upload_started_title": {
+        "message": "图片上传",
+        "description": "图片上传开始时通知的标题。"
+    },
+    "notification_upload_started_message": {
+        "message": "正在将图片保存到您的 pCloud...",
+        "description": "图片上传开始时通知的消息。"
+    },
+    "notification_upload_success_title": {
+        "message": "上传完成",
+        "description": "图片上传成功时通知的标题。"
+    },
+    "notification_upload_success_message": {
+        "message": "图片已成功保存到 pCloud。",
+        "description": "图片上传成功时通知的消息。"
+    },
+    "notification_upload_error_title": {
+        "message": "上传失败",
+        "description": "图片上传失败时通知的标题。"
+    },
+    "notification_upload_error_message": {
+        "message": "无法将图片保存到 pCloud。请重试。",
+        "description": "图片上传失败时通知的消息。"
+    },
+    "notification_auth_error_message": {
+        "message": "请登录 pCloud 扩展程序以保存文件。",
+        "description": "用户未登录时通知的消息。"
+    },
+    "options_section_filename": {
+        "message": "图片文件名",
+        "description": "选项页面上图片文件名设置部分的标题。"
+    },
+    "options_section_text_filename": {
+        "message": "文本文件名",
+        "description": "选项页面上文本文件名设置部分的标题。"
+    },
+    "options_filename_description": {
+        "message": "拖放以重新排序文件名部分。取消选中以排除。",
+        "description": "文件名配置 UI 的描述。"
+    },
+    "options_filename_part_sorting_number": {
+        "message": "排序编号",
+        "description": "“排序编号”文件名部分的标签。"
+    },
+    "options_filename_part_page_title": {
+        "message": "页面标题",
+        "description": "“页面标题”文件名部分的标签。"
+    },
+    "options_filename_part_timestamp": {
+        "message": "时间戳",
+        "description": "“时间戳”文件名部分的标签。"
+    },
+    "options_filename_part_free_key": {
+        "message": "自定义文本",
+        "description": "“自定义文本”文件名部分的标签。"
+    },
+    "options_filename_part_date": {
+        "message": "日期",
+        "description": "“日期”文件名部分的标签。"
+    },
+    "options_filename_separator_label": {
+        "message": "分隔符",
+        "description": "文件名部分之间分隔符输入字段的标签。"
+    },
+    "contextMenuItemUploadSelection": {
+        "message": "将选定的文本上传到 pCloud",
+        "description": "用于上传选定文本的上下文菜单项文本。"
+    },
+    "notificationUploadTextStartedTitle": {
+        "message": "文本上传",
+        "description": "文本上传开始时的通知标题。"
+    },
+    "notificationUploadTextStartedMessage": {
+        "message": "正在将选定的文本保存到您的 pCloud...",
+        "description": "文本上传开始时的通知消息。"
+    },
+    "notificationUploadTextSuccessTitle": {
+        "message": "上传完成",
+        "description": "文本上传成功时的通知标题。"
+    },
+    "notificationUploadTextSuccessMessage": {
+        "message": "选定的文本已成功保存到 pCloud。",
+        "description": "文本上传成功时的通知消息。"
+    },
+    "notificationUploadTextErrorTitle": {
+        "message": "上传失败",
+        "description": "文本上传失败时的通知标题。"
+    },
+    "notificationUploadTextErrorMessage": {
+        "message": "无法将选定的文本保存到 pCloud。请重试。",
+        "description": "文本上传失败时的通知消息。"
+    },
+    "notification_error_stale_content_script": {
+        "message": "无法连接到页面。请刷新选项卡并重试。",
+        "description": "内容脚本过时或不可用时的错误消息。"
+    },
+    "context_menu_save_selection": {
+        "message": "将选定内容另存为文档到 pCloud"
+    },
+    "options_section_document_downloader": {
+        "message": "文档下载器"
+    },
+    "options_document_format_label": {
+        "message": "文档格式"
+    },
+    "options_document_include_metadata_label": {
+        "message": "包含元数据 (YAML Frontmatter)"
+    },
+    "options_text_include_metadata_label": {
+        "message": "包含元数据 (YAML Frontmatter)"
+    },
+    "notification_document_processing_title": {
+        "message": "正在处理文档"
+    },
+    "notification_document_processing_message": {
+        "message": "正在转换并上传您的选定内容..."
+    },
+    "notification_document_success_title": {
+        "message": "文档已保存"
+    },
+    "notification_document_success_message": {
+        "message": "文档已成功保存到 pCloud。"
+    },
+    "notification_document_error_title": {
+        "message": "保存失败"
+    },
+    "notification_document_error_message": {
+        "message": "无法保存文档。请重试。"
+    },
+    "error_connection_lost_refresh": {
+        "message": "无法连接到页面。请刷新选项卡并重试。",
+        "description": "内容脚本过时或不可用时的错误消息。"
+    },
+    "options_domain_rules_title": {
+        "message": "按域名指定上传路径"
+    },
+    "options_domain_rules_test_playground_title": {
+        "message": "测试平台"
+    },
+    "options_domain_rules_test_placeholder": {
+        "message": "输入 URL 以测试规则..."
+    },
+    "options_domain_rules_test_result_match": {
+        "message": "✅ 匹配规则：{rule}"
+    },
+    "options_domain_rules_test_result_no_match": {
+        "message": "未找到匹配的规则。"
+    },
+    "options_dialog_cancel": {
+        "message": "取消"
+    },
+    "options_dialog_save": {
+        "message": "保存"
+    },
+    "options_dialog_select": {
+        "message": "选择"
+    },
+    "options_dialog_ok": {
+        "message": "确定"
+    },
+    "options_folder_picker_title": {
+        "message": "选择文件夹"
+    },
+    "options_domain_rules_help_icon_tooltip": {
+        "message": "规则帮助"
+    },
+    "options_domain_rules_help_dialog_title": {
+        "message": "规则优先级帮助"
+    },
+    "options_domain_rules_help_dialog_content": {
+        "message": "规则从上到下进行匹配。将应用第一个匹配的规则。您可以拖放以重新排序规则。我们建议使用上方的“测试平台”来验证您的配置。"
+    },
+    "options_domain_rules_add_button": {
+        "message": "添加规则"
+    },
+    "options_domain_rules_delete_button": {
+        "message": "删除规则"
+    },
+    "options_domain_rules_col_domain": {
+        "message": "域名 (支持通配符)"
+    },
+    "options_domain_rules_col_path": {
+        "message": "目标 pCloud 路径"
+    },
+    "options_domain_rules_dialog_title_add": {
+        "message": "添加新规则"
+    },
+    "options_domain_rules_dialog_title_edit": {
+        "message": "编辑规则"
+    },
+    "options_domain_rules_folder_picker_create_btn": {
+        "message": "创建新文件夹"
+    },
+    "options_domain_rules_confirm_delete": {
+        "message": "确定要删除此规则吗？"
+    },
+    "options_section_premium": {
+        "message": "高级版升级"
+    },
+    "options_premium_active": {
+        "message": "高级版已激活"
+    },
+    "options_premium_description": {
+        "message": "解锁高级功能，如文档下载器 (Markdown/Word) 等等！"
+    },
+    "options_tier_pcloud_name": {
+        "message": "HyperCmdC for pCloud"
+    },
+    "options_tier_pcloud_desc": {
+        "message": "仅解锁此扩展程序的功能。"
+    },
+    "options_tier_master_name": {
+        "message": "HyperCmdC Master"
+    },
+    "options_tier_master_desc": {
+        "message": "解锁所有 HyperCmdC 扩展程序 (pCloud, S3 等)。"
+    },
+    "options_restore_purchase": {
+        "message": "恢复购买"
+    },
+    "options_premium_thank_you": {
+        "message": "感谢您的支持！"
+    },
+    "options_premium_active_desc": {
+        "message": "您已拥有所有高级功能的访问权限。"
+    },
+    "options_payment_success": {
+        "message": "付款成功！高级功能已解锁。"
+    },
+    "options_payment_failed": {
+        "message": "付款失败。请重试。"
+    },
+    "options_restore_success": {
+        "message": "购买恢复成功！"
+    },
+    "options_restore_failed": {
+        "message": "找不到此电子邮件的许可证。"
+    },
+    "notification_premium_required_title": {
+        "message": "高级功能"
+    },
+    "notification_premium_required_message": {
+        "message": "此功能需要高级许可证。立即升级以解锁！"
+    },
+    "notification_premium_upgrade_button": {
+        "message": "立即升级"
+    },
+    "options_upgrade_now": {
+        "message": "立即升级"
+    },
+    "options_payment_page_opening": {
+        "message": "正在打开付款页面... (模拟 - 开发模式)"
+    },
+    "toast_uploading_to_pcloud": {
+        "message": "正在上传到 pCloud..."
+    },
+    "toast_upload_started": {
+        "message": "上传已开始！"
+    },
+    "toast_processing_images": {
+        "message": "正在处理图片 ($1/$2)..."
+    },
+    "toast_generating_document": {
+        "message": "正在生成文档..."
+    },
+    "toast_view_button": {
+        "message": "查看"
+    },
+    "pdf_download_to_pcloud": {
+        "message": "保存到 pCloud"
+    },
+    "pdf_download_as_markdown": {
+        "message": "下载为 Markdown 到 pCloud"
+    },
+    "pdf_error_not_pdf": {
+        "message": "此页面不是 PDF。"
+    },
+    "pdf_error_fetch_failed": {
+        "message": "无法获取 PDF 数据。"
+    },
+    "visit_official_website": {
+        "message": "访问 HyperCmdC 官方网站",
+        "description": "官方产品网站的链接文本。"
+    },
+    "options_promotion_text": {
+        "message": "限时免费！",
+        "description": "促销图标旁边显示的促销文本。"
+    },
+    "options_footer_opensource_text": {
+        "message": "在 GitHub 上查看源码",
+        "description": "开源存储库的链接文本。"
+    }
+}

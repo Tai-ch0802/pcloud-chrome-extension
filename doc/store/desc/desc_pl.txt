@@ -1,0 +1,43 @@
+🚀 HyperCmdC for pCloud: Ostateczne narzędzie do oszczędzania w chmurze! [OPEN SOURCE I BEZPŁATNE] ☁️
+
+Odblokuj pełną moc plików pCloud bezpośrednio z przeglądarki! HyperCmdC jest teraz w pełni Open Source i darmowe, bezproblemowo integrując pCloud z codziennym przepływem pracy.
+
+✨ KLUCZOWE CECHY:
+
+🖼️ Inteligentne zapisywanie obrazów
+• Kliknij prawym przyciskiem myszy, aby natychmiast przesłać dowolny obraz do pCloud.
+• Automatycznie organizuj przesyłane pliki w niestandardowych folderach.
+• Koniec z ręcznym pobieraniem i ponownym przesyłaniem!
+
+📥 Intuicyjne przeciąganie i upuszczanie
+• Przeciągnij dowolny obraz ze strony internetowej bezpośrednio na nakładkę, aby go przesłać!
+• Bez wysiłku i szybko.
+
+📝 Zaznaczanie tekstu do Markdown
+• Zaznacz tekst -> Kliknij prawym przyciskiem myszy -> Zapisz!
+• Błyskawicznie tworzy notatkę Markdown w Twojej chmurze.
+• Idealny do badań i robienia notatek.
+
+📄 Sieć do dokumentu
+• Zamień dowolną treść internetową w czysty dokument Markdown lub Word.
+• Obrazy są automatycznie pobierane, przesyłane do pCloud i linkowane w dokumencie! 🤯
+• Utrzymuje Twoje notatki bogate i przenośne.
+
+📂 Inteligentna integracja PDF
+• Piękny pływający przycisk pojawia się na każdym pliku PDF przeglądanym w Chrome.
+• Zapisuj pliki PDF bezpośrednio w określonych folderach pCloud za pomocą jednego kliknięcia.
+• Próbuje konwertować pliki PDF do Markdown dla AI lub innych aplikacji!
+
+⚡ Narzędzia dla zaawansowanych użytkowników
+• Konfigurowalne nazwy plików (data, tytuł, klucze niestandardowe).
+• Reguły domeny: Ustaw różne foldery przesyłania dla różnych witryn!
+• Inteligentne rozwiązania awaryjne zapewniają, że nigdy nie stracisz pliku.
+
+🔒 Bezpieczne i prywatne
+• Baza kodu Open Source - zweryfikuj to sam na GitHub!
+• Korzysta z oficjalnego pCloud OAuth 2.0.
+• Twoje dane uwierzytelniające nigdy nie opuszczają przeglądarki.
+
+Zwiększ swoją produktywność już dziś dzięki HyperCmdC for pCloud! 🚀
+
+#pCloud #Productivity #ChromeExtension #CloudStorage #Markdown #Research

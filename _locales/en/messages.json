@@ -471,5 +471,9 @@
   "options_promotion_text": {
     "message": "Limited Free!",
     "description": "Promotional text shown next to promotion icon."
+  },
+  "options_footer_opensource_text": {
+    "message": "View Source on GitHub",
+    "description": "Link text to the open source repository."
   }
 }

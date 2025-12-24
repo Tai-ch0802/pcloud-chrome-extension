@@ -471,5 +471,9 @@
   "options_promotion_text": {
     "message": "推廣中！限時免費",
     "description": "推廣活動圖示旁的文案。"
+  },
+  "options_footer_opensource_text": {
+    "message": "本專案已開源，歡迎協助改進",
+    "description": "開源儲存庫的連結文字。"
   }
 }

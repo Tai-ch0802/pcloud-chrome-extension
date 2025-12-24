@@ -1,0 +1,479 @@
+{
+    "extensionName": {
+        "message": "HyperCmdC for pCloud",
+        "description": "El nombre de la extensión."
+    },
+    "extensionDescription": {
+        "message": "Integra pCloud con tu navegador Chrome para una gestión de archivos sencilla.",
+        "description": "La descripción de la extensión."
+    },
+    "options_title": {
+        "message": "Opciones de la extensión pCloud",
+        "description": "Título de la página de opciones."
+    },
+    "options_description": {
+        "message": "Configura los ajustes de tu extensión pCloud para Chrome aquí.",
+        "description": "Descripción de la página de opciones."
+    },
+    "options_default_folder_label": {
+        "message": "Ruta seleccionada actual:",
+        "description": "Etiqueta para la ruta seleccionada actualmente."
+    },
+    "options_default_folder_placeholder": {
+        "message": "ej., 0 para la carpeta raíz",
+        "description": "Marcador de posición para la entrada del ID de carpeta de carga predeterminada."
+    },
+    "options_save_button_text": {
+        "message": "Guardar configuración",
+        "description": "Texto del botón guardar opciones."
+    },
+    "options_saved_message": {
+        "message": "¡Configuración guardada!",
+        "description": "Mensaje mostrado después de guardar la configuración."
+    },
+    "options_invalid_folder_id": {
+        "message": "ID de carpeta no válido. Por favor ingrese un número no negativo.",
+        "description": "Mensaje de error para entrada de ID de carpeta no válida."
+    },
+    "options_theme_label": {
+        "message": "Tema"
+    },
+    "options_theme_googlestyle": {
+        "message": "Estilo Google"
+    },
+    "options_theme_geek": {
+        "message": "Geek"
+    },
+    "back_button_title": {
+        "message": "Atrás",
+        "description": "Título del botón atrás."
+    },
+    "login_token_prompt": {
+        "message": "Autenticar con Token",
+        "description": "Indicación para la vista de inicio de sesión con token."
+    },
+    "login_prompt": {
+        "message": "Iniciar sesión en pCloud",
+        "description": "Indicación para la vista de inicio de sesión."
+    },
+    "login_email_placeholder": {
+        "message": "Correo electrónico o nombre de usuario",
+        "description": "Marcador de posición para entrada de correo/usuario."
+    },
+    "login_password_placeholder": {
+        "message": "Contraseña",
+        "description": "Marcador de posición para entrada de contraseña."
+    },
+    "login_button_text": {
+        "message": "Iniciar sesión",
+        "description": "Texto para el botón de inicio de sesión."
+    },
+    "login_oauth_button": {
+        "message": "Iniciar sesión con pCloud",
+        "description": "Texto para el botón de inicio de sesión OAuth."
+    },
+    "login_oauth_error": {
+        "message": "Error de autenticación. Por favor, inténtelo de nuevo.",
+        "description": "Mensaje de error genérico para fallo de inicio de sesión OAuth."
+    },
+    "login_error_empty_credentials": {
+        "message": "Por favor ingrese tanto el correo/usuario como la contraseña.",
+        "description": "Mensaje de error para campos de inicio de sesión vacíos."
+    },
+    "login_error_invalid_credentials": {
+        "message": "Error de inicio de sesión. Verifique sus credenciales.",
+        "description": "Mensaje de error para inicio de sesión inválido."
+    },
+    "login_token_description": {
+        "message": "Inicie sesión en my.pcloud.com en otra pestaña, luego pegue el token 'auth' aquí.",
+        "description": "Descripción sobre cómo obtener el token de autenticación."
+    },
+    "login_token_placeholder": {
+        "message": "Pegue su token de autenticación aquí",
+        "description": "Marcador de posición para el área de texto del token de autenticación."
+    },
+    "login_token_button_text": {
+        "message": "Verificar y guardar token",
+        "description": "Texto para el botón de inicio de sesión con token."
+    },
+    "login_switch_to_token": {
+        "message": "O inicie sesión con un token de autenticación",
+        "description": "Enlace para cambiar al inicio de sesión con token."
+    },
+    "login_switch_to_password": {
+        "message": "O inicie sesión con correo y contraseña",
+        "description": "Enlace para cambiar al inicio de sesión con contraseña."
+    },
+    "login_error_invalid_token": {
+        "message": "Token no válido. Verifique el token e inténtelo de nuevo.",
+        "description": "Mensaje de error para un token de autenticación no válido."
+    },
+    "login_error_generic": {
+        "message": "Ocurrió un error inesperado durante la verificación. Por favor, inténtelo de nuevo.",
+        "description": "Mensaje de error genérico para verificación de token."
+    },
+    "upload_prompt": {
+        "message": "Subir a pCloud",
+        "description": "Indicación para la vista de carga."
+    },
+    "logout_button_text": {
+        "message": "Cerrar sesión",
+        "description": "Texto para el botón de cierre de sesión."
+    },
+    "upload_select_file_button": {
+        "message": "Seleccionar archivo",
+        "description": "Botón para abrir el selector de archivos."
+    },
+    "upload_drag_and_drop_prompt": {
+        "message": "Arrastre y suelte archivos aquí para subir",
+        "description": "Texto para el área de arrastrar y soltar."
+    },
+    "upload_select_file_link": {
+        "message": "O seleccione archivos",
+        "description": "Texto del enlace para abrir el selector de archivos como alternativa."
+    },
+    "go_to_pcloud_website": {
+        "message": "Ir al sitio web de pCloud",
+        "description": "Enlace al sitio web de pCloud."
+    },
+    "upload_button_text": {
+        "message": "Subir",
+        "description": "Texto para el botón de carga."
+    },
+    "upload_success_message": {
+        "message": "¡Archivo subido con éxito!",
+        "description": "Mensaje de éxito después de la carga."
+    },
+    "upload_error_generic": {
+        "message": "Error al subir. Por favor, inténtelo de nuevo.",
+        "description": "Mensaje de error genérico para carga."
+    },
+    "upload_error_no_auth": {
+        "message": "Error de autenticación. Por favor inicie sesión nuevamente.",
+        "description": "Mensaje de error cuando no está autenticado para cargar."
+    },
+    "upload_error_no_file": {
+        "message": "Por favor seleccione un archivo para subir.",
+        "description": "Mensaje de error cuando no se selecciona ningún archivo para cargar."
+    },
+    "options_section_appearance": {
+        "message": "Apariencia",
+        "description": "Encabezado para la sección de configuración de apariencia."
+    },
+    "options_section_uploads": {
+        "message": "Cargas",
+        "description": "Encabezado para la sección de configuración de cargas."
+    },
+    "snackbar_dismiss": {
+        "message": "Descartar",
+        "description": "Texto para el botón descartar en una notificación."
+    },
+    "options_loading_folders": {
+        "message": "Cargando carpetas...",
+        "description": "Mensaje mostrado mientras se carga el árbol de carpetas."
+    },
+    "options_login_to_load": {
+        "message": "Por favor inicie sesión a través de la extensión para cargar carpetas.",
+        "description": "Mensaje mostrado cuando el usuario necesita iniciar sesión para ver carpetas."
+    },
+    "options_error_loading_folders": {
+        "message": "Error al cargar carpetas. Asegúrese de haber iniciado sesión y tener conexión.",
+        "description": "Mensaje mostrado cuando falla la carga del árbol de carpetas."
+    },
+    "context_menu_save_image": {
+        "message": "Guardar imagen en pCloud",
+        "description": "Texto del elemento del menú contextual para guardar una imagen."
+    },
+    "notification_upload_started_title": {
+        "message": "Subida de imagen",
+        "description": "Título de la notificación cuando comienza la carga de la imagen."
+    },
+    "notification_upload_started_message": {
+        "message": "Guardando imagen en tu pCloud...",
+        "description": "Mensaje de la notificación cuando comienza la carga de la imagen."
+    },
+    "notification_upload_success_title": {
+        "message": "Subida completa",
+        "description": "Título de la notificación cuando la carga de la imagen es exitosa."
+    },
+    "notification_upload_success_message": {
+        "message": "Imagen guardada con éxito en pCloud.",
+        "description": "Mensaje de la notificación cuando la carga de la imagen es exitosa."
+    },
+    "notification_upload_error_title": {
+        "message": "Error de subida",
+        "description": "Título de la notificación cuando falla la carga de la imagen."
+    },
+    "notification_upload_error_message": {
+        "message": "No se pudo guardar la imagen en pCloud. Inténtelo de nuevo.",
+        "description": "Mensaje de la notificación cuando falla la carga de la imagen."
+    },
+    "notification_auth_error_message": {
+        "message": "Por favor inicie sesión en la extensión pCloud para guardar archivos.",
+        "description": "Mensaje de notificación cuando el usuario no ha iniciado sesión."
+    },
+    "options_section_filename": {
+        "message": "Nombre de archivo de imagen",
+        "description": "Encabezado para la sección configuración de nombre de archivo de imagen."
+    },
+    "options_section_text_filename": {
+        "message": "Nombre de archivo de texto",
+        "description": "Encabezado para la sección configuración de nombre de archivo de texto."
+    },
+    "options_filename_description": {
+        "message": "Arrastre y suelte para reordenar partes del nombre. Desmarque para excluir.",
+        "description": "Descripción para la UI de configuración de nombre de archivo."
+    },
+    "options_filename_part_sorting_number": {
+        "message": "Número de orden",
+        "description": "Etiqueta para la parte del nombre de archivo 'Número de orden'."
+    },
+    "options_filename_part_page_title": {
+        "message": "Título de página",
+        "description": "Etiqueta para la parte del nombre de archivo 'Título de página'."
+    },
+    "options_filename_part_timestamp": {
+        "message": "Marca de tiempo",
+        "description": "Etiqueta para la parte del nombre de archivo 'Marca de tiempo'."
+    },
+    "options_filename_part_free_key": {
+        "message": "Texto personalizado",
+        "description": "Etiqueta para la parte del nombre de archivo 'Texto personalizado'."
+    },
+    "options_filename_part_date": {
+        "message": "Fecha",
+        "description": "Etiqueta para la parte del nombre de archivo 'Fecha'."
+    },
+    "options_filename_separator_label": {
+        "message": "Separador",
+        "description": "Etiqueta para el campo de entrada del separador entre partes del nombre."
+    },
+    "contextMenuItemUploadSelection": {
+        "message": "Subir texto seleccionado a pCloud",
+        "description": "Texto del menú contextual para subir texto seleccionado."
+    },
+    "notificationUploadTextStartedTitle": {
+        "message": "Subida de texto",
+        "description": "Título de la notificación cuando comienza la carga de texto."
+    },
+    "notificationUploadTextStartedMessage": {
+        "message": "Guardando texto seleccionado en tu pCloud...",
+        "description": "Mensaje de la notificación cuando comienza la carga de texto."
+    },
+    "notificationUploadTextSuccessTitle": {
+        "message": "Subida completa",
+        "description": "Título de la notificación cuando la carga de texto es exitosa."
+    },
+    "notificationUploadTextSuccessMessage": {
+        "message": "Texto seleccionado guardado con éxito en pCloud.",
+        "description": "Mensaje de la notificación cuando la carga de texto es exitosa."
+    },
+    "notificationUploadTextErrorTitle": {
+        "message": "Error de subida",
+        "description": "Título de la notificación cuando falla la carga de texto."
+    },
+    "notificationUploadTextErrorMessage": {
+        "message": "No se pudo guardar el texto seleccionado en pCloud. Inténtelo de nuevo.",
+        "description": "Mensaje de la notificación cuando falla la carga de texto."
+    },
+    "notification_error_stale_content_script": {
+        "message": "No se puede conectar con la página. Recargue la pestaña e inténtelo de nuevo.",
+        "description": "Mensaje de error cuando el script de contenido está obsoleto o no disponible."
+    },
+    "context_menu_save_selection": {
+        "message": "Guardar selección como documento en pCloud"
+    },
+    "options_section_document_downloader": {
+        "message": "Descargador de documentos"
+    },
+    "options_document_format_label": {
+        "message": "Formato de documento"
+    },
+    "options_document_include_metadata_label": {
+        "message": "Incluir metadatos (YAML Frontmatter)"
+    },
+    "options_text_include_metadata_label": {
+        "message": "Incluir metadatos (YAML Frontmatter)"
+    },
+    "notification_document_processing_title": {
+        "message": "Procesando documento"
+    },
+    "notification_document_processing_message": {
+        "message": "Convirtiendo y subiendo su selección..."
+    },
+    "notification_document_success_title": {
+        "message": "Documento guardado"
+    },
+    "notification_document_success_message": {
+        "message": "Documento guardado con éxito en pCloud."
+    },
+    "notification_document_error_title": {
+        "message": "Fallo al guardar"
+    },
+    "notification_document_error_message": {
+        "message": "No se pudo guardar el documento. Inténtelo de nuevo."
+    },
+    "error_connection_lost_refresh": {
+        "message": "No se puede conectar con la página. Recargue la pestaña e inténtelo de nuevo.",
+        "description": "Mensaje de error cuando el script de contenido está obsoleto o no disponible."
+    },
+    "options_domain_rules_title": {
+        "message": "Ruta de subida por dominio"
+    },
+    "options_domain_rules_test_playground_title": {
+        "message": "Área de prueba"
+    },
+    "options_domain_rules_test_placeholder": {
+        "message": "Ingrese URL para probar reglas...",
+        "description": "Marcador de posición para pruebas de reglas."
+    },
+    "options_domain_rules_test_result_match": {
+        "message": "✅ Regla coincidente: {rule}"
+    },
+    "options_domain_rules_test_result_no_match": {
+        "message": "No se encontró ninguna regla coincidente."
+    },
+    "options_dialog_cancel": {
+        "message": "Cancelar"
+    },
+    "options_dialog_save": {
+        "message": "Guardar"
+    },
+    "options_dialog_select": {
+        "message": "Seleccionar"
+    },
+    "options_dialog_ok": {
+        "message": "Aceptar"
+    },
+    "options_folder_picker_title": {
+        "message": "Seleccionar carpeta"
+    },
+    "options_domain_rules_help_icon_tooltip": {
+        "message": "Ayuda de reglas"
+    },
+    "options_domain_rules_help_dialog_title": {
+        "message": "Ayuda de prioridad de reglas"
+    },
+    "options_domain_rules_help_dialog_content": {
+        "message": "Las reglas se comparan de arriba a abajo. Se aplicará la primera regla coincidente. Puede arrastrar y soltar para reordenar las reglas. Recomendamos usar el 'Área de prueba' arriba para verificar su configuración."
+    },
+    "options_domain_rules_add_button": {
+        "message": "Agregar regla"
+    },
+    "options_domain_rules_delete_button": {
+        "message": "Eliminar regla"
+    },
+    "options_domain_rules_col_domain": {
+        "message": "Dominio (soporta comodines)"
+    },
+    "options_domain_rules_col_path": {
+        "message": "Ruta destino pCloud"
+    },
+    "options_domain_rules_dialog_title_add": {
+        "message": "Agregar nueva regla"
+    },
+    "options_domain_rules_dialog_title_edit": {
+        "message": "Editar regla"
+    },
+    "options_domain_rules_folder_picker_create_btn": {
+        "message": "Crear nueva carpeta"
+    },
+    "options_domain_rules_confirm_delete": {
+        "message": "¿Está seguro de que desea eliminar esta regla?"
+    },
+    "options_section_premium": {
+        "message": "Actualización Premium"
+    },
+    "options_premium_active": {
+        "message": "PREMIUM ACTIVO"
+    },
+    "options_premium_description": {
+        "message": "¡Desbloquee funciones avanzadas como Descargador de Documentos (Markdown/Word) y más!"
+    },
+    "options_tier_pcloud_name": {
+        "message": "HyperCmdC for pCloud"
+    },
+    "options_tier_pcloud_desc": {
+        "message": "Desbloquea funciones solo para esta extensión."
+    },
+    "options_tier_master_name": {
+        "message": "HyperCmdC Master"
+    },
+    "options_tier_master_desc": {
+        "message": "Desbloquea TODAS las extensiones HyperCmdC (pCloud, S3, etc.)."
+    },
+    "options_restore_purchase": {
+        "message": "Restaurar compra"
+    },
+    "options_premium_thank_you": {
+        "message": "¡Gracias por su apoyo!"
+    },
+    "options_premium_active_desc": {
+        "message": "Tiene acceso a todas las funciones premium."
+    },
+    "options_payment_success": {
+        "message": "¡Pago exitoso! Funciones premium desbloqueadas."
+    },
+    "options_payment_failed": {
+        "message": "Pago fallido. Por favor, inténtelo de nuevo."
+    },
+    "options_restore_success": {
+        "message": "¡Compra restaurada con éxito!"
+    },
+    "options_restore_failed": {
+        "message": "No se encontró licencia para este correo."
+    },
+    "notification_premium_required_title": {
+        "message": "Función Premium"
+    },
+    "notification_premium_required_message": {
+        "message": "Esta función requiere una licencia Premium. ¡Actualice ahora para desbloquear!"
+    },
+    "notification_premium_upgrade_button": {
+        "message": "Actualizar ahora"
+    },
+    "options_upgrade_now": {
+        "message": "Actualizar ahora"
+    },
+    "options_payment_page_opening": {
+        "message": "Abriendo página de pago... (Simulacro - Modo Desarrollo)"
+    },
+    "toast_uploading_to_pcloud": {
+        "message": "Subiendo a pCloud..."
+    },
+    "toast_upload_started": {
+        "message": "¡Subida iniciada!"
+    },
+    "toast_processing_images": {
+        "message": "Procesando imágenes ($1/$2)..."
+    },
+    "toast_generating_document": {
+        "message": "Generando documento..."
+    },
+    "toast_view_button": {
+        "message": "Ver"
+    },
+    "pdf_download_to_pcloud": {
+        "message": "Guardar en pCloud"
+    },
+    "pdf_download_as_markdown": {
+        "message": "Descargar como Markdown en pCloud"
+    },
+    "pdf_error_not_pdf": {
+        "message": "Esta página no es un PDF."
+    },
+    "pdf_error_fetch_failed": {
+        "message": "Error al obtener datos del PDF."
+    },
+    "visit_official_website": {
+        "message": "Visitar sitio web 'HyperCmdC'"
+    },
+    "options_promotion_text": {
+        "message": "¡Gratis por tiempo limitado!",
+        "description": "Texto promocional mostrado junto al icono de promoción."
+    },
+    "options_footer_opensource_text": {
+        "message": "Ver código fuente en GitHub",
+        "description": "Texto del enlace al repositorio de código abierto."
+    }
+}

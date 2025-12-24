@@ -14,12 +14,20 @@ export class LicenseManager {
     }
 
     isPremium() {
-        if (!this.license) return false;
-        return this.license.status === 'premium' || this.license.status === 'master';
+        // OPEN SOURCE: Always return true to unlock all features
+        return true;
     }
 
     getLicenseInfo() {
-        return this.license;
+        // OPEN SOURCE: Return a default license object if none exists so UI shows active status
+        return {
+            status: 'master',
+            productType: 'hf4master',
+            key: 'opensource_free_license',
+            purchaseDate: new Date().toISOString(),
+            email: 'opensource@user',
+            orderID: 'OPEN_SOURCE'
+        };
     }
 
     async saveLicense(licenseData) {

@@ -1,0 +1,479 @@
+{
+    "extensionName": {
+        "message": "HyperCmdC for pCloud",
+        "description": "The name of the extension."
+    },
+    "extensionDescription": {
+        "message": "ادمج pCloud بسلاسة مع متصفح Chrome لإدارة الملفات بسهولة.",
+        "description": "The description of the extension."
+    },
+    "options_title": {
+        "message": "خيارات إضافة pCloud",
+        "description": "Title for the options page."
+    },
+    "options_description": {
+        "message": "قم بتكوين إعدادات إضافة pCloud Chrome الخاصة بك هنا.",
+        "description": "Description for the options page."
+    },
+    "options_default_folder_label": {
+        "message": "المسار المحدد حاليًا:",
+        "description": "Label for the current selected path display."
+    },
+    "options_default_folder_placeholder": {
+        "message": "مثال: 0 للمجلد الرئيسي",
+        "description": "Placeholder for the default upload folder ID input."
+    },
+    "options_save_button_text": {
+        "message": "حفظ الإعدادات",
+        "description": "Text for the save options button."
+    },
+    "options_saved_message": {
+        "message": "تم حفظ الإعدادات!",
+        "description": "Message displayed after settings are saved."
+    },
+    "options_invalid_folder_id": {
+        "message": "معرف المجلد غير صالح. الرجاء إدخال رقم غير سالب.",
+        "description": "Error message for invalid folder ID input."
+    },
+    "options_theme_label": {
+        "message": "السمة"
+    },
+    "options_theme_googlestyle": {
+        "message": "نمط Google"
+    },
+    "options_theme_geek": {
+        "message": "Geek"
+    },
+    "back_button_title": {
+        "message": "رجوع",
+        "description": "Title for the back button."
+    },
+    "login_token_prompt": {
+        "message": "المصادقة باستخدام الرمز المميز (Token)",
+        "description": "Prompt for the token login view."
+    },
+    "login_prompt": {
+        "message": "تسجيل الدخول إلى pCloud",
+        "description": "Prompt for the login view."
+    },
+    "login_email_placeholder": {
+        "message": "البريد الإلكتروني أو اسم المستخدم",
+        "description": "Placeholder for email/username input."
+    },
+    "login_password_placeholder": {
+        "message": "كلمة المرور",
+        "description": "Placeholder for password input."
+    },
+    "login_button_text": {
+        "message": "تسجيل الدخول",
+        "description": "Text for the login button."
+    },
+    "login_oauth_button": {
+        "message": "تسجيل الدخول باستخدام pCloud",
+        "description": "Text for the OAuth login button."
+    },
+    "login_oauth_error": {
+        "message": "فشلت المصادقة. الرجاء معاودة المحاولة.",
+        "description": "Generic error message for OAuth login failure."
+    },
+    "login_error_empty_credentials": {
+        "message": "الرجاء إدخال البريد الإلكتروني/اسم المستخدم وكلمة المرور.",
+        "description": "Error message for empty login fields."
+    },
+    "login_error_invalid_credentials": {
+        "message": "فشل تسجيل الدخول. يرجى التحقق من أوراق اعتمادك.",
+        "description": "Error message for invalid login."
+    },
+    "login_token_description": {
+        "message": "سجل الدخول إلى my.pcloud.com في علامة تبويب أخرى، ثم الصق الرمز المميز 'auth' هنا.",
+        "description": "Description for how to get the auth token."
+    },
+    "login_token_placeholder": {
+        "message": "الصق رمز المصادقة المميز هنا",
+        "description": "Placeholder for the auth token textarea."
+    },
+    "login_token_button_text": {
+        "message": "التحقق وحفظ الرمز المميز",
+        "description": "Text for the token login button."
+    },
+    "login_switch_to_token": {
+        "message": "أو، سجل الدخول باستخدام رمز مصادقة مميز",
+        "description": "Link to switch to token login."
+    },
+    "login_switch_to_password": {
+        "message": "أو، سجل الدخول باستخدام البريد الإلكتروني وكلمة المرور",
+        "description": "Link to switch to password login."
+    },
+    "login_error_invalid_token": {
+        "message": "الرمز المميز غير صالح. يرجى التحقق من الرمز المميز والمحاولة مرة أخرى.",
+        "description": "Error message for an invalid auth token."
+    },
+    "login_error_generic": {
+        "message": "حدث خطأ غير متوقع أثناء التحقق. الرجاء معاودة المحاولة.",
+        "description": "Generic error message for token verification."
+    },
+    "upload_prompt": {
+        "message": "الرفع إلى pCloud",
+        "description": "Prompt for the upload view."
+    },
+    "logout_button_text": {
+        "message": "تسجيل الخروج",
+        "description": "Text for the logout button."
+    },
+    "upload_select_file_button": {
+        "message": "اختيار ملف",
+        "description": "Button to open file selector."
+    },
+    "upload_drag_and_drop_prompt": {
+        "message": "اسحب وأفلت الملفات هنا للرفع",
+        "description": "Text for the drag and drop area."
+    },
+    "upload_select_file_link": {
+        "message": "أو اختر الملفات",
+        "description": "Link text to open file selector as an alternative to drag and drop."
+    },
+    "go_to_pcloud_website": {
+        "message": "الذهاب إلى موقع pCloud",
+        "description": "Link to pCloud website."
+    },
+    "upload_button_text": {
+        "message": "رفع",
+        "description": "Text for the upload button."
+    },
+    "upload_success_message": {
+        "message": "تم رفع الملف بنجاح!",
+        "description": "Success message after upload."
+    },
+    "upload_error_generic": {
+        "message": "فشل الرفع. الرجاء معاودة المحاولة.",
+        "description": "Generic error message for upload."
+    },
+    "upload_error_no_auth": {
+        "message": "خطأ في المصادقة. يرجى تسجيل الدخول مرة أخرى.",
+        "description": "Error message when not authenticated for upload."
+    },
+    "upload_error_no_file": {
+        "message": "الرجاء اختيار ملف للرفع.",
+        "description": "Error message when no file is selected for upload."
+    },
+    "options_section_appearance": {
+        "message": "المظهر",
+        "description": "Header for the appearance settings section on the options page."
+    },
+    "options_section_uploads": {
+        "message": "المرفوعات",
+        "description": "Header for the upload settings section on the options page."
+    },
+    "snackbar_dismiss": {
+        "message": "تجاهل",
+        "description": "Text for the dismiss button on a snackbar notification."
+    },
+    "options_loading_folders": {
+        "message": "جارٍ تحميل المجلدات...",
+        "description": "Message shown while the folder tree is loading."
+    },
+    "options_login_to_load": {
+        "message": "يرجى تسجيل الدخول عبر نافذة الإضافة المنبثقة لتحميل المجلدات.",
+        "description": "Message shown when the user needs to log in to see folders."
+    },
+    "options_error_loading_folders": {
+        "message": "خطأ في تحميل المجلدات. يرجى التأكد من أنك مسجل الدخول ولديك اتصال بالإنترنت.",
+        "description": "Message shown when the folder tree fails to load."
+    },
+    "context_menu_save_image": {
+        "message": "حفظ الصورة في pCloud",
+        "description": "Context menu item text for saving an image."
+    },
+    "notification_upload_started_title": {
+        "message": "رفع الصورة",
+        "description": "Title for the notification when image upload starts."
+    },
+    "notification_upload_started_message": {
+        "message": "جارٍ حفظ الصورة في pCloud الخاص بك...",
+        "description": "Message for the notification when image upload starts."
+    },
+    "notification_upload_success_title": {
+        "message": "اكتمل الرفع",
+        "description": "Title for the notification when image upload is successful."
+    },
+    "notification_upload_success_message": {
+        "message": "تم حفظ الصورة بنجاح في pCloud.",
+        "description": "Message for the notification when image upload is successful."
+    },
+    "notification_upload_error_title": {
+        "message": "فشل الرفع",
+        "description": "Title for the notification when image upload fails."
+    },
+    "notification_upload_error_message": {
+        "message": "تعذر حفظ الصورة في pCloud. الرجاء معاودة المحاولة.",
+        "description": "Message for the notification when image upload fails."
+    },
+    "notification_auth_error_message": {
+        "message": "يرجى تسجيل الدخول إلى إضافة pCloud لحفظ الملفات.",
+        "description": "Message for the notification when the user is not logged in."
+    },
+    "options_section_filename": {
+        "message": "اسم ملف الصورة",
+        "description": "Header for the image filename settings section on the options page."
+    },
+    "options_section_text_filename": {
+        "message": "اسم ملف النص",
+        "description": "Header for the text filename settings section on the options page."
+    },
+    "options_filename_description": {
+        "message": "اسحب وأفلت لإعادة ترتيب أجزاء اسم الملف. قم بإلغاء التحديد للاستبعاد.",
+        "description": "Description for the filename configuration UI."
+    },
+    "options_filename_part_sorting_number": {
+        "message": "رقم الفرز",
+        "description": "Label for the 'Sorting Number' filename part."
+    },
+    "options_filename_part_page_title": {
+        "message": "عنوان الصفحة",
+        "description": "Label for the 'Page Title' filename part."
+    },
+    "options_filename_part_timestamp": {
+        "message": "الطابع الزمني",
+        "description": "Label for the 'Timestamp' filename part."
+    },
+    "options_filename_part_free_key": {
+        "message": "نص مخصص",
+        "description": "Label for the 'Custom Text' filename part."
+    },
+    "options_filename_part_date": {
+        "message": "التاريخ",
+        "description": "Label for the 'Date' filename part."
+    },
+    "options_filename_separator_label": {
+        "message": "الفاصل",
+        "description": "Label for the separator input field between filename parts."
+    },
+    "contextMenuItemUploadSelection": {
+        "message": "رفع النص المحدد إلى pCloud",
+        "description": "Context menu item text for uploading selected text."
+    },
+    "notificationUploadTextStartedTitle": {
+        "message": "رفع النص",
+        "description": "Title for the notification when text upload starts."
+    },
+    "notificationUploadTextStartedMessage": {
+        "message": "جارٍ حفظ النص المحدد في pCloud الخاص بك...",
+        "description": "Message for the notification when text upload starts."
+    },
+    "notificationUploadTextSuccessTitle": {
+        "message": "اكتمل الرفع",
+        "description": "Title for the notification when text upload is successful."
+    },
+    "notificationUploadTextSuccessMessage": {
+        "message": "تم حفظ النص المحدد بنجاح في pCloud.",
+        "description": "Message for the notification when text upload is successful."
+    },
+    "notificationUploadTextErrorTitle": {
+        "message": "فشل الرفع",
+        "description": "Title for the notification when text upload fails."
+    },
+    "notificationUploadTextErrorMessage": {
+        "message": "تعذر حفظ النص المحدد في pCloud. الرجاء معاودة المحاولة.",
+        "description": "Message for the notification when text upload fails."
+    },
+    "notification_error_stale_content_script": {
+        "message": "لا يمكن الاتصال بالصفحة. يرجى إعادة تحميل علامة التبويب والمحاولة مرة أخرى.",
+        "description": "Error message when the content script is outdated or not available."
+    },
+    "context_menu_save_selection": {
+        "message": "حفظ التحديد كمستند في pCloud"
+    },
+    "options_section_document_downloader": {
+        "message": "أداة تنزيل المستندات"
+    },
+    "options_document_format_label": {
+        "message": "تنسيق المستند"
+    },
+    "options_document_include_metadata_label": {
+        "message": "تضمين البيانات الوصفية (YAML Frontmatter)"
+    },
+    "options_text_include_metadata_label": {
+        "message": "تضمين البيانات الوصفية (YAML Frontmatter)"
+    },
+    "notification_document_processing_title": {
+        "message": "جاري معالجة المستند"
+    },
+    "notification_document_processing_message": {
+        "message": "جارٍ تحويل اختيارك ورفعه..."
+    },
+    "notification_document_success_title": {
+        "message": "تم حفظ المستند"
+    },
+    "notification_document_success_message": {
+        "message": "تم حفظ المستند بنجاح في pCloud."
+    },
+    "notification_document_error_title": {
+        "message": "فشل الحفظ"
+    },
+    "notification_document_error_message": {
+        "message": "تعذر حفظ المستند. الرجاء معاودة المحاولة."
+    },
+    "error_connection_lost_refresh": {
+        "message": "لا يمكن الاتصال بالصفحة. يرجى إعادة تحميل علامة التبويب والمحاولة مرة أخرى.",
+        "description": "Error message when the content script is outdated or not available."
+    },
+    "options_domain_rules_title": {
+        "message": "مسار الرفع حسب النطاق"
+    },
+    "options_domain_rules_test_playground_title": {
+        "message": "ساحة الاختبار"
+    },
+    "options_domain_rules_test_placeholder": {
+        "message": "أدخل الرابط لاختبار القواعد...",
+        "description": "Placeholder for testing rules."
+    },
+    "options_domain_rules_test_result_match": {
+        "message": "✅ القاعدة المطابقة: {rule}"
+    },
+    "options_domain_rules_test_result_no_match": {
+        "message": "لم يتم العثور على قاعدة مطابقة."
+    },
+    "options_dialog_cancel": {
+        "message": "إلغاء"
+    },
+    "options_dialog_save": {
+        "message": "حفظ"
+    },
+    "options_dialog_select": {
+        "message": "تحديد"
+    },
+    "options_dialog_ok": {
+        "message": "موافق"
+    },
+    "options_folder_picker_title": {
+        "message": "تحديد مجلد"
+    },
+    "options_domain_rules_help_icon_tooltip": {
+        "message": "مساعدة القاعدة"
+    },
+    "options_domain_rules_help_dialog_title": {
+        "message": "مساعدة أولوية القاعدة"
+    },
+    "options_domain_rules_help_dialog_content": {
+        "message": "يتم مطابقة القواعد من الأعلى إلى الأسفل. سيتم تطبيق أول قاعدة مطابقة. يمكنك السحب والإفلات لإعادة ترتيب القواعد. نوصي باستخدام 'ساحة الاختبار' أعلاه للتحقق من تكوينك."
+    },
+    "options_domain_rules_add_button": {
+        "message": "إضافة قاعدة"
+    },
+    "options_domain_rules_delete_button": {
+        "message": "حذف القاعدة"
+    },
+    "options_domain_rules_col_domain": {
+        "message": "النطاق (يدعم أحرف البدل)"
+    },
+    "options_domain_rules_col_path": {
+        "message": "مسار pCloud المستهدف"
+    },
+    "options_domain_rules_dialog_title_add": {
+        "message": "إضافة قاعدة جديدة"
+    },
+    "options_domain_rules_dialog_title_edit": {
+        "message": "تعديل القاعدة"
+    },
+    "options_domain_rules_folder_picker_create_btn": {
+        "message": "إنشاء مجلد جديد"
+    },
+    "options_domain_rules_confirm_delete": {
+        "message": "هل أنت متأكد أنك تريد حذف هذه القاعدة؟"
+    },
+    "options_section_premium": {
+        "message": "ترقية مميزة (Premium)"
+    },
+    "options_premium_active": {
+        "message": "Premium نشط"
+    },
+    "options_premium_description": {
+        "message": "افتح الميزات المتقدمة مثل أداة تنزيل المستندات (Markdown/Word) والمزيد!"
+    },
+    "options_tier_pcloud_name": {
+        "message": "HyperCmdC for pCloud"
+    },
+    "options_tier_pcloud_desc": {
+        "message": "يفتح الميزات لهذه الإضافة فقط."
+    },
+    "options_tier_master_name": {
+        "message": "HyperCmdC Master"
+    },
+    "options_tier_master_desc": {
+        "message": "يفتح جميع إضافات HyperCmdC (pCloud، S3، إلخ)."
+    },
+    "options_restore_purchase": {
+        "message": "استعادة الشراء"
+    },
+    "options_premium_thank_you": {
+        "message": "شكرا لدعمك!"
+    },
+    "options_premium_active_desc": {
+        "message": "لديك حق الوصول إلى جميع الميزات المميزة."
+    },
+    "options_payment_success": {
+        "message": "تم الدفع بنجاح! تم فتح الميزات المميزة."
+    },
+    "options_payment_failed": {
+        "message": "فشل الدفع. الرجاء معاودة المحاولة."
+    },
+    "options_restore_success": {
+        "message": "تمت استعادة الشراء بنجاح!"
+    },
+    "options_restore_failed": {
+        "message": "لم يتم العثور على ترخيص لهذا البريد الإلكتروني."
+    },
+    "notification_premium_required_title": {
+        "message": "ميزة Premium"
+    },
+    "notification_premium_required_message": {
+        "message": "هذه الميزة تتطلب ترخيص Premium. قم بالترقية الآن للفتح!"
+    },
+    "notification_premium_upgrade_button": {
+        "message": "ترقية الآن"
+    },
+    "options_upgrade_now": {
+        "message": "ترقية الآن"
+    },
+    "options_payment_page_opening": {
+        "message": "جارٍ فتح صفحة الدفع... (محاكاة - وضع التطوير)"
+    },
+    "toast_uploading_to_pcloud": {
+        "message": "جارٍ الرفع إلى pCloud..."
+    },
+    "toast_upload_started": {
+        "message": "بدأ الرفع!"
+    },
+    "toast_processing_images": {
+        "message": "جارٍ معالجة الصور ($1/$2)..."
+    },
+    "toast_generating_document": {
+        "message": "جارٍ إنشاء المستند..."
+    },
+    "toast_view_button": {
+        "message": "عرض"
+    },
+    "pdf_download_to_pcloud": {
+        "message": "حفظ في pCloud"
+    },
+    "pdf_download_as_markdown": {
+        "message": "تنزيل بصيغة Markdown في pCloud"
+    },
+    "pdf_error_not_pdf": {
+        "message": "هذه الصفحة ليست ملف PDF."
+    },
+    "pdf_error_fetch_failed": {
+        "message": "فشل جلب بيانات PDF."
+    },
+    "visit_official_website": {
+        "message": "زيارة موقع 'HyperCmdC'"
+    },
+    "options_promotion_text": {
+        "message": "مجاني لفترة محدودة!",
+        "description": "Promotional text shown next to promotion icon."
+    },
+    "options_footer_opensource_text": {
+        "message": "عرض المصدر على GitHub",
+        "description": "Link text to the open source repository."
+    }
+}

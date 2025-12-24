@@ -1,0 +1,479 @@
+{
+    "extensionName": {
+        "message": "HyperCmdC for pCloud",
+        "description": "ชื่อของส่วนขยาย"
+    },
+    "extensionDescription": {
+        "message": "รวม pCloud เข้ากับเบราว์เซอร์ Chrome ของคุณอย่างราบรื่นเพื่อการจัดการไฟล์ที่ง่ายดาย",
+        "description": "คำอธิบายของส่วนขยาย"
+    },
+    "options_title": {
+        "message": "ตัวเลือกส่วนขยาย pCloud",
+        "description": "ชื่อเรื่องสำหรับหน้าตัวเลือก"
+    },
+    "options_description": {
+        "message": "กำหนดค่าการตั้งค่าส่วนขยาย pCloud Chrome ของคุณที่นี่",
+        "description": "คำอธิบายสำหรับหน้าตัวเลือก"
+    },
+    "options_default_folder_label": {
+        "message": "เส้นทางที่เลือกปัจจุบัน:",
+        "description": "ป้ายชื่อสำหรับการแสดงผลเส้นทางที่เลือกปัจจุบัน"
+    },
+    "options_default_folder_placeholder": {
+        "message": "เช่น 0 สำหรับโฟลเดอร์รูท",
+        "description": "ตัวยึดตำแหน่งสำหรับอินพุต ID โฟลเดอร์อัปโหลดเริ่มต้น"
+    },
+    "options_save_button_text": {
+        "message": "บันทึกการตั้งค่า",
+        "description": "ข้อความสำหรับปุ่มบันทึกตัวเลือก"
+    },
+    "options_saved_message": {
+        "message": "บันทึกการตั้งค่าแล้ว!",
+        "description": "ข้อความที่แสดงหลังจากบันทึกการตั้งค่าแล้ว"
+    },
+    "options_invalid_folder_id": {
+        "message": "ID โฟลเดอร์ไม่ถูกต้อง โปรดป้อนจำนวนที่ไม่ติดลบ",
+        "description": "ข้อความแสดงข้อผิดพลาดสำหรับอินพุต ID โฟลเดอร์ที่ไม่ถูกต้อง"
+    },
+    "options_theme_label": {
+        "message": "ธีม"
+    },
+    "options_theme_googlestyle": {
+        "message": "สไตล์ Google"
+    },
+    "options_theme_geek": {
+        "message": "Geek"
+    },
+    "back_button_title": {
+        "message": "กลับ",
+        "description": "ชื่อเรื่องสำหรับปุ่มกลับ"
+    },
+    "login_token_prompt": {
+        "message": "ตรวจสอบสิทธิ์ด้วยโทเค็น",
+        "description": "ข้อความแจ้งสำหรับมุมมองการเข้าสู่ระบบด้วยโทเค็น"
+    },
+    "login_prompt": {
+        "message": "เข้าสู่ระบบ pCloud",
+        "description": "ข้อความแจ้งสำหรับมุมมองการเข้าสู่ระบบ"
+    },
+    "login_email_placeholder": {
+        "message": "อีเมลหรือชื่อผู้ใช้",
+        "description": "ตัวยึดตำแหน่งสำหรับอินพุตอีเมล/ชื่อผู้ใช้"
+    },
+    "login_password_placeholder": {
+        "message": "รหัสผ่าน",
+        "description": "ตัวยึดตำแหน่งสำหรับอินพุตรหัสผ่าน"
+    },
+    "login_button_text": {
+        "message": "เข้าสู่ระบบ",
+        "description": "ข้อความสำหรับปุ่มเข้าสู่ระบบ"
+    },
+    "login_oauth_button": {
+        "message": "เข้าสู่ระบบด้วย pCloud",
+        "description": "ข้อความสำหรับปุ่มเข้าสู่ระบบ OAuth"
+    },
+    "login_oauth_error": {
+        "message": "การตรวจสอบสิทธิ์ล้มเหลว โปรดลองอีกครั้ง",
+        "description": "ข้อความแสดงข้อผิดพลาดทั่วไปสำหรับการเข้าสู่ระบบ OAuth ล้มเหลว"
+    },
+    "login_error_empty_credentials": {
+        "message": "โปรดป้อนทั้งอีเมล/ชื่อผู้ใช้และรหัสผ่าน",
+        "description": "ข้อความแสดงข้อผิดพลาดสำหรับช่องการเข้าสู่ระบบว่างเปล่า"
+    },
+    "login_error_invalid_credentials": {
+        "message": "การเข้าสู่ระบบล้มเหลว โปรดตรวจสอบข้อมูลประจำตัวของคุณ",
+        "description": "ข้อความแสดงข้อผิดพลาดสำหรับการเข้าสู่ระบบที่ไม่ถูกต้อง"
+    },
+    "login_token_description": {
+        "message": "เข้าสู่ระบบ my.pcloud.com ในแท็บอื่น จากนั้นวางโทเค็น 'auth' ที่นี่",
+        "description": "คำอธิบายสำหรับวิธีรับโทเค็นการตรวจสอบสิทธิ์"
+    },
+    "login_token_placeholder": {
+        "message": "วางโทเค็นการตรวจสอบสิทธิ์ของคุณที่นี่",
+        "description": "ตัวยึดตำแหน่งสำหรับพื้นที่ข้อความโทเค็นการตรวจสอบสิทธิ์"
+    },
+    "login_token_button_text": {
+        "message": "ตรวจสอบและบันทึกโทเค็น",
+        "description": "ข้อความสำหรับปุ่มเข้าสู่ระบบโทเค็น"
+    },
+    "login_switch_to_token": {
+        "message": "หรือเข้าสู่ระบบด้วยโทเค็นการตรวจสอบสิทธิ์",
+        "description": "ลิงก์เพื่อสลับไปยังการเข้าสู่ระบบด้วยโทเค็น"
+    },
+    "login_switch_to_password": {
+        "message": "หรือเข้าสู่ระบบด้วยอีเมลและรหัสผ่าน",
+        "description": "ลิงก์เพื่อสลับไปยังการเข้าสู่ระบบด้วยรหัสผ่าน"
+    },
+    "login_error_invalid_token": {
+        "message": "โทเค็นไม่ถูกต้อง โปรดตรวจสอบโทเค็นแล้วลองอีกครั้ง",
+        "description": "ข้อความแสดงข้อผิดพลาดสำหรับโทเค็นการตรวจสอบสิทธิ์ที่ไม่ถูกต้อง"
+    },
+    "login_error_generic": {
+        "message": "เกิดข้อผิดพลาดที่ไม่คาดคิดระหว่างการตรวจสอบ โปรดลองอีกครั้ง",
+        "description": "ข้อความแสดงข้อผิดพลาดทั่วไปสำหรับการตรวจสอบโทเค็น"
+    },
+    "upload_prompt": {
+        "message": "อัปโหลดไปยัง pCloud",
+        "description": "ข้อความแจ้งสำหรับมุมมองการอัปโหลด"
+    },
+    "logout_button_text": {
+        "message": "ออกจากระบบ",
+        "description": "ข้อความสำหรับปุ่มออกจากระบบ"
+    },
+    "upload_select_file_button": {
+        "message": "เลือกไฟล์",
+        "description": "ปุ่มเพื่อเปิดตัวเลือกไฟล์"
+    },
+    "upload_drag_and_drop_prompt": {
+        "message": "ลากและวางไฟล์ที่นี่เพื่ออัปโหลด",
+        "description": "ข้อความสำหรับพื้นที่ลากและวาง"
+    },
+    "upload_select_file_link": {
+        "message": "หรือเลือกไฟล์",
+        "description": "ข้อความลิงก์เพื่อเปิดตัวเลือกไฟล์เป็นทางเลือกแทนการลากและวาง"
+    },
+    "go_to_pcloud_website": {
+        "message": "ไปที่เว็บไซต์ pCloud",
+        "description": "ลิงก์ไปยังเว็บไซต์ pCloud"
+    },
+    "upload_button_text": {
+        "message": "อัปโหลด",
+        "description": "ข้อความสำหรับปุ่มอัปโหลด"
+    },
+    "upload_success_message": {
+        "message": "อัปโหลดไฟล์สำเร็จ!",
+        "description": "ข้อความความสำเร็จหลังจากอัปโหลด"
+    },
+    "upload_error_generic": {
+        "message": "การอัปโหลดล้มเหลว โปรดลองอีกครั้ง",
+        "description": "ข้อความแสดงข้อผิดพลาดทั่วไปสำหรับการอัปโหลด"
+    },
+    "upload_error_no_auth": {
+        "message": "ข้อผิดพลาดในการตรวจสอบสิทธิ์ โปรดเข้าสู่ระบบอีกครั้ง",
+        "description": "ข้อความแสดงข้อผิดพลาดเมื่อไม่ได้ตรวจสอบสิทธิ์สำหรับการอัปโหลด"
+    },
+    "upload_error_no_file": {
+        "message": "โปรดเลือกไฟล์เพื่ออัปโหลด",
+        "description": "ข้อความแสดงข้อผิดพลาดเมื่อไม่มีการเลือกไฟล์สำหรับการอัปโหลด"
+    },
+    "options_section_appearance": {
+        "message": "รูปลักษณ์",
+        "description": "ส่วนหัวสำหรับส่วนการตั้งค่ารูปลักษณ์ในหน้าตัวเลือก"
+    },
+    "options_section_uploads": {
+        "message": "การอัปโหลด",
+        "description": "ส่วนหัวสำหรับส่วนการตั้งค่าการอัปโหลดในหน้าตัวเลือก"
+    },
+    "snackbar_dismiss": {
+        "message": "ปิด",
+        "description": "ข้อความสำหรับปุ่มปิดบนการแจ้งเตือน snackbar"
+    },
+    "options_loading_folders": {
+        "message": "กำลังโหลดโฟลเดอร์...",
+        "description": "ข้อความที่แสดงในขณะที่ต้นไม้โฟลเดอร์กำลังโหลด"
+    },
+    "options_login_to_load": {
+        "message": "โปรดเข้าสู่ระบบผ่านป๊อปอัปส่วนขยายเพื่อโหลดโฟลเดอร์",
+        "description": "ข้อความที่แสดงเมื่อผู้ใช้จำเป็นต้องเข้าสู่ระบบเพื่อดูโฟลเดอร์"
+    },
+    "options_error_loading_folders": {
+        "message": "ข้อผิดพลาดในการโหลดโฟลเดอร์ โปรดตรวจสอบให้แน่ใจว่าคุณเข้าสู่ระบบแล้วและมีการเชื่อมต่ออินเทอร์เน็ต",
+        "description": "ข้อความที่แสดงเมื่อการโหลดต้นไม้โฟลเดอร์ล้มเหลว"
+    },
+    "context_menu_save_image": {
+        "message": "บันทึกภาพไปยัง pCloud",
+        "description": "ข้อความรายการเมนูบริบทเพื่อบันทึกรูปภาพ"
+    },
+    "notification_upload_started_title": {
+        "message": "อัปโหลดรูปภาพ",
+        "description": "ชื่อเรื่องสำหรับการแจ้งเตือนเมื่อเริ่มอัปโหลดรูปภาพ"
+    },
+    "notification_upload_started_message": {
+        "message": "กำลังบันทึกภาพไปยัง pCloud ของคุณ...",
+        "description": "ข้อความสำหรับการแจ้งเตือนเมื่อเริ่มอัปโหลดรูปภาพ"
+    },
+    "notification_upload_success_title": {
+        "message": "อัปโหลดเสร็จสมบูรณ์",
+        "description": "ชื่อเรื่องสำหรับการแจ้งเตือนเมื่อการอัปโหลดรูปภาพเสร็จสมบูรณ์"
+    },
+    "notification_upload_success_message": {
+        "message": "บันทึกภาพไปยัง pCloud สำเร็จแล้ว",
+        "description": "ข้อความสำหรับการแจ้งเตือนเมื่อการอัปโหลดรูปภาพเสร็จสมบูรณ์"
+    },
+    "notification_upload_error_title": {
+        "message": "การอัปโหลดล้มเหลว",
+        "description": "ชื่อเรื่องสำหรับการแจ้งเตือนเมื่อการอัปโหลดรูปภาพล้มเหลว"
+    },
+    "notification_upload_error_message": {
+        "message": "ไม่สามารถบันทึกภาพไปยัง pCloud โปรดลองอีกครั้ง",
+        "description": "ข้อความสำหรับการแจ้งเตือนเมื่อการอัปโหลดรูปภาพล้มเหลว"
+    },
+    "notification_auth_error_message": {
+        "message": "โปรดเข้าสู่ระบบส่วนขยาย pCloud เพื่อบันทึกไฟล์",
+        "description": "ข้อความสำหรับการแจ้งเตือนเมื่อผู้ใช้ไม่ได้เข้าสู่ระบบ"
+    },
+    "options_section_filename": {
+        "message": "ชื่อไฟล์รูปภาพ",
+        "description": "ส่วนหัวสำหรับส่วนการตั้งค่าชื่อไฟล์รูปภาพในหน้าตัวเลือก"
+    },
+    "options_section_text_filename": {
+        "message": "ชื่อไฟล์ข้อความ",
+        "description": "ส่วนหัวสำหรับส่วนการตั้งค่าชื่อไฟล์ข้อความในหน้าตัวเลือก"
+    },
+    "options_filename_description": {
+        "message": "ลากและวางเพื่อจัดลำดับส่วนชื่อไฟล์ใหม่ ยกเลิกการเลือกเพื่อยกเว้น",
+        "description": "คำอธิบายสำหรับ UI การกำหนดค่าชื่อไฟล์"
+    },
+    "options_filename_part_sorting_number": {
+        "message": "หมายเลขการเรียงลำดับ",
+        "description": "ป้ายชื่อสำหรับส่วนชื่อไฟล์ 'หมายเลขการเรียงลำดับ (Sorting Number)'"
+    },
+    "options_filename_part_page_title": {
+        "message": "ชื่อหน้า",
+        "description": "ป้ายชื่อสำหรับส่วนชื่อไฟล์ 'ชื่อหน้า (Page Title)'"
+    },
+    "options_filename_part_timestamp": {
+        "message": "ประทับเวลา",
+        "description": "ป้ายชื่อสำหรับส่วนชื่อไฟล์ 'ประทับเวลา (Timestamp)'"
+    },
+    "options_filename_part_free_key": {
+        "message": "ข้อความที่กำหนดเอง",
+        "description": "ป้ายชื่อสำหรับส่วนชื่อไฟล์ 'ข้อความที่กำหนดเอง (Custom Text)'"
+    },
+    "options_filename_part_date": {
+        "message": "วันที่",
+        "description": "ป้ายชื่อสำหรับส่วนชื่อไฟล์ 'วันที่ (Date)'"
+    },
+    "options_filename_separator_label": {
+        "message": "ตัวคั่น",
+        "description": "ป้ายชื่อสำหรับช่องป้อนข้อมูลตัวคั่นระหว่างส่วนชื่อไฟล์"
+    },
+    "contextMenuItemUploadSelection": {
+        "message": "อัปโหลดข้อความที่เลือกไปยัง pCloud",
+        "description": "ข้อความรายการเมนูบริบทเพื่ออัปโหลดข้อความที่เลือก"
+    },
+    "notificationUploadTextStartedTitle": {
+        "message": "อัปโหลดข้อความ",
+        "description": "ชื่อเรื่องสำหรับการแจ้งเตือนเมื่อเริ่มอัปโหลดข้อความ"
+    },
+    "notificationUploadTextStartedMessage": {
+        "message": "กำลังบันทึกข้อความที่เลือกไปยัง pCloud ของคุณ...",
+        "description": "ข้อความสำหรับการแจ้งเตือนเมื่อเริ่มอัปโหลดข้อความ"
+    },
+    "notificationUploadTextSuccessTitle": {
+        "message": "อัปโหลดเสร็จสมบูรณ์",
+        "description": "ชื่อเรื่องสำหรับการแจ้งเตือนเมื่อการอัปโหลดข้อความเสร็จสมบูรณ์"
+    },
+    "notificationUploadTextSuccessMessage": {
+        "message": "บันทึกข้อความที่เลือกไปยัง pCloud สำเร็จแล้ว",
+        "description": "ข้อความสำหรับการแจ้งเตือนเมื่อการอัปโหลดข้อความเสร็จสมบูรณ์"
+    },
+    "notificationUploadTextErrorTitle": {
+        "message": "การอัปโหลดล้มเหลว",
+        "description": "ชื่อเรื่องสำหรับการแจ้งเตือนเมื่อการอัปโหลดข้อความล้มเหลว"
+    },
+    "notificationUploadTextErrorMessage": {
+        "message": "ไม่สามารถบันทึกข้อความที่เลือกไปยัง pCloud โปรดลองอีกครั้ง",
+        "description": "ข้อความสำหรับการแจ้งเตือนเมื่อการอัปโหลดข้อความล้มเหลว"
+    },
+    "notification_error_stale_content_script": {
+        "message": "ไม่สามารถเชื่อมต่อกับหน้าเว็บ โปรดรีโหลดแท็บแล้วลองอีกครั้ง",
+        "description": "ข้อความแสดงข้อผิดพลาดเมื่อสคริปต์เนื้อหาล้าสมัยหรือไม่พร้อมใช้งาน"
+    },
+    "context_menu_save_selection": {
+        "message": "บันทึกส่วนที่เลือกเป็นเอกสารไปยัง pCloud"
+    },
+    "options_section_document_downloader": {
+        "message": "ตัวดาวน์โหลดเอกสาร"
+    },
+    "options_document_format_label": {
+        "message": "รูปแบบเอกสาร"
+    },
+    "options_document_include_metadata_label": {
+        "message": "รวมเมทาดาต้า (YAML Frontmatter)"
+    },
+    "options_text_include_metadata_label": {
+        "message": "รวมเมทาดาต้า (YAML Frontmatter)"
+    },
+    "notification_document_processing_title": {
+        "message": "กำลังประมวลผลเอกสาร"
+    },
+    "notification_document_processing_message": {
+        "message": "กำลังแปลงและอัปโหลดสิ่งที่คุณเลือก..."
+    },
+    "notification_document_success_title": {
+        "message": "บันทึกเอกสารแล้ว"
+    },
+    "notification_document_success_message": {
+        "message": "บันทึกเอกสารไปยัง pCloud สำเร็จแล้ว"
+    },
+    "notification_document_error_title": {
+        "message": "บันทึกล้มเหลว"
+    },
+    "notification_document_error_message": {
+        "message": "ไม่สามารถบันทึกเอกสาร โปรดลองอีกครั้ง"
+    },
+    "error_connection_lost_refresh": {
+        "message": "ไม่สามารถเชื่อมต่อกับหน้าเว็บ โปรดรีโหลดแท็บแล้วลองอีกครั้ง",
+        "description": "ข้อความแสดงข้อผิดพลาดเมื่อสคริปต์เนื้อหาล้าสมัยหรือไม่พร้อมใช้งาน"
+    },
+    "options_domain_rules_title": {
+        "message": "เส้นทางอัปโหลดตามโดเมน"
+    },
+    "options_domain_rules_test_playground_title": {
+        "message": "สนามเด็กเล่นทดสอบ"
+    },
+    "options_domain_rules_test_placeholder": {
+        "message": "ป้อน URL เพื่อทดสอบกฎ...",
+        "description": "ตัวยึดตำแหน่งสำหรับการทดสอบกฎ"
+    },
+    "options_domain_rules_test_result_match": {
+        "message": "✅ กฎที่ตรงกัน: {rule}"
+    },
+    "options_domain_rules_test_result_no_match": {
+        "message": "ไม่พบกฎที่ตรงกัน"
+    },
+    "options_dialog_cancel": {
+        "message": "ยกเลิก"
+    },
+    "options_dialog_save": {
+        "message": "บันทึก"
+    },
+    "options_dialog_select": {
+        "message": "เลือก"
+    },
+    "options_dialog_ok": {
+        "message": "ตกลง"
+    },
+    "options_folder_picker_title": {
+        "message": "เลือกโฟลเดอร์"
+    },
+    "options_domain_rules_help_icon_tooltip": {
+        "message": "ความช่วยเหลือเกี่ยวกับกฎ"
+    },
+    "options_domain_rules_help_dialog_title": {
+        "message": "ความช่วยเหลือเกี่ยวกับลำดับความสำคัญของกฎ"
+    },
+    "options_domain_rules_help_dialog_content": {
+        "message": "กฎจะจับคู่จากบนลงล่าง กฎที่ตรงกันกฎแรกจะถูกนำมาใช้ คุณสามารถลากและวางเพื่อจัดลำดับกฎใหม่ได้ เราขอแนะนำให้ใช้ 'สนามเด็กเล่นทดสอบ' ด้านบนเพื่อยืนยันการกำหนดค่าของคุณ"
+    },
+    "options_domain_rules_add_button": {
+        "message": "เพิ่มกฎ"
+    },
+    "options_domain_rules_delete_button": {
+        "message": "ลบกฎ"
+    },
+    "options_domain_rules_col_domain": {
+        "message": "โดเมน (รองรับอักขระตัวแทน)"
+    },
+    "options_domain_rules_col_path": {
+        "message": "เส้นทาง pCloud ปลายทาง"
+    },
+    "options_domain_rules_dialog_title_add": {
+        "message": "เพิ่มกฎใหม่"
+    },
+    "options_domain_rules_dialog_title_edit": {
+        "message": "แก้ไขกฎ"
+    },
+    "options_domain_rules_folder_picker_create_btn": {
+        "message": "สร้างโฟลเดอร์ใหม่"
+    },
+    "options_domain_rules_confirm_delete": {
+        "message": "คุณแน่ใจหรือไม่ว่าต้องการลบกฎนี้"
+    },
+    "options_section_premium": {
+        "message": "อัปเกรดพรีเมียม"
+    },
+    "options_premium_active": {
+        "message": "พรีเมียมทำงานอยู่"
+    },
+    "options_premium_description": {
+        "message": "ปลดล็อกฟีเจอร์ขั้นสูง เช่น ตัวดาวน์โหลดเอกสาร (Markdown/Word) และอื่นๆ!"
+    },
+    "options_tier_pcloud_name": {
+        "message": "HyperCmdC for pCloud"
+    },
+    "options_tier_pcloud_desc": {
+        "message": "ปลดล็อกฟีเจอร์สำหรับส่วนขยายนี้เท่านั้น"
+    },
+    "options_tier_master_name": {
+        "message": "HyperCmdC Master"
+    },
+    "options_tier_master_desc": {
+        "message": "ปลดล็อกส่วนขยาย HyperCmdC ทั้งหมด (pCloud, S3, ฯลฯ)"
+    },
+    "options_restore_purchase": {
+        "message": "กู้คืนการซื้อ"
+    },
+    "options_premium_thank_you": {
+        "message": "ขอบคุณสำหรับการสนับสนุน!"
+    },
+    "options_premium_active_desc": {
+        "message": "คุณสามารถเข้าถึงฟีเจอร์พรีเมียมทั้งหมดได้"
+    },
+    "options_payment_success": {
+        "message": "ชำระเงินสำเร็จ! ปลดล็อกฟีเจอร์พรีเมียมแล้ว"
+    },
+    "options_payment_failed": {
+        "message": "การชำระเงินล้มเหลว โปรดลองอีกครั้ง"
+    },
+    "options_restore_success": {
+        "message": "กู้คืนการซื้อสำเร็จแล้ว!"
+    },
+    "options_restore_failed": {
+        "message": "ไม่พบใบอนุญาตสำหรับอีเมลนี้"
+    },
+    "notification_premium_required_title": {
+        "message": "ฟีเจอร์พรีเมียม"
+    },
+    "notification_premium_required_message": {
+        "message": "ฟีเจอร์นี้ต้องใช้ใบอนุญาตพรีเมียม อัปเกรดตอนนี้เพื่อปลดล็อก!"
+    },
+    "notification_premium_upgrade_button": {
+        "message": "อัปเกรดตอนนี้"
+    },
+    "options_upgrade_now": {
+        "message": "อัปเกรดตอนนี้"
+    },
+    "options_payment_page_opening": {
+        "message": "กำลังเปิดหน้าชำระเงิน... (จำลอง - โหมดนักพัฒนา)"
+    },
+    "toast_uploading_to_pcloud": {
+        "message": "กำลังอัปโหลดไปยัง pCloud..."
+    },
+    "toast_upload_started": {
+        "message": "เริ่มอัปโหลดแล้ว!"
+    },
+    "toast_processing_images": {
+        "message": "กำลังประมวลผลรูปภาพ ($1/$2)..."
+    },
+    "toast_generating_document": {
+        "message": "กำลังสร้างเอกสาร..."
+    },
+    "toast_view_button": {
+        "message": "ดู"
+    },
+    "pdf_download_to_pcloud": {
+        "message": "บันทึกใน pCloud"
+    },
+    "pdf_download_as_markdown": {
+        "message": "ดาวน์โหลดเป็น Markdown ใน pCloud"
+    },
+    "pdf_error_not_pdf": {
+        "message": "หน้านี้ไม่ใช่ PDF"
+    },
+    "pdf_error_fetch_failed": {
+        "message": "ดึงข้อมูล PDF ล้มเหลว"
+    },
+    "visit_official_website": {
+        "message": "เยี่ยมชมเว็บไซต์ 'HyperCmdC'"
+    },
+    "options_promotion_text": {
+        "message": "ฟรีในช่วงเวลาจำกัด!",
+        "description": "ข้อความโปรโมชั่นแสดงข้างไอคอนโปรโมชั่น"
+    },
+    "options_footer_opensource_text": {
+        "message": "ดูซอร์สโค้ดบน GitHub",
+        "description": "ข้อความลิงก์ไปยังพื้นที่เก็บข้อมูลโอเพนซอร์ส"
+    }
+}

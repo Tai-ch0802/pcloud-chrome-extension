@@ -1,0 +1,479 @@
+{
+    "extensionName": {
+        "message": "HyperCmdC for pCloud",
+        "description": "Nama ekstensi."
+    },
+    "extensionDescription": {
+        "message": "Integrasikan pCloud dengan browser Chrome Anda untuk pengelolaan file yang mudah.",
+        "description": "Deskripsi ekstensi."
+    },
+    "options_title": {
+        "message": "Opsi Ekstensi pCloud",
+        "description": "Judul untuk halaman opsi."
+    },
+    "options_description": {
+        "message": "Konfigurasikan pengaturan Ekstensi Chrome pCloud Anda di sini.",
+        "description": "Deskripsi untuk halaman opsi."
+    },
+    "options_default_folder_label": {
+        "message": "Jalur Terpilih Saat Ini:",
+        "description": "Label untuk tampilan jalur yang dipilih saat ini."
+    },
+    "options_default_folder_placeholder": {
+        "message": "co: 0 untuk folder root",
+        "description": "Placeholder untuk input ID folder unggahan default."
+    },
+    "options_save_button_text": {
+        "message": "Simpan Pengaturan",
+        "description": "Teks untuk tombol simpan opsi."
+    },
+    "options_saved_message": {
+        "message": "Pengaturan disimpan!",
+        "description": "Pesan ditampilkan setelah pengaturan disimpan."
+    },
+    "options_invalid_folder_id": {
+        "message": "ID folder tidak valid. Harap masukkan angka non-negatif.",
+        "description": "Pesan kesalahan untuk input ID folder yang tidak valid."
+    },
+    "options_theme_label": {
+        "message": "Tema"
+    },
+    "options_theme_googlestyle": {
+        "message": "Gaya Google"
+    },
+    "options_theme_geek": {
+        "message": "Geek"
+    },
+    "back_button_title": {
+        "message": "Kembali",
+        "description": "Judul untuk tombol kembali."
+    },
+    "login_token_prompt": {
+        "message": "Otentikasi dengan Token",
+        "description": "Prompt untuk tampilan login token."
+    },
+    "login_prompt": {
+        "message": "Masuk ke pCloud",
+        "description": "Prompt untuk tampilan login."
+    },
+    "login_email_placeholder": {
+        "message": "Email atau Nama Pengguna",
+        "description": "Placeholder untuk input email/nama pengguna."
+    },
+    "login_password_placeholder": {
+        "message": "Kata Sandi",
+        "description": "Placeholder untuk input kata sandi."
+    },
+    "login_button_text": {
+        "message": "Masuk",
+        "description": "Teks untuk tombol masuk."
+    },
+    "login_oauth_button": {
+        "message": "Masuk dengan pCloud",
+        "description": "Teks untuk tombol masuk OAuth."
+    },
+    "login_oauth_error": {
+        "message": "Otentikasi gagal. Silakan coba lagi.",
+        "description": "Pesan kesalahan umum untuk kegagalan login OAuth."
+    },
+    "login_error_empty_credentials": {
+        "message": "Harap masukkan email/nama pengguna dan kata sandi.",
+        "description": "Pesan kesalahan untuk kolom login kosong."
+    },
+    "login_error_invalid_credentials": {
+        "message": "Login gagal. Silakan periksa kredensial Anda.",
+        "description": "Pesan kesalahan untuk login tidak valid."
+    },
+    "login_token_description": {
+        "message": "Masuk ke my.pcloud.com di tab lain, lalu tempel token 'auth' di sini.",
+        "description": "Deskripsi cara mendapatkan token otentikasi."
+    },
+    "login_token_placeholder": {
+        "message": "Tempel token otentikasi Anda di sini",
+        "description": "Placeholder untuk area teks token otentikasi."
+    },
+    "login_token_button_text": {
+        "message": "Verifikasi dan simpan token",
+        "description": "Teks untuk tombol login token."
+    },
+    "login_switch_to_token": {
+        "message": "Atau, masuk dengan token otentikasi",
+        "description": "Tautan untuk beralih ke login token."
+    },
+    "login_switch_to_password": {
+        "message": "Atau, masuk dengan email dan kata sandi",
+        "description": "Tautan untuk beralih ke login kata sandi."
+    },
+    "login_error_invalid_token": {
+        "message": "Token tidak valid. Silakan periksa token dan coba lagi.",
+        "description": "Pesan kesalahan untuk token otentikasi yang tidak valid."
+    },
+    "login_error_generic": {
+        "message": "Terjadi kesalahan tak terduga selama verifikasi. Silakan coba lagi.",
+        "description": "Pesan kesalahan umum untuk verifikasi token."
+    },
+    "upload_prompt": {
+        "message": "Unggah ke pCloud",
+        "description": "Prompt untuk tampilan unggahan."
+    },
+    "logout_button_text": {
+        "message": "Keluar",
+        "description": "Teks untuk tombol keluar."
+    },
+    "upload_select_file_button": {
+        "message": "Pilih File",
+        "description": "Tombol untuk membuka pemilih file."
+    },
+    "upload_drag_and_drop_prompt": {
+        "message": "Seret dan lepas file di sini untuk mengunggah",
+        "description": "Teks untuk area seret dan lepas."
+    },
+    "upload_select_file_link": {
+        "message": "Atau pilih file",
+        "description": "Teks tautan untuk membuka pemilih file sebagai alternatif seret dan lepas."
+    },
+    "go_to_pcloud_website": {
+        "message": "Buka Situs Web pCloud",
+        "description": "Tautan ke situs web pCloud."
+    },
+    "upload_button_text": {
+        "message": "Unggah",
+        "description": "Teks untuk tombol unggah."
+    },
+    "upload_success_message": {
+        "message": "File berhasil diunggah!",
+        "description": "Pesan sukses setelah unggahan."
+    },
+    "upload_error_generic": {
+        "message": "Unggahan gagal. Silakan coba lagi.",
+        "description": "Pesan kesalahan umum untuk unggahan."
+    },
+    "upload_error_no_auth": {
+        "message": "Kesalahan otentikasi. Silakan masuk lagi.",
+        "description": "Pesan kesalahan saat tidak terotentikasi untuk unggahan."
+    },
+    "upload_error_no_file": {
+        "message": "Harap pilih file untuk diunggah.",
+        "description": "Pesan kesalahan saat tidak ada file yang dipilih untuk diunggah."
+    },
+    "options_section_appearance": {
+        "message": "Tampilan",
+        "description": "Header untuk bagian pengaturan tampilan di halaman opsi."
+    },
+    "options_section_uploads": {
+        "message": "Unggahan",
+        "description": "Header untuk bagian pengaturan unggahan di halaman opsi."
+    },
+    "snackbar_dismiss": {
+        "message": "Tutup",
+        "description": "Teks untuk tombol tutup pada notifikasi snackbar."
+    },
+    "options_loading_folders": {
+        "message": "Memuat folder...",
+        "description": "Pesan ditampilkan saat pohon folder sedang dimuat."
+    },
+    "options_login_to_load": {
+        "message": "Harap masuk melalui popup ekstensi untuk memuat folder.",
+        "description": "Pesan ditampilkan saat pengguna perlu masuk untuk melihat folder."
+    },
+    "options_error_loading_folders": {
+        "message": "Kesalahan memuat folder. Pastikan Anda masuk dan memiliki koneksi internet.",
+        "description": "Pesan ditampilkan saat pemuatan pohon folder gagal."
+    },
+    "context_menu_save_image": {
+        "message": "Simpan gambar ke pCloud",
+        "description": "Teks item menu konteks untuk menyimpan gambar."
+    },
+    "notification_upload_started_title": {
+        "message": "Unggah Gambar",
+        "description": "Judul untuk notifikasi saat unggahan gambar dimulai."
+    },
+    "notification_upload_started_message": {
+        "message": "Menyimpan gambar ke pCloud Anda...",
+        "description": "Pesan untuk notifikasi saat unggahan gambar dimulai."
+    },
+    "notification_upload_success_title": {
+        "message": "Unggahan Selesai",
+        "description": "Judul untuk notifikasi saat unggahan gambar berhasil."
+    },
+    "notification_upload_success_message": {
+        "message": "Gambar berhasil disimpan ke pCloud.",
+        "description": "Pesan untuk notifikasi saat unggahan gambar berhasil."
+    },
+    "notification_upload_error_title": {
+        "message": "Unggahan Gagal",
+        "description": "Judul untuk notifikasi saat unggahan gambar gagal."
+    },
+    "notification_upload_error_message": {
+        "message": "Tidak dapat menyimpan gambar ke pCloud. Silakan coba lagi.",
+        "description": "Pesan untuk notifikasi saat unggahan gambar gagal."
+    },
+    "notification_auth_error_message": {
+        "message": "Harap masuk ke ekstensi pCloud untuk menyimpan file.",
+        "description": "Pesan untuk notifikasi saat pengguna tidak masuk."
+    },
+    "options_section_filename": {
+        "message": "Nama File Gambar",
+        "description": "Header untuk bagian pengaturan nama file gambar di halaman opsi."
+    },
+    "options_section_text_filename": {
+        "message": "Nama File Teks",
+        "description": "Header untuk bagian pengaturan nama file teks di halaman opsi."
+    },
+    "options_filename_description": {
+        "message": "Seret dan lepas untuk menyusun ulang bagian nama file. Hapus centang untuk mengecualikan.",
+        "description": "Deskripsi untuk UI konfigurasi nama file."
+    },
+    "options_filename_part_sorting_number": {
+        "message": "Nomor Urut",
+        "description": "Label untuk bagian nama file 'Nomor Urut'."
+    },
+    "options_filename_part_page_title": {
+        "message": "Judul Halaman",
+        "description": "Label untuk bagian nama file 'Judul Halaman'."
+    },
+    "options_filename_part_timestamp": {
+        "message": "Stempel Waktu",
+        "description": "Label untuk bagian nama file 'Stempel Waktu'."
+    },
+    "options_filename_part_free_key": {
+        "message": "Teks Kustom",
+        "description": "Label untuk bagian nama file 'Teks Kustom'."
+    },
+    "options_filename_part_date": {
+        "message": "Tanggal",
+        "description": "Label untuk bagian nama file 'Tanggal'."
+    },
+    "options_filename_separator_label": {
+        "message": "Pemisah",
+        "description": "Label untuk kolom input pemisah antara bagian nama file."
+    },
+    "contextMenuItemUploadSelection": {
+        "message": "Unggah Teks Terpilih ke pCloud",
+        "description": "Teks item menu konteks untuk mengunggah teks yang dipilih."
+    },
+    "notificationUploadTextStartedTitle": {
+        "message": "Unggah Teks",
+        "description": "Judul untuk notifikasi saat unggahan teks dimulai."
+    },
+    "notificationUploadTextStartedMessage": {
+        "message": "Menyimpan teks terpilih ke pCloud Anda...",
+        "description": "Pesan untuk notifikasi saat unggahan teks dimulai."
+    },
+    "notificationUploadTextSuccessTitle": {
+        "message": "Unggahan Selesai",
+        "description": "Judul untuk notifikasi saat unggahan teks berhasil."
+    },
+    "notificationUploadTextSuccessMessage": {
+        "message": "Teks terpilih berhasil disimpan ke pCloud.",
+        "description": "Pesan untuk notifikasi saat unggahan teks berhasil."
+    },
+    "notificationUploadTextErrorTitle": {
+        "message": "Unggahan Gagal",
+        "description": "Judul untuk notifikasi saat unggahan teks gagal."
+    },
+    "notificationUploadTextErrorMessage": {
+        "message": "Tidak dapat menyimpan teks terpilih ke pCloud. Silakan coba lagi.",
+        "description": "Pesan untuk notifikasi saat unggahan teks gagal."
+    },
+    "notification_error_stale_content_script": {
+        "message": "Tidak dapat terhubung ke halaman. Harap muat ulang tab dan coba lagi.",
+        "description": "Pesan kesalahan saat skrip konten kedaluwarsa atau tidak tersedia."
+    },
+    "context_menu_save_selection": {
+        "message": "Simpan Pilihan sebagai Dokumen di pCloud"
+    },
+    "options_section_document_downloader": {
+        "message": "Pengunduh Dokumen"
+    },
+    "options_document_format_label": {
+        "message": "Format Dokumen"
+    },
+    "options_document_include_metadata_label": {
+        "message": "Sertakan Metadata (YAML Frontmatter)"
+    },
+    "options_text_include_metadata_label": {
+        "message": "Sertakan Metadata (YAML Frontmatter)"
+    },
+    "notification_document_processing_title": {
+        "message": "Memproses Dokumen"
+    },
+    "notification_document_processing_message": {
+        "message": "Mengonversi dan mengunggah pilihan Anda..."
+    },
+    "notification_document_success_title": {
+        "message": "Dokumen Disimpan"
+    },
+    "notification_document_success_message": {
+        "message": "Dokumen berhasil disimpan ke pCloud."
+    },
+    "notification_document_error_title": {
+        "message": "Simpan Gagal"
+    },
+    "notification_document_error_message": {
+        "message": "Tidak dapat menyimpan dokumen. Silakan coba lagi."
+    },
+    "error_connection_lost_refresh": {
+        "message": "Tidak dapat terhubung ke halaman. Harap muat ulang tab dan coba lagi.",
+        "description": "Pesan kesalahan saat skrip konten kedaluwarsa atau tidak tersedia."
+    },
+    "options_domain_rules_title": {
+        "message": "Jalur Unggah per Domain"
+    },
+    "options_domain_rules_test_playground_title": {
+        "message": "Taman Bermain Tes"
+    },
+    "options_domain_rules_test_placeholder": {
+        "message": "Masukkan URL untuk menguji aturan...",
+        "description": "Placeholder untuk menguji aturan."
+    },
+    "options_domain_rules_test_result_match": {
+        "message": "✅ Aturan Cocok: {rule}"
+    },
+    "options_domain_rules_test_result_no_match": {
+        "message": "Tidak ada aturan yang cocok ditemukan."
+    },
+    "options_dialog_cancel": {
+        "message": "Batal"
+    },
+    "options_dialog_save": {
+        "message": "Simpan"
+    },
+    "options_dialog_select": {
+        "message": "Pilih"
+    },
+    "options_dialog_ok": {
+        "message": "OKE"
+    },
+    "options_folder_picker_title": {
+        "message": "Pilih Folder"
+    },
+    "options_domain_rules_help_icon_tooltip": {
+        "message": "Bantuan Aturan"
+    },
+    "options_domain_rules_help_dialog_title": {
+        "message": "Bantuan Prioritas Aturan"
+    },
+    "options_domain_rules_help_dialog_content": {
+        "message": "Aturan dicocokkan dari atas ke bawah. Aturan pertama yang cocok akan diterapkan. Anda dapat menyeret dan melepas untuk menyusun ulang aturan. Kami menyarankan menggunakan 'Taman Bermain Tes' di atas untuk memverifikasi konfigurasi Anda."
+    },
+    "options_domain_rules_add_button": {
+        "message": "Tambah Aturan"
+    },
+    "options_domain_rules_delete_button": {
+        "message": "Hapus Aturan"
+    },
+    "options_domain_rules_col_domain": {
+        "message": "Domain (mendukung wildcard)"
+    },
+    "options_domain_rules_col_path": {
+        "message": "Jalur pCloud Target"
+    },
+    "options_domain_rules_dialog_title_add": {
+        "message": "Tambah Aturan Baru"
+    },
+    "options_domain_rules_dialog_title_edit": {
+        "message": "Edit Aturan"
+    },
+    "options_domain_rules_folder_picker_create_btn": {
+        "message": "Buat Folder Baru"
+    },
+    "options_domain_rules_confirm_delete": {
+        "message": "Apakah Anda yakin ingin menghapus aturan ini?"
+    },
+    "options_section_premium": {
+        "message": "Peningkatan Premium"
+    },
+    "options_premium_active": {
+        "message": "PREMIUM AKTIF"
+    },
+    "options_premium_description": {
+        "message": "Buka kunci fitur canggih seperti Pengunduh Dokumen (Markdown/Word) dan banyak lagi!"
+    },
+    "options_tier_pcloud_name": {
+        "message": "HyperCmdC for pCloud"
+    },
+    "options_tier_pcloud_desc": {
+        "message": "Membuka kunci fitur hanya untuk ekstensi ini."
+    },
+    "options_tier_master_name": {
+        "message": "Master HyperCmdC"
+    },
+    "options_tier_master_desc": {
+        "message": "Membuka kunci SEMUA ekstensi HyperCmdC (pCloud, S3, dll)."
+    },
+    "options_restore_purchase": {
+        "message": "Pulihkan Pembelian"
+    },
+    "options_premium_thank_you": {
+        "message": "Terima kasih atas dukungan Anda!"
+    },
+    "options_premium_active_desc": {
+        "message": "Anda memiliki akses ke semua fitur premium."
+    },
+    "options_payment_success": {
+        "message": "Pembayaran berhasil! Fitur premium tidak terkunci."
+    },
+    "options_payment_failed": {
+        "message": "Pembayaran gagal. Silakan coba lagi."
+    },
+    "options_restore_success": {
+        "message": "Pembelian berhasil dipulihkan!"
+    },
+    "options_restore_failed": {
+        "message": "Tidak ditemukan lisensi untuk email ini."
+    },
+    "notification_premium_required_title": {
+        "message": "Fitur Premium"
+    },
+    "notification_premium_required_message": {
+        "message": "Fitur ini memerlukan lisensi Premium. Tingkatkan sekarang untuk membuka kunci!"
+    },
+    "notification_premium_upgrade_button": {
+        "message": "Tingkatkan Sekarang"
+    },
+    "options_upgrade_now": {
+        "message": "Tingkatkan Sekarang"
+    },
+    "options_payment_page_opening": {
+        "message": "Membuka halaman pembayaran... (Mock - Mode Pengembangan)"
+    },
+    "toast_uploading_to_pcloud": {
+        "message": "Mengunggah ke pCloud..."
+    },
+    "toast_upload_started": {
+        "message": "Unggahan dimulai!"
+    },
+    "toast_processing_images": {
+        "message": "Memproses gambar ($1/$2)..."
+    },
+    "toast_generating_document": {
+        "message": "Membuat dokumen..."
+    },
+    "toast_view_button": {
+        "message": "Lihat"
+    },
+    "pdf_download_to_pcloud": {
+        "message": "Simpan di pCloud"
+    },
+    "pdf_download_as_markdown": {
+        "message": "Unduh sebagai Markdown di pCloud"
+    },
+    "pdf_error_not_pdf": {
+        "message": "Halaman ini bukan PDF."
+    },
+    "pdf_error_fetch_failed": {
+        "message": "Gagal mengambil data PDF."
+    },
+    "visit_official_website": {
+        "message": "Kunjungi Situs Web 'HyperCmdC'"
+    },
+    "options_promotion_text": {
+        "message": "Gratis untuk Waktu Terbatas!",
+        "description": "Teks promosi yang ditampilkan di samping ikon promosi."
+    },
+    "options_footer_opensource_text": {
+        "message": "Lihat Sumber di GitHub",
+        "description": "Teks tautan ke repositori sumber terbuka ("
+    }
+}

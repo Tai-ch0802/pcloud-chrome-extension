@@ -1,0 +1,479 @@
+{
+    "extensionName": {
+        "message": "HyperCmdC for pCloud",
+        "description": "Namnet på tillägget."
+    },
+    "extensionDescription": {
+        "message": "Integrera pCloud sömlöst med din Chrome-webbläsare för enkel filhantering.",
+        "description": "Beskrivningen av tillägget."
+    },
+    "options_title": {
+        "message": "pCloud Tilläggsalternativ",
+        "description": "Titel för alternativsidan."
+    },
+    "options_description": {
+        "message": "Konfigurera dina inställningar för pCloud Chrome-tillägget här.",
+        "description": "Beskrivning för alternativsidan."
+    },
+    "options_default_folder_label": {
+        "message": "Aktuell vald sökväg:",
+        "description": "Etikett för visning av den aktuella valda sökvägen."
+    },
+    "options_default_folder_placeholder": {
+        "message": "t.ex. 0 för rotmappen",
+        "description": "Platshållare för inmatning av ID för standarduppladdningsmapp."
+    },
+    "options_save_button_text": {
+        "message": "Spara inställningar",
+        "description": "Text för knappen spara alternativ."
+    },
+    "options_saved_message": {
+        "message": "Inställningar sparade!",
+        "description": "Meddelande som visas efter att inställningarna har sparats."
+    },
+    "options_invalid_folder_id": {
+        "message": "Ogiltigt mapp-ID. Ange ett icke-negativt nummer.",
+        "description": "Felmeddelande för ogiltig inmatning av mapp-ID."
+    },
+    "options_theme_label": {
+        "message": "Tema"
+    },
+    "options_theme_googlestyle": {
+        "message": "Google-stil"
+    },
+    "options_theme_geek": {
+        "message": "Geek"
+    },
+    "back_button_title": {
+        "message": "Tillbaka",
+        "description": "Titel för tillbakaknappen."
+    },
+    "login_token_prompt": {
+        "message": "Autentisera med Token",
+        "description": "Uppmaning för inloggningsvyn med token."
+    },
+    "login_prompt": {
+        "message": "Logga in på pCloud",
+        "description": "Uppmaning för inloggningsvyn."
+    },
+    "login_email_placeholder": {
+        "message": "E-post eller användarnamn",
+        "description": "Platshållare för inmatning av e-post/användarnamn."
+    },
+    "login_password_placeholder": {
+        "message": "Lösenord",
+        "description": "Platshållare för inmatning av lösenord."
+    },
+    "login_button_text": {
+        "message": "Logga in",
+        "description": "Text för inloggningsknappen."
+    },
+    "login_oauth_button": {
+        "message": "Logga in med pCloud",
+        "description": "Text för OAuth-inloggningsknappen."
+    },
+    "login_oauth_error": {
+        "message": "Autentisering misslyckades. Försök igen.",
+        "description": "Allmänt felmeddelande för misslyckad OAuth-inloggning."
+    },
+    "login_error_empty_credentials": {
+        "message": "Ange både e-post/användarnamn och lösenord.",
+        "description": "Felmeddelande för tomma inloggningsfält."
+    },
+    "login_error_invalid_credentials": {
+        "message": "Inloggning misslyckades. Kontrollera dina uppgifter.",
+        "description": "Felmeddelande för ogiltig inloggning."
+    },
+    "login_token_description": {
+        "message": "Logga in på my.pcloud.com i en annan flik och klistra sedan in 'auth'-token här.",
+        "description": "Beskrivning av hur du får autentiseringstoken."
+    },
+    "login_token_placeholder": {
+        "message": "Klistra in din autentiseringstoken här",
+        "description": "Platshållare för textområdet för autentiseringstoken."
+    },
+    "login_token_button_text": {
+        "message": "Verifiera och spara token",
+        "description": "Text för token-inloggningsknappen."
+    },
+    "login_switch_to_token": {
+        "message": "Eller logga in med autentiseringstoken",
+        "description": "Länk för att byta till token-inloggning."
+    },
+    "login_switch_to_password": {
+        "message": "Eller logga in med e-post och lösenord",
+        "description": "Länk för att byta till lösenordsinloggning."
+    },
+    "login_error_invalid_token": {
+        "message": "Ogiltig token. Kontrollera token och försök igen.",
+        "description": "Felmeddelande för en ogiltig autentiseringstoken."
+    },
+    "login_error_generic": {
+        "message": "Ett oväntat fel inträffade under verifieringen. Försök igen.",
+        "description": "Allmänt felmeddelande för tokenverifiering."
+    },
+    "upload_prompt": {
+        "message": "Ladda upp till pCloud",
+        "description": "Uppmaning för uppladdningsvyn."
+    },
+    "logout_button_text": {
+        "message": "Logga ut",
+        "description": "Text för utloggningsknappen."
+    },
+    "upload_select_file_button": {
+        "message": "Välj fil",
+        "description": "Knapp för att öppna filväljaren."
+    },
+    "upload_drag_and_drop_prompt": {
+        "message": "Dra och släpp filer här för att ladda upp",
+        "description": "Text för dra och släpp-området."
+    },
+    "upload_select_file_link": {
+        "message": "Eller välj filer",
+        "description": "Länktext för att öppna filväljare som ett alternativ till dra och släpp."
+    },
+    "go_to_pcloud_website": {
+        "message": "Gå till pClients webbplats",
+        "description": "Länk till pCloud-webbplatsen."
+    },
+    "upload_button_text": {
+        "message": "Ladda upp",
+        "description": "Text för uppladdningsknappen."
+    },
+    "upload_success_message": {
+        "message": "Filen laddades upp!",
+        "description": "Framgångsmeddelande efter uppladdning."
+    },
+    "upload_error_generic": {
+        "message": "Uppladdning misslyckades. Försök igen.",
+        "description": "Allmänt felmeddelande för uppladdning."
+    },
+    "upload_error_no_auth": {
+        "message": "Autentiseringsfel. Logga in igen.",
+        "description": "Felmeddelande när du inte är autentiserad för uppladdning."
+    },
+    "upload_error_no_file": {
+        "message": "Välj en fil att ladda upp.",
+        "description": "Felmeddelande när ingen fil är vald för uppladdning."
+    },
+    "options_section_appearance": {
+        "message": "Utseende",
+        "description": "Rubrik för avsnittet utseendeinställningar på alternativsidan."
+    },
+    "options_section_uploads": {
+        "message": "Uppladdningar",
+        "description": "Rubrik för avsnittet uppladdningsinställningar på alternativsidan."
+    },
+    "snackbar_dismiss": {
+        "message": "Stäng",
+        "description": "Text för stäng-knappen på en snackbar-avisering."
+    },
+    "options_loading_folders": {
+        "message": "Laddar mappar...",
+        "description": "Meddelande som visas medan mappträdet laddas."
+    },
+    "options_login_to_load": {
+        "message": "Logga in via tilläggs-popupen för att ladda mappar.",
+        "description": "Meddelande som visas när användaren behöver logga in för att se mappar."
+    },
+    "options_error_loading_folders": {
+        "message": "Fel vid laddning av mappar. Se till att du är inloggad och har en internetanslutning.",
+        "description": "Meddelande som visas när laddning av mappträdet misslyckas."
+    },
+    "context_menu_save_image": {
+        "message": "Spara bild till pCloud",
+        "description": "Text för kontextmenyalternativ för att spara en bild."
+    },
+    "notification_upload_started_title": {
+        "message": "Bild laddas upp",
+        "description": "Titel för aviseringen när bilduppladdning startar."
+    },
+    "notification_upload_started_message": {
+        "message": "Sparar bild till ditt pCloud...",
+        "description": "Meddelande för aviseringen när bilduppladdning startar."
+    },
+    "notification_upload_success_title": {
+        "message": "Uppladdning klar",
+        "description": "Titel för aviseringen när bilduppladdning lyckas."
+    },
+    "notification_upload_success_message": {
+        "message": "Bild sparades framgångsrikt till pCloud.",
+        "description": "Meddelande för aviseringen när bilduppladdning lyckas."
+    },
+    "notification_upload_error_title": {
+        "message": "Uppladdning misslyckades",
+        "description": "Titel för aviseringen när bilduppladdning misslyckas."
+    },
+    "notification_upload_error_message": {
+        "message": "Kunde inte spara bild till pCloud. Försök igen.",
+        "description": "Meddelande för aviseringen när bilduppladdning misslyckas."
+    },
+    "notification_auth_error_message": {
+        "message": "Logga in på pCloud-tillägget för att spara filer.",
+        "description": "Meddelande för aviseringen när användaren inte är inloggad."
+    },
+    "options_section_filename": {
+        "message": "Bildfilnamn",
+        "description": "Rubrik för avsnittet bildfilnamnsinställningar på alternativsidan."
+    },
+    "options_section_text_filename": {
+        "message": "Textfilnamn",
+        "description": "Rubrik för avsnittet textfilnamnsinställningar på alternativsidan."
+    },
+    "options_filename_description": {
+        "message": "Dra och släpp för att ändra ordning på filnamnsdelar. Avmarkera för att utesluta.",
+        "description": "Beskrivning för filnamnskonfigurationsgränssnittet."
+    },
+    "options_filename_part_sorting_number": {
+        "message": "Sorteringsnummer",
+        "description": "Etikett för filnamnsdelen 'Sorteringsnummer'."
+    },
+    "options_filename_part_page_title": {
+        "message": "Sidtitel",
+        "description": "Etikett för filnamnsdelen 'Sidtitel'."
+    },
+    "options_filename_part_timestamp": {
+        "message": "Tidsstämpel",
+        "description": "Etikett för filnamnsdelen 'Tidsstämpel'."
+    },
+    "options_filename_part_free_key": {
+        "message": "Anpassad text",
+        "description": "Etikett för filnamnsdelen 'Anpassad text'."
+    },
+    "options_filename_part_date": {
+        "message": "Datum",
+        "description": "Etikett för filnamnsdelen 'Datum'."
+    },
+    "options_filename_separator_label": {
+        "message": "Separator",
+        "description": "Etikett för inmatningsfältet för separator mellan filnamnsdelar."
+    },
+    "contextMenuItemUploadSelection": {
+        "message": "Ladda upp vald text till pCloud",
+        "description": "Text för kontextmenyalternativ för att ladda upp vald text."
+    },
+    "notificationUploadTextStartedTitle": {
+        "message": "Text laddas upp",
+        "description": "Titel för aviseringen när textuppladdning startar."
+    },
+    "notificationUploadTextStartedMessage": {
+        "message": "Sparar vald text till ditt pCloud...",
+        "description": "Meddelande för aviseringen när textuppladdning startar."
+    },
+    "notificationUploadTextSuccessTitle": {
+        "message": "Uppladdning klar",
+        "description": "Titel för aviseringen när textuppladdning lyckas."
+    },
+    "notificationUploadTextSuccessMessage": {
+        "message": "Vald text sparades framgångsrikt till pCloud.",
+        "description": "Meddelande för aviseringen när textuppladdning lyckas."
+    },
+    "notificationUploadTextErrorTitle": {
+        "message": "Uppladdning misslyckades",
+        "description": "Titel för aviseringen när textuppladdning misslyckas."
+    },
+    "notificationUploadTextErrorMessage": {
+        "message": "Kunde inte spara vald text till pCloud. Försök igen.",
+        "description": "Meddelande för aviseringen när textuppladdning misslyckas."
+    },
+    "notification_error_stale_content_script": {
+        "message": "Kan inte ansluta till sidan. Ladda om fliken och försök igen.",
+        "description": "Felmeddelande när innehållsskriptet är föråldrat eller inte tillgängligt."
+    },
+    "context_menu_save_selection": {
+        "message": "Spara markering som dokument på pCloud"
+    },
+    "options_section_document_downloader": {
+        "message": "Dokumentnedladdare"
+    },
+    "options_document_format_label": {
+        "message": "Dokumentformat"
+    },
+    "options_document_include_metadata_label": {
+        "message": "Inkludera metadata (YAML Frontmatter)"
+    },
+    "options_text_include_metadata_label": {
+        "message": "Inkludera metadata (YAML Frontmatter)"
+    },
+    "notification_document_processing_title": {
+        "message": "Bearbetar dokument"
+    },
+    "notification_document_processing_message": {
+        "message": "Konverterar och laddar upp ditt val..."
+    },
+    "notification_document_success_title": {
+        "message": "Dokument sparat"
+    },
+    "notification_document_success_message": {
+        "message": "Dokumentet har sparats på pCloud."
+    },
+    "notification_document_error_title": {
+        "message": "Det gick inte att spara"
+    },
+    "notification_document_error_message": {
+        "message": "Kunde inte spara dokumentet. Försök igen."
+    },
+    "error_connection_lost_refresh": {
+        "message": "Kan inte ansluta till sidan. Ladda om fliken och försök igen.",
+        "description": "Felmeddelande när innehållsskriptet är föråldrat eller inte tillgängligt."
+    },
+    "options_domain_rules_title": {
+        "message": "Uppladdningsväg per domän"
+    },
+    "options_domain_rules_test_playground_title": {
+        "message": "Testlekplats"
+    },
+    "options_domain_rules_test_placeholder": {
+        "message": "Ange URL för att testa regler...",
+        "description": "Platshållare för att testa regler."
+    },
+    "options_domain_rules_test_result_match": {
+        "message": "✅ Matchande regel: {rule}"
+    },
+    "options_domain_rules_test_result_no_match": {
+        "message": "Ingen matchande regel hittades."
+    },
+    "options_dialog_cancel": {
+        "message": "Avbryt"
+    },
+    "options_dialog_save": {
+        "message": "Spara"
+    },
+    "options_dialog_select": {
+        "message": "Välj"
+    },
+    "options_dialog_ok": {
+        "message": "OK"
+    },
+    "options_folder_picker_title": {
+        "message": "Välj mapp"
+    },
+    "options_domain_rules_help_icon_tooltip": {
+        "message": "Regelhjälp"
+    },
+    "options_domain_rules_help_dialog_title": {
+        "message": "Hjälp med regelprioritet"
+    },
+    "options_domain_rules_help_dialog_content": {
+        "message": "Regler matchas uppifrån och ner. Den första matchande regeln kommer att tillämpas. Du kan dra och släppa för att ändra ordning på regler. Vi rekommenderar att du använder 'Testlekplats' ovan för att verifiera din konfiguration."
+    },
+    "options_domain_rules_add_button": {
+        "message": "Lägg till regel"
+    },
+    "options_domain_rules_delete_button": {
+        "message": "Ta bort regel"
+    },
+    "options_domain_rules_col_domain": {
+        "message": "Domän (stöder jokertecken)"
+    },
+    "options_domain_rules_col_path": {
+        "message": "Mål pCloud-väg"
+    },
+    "options_domain_rules_dialog_title_add": {
+        "message": "Lägg till ny regel"
+    },
+    "options_domain_rules_dialog_title_edit": {
+        "message": "Redigera regel"
+    },
+    "options_domain_rules_folder_picker_create_btn": {
+        "message": "Skapa ny mapp"
+    },
+    "options_domain_rules_confirm_delete": {
+        "message": "Är du säker på att du vill ta bort den här regeln?"
+    },
+    "options_section_premium": {
+        "message": "Premium-uppgradering"
+    },
+    "options_premium_active": {
+        "message": "PREMIUM AKTIV"
+    },
+    "options_premium_description": {
+        "message": "Lås upp avancerade funktioner som Dokumentnedladdare (Markdown/Word) och mer!"
+    },
+    "options_tier_pcloud_name": {
+        "message": "HyperCmdC for pCloud"
+    },
+    "options_tier_pcloud_desc": {
+        "message": "Låser upp funktioner endast för detta tillägg."
+    },
+    "options_tier_master_name": {
+        "message": "Master HyperCmdC"
+    },
+    "options_tier_master_desc": {
+        "message": "Låser upp ALLA HyperCmdC-tillägg (pCloud, S3, etc)."
+    },
+    "options_restore_purchase": {
+        "message": "Återställ köp"
+    },
+    "options_premium_thank_you": {
+        "message": "Tack för ditt stöd!"
+    },
+    "options_premium_active_desc": {
+        "message": "Du har tillgång till alla premiumfunktioner."
+    },
+    "options_payment_success": {
+        "message": "Betalning lyckades! Premiumfunktioner upplåsta."
+    },
+    "options_payment_failed": {
+        "message": "Betalning misslyckades. Försök igen."
+    },
+    "options_restore_success": {
+        "message": "Köp återställdes framgångsrikt!"
+    },
+    "options_restore_failed": {
+        "message": "Ingen licens hittades för denna e-post."
+    },
+    "notification_premium_required_title": {
+        "message": "Premiumfunktion"
+    },
+    "notification_premium_required_message": {
+        "message": "Denna funktion kräver en Premium-licens. Uppgradera nu för att låsa upp!"
+    },
+    "notification_premium_upgrade_button": {
+        "message": "Uppgradera nu"
+    },
+    "options_upgrade_now": {
+        "message": "Uppgradera nu"
+    },
+    "options_payment_page_opening": {
+        "message": "Öppnar betalningssida... (Mock - Utvecklingsläge)"
+    },
+    "toast_uploading_to_pcloud": {
+        "message": "Laddar upp till pCloud..."
+    },
+    "toast_upload_started": {
+        "message": "Uppladdning startad!"
+    },
+    "toast_processing_images": {
+        "message": "Bearbetar bilder ($1/$2)..."
+    },
+    "toast_generating_document": {
+        "message": "Genererar dokument..."
+    },
+    "toast_view_button": {
+        "message": "Visa"
+    },
+    "pdf_download_to_pcloud": {
+        "message": "Spara i pCloud"
+    },
+    "pdf_download_as_markdown": {
+        "message": "Ladda ner som Markdown i pCloud"
+    },
+    "pdf_error_not_pdf": {
+        "message": "Den här sidan är inte en PDF."
+    },
+    "pdf_error_fetch_failed": {
+        "message": "Det gick inte att hämta PDF-data."
+    },
+    "visit_official_website": {
+        "message": "Besök 'HyperCmdC' webbplats"
+    },
+    "options_promotion_text": {
+        "message": "Gratis under begränsad tid!",
+        "description": "Marknadsföringstext som visas bredvid kampanjikonen."
+    },
+    "options_footer_opensource_text": {
+        "message": "Visa källkod på GitHub",
+        "description": "Länktext till arkivet med öppen källkod."
+    }
+}

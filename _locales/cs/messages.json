@@ -1,0 +1,479 @@
+{
+    "extensionName": {
+        "message": "HyperCmdC for pCloud",
+        "description": "Název rozšíření."
+    },
+    "extensionDescription": {
+        "message": "Integrujte pCloud bezproblémově s vaším prohlížečem Chrome pro snadnou správu souborů.",
+        "description": "Popis rozšíření."
+    },
+    "options_title": {
+        "message": "Možnosti rozšíření pCloud",
+        "description": "Název pro stránku s možnostmi."
+    },
+    "options_description": {
+        "message": "Zde nakonfigurujte nastavení svého rozšíření pCloud Chrome.",
+        "description": "Popis pro stránku s možnostmi."
+    },
+    "options_default_folder_label": {
+        "message": "Aktuálně vybraná cesta:",
+        "description": "Popisek pro zobrazení aktuálně vybrané cesty."
+    },
+    "options_default_folder_placeholder": {
+        "message": "např. 0 pro kořenovou složku",
+        "description": "Zástupný znak pro zadání ID výchozí složky pro nahrávání."
+    },
+    "options_save_button_text": {
+        "message": "Uložit nastavení",
+        "description": "Text pro tlačítko uložit možnosti."
+    },
+    "options_saved_message": {
+        "message": "Nastavení uložena!",
+        "description": "Zpráva zobrazená po uložení nastavení."
+    },
+    "options_invalid_folder_id": {
+        "message": "Neplatné ID složky. Zadejte nezáporné číslo.",
+        "description": "Chybová zpráva pro neplatné zadání ID složky."
+    },
+    "options_theme_label": {
+        "message": "Motiv"
+    },
+    "options_theme_googlestyle": {
+        "message": "Styl Google"
+    },
+    "options_theme_geek": {
+        "message": "Geek"
+    },
+    "back_button_title": {
+        "message": "Zpět",
+        "description": "Název tlačítka zpět."
+    },
+    "login_token_prompt": {
+        "message": "Ověřit pomocí tokenu",
+        "description": "Výzva pro zobrazení přihlášení pomocí tokenu."
+    },
+    "login_prompt": {
+        "message": "Přihlásit se do pCloud",
+        "description": "Výzva pro zobrazení přihlášení."
+    },
+    "login_email_placeholder": {
+        "message": "E-mail nebo uživatelské jméno",
+        "description": "Zástupný znak pro zadání e-mailu/uživatelského jména."
+    },
+    "login_password_placeholder": {
+        "message": "Heslo",
+        "description": "Zástupný znak pro zadání hesla."
+    },
+    "login_button_text": {
+        "message": "Přihlásit se",
+        "description": "Text pro tlačítko přihlášení."
+    },
+    "login_oauth_button": {
+        "message": "Přihlásit se přes pCloud",
+        "description": "Text pro tlačítko přihlášení OAuth."
+    },
+    "login_oauth_error": {
+        "message": "Ověření se nezdařilo. Zkuste to prosím znovu.",
+        "description": "Obecná chybová zpráva pro neúspěšné přihlášení OAuth."
+    },
+    "login_error_empty_credentials": {
+        "message": "Zadejte e-mail/uživatelské jméno i heslo.",
+        "description": "Chybová zpráva pro prázdná přihlašovací pole."
+    },
+    "login_error_invalid_credentials": {
+        "message": "Přihlášení se nezdařilo. Zkontrolujte prosím své údaje.",
+        "description": "Chybová zpráva pro neplatné přihlášení."
+    },
+    "login_token_description": {
+        "message": "Přihlaste se na my.pcloud.com na jiné kartě a poté sem vložte token 'auth'.",
+        "description": "Popis jak získat ověřovací token."
+    },
+    "login_token_placeholder": {
+        "message": "Sem vložte svůj ověřovací token",
+        "description": "Zástupný znak pro textové pole ověřovacího tokenu."
+    },
+    "login_token_button_text": {
+        "message": "Ověřit a uložit token",
+        "description": "Text pro tlačítko přihlášení pomocí tokenu."
+    },
+    "login_switch_to_token": {
+        "message": "Nebo se přihlaste pomocí ověřovacího tokenu",
+        "description": "Odkaz pro přepnutí na přihlášení pomocí tokenu."
+    },
+    "login_switch_to_password": {
+        "message": "Nebo se přihlaste pomocí e-mailu a hesla",
+        "description": "Odkaz pro přepnutí na přihlášení pomocí hesla."
+    },
+    "login_error_invalid_token": {
+        "message": "Neplatný token. Zkontrolujte token a zkuste to znovu.",
+        "description": "Chybová zpráva pro neplatný ověřovací token."
+    },
+    "login_error_generic": {
+        "message": "Během ověřování došlo k neočekávané chybě. Zkuste to prosím znovu.",
+        "description": "Obecná chybová zpráva pro ověření tokenu."
+    },
+    "upload_prompt": {
+        "message": "Nahrát na pCloud",
+        "description": "Výzva pro zobrazení nahrávání."
+    },
+    "logout_button_text": {
+        "message": "Odhlásit se",
+        "description": "Text pro tlačítko odhlášení."
+    },
+    "upload_select_file_button": {
+        "message": "Vybrat soubor",
+        "description": "Tlačítko pro otevření výběru souboru."
+    },
+    "upload_drag_and_drop_prompt": {
+        "message": "Přetáhněte soubory sem pro nahrání",
+        "description": "Text pro oblast přetažení."
+    },
+    "upload_select_file_link": {
+        "message": "Nebo vyberte soubory",
+        "description": "Text odkazu pro otevření výběru souboru jako alternativy k přetažení."
+    },
+    "go_to_pcloud_website": {
+        "message": "Přejít na web pCloud",
+        "description": "Odkaz na web pCloud."
+    },
+    "upload_button_text": {
+        "message": "Nahrát",
+        "description": "Text pro tlačítko nahrát."
+    },
+    "upload_success_message": {
+        "message": "Soubor úspěšně nahrán!",
+        "description": "Zpráva o úspěchu po nahrání."
+    },
+    "upload_error_generic": {
+        "message": "Nahrávání se nezdařilo. Zkuste to prosím znovu.",
+        "description": "Obecná chybová zpráva pro nahrávání."
+    },
+    "upload_error_no_auth": {
+        "message": "Chyba ověření. Přihlaste se prosím znovu.",
+        "description": "Chybová zpráva, když není ověřen pro nahrávání."
+    },
+    "upload_error_no_file": {
+        "message": "Vyberte soubor k nahrání.",
+        "description": "Chybová zpráva, když není vybrán žádný soubor k nahrání."
+    },
+    "options_section_appearance": {
+        "message": "Vzhled",
+        "description": "Záhlaví pro sekci nastavení vzhledu na stránce s možnostmi."
+    },
+    "options_section_uploads": {
+        "message": "Nahrané soubory",
+        "description": "Záhlaví pro sekci nastavení nahrávání na stránce s možnostmi."
+    },
+    "snackbar_dismiss": {
+        "message": "Zavřít",
+        "description": "Text pro tlačítko zavřít na oznámení snackbar."
+    },
+    "options_loading_folders": {
+        "message": "Načítání složek...",
+        "description": "Zpráva zobrazená při načítání stromu složek."
+    },
+    "options_login_to_load": {
+        "message": "Pro načtení složek se prosím přihlaste přes vyskakovací okno rozšíření.",
+        "description": "Zpráva zobrazená, když se uživatel musí přihlásit, aby viděl složky."
+    },
+    "options_error_loading_folders": {
+        "message": "Chyba při načítání složek. Ujistěte se, že jste přihlášeni a máte připojení k internetu.",
+        "description": "Zpráva zobrazená, když se nepodaří načíst strom složek."
+    },
+    "context_menu_save_image": {
+        "message": "Uložit obrázek na pCloud",
+        "description": "Text položky kontextové nabídky pro uložení obrázku."
+    },
+    "notification_upload_started_title": {
+        "message": "Nahrávání obrázku",
+        "description": "Název pro oznámení při zahájení nahrávání obrázku."
+    },
+    "notification_upload_started_message": {
+        "message": "Ukládání obrázku na váš pCloud...",
+        "description": "Zpráva pro oznámení při zahájení nahrávání obrázku."
+    },
+    "notification_upload_success_title": {
+        "message": "Nahrávání dokončeno",
+        "description": "Název pro oznámení při úspěšném nahrání obrázku."
+    },
+    "notification_upload_success_message": {
+        "message": "Obrázek úspěšně uložen na pCloud.",
+        "description": "Zpráva pro oznámení při úspěšném nahrání obrázku."
+    },
+    "notification_upload_error_title": {
+        "message": "Nahrávání se nezdařilo",
+        "description": "Název pro oznámení při selhání nahrávání obrázku."
+    },
+    "notification_upload_error_message": {
+        "message": "Nepodařilo se uložit obrázek na pCloud. Zkuste to prosím znovu.",
+        "description": "Zpráva pro oznámení při selhání nahrávání obrázku."
+    },
+    "notification_auth_error_message": {
+        "message": "Pro uložení souborů se prosím přihlaste do rozšíření pCloud.",
+        "description": "Zpráva pro oznámení, když uživatel není přihlášen."
+    },
+    "options_section_filename": {
+        "message": "Název souboru obrázku",
+        "description": "Záhlaví pro sekci nastavení názvu souboru obrázku na stránce s možnostmi."
+    },
+    "options_section_text_filename": {
+        "message": "Název textového souboru",
+        "description": "Záhlaví pro sekci nastavení názvu textového souboru na stránce s možnostmi."
+    },
+    "options_filename_description": {
+        "message": "Přetažením změňte pořadí částí názvu souboru. Zrušením zaškrtnutí vyloučíte.",
+        "description": "Popis pro uživatelské rozhraní konfigurace názvu souboru."
+    },
+    "options_filename_part_sorting_number": {
+        "message": "Číslo třídění",
+        "description": "Popisek pro část názvu souboru 'Číslo třídění'."
+    },
+    "options_filename_part_page_title": {
+        "message": "Název stránky",
+        "description": "Popisek pro část názvu souboru 'Název stránky'."
+    },
+    "options_filename_part_timestamp": {
+        "message": "Časové razítko",
+        "description": "Popisek pro část názvu souboru 'Časové razítko'."
+    },
+    "options_filename_part_free_key": {
+        "message": "Vlastní text",
+        "description": "Popisek pro část názvu souboru 'Vlastní text'."
+    },
+    "options_filename_part_date": {
+        "message": "Datum",
+        "description": "Popisek pro část názvu souboru 'Datum'."
+    },
+    "options_filename_separator_label": {
+        "message": "Oddělovač",
+        "description": "Popisek pro vstupní pole oddělovače mezi částmi názvu souboru."
+    },
+    "contextMenuItemUploadSelection": {
+        "message": "Nahrát vybraný text na pCloud",
+        "description": "Text položky kontextové nabídky pro nahrání vybraného textu."
+    },
+    "notificationUploadTextStartedTitle": {
+        "message": "Nahrávání textu",
+        "description": "Název pro oznámení při zahájení nahrávání textu."
+    },
+    "notificationUploadTextStartedMessage": {
+        "message": "Ukládání vybraného textu na váš pCloud...",
+        "description": "Zpráva pro oznámení při zahájení nahrávání textu."
+    },
+    "notificationUploadTextSuccessTitle": {
+        "message": "Nahrávání dokončeno",
+        "description": "Název pro oznámení při úspěšném nahrání textu."
+    },
+    "notificationUploadTextSuccessMessage": {
+        "message": "Vybraný text úspěšně uložen na pCloud.",
+        "description": "Zpráva pro oznámení při úspěšném nahrání textu."
+    },
+    "notificationUploadTextErrorTitle": {
+        "message": "Nahrávání se nezdařilo",
+        "description": "Název pro oznámení při selhání nahrávání textu."
+    },
+    "notificationUploadTextErrorMessage": {
+        "message": "Nepodařilo se uložit vybraný text na pCloud. Zkuste to prosím znovu.",
+        "description": "Zpráva pro oznámení při selhání nahrávání textu."
+    },
+    "notification_error_stale_content_script": {
+        "message": "Nelze se připojit ke stránce. Obnovte kartu a zkuste to znovu.",
+        "description": "Chybová zpráva, když je obsahový skript zastaralý nebo není k dispozici."
+    },
+    "context_menu_save_selection": {
+        "message": "Uložit výběr jako dokument na pCloud"
+    },
+    "options_section_document_downloader": {
+        "message": "Stahovač dokumentů"
+    },
+    "options_document_format_label": {
+        "message": "Formát dokumentu"
+    },
+    "options_document_include_metadata_label": {
+        "message": "Zahrnout metadata (YAML Frontmatter)"
+    },
+    "options_text_include_metadata_label": {
+        "message": "Zahrnout metadata (YAML Frontmatter)"
+    },
+    "notification_document_processing_title": {
+        "message": "Zpracování dokumentu"
+    },
+    "notification_document_processing_message": {
+        "message": "Převádění a nahrávání vašeho výběru..."
+    },
+    "notification_document_success_title": {
+        "message": "Dokument uložen"
+    },
+    "notification_document_success_message": {
+        "message": "Dokument úspěšně uložen na pCloud."
+    },
+    "notification_document_error_title": {
+        "message": "Uložení se nezdařilo"
+    },
+    "notification_document_error_message": {
+        "message": "Dokument se nepodařilo uložit. Zkuste to prosím znovu."
+    },
+    "error_connection_lost_refresh": {
+        "message": "Nelze se připojit ke stránce. Obnovte kartu a zkuste to znovu.",
+        "description": "Chybová zpráva, když je obsahový skript zastaralý nebo není k dispozici."
+    },
+    "options_domain_rules_title": {
+        "message": "Cesta nahrávání podle domény"
+    },
+    "options_domain_rules_test_playground_title": {
+        "message": "Testovací hřiště"
+    },
+    "options_domain_rules_test_placeholder": {
+        "message": "Zadejte URL pro testování pravidel...",
+        "description": "Zástupný znak pro testování pravidel."
+    },
+    "options_domain_rules_test_result_match": {
+        "message": "✅ Odpovídající pravidlo: {rule}"
+    },
+    "options_domain_rules_test_result_no_match": {
+        "message": "Nebylo nalezeno žádné odpovídající pravidlo."
+    },
+    "options_dialog_cancel": {
+        "message": "Zrušit"
+    },
+    "options_dialog_save": {
+        "message": "Uložit"
+    },
+    "options_dialog_select": {
+        "message": "Vybrat"
+    },
+    "options_dialog_ok": {
+        "message": "OK"
+    },
+    "options_folder_picker_title": {
+        "message": "Vybrat složku"
+    },
+    "options_domain_rules_help_icon_tooltip": {
+        "message": "Nápověda k pravidlům"
+    },
+    "options_domain_rules_help_dialog_title": {
+        "message": "Nápověda k prioritě pravidel"
+    },
+    "options_domain_rules_help_dialog_content": {
+        "message": "Pravidla se porovnávají shora dolů. Bude použito první odpovídající pravidlo. Přetažením můžete změnit pořadí pravidel. Doporučujeme použít 'Testovací hřiště' výše k ověření vaší konfigurace."
+    },
+    "options_domain_rules_add_button": {
+        "message": "Přidat pravidlo"
+    },
+    "options_domain_rules_delete_button": {
+        "message": "Odstranit pravidlo"
+    },
+    "options_domain_rules_col_domain": {
+        "message": "Doména (podporuje zástupné znaky)"
+    },
+    "options_domain_rules_col_path": {
+        "message": "Cílová cesta pCloud"
+    },
+    "options_domain_rules_dialog_title_add": {
+        "message": "Přidat nové pravidlo"
+    },
+    "options_domain_rules_dialog_title_edit": {
+        "message": "Upravit pravidlo"
+    },
+    "options_domain_rules_folder_picker_create_btn": {
+        "message": "Vytvořit novou složku"
+    },
+    "options_domain_rules_confirm_delete": {
+        "message": "Opravdu chcete toto pravidlo odstranit?"
+    },
+    "options_section_premium": {
+        "message": "Premium Upgrade"
+    },
+    "options_premium_active": {
+        "message": "PREMIUM AKTIVNÍ"
+    },
+    "options_premium_description": {
+        "message": "Odemkněte pokročilé funkce, jako je Stahovač dokumentů (Markdown/Word) a další!"
+    },
+    "options_tier_pcloud_name": {
+        "message": "HyperCmdC for pCloud"
+    },
+    "options_tier_pcloud_desc": {
+        "message": "Odemkne funkce pouze pro toto rozšíření."
+    },
+    "options_tier_master_name": {
+        "message": "Master HyperCmdC"
+    },
+    "options_tier_master_desc": {
+        "message": "Odemkne VŠECHNA rozšíření HyperCmdC (pCloud, S3 atd.)."
+    },
+    "options_restore_purchase": {
+        "message": "Obnovit nákup"
+    },
+    "options_premium_thank_you": {
+        "message": "Děkujeme za vaši podporu!"
+    },
+    "options_premium_active_desc": {
+        "message": "Máte přístup ke všem prémiovým funkcím."
+    },
+    "options_payment_success": {
+        "message": "Platba byla úspěšná! Prémiové funkce odemčeny."
+    },
+    "options_payment_failed": {
+        "message": "Platba se nezdařila. Zkuste to prosím znovu."
+    },
+    "options_restore_success": {
+        "message": "Nákup úspěšně obnoven!"
+    },
+    "options_restore_failed": {
+        "message": "Pro tento e-mail nebyla nalezena žádná licence."
+    },
+    "notification_premium_required_title": {
+        "message": "Prémiová funkce"
+    },
+    "notification_premium_required_message": {
+        "message": "Tato funkce vyžaduje Premium licenci. Upgradujte nyní pro odemknutí!"
+    },
+    "notification_premium_upgrade_button": {
+        "message": "Upgradovat nyní"
+    },
+    "options_upgrade_now": {
+        "message": "Upgradovat nyní"
+    },
+    "options_payment_page_opening": {
+        "message": "Otevírání platební stránky... (Mock - Vývojářský režim)"
+    },
+    "toast_uploading_to_pcloud": {
+        "message": "Nahrávání na pCloud..."
+    },
+    "toast_upload_started": {
+        "message": "Nahrávání zahájeno!"
+    },
+    "toast_processing_images": {
+        "message": "Zpracování obrázků ($1/$2)..."
+    },
+    "toast_generating_document": {
+        "message": "Generování dokumentu..."
+    },
+    "toast_view_button": {
+        "message": "Zobrazit"
+    },
+    "pdf_download_to_pcloud": {
+        "message": "Uložit do pCloud"
+    },
+    "pdf_download_as_markdown": {
+        "message": "Stáhnout jako Markdown do pCloud"
+    },
+    "pdf_error_not_pdf": {
+        "message": "Tato stránka není PDF."
+    },
+    "pdf_error_fetch_failed": {
+        "message": "Nepodařilo se načíst data PDF."
+    },
+    "visit_official_website": {
+        "message": "Navštívit web 'HyperCmdC'"
+    },
+    "options_promotion_text": {
+        "message": "Zdarma po omezenou dobu!",
+        "description": "Propagační text zobrazený vedle ikony propagace."
+    },
+    "options_footer_opensource_text": {
+        "message": "Zobrazit zdroj na GitHubu",
+        "description": "Text odkazu na open source repozitář."
+    }
+}

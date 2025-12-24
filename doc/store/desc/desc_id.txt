@@ -1,0 +1,43 @@
+🚀 HyperCmdC for pCloud: Alat Hemat Cloud Terbaik! [OPEN SOURCE & GRATIS] ☁️
+
+Buka kekuatan penuh pCloud langsung dari browser Anda! HyperCmdC sekarang sepenuhnya Open Source dan Gratis, mengintegrasikan pCloud dengan mulus ke dalam alur kerja harian Anda.
+
+✨ FITUR UTAMA:
+
+🖼️ Penyimpan Gambar Cerdas
+• Klik kanan untuk mengunggah gambar apa pun secara instan ke pCloud.
+• Atur unggahan secara otomatis ke dalam folder khusus.
+• Tidak perlu lagi mengunduh dan mengunggah ulang secara manual!
+
+📥 Seret & Lepas Intuitif
+• Seret gambar apa pun dari halaman web langsung ke overlay untuk mengunggah!
+• Mudah dan cepat.
+
+📝 Pilihan Teks ke Markdown
+• Sorot teks -> Klik kanan -> Simpan!
+• Secara instan membuat catatan Markdown di cloud Anda.
+• Sempurna untuk penelitian dan pencatatan.
+
+📄 Web ke Dokumen
+• Ubah konten web apa pun menjadi dokumen Markdown atau Word yang bersih.
+• Gambar diunduh secara otomatis, diunggah ke pCloud, dan ditautkan dalam dokumen Anda! 🤯
+• Jaga catatan Anda tetap kaya dan portabel.
+
+📂 Integrasi PDF Cerdas
+• Tombol mengambang yang indah muncul di PDF apa pun yang Anda lihat di Chrome.
+• Simpan PDF langsung ke folder pCloud tertentu dengan satu klik.
+• Mencoba mengonversi PDF ke Markdown untuk AI atau aplikasi lain!
+
+⚡ Alat Pengguna Tingkat Lanjut
+• Nama file yang dapat disesuaikan (Tanggal, Judul, Kunci Khusus).
+• Aturan Domain: Tetapkan folder unggahan yang berbeda untuk situs web yang berbeda!
+• Cadangan cerdas memastikan Anda tidak pernah kehilangan file.
+
+🔒 Aman & Pribadi
+• Basis Kode Open Source - Verifikasi sendiri di GitHub!
+• Menggunakan pCloud OAuth 2.0 resmi.
+• Kredensial Anda tidak pernah meninggalkan browser Anda.
+
+Tingkatkan produktivitas Anda hari ini dengan HyperCmdC for pCloud! 🚀
+
+#pCloud #Productivity #ChromeExtension #CloudStorage #Markdown #Research

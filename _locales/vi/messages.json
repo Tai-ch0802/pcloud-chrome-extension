@@ -1,0 +1,479 @@
+{
+    "extensionName": {
+        "message": "HyperCmdC for pCloud",
+        "description": "Tên của tiện ích mở rộng."
+    },
+    "extensionDescription": {
+        "message": "Tích hợp pCloud liền mạch với trình duyệt Chrome của bạn để quản lý tệp dễ dàng.",
+        "description": "Mô tả của tiện ích mở rộng."
+    },
+    "options_title": {
+        "message": "Tùy chọn tiện ích mở rộng pCloud",
+        "description": "Tiêu đề cho trang tùy chọn."
+    },
+    "options_description": {
+        "message": "Định cấu hình cài đặt Tiện ích mở rộng Chrome pCloud của bạn tại đây.",
+        "description": "Mô tả cho trang tùy chọn."
+    },
+    "options_default_folder_label": {
+        "message": "Đường dẫn được chọn hiện tại:",
+        "description": "Nhãn cho hiển thị đường dẫn được chọnh hiện tại."
+    },
+    "options_default_folder_placeholder": {
+        "message": "VD: 0 cho thư mục gốc",
+        "description": "Trình giữ chỗ cho đầu vào ID thư mục tải lên mặc định."
+    },
+    "options_save_button_text": {
+        "message": "Lưu cài đặt",
+        "description": "Văn bản cho nút lưu tùy chọn."
+    },
+    "options_saved_message": {
+        "message": "Đã lưu cài đặt!",
+        "description": "Thông báo hiển thị sau khi cài đặt được lưu."
+    },
+    "options_invalid_folder_id": {
+        "message": "ID thư mục không hợp lệ. Vui lòng nhập số không âm.",
+        "description": "Thông báo lỗi cho đầu vào ID thư mục không hợp lệ."
+    },
+    "options_theme_label": {
+        "message": "Chủ đề"
+    },
+    "options_theme_googlestyle": {
+        "message": "Phong cách Google"
+    },
+    "options_theme_geek": {
+        "message": "Geek"
+    },
+    "back_button_title": {
+        "message": "Quay lại",
+        "description": "Tiêu đề cho nút quay lại."
+    },
+    "login_token_prompt": {
+        "message": "Xác thực bằng Mã thông báo (Token)",
+        "description": "Lời nhắc cho chế độ xem đăng nhập bằng mã thông báo."
+    },
+    "login_prompt": {
+        "message": "Đăng nhập vào pCloud",
+        "description": "Lời nhắc cho chế độ xem đăng nhập."
+    },
+    "login_email_placeholder": {
+        "message": "Email hoặc Tên người dùng",
+        "description": "Trình giữ chỗ cho đầu vào email/tên người dùng."
+    },
+    "login_password_placeholder": {
+        "message": "Mật khẩu",
+        "description": "Trình giữ chỗ cho đầu vào mật khẩu."
+    },
+    "login_button_text": {
+        "message": "Đăng nhập",
+        "description": "Văn bản cho nút đăng nhập."
+    },
+    "login_oauth_button": {
+        "message": "Đăng nhập bằng pCloud",
+        "description": "Văn bản cho nút đăng nhập OAuth."
+    },
+    "login_oauth_error": {
+        "message": "Xác thực không thành công. Vui lòng thử lại.",
+        "description": "Thông báo lỗi chung cho lỗi đăng nhập OAuth."
+    },
+    "login_error_empty_credentials": {
+        "message": "Vui lòng nhập cả email/tên người dùng và mật khẩu.",
+        "description": "Thông báo lỗi cho các trường đăng nhập trống."
+    },
+    "login_error_invalid_credentials": {
+        "message": "Đăng nhập không thành công. Vui lòng kiểm tra thông tin đăng nhập của bạn.",
+        "description": "Thông báo lỗi cho đăng nhập không hợp lệ."
+    },
+    "login_token_description": {
+        "message": "Đăng nhập vào my.pcloud.com trong một tab khác, sau đó dán mã thông báo 'auth' vào đây.",
+        "description": "Mô tả về cách lấy mã thông báo xác thực."
+    },
+    "login_token_placeholder": {
+        "message": "Dán mã thông báo xác thực của bạn vào đây",
+        "description": "Trình giữ chỗ cho vùng văn bản mã thông báo xác thực."
+    },
+    "login_token_button_text": {
+        "message": "Xác minh và lưu mã thông báo",
+        "description": "Văn bản cho nút đăng nhập mã thông báo."
+    },
+    "login_switch_to_token": {
+        "message": "Hoặc, đăng nhập bằng mã thông báo xác thực",
+        "description": "Liên kết để chuyển sang đăng nhập mã thông báo."
+    },
+    "login_switch_to_password": {
+        "message": "Hoặc, đăng nhập bằng email và mật khẩu",
+        "description": "Liên kết để chuyển sang đăng nhập mật khẩu."
+    },
+    "login_error_invalid_token": {
+        "message": "Mã thông báo không hợp lệ. Vui lòng kiểm tra mã thông báo và thử lại.",
+        "description": "Thông báo lỗi cho mã thông báo xác thực không hợp lệ."
+    },
+    "login_error_generic": {
+        "message": "Đã xảy ra lỗi không mong muốn trong quá trình xác minh. Vui lòng thử lại.",
+        "description": "Thông báo lỗi chung cho xác minh mã thông báo."
+    },
+    "upload_prompt": {
+        "message": "Tải lên pCloud",
+        "description": "Lời nhắc cho chế độ xem tải lên."
+    },
+    "logout_button_text": {
+        "message": "Đăng xuất",
+        "description": "Văn bản cho nút đăng xuất."
+    },
+    "upload_select_file_button": {
+        "message": "Chọn tệp",
+        "description": "Nút để mở bộ chọn tệp."
+    },
+    "upload_drag_and_drop_prompt": {
+        "message": "Kéo và thả tệp vào đây để tải lên",
+        "description": "Văn bản cho khu vực kéo và thả."
+    },
+    "upload_select_file_link": {
+        "message": "Hoặc chọn tệp",
+        "description": "Văn bản liên kết để mở bộ chọn tệp thay thế cho kéo và thả."
+    },
+    "go_to_pcloud_website": {
+        "message": "Đi tới trang web pCloud",
+        "description": "Liên kết đến trang web pCloud."
+    },
+    "upload_button_text": {
+        "message": "Tải lên",
+        "description": "Văn bản cho nút tải lên."
+    },
+    "upload_success_message": {
+        "message": "Tải lên tệp thành công!",
+        "description": "Thông báo thành công sau khi tải lên."
+    },
+    "upload_error_generic": {
+        "message": "Tải lên không thành công. Vui lòng thử lại.",
+        "description": "Thông báo lỗi chung cho tải lên."
+    },
+    "upload_error_no_auth": {
+        "message": "Lỗi xác thực. Vui lòng đăng nhập lại.",
+        "description": "Thông báo lỗi khi không xác thực để tải lên."
+    },
+    "upload_error_no_file": {
+        "message": "Vui lòng chọn một tệp để tải lên.",
+        "description": "Thông báo lỗi khi không có tệp nào được chọn để tải lên."
+    },
+    "options_section_appearance": {
+        "message": "Giao diện",
+        "description": "Tiêu đề cho phần cài đặt giao diện trên trang tùy chọn."
+    },
+    "options_section_uploads": {
+        "message": "Tải lên",
+        "description": "Tiêu đề cho phần cài đặt tải lên trên trang tùy chọn."
+    },
+    "snackbar_dismiss": {
+        "message": "Bỏ qua",
+        "description": "Văn bản cho nút bỏ qua trên thông báo snackbar."
+    },
+    "options_loading_folders": {
+        "message": "Đang tải thư mục...",
+        "description": "Thông báo hiển thị trong khi cây thư mục đang tải."
+    },
+    "options_login_to_load": {
+        "message": "Vui lòng đăng nhập qua cửa sổ bật lên tiện ích mở rộng để tải thư mục.",
+        "description": "Thông báo hiển thị khi người dùng cần đăng nhập để xem thư mục."
+    },
+    "options_error_loading_folders": {
+        "message": "Lỗi khi tải thư mục. Vui lòng đảm bảo bạn đã đăng nhập và có kết nối internet.",
+        "description": "Thông báo hiển thị khi tải cây thư mục không thành công."
+    },
+    "context_menu_save_image": {
+        "message": "Lưu hình ảnh vào pCloud",
+        "description": "Văn bản mục menu ngữ cảnh để lưu hình ảnh."
+    },
+    "notification_upload_started_title": {
+        "message": "Tải lên hình ảnh",
+        "description": "Tiêu đề cho thông báo khi bắt đầu tải lên hình ảnh."
+    },
+    "notification_upload_started_message": {
+        "message": "Đang lưu hình ảnh vào pCloud của bạn...",
+        "description": "Thông báo cho thông báo khi bắt đầu tải lên hình ảnh."
+    },
+    "notification_upload_success_title": {
+        "message": "Tải lên hoàn tất",
+        "description": "Tiêu đề cho thông báo khi tải lên hình ảnh thành công."
+    },
+    "notification_upload_success_message": {
+        "message": "Đã lưu hình ảnh thành công vào pCloud.",
+        "description": "Thông báo cho thông báo khi tải lên hình ảnh thành công."
+    },
+    "notification_upload_error_title": {
+        "message": "Tải lên không thành công",
+        "description": "Tiêu đề cho thông báo khi tải lên hình ảnh không thành công."
+    },
+    "notification_upload_error_message": {
+        "message": "Không thể lưu hình ảnh vào pCloud. Vui lòng thử lại.",
+        "description": "Thông báo cho thông báo khi tải lên hình ảnh không thành công."
+    },
+    "notification_auth_error_message": {
+        "message": "Vui lòng đăng nhập vào tiện ích mở rộng pCloud để lưu tệp.",
+        "description": "Thông báo cho thông báo khi người dùng chưa đăng nhập."
+    },
+    "options_section_filename": {
+        "message": "Tên tệp hình ảnh",
+        "description": "Tiêu đề cho phần cài đặt tên tệp hình ảnh trên trang tùy chọn."
+    },
+    "options_section_text_filename": {
+        "message": "Tên tệp văn bản",
+        "description": "Tiêu đề cho phần cài đặt tên tệp văn bản trên trang tùy chọn."
+    },
+    "options_filename_description": {
+        "message": "Kéo và thả để sắp xếp lại các phần tên tệp. Bỏ chọn để loại trừ.",
+        "description": "Mô tả cho giao diện người dùng cấu hình tên tệp."
+    },
+    "options_filename_part_sorting_number": {
+        "message": "Số thứ tự sắp xếp",
+        "description": "Nhãn cho phần tên tệp 'Số thứ tự sắp xếp (Sorting Number)'."
+    },
+    "options_filename_part_page_title": {
+        "message": "Tiêu đề trang",
+        "description": "Nhãn cho phần tên tệp 'Tiêu đề trang'."
+    },
+    "options_filename_part_timestamp": {
+        "message": "Dấu thời gian",
+        "description": "Nhãn cho phần tên tệp 'Dấu thời gian'."
+    },
+    "options_filename_part_free_key": {
+        "message": "Văn bản tùy chỉnh",
+        "description": "Nhãn cho phần tên tệp 'Văn bản tùy chỉnh'."
+    },
+    "options_filename_part_date": {
+        "message": "Ngày",
+        "description": "Nhãn cho phần tên tệp 'Ngày'."
+    },
+    "options_filename_separator_label": {
+        "message": "Dấu phân cách",
+        "description": "Nhãn cho trường nhập dấu phân cách giữa các phần tên tệp."
+    },
+    "contextMenuItemUploadSelection": {
+        "message": "Tải văn bản đã chọn lên pCloud",
+        "description": "Văn bản mục menu ngữ cảnh để tải lên văn bản đã chọn."
+    },
+    "notificationUploadTextStartedTitle": {
+        "message": "Tải lên văn bản",
+        "description": "Tiêu đề cho thông báo khi bắt đầu tải lên văn bản."
+    },
+    "notificationUploadTextStartedMessage": {
+        "message": "Đang lưu văn bản đã chọn vào pCloud của bạn...",
+        "description": "Thông báo cho thông báo khi bắt đầu tải lên văn bản."
+    },
+    "notificationUploadTextSuccessTitle": {
+        "message": "Tải lên hoàn tất",
+        "description": "Tiêu đề cho thông báo khi tải lên văn bản thành công."
+    },
+    "notificationUploadTextSuccessMessage": {
+        "message": "Đã lưu văn bản đã chọn thành công vào pCloud.",
+        "description": "Thông báo cho thông báo khi tải lên văn bản thành công."
+    },
+    "notificationUploadTextErrorTitle": {
+        "message": "Tải lên không thành công",
+        "description": "Tiêu đề cho thông báo khi tải lên văn bản không thành công."
+    },
+    "notificationUploadTextErrorMessage": {
+        "message": "Không thể lưu văn bản đã chọn vào pCloud. Vui lòng thử lại.",
+        "description": "Thông báo cho thông báo khi tải lên văn bản không thành công."
+    },
+    "notification_error_stale_content_script": {
+        "message": "Không thể kết nối với trang. Vui lòng tải lại tab và thử lại.",
+        "description": "Thông báo lỗi khi tập lệnh nội dung đã cũ hoặc không khả dụng."
+    },
+    "context_menu_save_selection": {
+        "message": "Lưu lựa chọn dưới dạng tài liệu vào pCloud"
+    },
+    "options_section_document_downloader": {
+        "message": "Trình tải xuống tài liệu"
+    },
+    "options_document_format_label": {
+        "message": "Định dạng tài liệu"
+    },
+    "options_document_include_metadata_label": {
+        "message": "Bao gồm siêu dữ liệu (YAML Frontmatter)"
+    },
+    "options_text_include_metadata_label": {
+        "message": "Bao gồm siêu dữ liệu (YAML Frontmatter)"
+    },
+    "notification_document_processing_title": {
+        "message": "Đang xử lý tài liệu"
+    },
+    "notification_document_processing_message": {
+        "message": "Đang chuyển đổi và tải lên lựa chọn của bạn..."
+    },
+    "notification_document_success_title": {
+        "message": "Tài liệu đã được lưu"
+    },
+    "notification_document_success_message": {
+        "message": "Tài liệu đã được lưu thành công vào pCloud."
+    },
+    "notification_document_error_title": {
+        "message": "Lưu không thành công"
+    },
+    "notification_document_error_message": {
+        "message": "Không thể lưu tài liệu. Vui lòng thử lại."
+    },
+    "error_connection_lost_refresh": {
+        "message": "Không thể kết nối với trang. Vui lòng tải lại tab và thử lại.",
+        "description": "Thông báo lỗi khi tập lệnh nội dung đã cũ hoặc không khả dụng."
+    },
+    "options_domain_rules_title": {
+        "message": "Đường dẫn tải lên theo tên miền"
+    },
+    "options_domain_rules_test_playground_title": {
+        "message": "Sân chơi thử nghiệm"
+    },
+    "options_domain_rules_test_placeholder": {
+        "message": "Nhập URL để kiểm tra quy tắc...",
+        "description": "Trình giữ chỗ để kiểm tra quy tắc."
+    },
+    "options_domain_rules_test_result_match": {
+        "message": "✅ Quy tắc khớp: {rule}"
+    },
+    "options_domain_rules_test_result_no_match": {
+        "message": "Không tìm thấy quy tắc khớp."
+    },
+    "options_dialog_cancel": {
+        "message": "Hủy"
+    },
+    "options_dialog_save": {
+        "message": "Lưu"
+    },
+    "options_dialog_select": {
+        "message": "Chọn"
+    },
+    "options_dialog_ok": {
+        "message": "OK"
+    },
+    "options_folder_picker_title": {
+        "message": "Chọn thư mục"
+    },
+    "options_domain_rules_help_icon_tooltip": {
+        "message": "Trợ giúp quy tắc"
+    },
+    "options_domain_rules_help_dialog_title": {
+        "message": "Trợ giúp ưu tiên quy tắc"
+    },
+    "options_domain_rules_help_dialog_content": {
+        "message": "Các quy tắc được khớp từ trên xuống dưới. Quy tắc khớp đầu tiên sẽ được áp dụng. Bạn có thể kéo và thả để sắp xếp lại các quy tắc. Chúng tôi khuyên bạn nên sử dụng 'Sân chơi thử nghiệm' ở trên để xác minh cấu hình của mình."
+    },
+    "options_domain_rules_add_button": {
+        "message": "Thêm quy tắc"
+    },
+    "options_domain_rules_delete_button": {
+        "message": "Xóa quy tắc"
+    },
+    "options_domain_rules_col_domain": {
+        "message": "Tên miền (hỗ trợ ký tự đại diện)"
+    },
+    "options_domain_rules_col_path": {
+        "message": "Đường dẫn pCloud đích"
+    },
+    "options_domain_rules_dialog_title_add": {
+        "message": "Thêm quy tắc mới"
+    },
+    "options_domain_rules_dialog_title_edit": {
+        "message": "Chỉnh sửa quy tắc"
+    },
+    "options_domain_rules_folder_picker_create_btn": {
+        "message": "Tạo thư mục mới"
+    },
+    "options_domain_rules_confirm_delete": {
+        "message": "Bạn có chắc chắn muốn xóa quy tắc này không?"
+    },
+    "options_section_premium": {
+        "message": "Nâng cấp Premium"
+    },
+    "options_premium_active": {
+        "message": "PREMIUM ĐANG HOẠT ĐỘNG"
+    },
+    "options_premium_description": {
+        "message": "Mở khóa các tính năng nâng cao như Trình tải xuống tài liệu (Markdown/Word) và hơn thế nữa!"
+    },
+    "options_tier_pcloud_name": {
+        "message": "HyperCmdC for pCloud"
+    },
+    "options_tier_pcloud_desc": {
+        "message": "Chỉ mở khóa các tính năng cho tiện ích mở rộng này."
+    },
+    "options_tier_master_name": {
+        "message": "HyperCmdC Master"
+    },
+    "options_tier_master_desc": {
+        "message": "Mở khóa TẤT CẢ các tiện ích mở rộng HyperCmdC (pCloud, S3, v.v.)."
+    },
+    "options_restore_purchase": {
+        "message": "Khôi phục giao dịch mua"
+    },
+    "options_premium_thank_you": {
+        "message": "Cảm ơn sự hỗ trợ của bạn!"
+    },
+    "options_premium_active_desc": {
+        "message": "Bạn có quyền truy cập vào tất cả các tính năng cao cấp."
+    },
+    "options_payment_success": {
+        "message": "Thanh toán thành công! Đã mở khóa các tính năng cao cấp."
+    },
+    "options_payment_failed": {
+        "message": "Thanh toán không thành công. Vui lòng thử lại."
+    },
+    "options_restore_success": {
+        "message": "Đã khôi phục giao dịch mua thành công!"
+    },
+    "options_restore_failed": {
+        "message": "Không tìm thấy giấy phép cho email này."
+    },
+    "notification_premium_required_title": {
+        "message": "Tính năng cao cấp"
+    },
+    "notification_premium_required_message": {
+        "message": "Tính năng này yêu cầu giấy phép Premium. Nâng cấp ngay để mở khóa!"
+    },
+    "notification_premium_upgrade_button": {
+        "message": "Nâng cấp ngay"
+    },
+    "options_upgrade_now": {
+        "message": "Nâng cấp ngay"
+    },
+    "options_payment_page_opening": {
+        "message": "Đang mở trang thanh toán... (Giả lập - Chế độ phát triển)"
+    },
+    "toast_uploading_to_pcloud": {
+        "message": "Đang tải lên pCloud..."
+    },
+    "toast_upload_started": {
+        "message": "Đã bắt đầu tải lên!"
+    },
+    "toast_processing_images": {
+        "message": "Đang xử lý hình ảnh ($1/$2)..."
+    },
+    "toast_generating_document": {
+        "message": "Đang tạo tài liệu..."
+    },
+    "toast_view_button": {
+        "message": "Xem"
+    },
+    "pdf_download_to_pcloud": {
+        "message": "Lưu vào pCloud"
+    },
+    "pdf_download_as_markdown": {
+        "message": "Tải xuống dưới dạng Markdown vào pCloud"
+    },
+    "pdf_error_not_pdf": {
+        "message": "Trang này không phải là PDF."
+    },
+    "pdf_error_fetch_failed": {
+        "message": "Không thể lấy dữ liệu PDF."
+    },
+    "visit_official_website": {
+        "message": "Truy cập trang web 'HyperCmdC'"
+    },
+    "options_promotion_text": {
+        "message": "Miễn phí trong thời gian có hạn!",
+        "description": "Văn bản quảng cáo hiển thị bên cạnh biểu tượng khuyến mãi."
+    },
+    "options_footer_opensource_text": {
+        "message": "Xem nguồn trên GitHub",
+        "description": "Văn bản liên kết đến kho lưu trữ mã nguồn mở."
+    }
+}

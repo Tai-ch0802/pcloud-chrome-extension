@@ -1,0 +1,43 @@
+🚀 HyperCmdC for pCloud : L'outil ultime d'économie Cloud ! [OPEN SOURCE & GRATUIT] ☁️
+
+Libérez toute la puissance de pCloud directement depuis votre navigateur ! HyperCmdC est désormais entièrement Open Source et gratuit, intégrant pCloud de manière transparente à votre flux de travail quotidien.
+
+✨ FONCTIONNALITÉS CLÉS :
+
+🖼️ Sauvegarde Intelligente d'Images
+• Clic droit pour télécharger instantanément n'importe quelle image vers pCloud.
+• Organisation automatique des téléchargements dans des dossiers personnalisés.
+• Fini le téléchargement et le re-téléchargement manuels !
+
+📥 Glisser-Déposer Intuitif
+• Faites glisser n'importe quelle image de la page Web directement vers la superposition pour la télécharger !
+• Sans effort et rapide.
+
+📝 Sélection de Texte vers Markdown
+• Surlignez le texte -> Clic droit -> Enregistrer !
+• Crée instantanément une note Markdown dans votre cloud.
+• Parfait pour la recherche et la prise de notes.
+
+📄 Web vers Document
+• Transformez n'importe quel contenu Web en un document Markdown ou Word propre.
+• Les images sont automatiquement téléchargées, envoyées vers pCloud et liées dans votre document ! 🤯
+• Gardez vos notes riches et portables.
+
+📂 Intégration PDF Intelligente
+• Un beau bouton flottant apparaît sur tout PDF que vous visualisez dans Chrome.
+• Enregistrez les PDF directement dans des dossiers pCloud spécifiques en un clic.
+• Tente de convertir les PDF en Markdown pour l'IA ou d'autres applications !
+
+⚡ Outils pour Utilisateurs Avancés
+• Noms de fichiers personnalisables (Date, Titre, Clés personnalisées).
+• Règles de Domaine : Définissez des dossiers de téléchargement différents pour différents sites Web !
+• Des solutions de repli intelligentes garantissent que vous ne perdez jamais un fichier.
+
+🔒 Sécurisé & Privé
+• Codebase Open Source - Vérifiez-le vous-même sur GitHub !
+• Utilise l'OAuth 2.0 officiel de pCloud.
+• Vos identifiants ne quittent jamais votre navigateur.
+
+Améliorez votre productivité dès aujourd'hui avec HyperCmdC for pCloud ! 🚀
+
+#pCloud #Productivity #ChromeExtension #CloudStorage #Markdown #Research

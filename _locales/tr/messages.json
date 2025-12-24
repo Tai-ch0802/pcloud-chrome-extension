@@ -1,0 +1,479 @@
+{
+    "extensionName": {
+        "message": "HyperCmdC for pCloud",
+        "description": "Uzantının adı."
+    },
+    "extensionDescription": {
+        "message": "Kolay dosya yönetimi için pCloud'u Chrome tarayıcınızla sorunsuz bir şekilde entegre edin.",
+        "description": "Uzantının açıklaması."
+    },
+    "options_title": {
+        "message": "pCloud Uzantı Seçenekleri",
+        "description": "Seçenekler sayfası için başlık."
+    },
+    "options_description": {
+        "message": "pCloud Chrome Uzantısı ayarlarınızı buradan yapılandırın.",
+        "description": "Seçenekler sayfası için açıklama."
+    },
+    "options_default_folder_label": {
+        "message": "Mevcut Seçili Yol:",
+        "description": "Mevcut seçili yol gösterimi için etiket."
+    },
+    "options_default_folder_placeholder": {
+        "message": "örn. kök klasör için 0",
+        "description": "Varsayılan yükleme klasörü kimliği girişi için yer tutucu."
+    },
+    "options_save_button_text": {
+        "message": "Ayarları Kaydet",
+        "description": "Seçenekleri kaydet düğmesi için metin."
+    },
+    "options_saved_message": {
+        "message": "Ayarlar kaydedildi!",
+        "description": "Ayarlar kaydedildikten sonra görüntülenen mesaj."
+    },
+    "options_invalid_folder_id": {
+        "message": "Geçersiz klasör kimliği. Lütfen negatif olmayan bir sayı girin.",
+        "description": "Geçersiz klasör kimliği girişi için hata mesajı."
+    },
+    "options_theme_label": {
+        "message": "Tema"
+    },
+    "options_theme_googlestyle": {
+        "message": "Google Stili"
+    },
+    "options_theme_geek": {
+        "message": "İnek (Geek)"
+    },
+    "back_button_title": {
+        "message": "Geri",
+        "description": "Geri düğmesi için başlık."
+    },
+    "login_token_prompt": {
+        "message": "Jetonla Kimlik Doğrulama",
+        "description": "Jetonla giriş görünümü için istem."
+    },
+    "login_prompt": {
+        "message": "pCloud'a Giriş Yap",
+        "description": "Giriş görünümü için istem."
+    },
+    "login_email_placeholder": {
+        "message": "E-posta veya Kullanıcı Adı",
+        "description": "E-posta/kullanıcı adı girişi için yer tutucu."
+    },
+    "login_password_placeholder": {
+        "message": "Şifre",
+        "description": "Şifre girişi için yer tutucu."
+    },
+    "login_button_text": {
+        "message": "Giriş Yap",
+        "description": "Giriş düğmesi için metin."
+    },
+    "login_oauth_button": {
+        "message": "pCloud ile Giriş Yap",
+        "description": "OAuth giriş düğmesi için metin."
+    },
+    "login_oauth_error": {
+        "message": "Kimlik doğrulama başarısız oldu. Lütfen tekrar deneyin.",
+        "description": "OAuth giriş hatası için genel hata mesajı."
+    },
+    "login_error_empty_credentials": {
+        "message": "Lütfen hem e-posta/kullanıcı adı hem de şifre girin.",
+        "description": "Boş giriş alanları için hata mesajı."
+    },
+    "login_error_invalid_credentials": {
+        "message": "Giriş başarısız. Lütfen kimlik bilgilerinizi kontrol edin.",
+        "description": "Geçersiz giriş için hata mesajı."
+    },
+    "login_token_description": {
+        "message": "Başka bir sekmede my.pcloud.com adresine giriş yapın, ardından 'auth' jetonunu buraya yapıştırın.",
+        "description": "Kimlik doğrulama jetonunun nasıl alınacağına dair açıklama."
+    },
+    "login_token_placeholder": {
+        "message": "Kimlik doğrulama jetonunuzu buraya yapıştırın",
+        "description": "Kimlik doğrulama jetonu metin alanı için yer tutucu."
+    },
+    "login_token_button_text": {
+        "message": "Jetonu Doğrula ve Kaydet",
+        "description": "Jetonla giriş düğmesi için metin."
+    },
+    "login_switch_to_token": {
+        "message": "Veya kimlik doğrulama jetonu ile giriş yapın",
+        "description": "Jetonla girişe geçmek için bağlantı."
+    },
+    "login_switch_to_password": {
+        "message": "Veya e-posta ve şifre ile giriş yapın",
+        "description": "Şifre ile girişe geçmek için bağlantı."
+    },
+    "login_error_invalid_token": {
+        "message": "Geçersiz jeton. Lütfen jetonu kontrol edin ve tekrar deneyin.",
+        "description": "Geçersiz kimlik doğrulama jetonu için hata mesajı."
+    },
+    "login_error_generic": {
+        "message": "Doğrulama sırasında beklenmeyen bir hata oluştu. Lütfen tekrar deneyin.",
+        "description": "Jeton doğrulaması için genel hata mesajı."
+    },
+    "upload_prompt": {
+        "message": "pCloud'a Yükle",
+        "description": "Yükleme görünümü için istem."
+    },
+    "logout_button_text": {
+        "message": "Çıkış Yap",
+        "description": "Çıkış düğmesi için metin."
+    },
+    "upload_select_file_button": {
+        "message": "Dosya Seç",
+        "description": "Dosya seçiciyi açmak için düğme."
+    },
+    "upload_drag_and_drop_prompt": {
+        "message": "Yüklemek için dosyaları buraya sürükleyip bırakın",
+        "description": "Sürükle ve bırak alanı için metin."
+    },
+    "upload_select_file_link": {
+        "message": "Veya dosyaları seçin",
+        "description": "Sürükle ve bırak işlemine alternatif olarak dosya seçiciyi açmak için bağlantı metni."
+    },
+    "go_to_pcloud_website": {
+        "message": "pCloud Web Sitesine Git",
+        "description": "pCloud web sitesine bağlantı."
+    },
+    "upload_button_text": {
+        "message": "Yükle",
+        "description": "Yükle düğmesi için metin."
+    },
+    "upload_success_message": {
+        "message": "Dosya başarıyla yüklendi!",
+        "description": "Yüklemeden sonra başarı mesajı."
+    },
+    "upload_error_generic": {
+        "message": "Yükleme başarısız oldu. Lütfen tekrar deneyin.",
+        "description": "Yükleme için genel hata mesajı."
+    },
+    "upload_error_no_auth": {
+        "message": "Kimlik doğrulama hatası. Lütfen tekrar giriş yapın.",
+        "description": "Yükleme için kimliği doğrulanmadığında hata mesajı."
+    },
+    "upload_error_no_file": {
+        "message": "Lütfen yüklemek için bir dosya seçin.",
+        "description": "Yükleme için dosya seçilmediğinde hata mesajı."
+    },
+    "options_section_appearance": {
+        "message": "Görünüm",
+        "description": "Seçenekler sayfasındaki görünüm ayarları bölümü için başlık."
+    },
+    "options_section_uploads": {
+        "message": "Yüklemeler",
+        "description": "Seçenekler sayfasındaki yükleme ayarları bölümü için başlık."
+    },
+    "snackbar_dismiss": {
+        "message": "Kapat",
+        "description": "Bir snackbar bildirimindeki kapat düğmesi için metin."
+    },
+    "options_loading_folders": {
+        "message": "Klasörler yükleniyor...",
+        "description": "Klasör ağacı yüklenirken gösterilen mesaj."
+    },
+    "options_login_to_load": {
+        "message": "Klasörleri yüklemek için lütfen uzantı penceresi üzerinden giriş yapın.",
+        "description": "Kullanıcının klasörleri görmek için giriş yapması gerektiğinde gösterilen mesaj."
+    },
+    "options_error_loading_folders": {
+        "message": "Klasörler yüklenirken hata oluştu. Lütfen giriş yaptığınızdan ve internet bağlantınızın olduğundan emin olun.",
+        "description": "Klasör ağacı yüklenemediğinde gösterilen mesaj."
+    },
+    "context_menu_save_image": {
+        "message": "Resmi pCloud'a kaydet",
+        "description": "Bir resmi kaydetmek için bağlam menüsü öğesi metni."
+    },
+    "notification_upload_started_title": {
+        "message": "Resim Yükleme",
+        "description": "Resim yükleme başladığında bildirim için başlık."
+    },
+    "notification_upload_started_message": {
+        "message": "Resim pCloud'unuza kaydediliyor...",
+        "description": "Resim yükleme başladığında bildirim için mesaj."
+    },
+    "notification_upload_success_title": {
+        "message": "Yükleme Tamamlandı",
+        "description": "Resim yükleme başarılı olduğunda bildirim için başlık."
+    },
+    "notification_upload_success_message": {
+        "message": "Resim pCloud'a başarıyla kaydedildi.",
+        "description": "Resim yükleme başarılı olduğunda bildirim için mesaj."
+    },
+    "notification_upload_error_title": {
+        "message": "Yükleme Başarısız",
+        "description": "Resim yükleme başarısız olduğunda bildirim için başlık."
+    },
+    "notification_upload_error_message": {
+        "message": "Resim pCloud'a kaydedilemedi. Lütfen tekrar deneyin.",
+        "description": "Resim yükleme başarısız olduğunda bildirim için mesaj."
+    },
+    "notification_auth_error_message": {
+        "message": "Dosyaları kaydetmek için lütfen pCloud uzantısına giriş yapın.",
+        "description": "Kullanıcı giriş yapmadığında bildirim için mesaj."
+    },
+    "options_section_filename": {
+        "message": "Resim Dosya Adı",
+        "description": "Seçenekler sayfasındaki resim dosya adı ayarları bölümü için başlık."
+    },
+    "options_section_text_filename": {
+        "message": "Metin Dosya Adı",
+        "description": "Seçenekler sayfasındaki metin dosya adı ayarları bölümü için başlık."
+    },
+    "options_filename_description": {
+        "message": "Dosya adı parçalarını yeniden sıralamak için sürükleyip bırakın. Çıkarmak için işaretini kaldırın.",
+        "description": "Dosya adı yapılandırma kullanıcı arayüzü için açıklama."
+    },
+    "options_filename_part_sorting_number": {
+        "message": "Sıralama Numarası",
+        "description": "'Sıralama Numarası' dosya adı parçası için etiket."
+    },
+    "options_filename_part_page_title": {
+        "message": "Sayfa Başlığı",
+        "description": "'Sayfa Başlığı' dosya adı parçası için etiket."
+    },
+    "options_filename_part_timestamp": {
+        "message": "Zaman Damgası",
+        "description": "'Zaman Damgası' dosya adı parçası için etiket."
+    },
+    "options_filename_part_free_key": {
+        "message": "Özel Metin",
+        "description": "'Özel Metin' dosya adı parçası için etiket."
+    },
+    "options_filename_part_date": {
+        "message": "Tarih",
+        "description": "'Tarih' dosya adı parçası için etiket."
+    },
+    "options_filename_separator_label": {
+        "message": "Ayırıcı",
+        "description": "Dosya adı parçaları arasındaki ayırıcı giriş alanı için etiket."
+    },
+    "contextMenuItemUploadSelection": {
+        "message": "Seçilen Metni pCloud'a Yükle",
+        "description": "Seçilen metni yüklemek için bağlam menüsü öğesi metni."
+    },
+    "notificationUploadTextStartedTitle": {
+        "message": "Metin Yükleme",
+        "description": "Metin yükleme başladığında bildirim için başlık."
+    },
+    "notificationUploadTextStartedMessage": {
+        "message": "Seçilen metin pCloud'unuza kaydediliyor...",
+        "description": "Metin yükleme başladığında bildirim için mesaj."
+    },
+    "notificationUploadTextSuccessTitle": {
+        "message": "Yükleme Tamamlandı",
+        "description": "Metin yükleme başarılı olduğunda bildirim için başlık."
+    },
+    "notificationUploadTextSuccessMessage": {
+        "message": "Seçilen metin başarıyla pCloud'a kaydedildi.",
+        "description": "Metin yükleme başarılı olduğunda bildirim için mesaj."
+    },
+    "notificationUploadTextErrorTitle": {
+        "message": "Yükleme Başarısız",
+        "description": "Metin yükleme başarısız olduğunda bildirim için başlık."
+    },
+    "notificationUploadTextErrorMessage": {
+        "message": "Seçilen metin pCloud'a kaydedilemedi. Lütfen tekrar deneyin.",
+        "description": "Metin yükleme başarısız olduğunda bildirim için mesaj."
+    },
+    "notification_error_stale_content_script": {
+        "message": "Sayfaya bağlanılamıyor. Lütfen sekmeyi yenileyin ve tekrar deneyin.",
+        "description": "İçerik betiği eski veya kullanılamadığında hata mesajı."
+    },
+    "context_menu_save_selection": {
+        "message": "Seçimi Belge Olarak pCloud'a Kaydet"
+    },
+    "options_section_document_downloader": {
+        "message": "Belge İndirici"
+    },
+    "options_document_format_label": {
+        "message": "Belge Formatı"
+    },
+    "options_document_include_metadata_label": {
+        "message": "Meta Verileri Dahil Et (YAML Frontmatter)"
+    },
+    "options_text_include_metadata_label": {
+        "message": "Meta Verileri Dahil Et (YAML Frontmatter)"
+    },
+    "notification_document_processing_title": {
+        "message": "Belge İşleniyor"
+    },
+    "notification_document_processing_message": {
+        "message": "Seçiminiz dönüştürülüyor ve yükleniyor..."
+    },
+    "notification_document_success_title": {
+        "message": "Belge Kaydedildi"
+    },
+    "notification_document_success_message": {
+        "message": "Belge başarıyla pCloud'a kaydedildi."
+    },
+    "notification_document_error_title": {
+        "message": "Kaydetme Başarısız"
+    },
+    "notification_document_error_message": {
+        "message": "Belge kaydedilemedi. Lütfen tekrar deneyin."
+    },
+    "error_connection_lost_refresh": {
+        "message": "Sayfaya bağlanılamıyor. Lütfen sekmeyi yenileyin ve tekrar deneyin.",
+        "description": "İçerik betiği eski veya kullanılamadığında hata mesajı."
+    },
+    "options_domain_rules_title": {
+        "message": "Etki Alanına Göre Yükleme Yolu"
+    },
+    "options_domain_rules_test_playground_title": {
+        "message": "Test Oyun Alanı"
+    },
+    "options_domain_rules_test_placeholder": {
+        "message": "Kuralları test etmek için URL girin...",
+        "description": "Kuralları test etmek için yer tutucu."
+    },
+    "options_domain_rules_test_result_match": {
+        "message": "✅ Eşleşen Kural: {rule}"
+    },
+    "options_domain_rules_test_result_no_match": {
+        "message": "Eşleşen kural bulunamadı."
+    },
+    "options_dialog_cancel": {
+        "message": "İptal"
+    },
+    "options_dialog_save": {
+        "message": "Kaydet"
+    },
+    "options_dialog_select": {
+        "message": "Seç"
+    },
+    "options_dialog_ok": {
+        "message": "Tamam"
+    },
+    "options_folder_picker_title": {
+        "message": "Klasör Seç"
+    },
+    "options_domain_rules_help_icon_tooltip": {
+        "message": "Kural Yardımı"
+    },
+    "options_domain_rules_help_dialog_title": {
+        "message": "Kural Önceliği Yardımı"
+    },
+    "options_domain_rules_help_dialog_content": {
+        "message": "Kurallar yukarıdan aşağıya doğru eşleştirilir. İlk eşleşen kural uygulanacaktır. Kuralları yeniden sıralamak için sürükleyip bırakabilirsiniz. Yapılandırmanızı doğrulamak için yukarıdaki 'Test Oyun Alanı'nı kullanmanızı öneririz."
+    },
+    "options_domain_rules_add_button": {
+        "message": "Kural Ekle"
+    },
+    "options_domain_rules_delete_button": {
+        "message": "Kuralı Sil"
+    },
+    "options_domain_rules_col_domain": {
+        "message": "Etki Alanı (joker karakterleri destekler)"
+    },
+    "options_domain_rules_col_path": {
+        "message": "Hedef pCloud Yolu"
+    },
+    "options_domain_rules_dialog_title_add": {
+        "message": "Yeni Kural Ekle"
+    },
+    "options_domain_rules_dialog_title_edit": {
+        "message": "Kuralı Düzenle"
+    },
+    "options_domain_rules_folder_picker_create_btn": {
+        "message": "Yeni Klasör Oluştur"
+    },
+    "options_domain_rules_confirm_delete": {
+        "message": "Bu kuralı silmek istediğinizden emin misiniz?"
+    },
+    "options_section_premium": {
+        "message": "Premium Yükseltme"
+    },
+    "options_premium_active": {
+        "message": "PREMIUM AKTİF"
+    },
+    "options_premium_description": {
+        "message": "Belge İndirici (Markdown/Word) ve daha fazlası gibi gelişmiş özelliklerin kilidini açın!"
+    },
+    "options_tier_pcloud_name": {
+        "message": "HyperCmdC for pCloud"
+    },
+    "options_tier_pcloud_desc": {
+        "message": "Yalnızca bu uzantı için özelliklerin kilidini açar."
+    },
+    "options_tier_master_name": {
+        "message": "HyperCmdC Master"
+    },
+    "options_tier_master_desc": {
+        "message": "TÜM HyperCmdC uzantılarının (pCloud, S3, vb.) kilidini açar."
+    },
+    "options_restore_purchase": {
+        "message": "Satın Alımı Geri Yükle"
+    },
+    "options_premium_thank_you": {
+        "message": "Desteğiniz için teşekkürler!"
+    },
+    "options_premium_active_desc": {
+        "message": "Tüm premium özelliklere erişiminiz var."
+    },
+    "options_payment_success": {
+        "message": "Ödeme başarılı! Premium özelliklerin kilidi açıldı."
+    },
+    "options_payment_failed": {
+        "message": "Ödeme başarısız oldu. Lütfen tekrar deneyin."
+    },
+    "options_restore_success": {
+        "message": "Satın alma başarıyla geri yüklendi!"
+    },
+    "options_restore_failed": {
+        "message": "Bu e-posta için lisans bulunamadı."
+    },
+    "notification_premium_required_title": {
+        "message": "Premium Özellik"
+    },
+    "notification_premium_required_message": {
+        "message": "Bu özellik Premium lisans gerektirir. Kilidi açmak için şimdi yükseltin!"
+    },
+    "notification_premium_upgrade_button": {
+        "message": "Şimdi Yükselt"
+    },
+    "options_upgrade_now": {
+        "message": "Şimdi Yükselt"
+    },
+    "options_payment_page_opening": {
+        "message": "Ödeme sayfası açılıyor... (Sahte - Geliştirme Modu)"
+    },
+    "toast_uploading_to_pcloud": {
+        "message": "pCloud'a yükleniyor..."
+    },
+    "toast_upload_started": {
+        "message": "Yükleme başlatıldı!"
+    },
+    "toast_processing_images": {
+        "message": "Resimler işleniyor ($1/$2)..."
+    },
+    "toast_generating_document": {
+        "message": "Belge oluşturuluyor..."
+    },
+    "toast_view_button": {
+        "message": "Görüntüle"
+    },
+    "pdf_download_to_pcloud": {
+        "message": "pCloud'a Kaydet"
+    },
+    "pdf_download_as_markdown": {
+        "message": "pCloud'a Markdown Olarak İndir"
+    },
+    "pdf_error_not_pdf": {
+        "message": "Bu sayfa PDF değil."
+    },
+    "pdf_error_fetch_failed": {
+        "message": "PDF verileri alınamadı."
+    },
+    "visit_official_website": {
+        "message": "'HyperCmdC' Web Sitesini Ziyaret Edin"
+    },
+    "options_promotion_text": {
+        "message": "Sınırlı Süre Ücretsiz!",
+        "description": "Promosyon simgesinin yanında gösterilen promosyon metni."
+    },
+    "options_footer_opensource_text": {
+        "message": "Kaynağı GitHub'da Görüntüle",
+        "description": "Açık kaynak deposuna bağlantı metni."
+    }
+}

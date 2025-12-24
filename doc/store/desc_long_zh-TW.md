@@ -1,6 +1,6 @@
-# HyperCmdC for pCloud：全方位功能解析
+# HyperCmdC for pCloud：全方位功能解析 [開源免費版]
 
-HyperCmdC for pCloud 是一款專為 Google Chrome 設計的高階擴充功能，旨在連結網頁瀏覽與雲端儲存。它將 pCloud 從被動的儲存空間轉變為主動的生產力工具，讓使用者以前所未有的輕鬆方式擷取、整理和歸檔網頁內容。
+HyperCmdC for pCloud 是一款專為 Google Chrome 設計的**開源**高階擴充功能，旨在連結網頁瀏覽與雲端儲存。它將 pCloud 從被動的儲存空間轉變為主動的生產力工具，讓使用者以前所未有的輕鬆方式擷取、整理和歸檔網頁內容。現在所有功能均為**免費**。
 
 ## 核心價值主張
 
@@ -32,7 +32,7 @@ HyperCmdC 在 Chrome 中瀏覽標準 PDF 檔案時，注入了無縫且原生感
 
 -   **懸浮介面**：在 PDF 頁面上出現一個不干擾閱讀的懸浮動作按鈕 (FAB)。
 -   **直接上傳**：一鍵將目前的 PDF 儲存至您的雲端。
--   **PDF 轉 Markdown (Premium)**：嘗試將 PDF 轉換為 Markdown 筆記，方便後續整理或餵給 AI 模型、甚至其他應用所使用。
+-   **PDF 轉 Markdown**：嘗試將 PDF 轉換為 Markdown 筆記，方便後續整理或餵給 AI 模型、甚至其他應用所使用。
 
 ### 5. 進階自訂與邏輯
 

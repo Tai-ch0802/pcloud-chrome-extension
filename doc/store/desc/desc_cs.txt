@@ -1,0 +1,43 @@
+🚀 HyperCmdC for pCloud: Dokonalý nástroj pro úsporu cloudu! [OPEN SOURCE A ZDARMA] ☁️
+
+Odemkněte plnou sílu pCloud přímo z vašeho prohlížeče! HyperCmdC je nyní plně Open Source a zdarma, bezproblémově integruje pCloud do vašeho každodenního pracovního postupu.
+
+✨ KLÍČOVÉ FUNKCE:
+
+🖼️ Chytré ukládání obrázků
+• Kliknutím pravým tlačítkem okamžitě nahrajete jakýkoli obrázek na pCloud.
+• Automaticky organizujte nahrávání do vlastních složek.
+• Už žádné ruční stahování a opětovné nahrávání!
+
+📥 Intuitivní přetahování
+• Přetáhněte jakýkoli obrázek z webové stránky přímo na překryvnou vrstvu a nahrajte jej!
+• Snadné a rychlé.
+
+📝 Výběr textu do Markdown
+• Zvýraznit text -> Kliknout pravým tlačítkem -> Uložit!
+• Okamžitě vytvoří poznámku Markdown ve vašem cloudu.
+• Ideální pro výzkum a psaní poznámek.
+
+📄 Web na dokument
+• Proměňte jakýkoli webový obsah na čistý dokument Markdown nebo Word.
+• Obrázky se automaticky stáhnou, nahrají na pCloud a propojí ve vašem dokumentu! 🤯
+• Udržuje vaše poznámky bohaté a přenosné.
+
+📂 Chytrá integrace PDF
+• Na jakémkoli PDF, které si v Chromu prohlížíte, se objeví krásné plovoucí tlačítko.
+• Ukládejte soubory PDF přímo do konkrétních složek pCloud jedním kliknutím.
+• Pokusí se převést soubory PDF na Markdown pro AI nebo jiné aplikace!
+
+⚡ Nástroje pro pokročilé uživatele
+• Přizpůsobitelné názvy souborů (Datum, Název, Vlastní klíče).
+• Pravidla domény: Nastavte různé složky pro nahrávání pro různé weby!
+• Chytré zálohy zajišťují, že o soubor nikdy nepřijdete.
+
+🔒 Bezpečné a soukromé
+• Open Source Codebase – Ověřte si to sami na GitHubu!
+• Používá oficiální pCloud OAuth 2.0.
+• Vaše přihlašovací údaje nikdy neopustí váš prohlížeč.
+
+Zvyšte svou produktivitu ještě dnes pomocí HyperCmdC for pCloud! 🚀
+
+#pCloud #Productivity #ChromeExtension #CloudStorage #Markdown #Research

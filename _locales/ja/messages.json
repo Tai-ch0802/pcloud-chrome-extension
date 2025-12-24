@@ -1,0 +1,479 @@
+{
+    "extensionName": {
+        "message": "HyperCmdC for pCloud",
+        "description": "拡張機能の名前。"
+    },
+    "extensionDescription": {
+        "message": "pCloudをChromeブラウザにシームレスに統合し、ファイル管理を容易にします。",
+        "description": "拡張機能の説明。"
+    },
+    "options_title": {
+        "message": "pCloud 拡張機能の設定",
+        "description": "オプションページのタイトル。"
+    },
+    "options_description": {
+        "message": "ここでpCloud Chrome拡張機能の設定を行ってください。",
+        "description": "オプションページの説明。"
+    },
+    "options_default_folder_label": {
+        "message": "現在選択されているパス:",
+        "description": "現在選択されているパスを表示するラベル。"
+    },
+    "options_default_folder_placeholder": {
+        "message": "例: 0 はルートフォルダ",
+        "description": "デフォルトのアップロードフォルダID入力フィールドのプレースホルダー。"
+    },
+    "options_save_button_text": {
+        "message": "設定を保存",
+        "description": "オプション保存ボタンのテキスト。"
+    },
+    "options_saved_message": {
+        "message": "設定が保存されました！",
+        "description": "設定保存後に表示されるメッセージ。"
+    },
+    "options_invalid_folder_id": {
+        "message": "無効なフォルダIDです。非負の数字を入力してください。",
+        "description": "無効なフォルダID入力時のエラーメッセージ。"
+    },
+    "options_theme_label": {
+        "message": "テーマ"
+    },
+    "options_theme_googlestyle": {
+        "message": "Google スタイル"
+    },
+    "options_theme_geek": {
+        "message": "ギーク"
+    },
+    "back_button_title": {
+        "message": "戻る",
+        "description": "戻るボタンのタイトル。"
+    },
+    "login_token_prompt": {
+        "message": "トークンで認証",
+        "description": "トークンログイン画面のプロンプト。"
+    },
+    "login_prompt": {
+        "message": "pCloudにログイン",
+        "description": "ログイン画面のプロンプト。"
+    },
+    "login_email_placeholder": {
+        "message": "メールアドレスまたはユーザー名",
+        "description": "メール/ユーザー名入力フィールドのプレースホルダー。"
+    },
+    "login_password_placeholder": {
+        "message": "パスワード",
+        "description": "パスワード入力フィールドのプレースホルダー。"
+    },
+    "login_button_text": {
+        "message": "ログイン",
+        "description": "ログインボタンのテキスト。"
+    },
+    "login_oauth_button": {
+        "message": "pCloudでログイン",
+        "description": "OAuthログインボタンのテキスト。"
+    },
+    "login_oauth_error": {
+        "message": "認証に失敗しました。もう一度お試しください。",
+        "description": "OAuthログイン失敗時の一般的なエラーメッセージ。"
+    },
+    "login_error_empty_credentials": {
+        "message": "メールアドレス/ユーザー名とパスワードを入力してください。",
+        "description": "ログインフィールドが空の場合のエラーメッセージ。"
+    },
+    "login_error_invalid_credentials": {
+        "message": "ログインに失敗しました。認証情報を確認してください。",
+        "description": "ログイン無効時のエラーメッセージ。"
+    },
+    "login_token_description": {
+        "message": "別のタブでmy.pcloud.comにログインし、'auth'トークンをここに貼り付けてください。",
+        "description": "authトークンの取得方法の説明。"
+    },
+    "login_token_placeholder": {
+        "message": "ここにauthトークンを貼り付け",
+        "description": "authトークンテキストエリアのプレースホルダー。"
+    },
+    "login_token_button_text": {
+        "message": "トークンを検証して保存",
+        "description": "トークンログインボタンのテキスト。"
+    },
+    "login_switch_to_token": {
+        "message": "または、authトークンでログイン",
+        "description": "トークンログインへの切り替えリンク。"
+    },
+    "login_switch_to_password": {
+        "message": "または、メールアドレスとパスワードでログイン",
+        "description": "パスワードログインへの切り替えリンク。"
+    },
+    "login_error_invalid_token": {
+        "message": "トークンが無効です。トークンを確認してもう一度お試しください。",
+        "description": "無効なauthトークン時のエラーメッセージ。"
+    },
+    "login_error_generic": {
+        "message": "検証中に予期しないエラーが発生しました。もう一度お試しください。",
+        "description": "トークン検証時の一般的なエラーメッセージ。"
+    },
+    "upload_prompt": {
+        "message": "pCloudへアップロード",
+        "description": "アップロード画面のプロンプト。"
+    },
+    "logout_button_text": {
+        "message": "ログアウト",
+        "description": "ログアウトボタンのテキスト。"
+    },
+    "upload_select_file_button": {
+        "message": "ファイルを選択",
+        "description": "ファイルピッカーを開くボタン。"
+    },
+    "upload_drag_and_drop_prompt": {
+        "message": "ここにファイルをドラッグ＆ドロップしてアップロード",
+        "description": "ドラッグ＆ドロップエリアのテキスト。"
+    },
+    "upload_select_file_link": {
+        "message": "またはファイルを選択",
+        "description": "ドラッグ＆ドロップの代わりにファイルピッカーを開くリンクテキスト。"
+    },
+    "go_to_pcloud_website": {
+        "message": "pCloudウェブサイトへ",
+        "description": "pCloudウェブサイトへのリンク。"
+    },
+    "upload_button_text": {
+        "message": "アップロード",
+        "description": "アップロードボタンのテキスト。"
+    },
+    "upload_success_message": {
+        "message": "ファイルのアップロードに成功しました！",
+        "description": "アップロード成功後のメッセージ。"
+    },
+    "upload_error_generic": {
+        "message": "アップロードに失敗しました。もう一度お試しください。",
+        "description": "アップロードの一般的なエラーメッセージ。"
+    },
+    "upload_error_no_auth": {
+        "message": "認証エラー。再度ログインしてください。",
+        "description": "アップロード時に未認証の場合のエラーメッセージ。"
+    },
+    "upload_error_no_file": {
+        "message": "アップロードするファイルを選択してください。",
+        "description": "ファイルが選択されていない場合のエラーメッセージ。"
+    },
+    "options_section_appearance": {
+        "message": "外観",
+        "description": "オプションページの外観設定セクションのヘッダー。"
+    },
+    "options_section_uploads": {
+        "message": "アップロード",
+        "description": "オプションページのアップロード設定セクションのヘッダー。"
+    },
+    "snackbar_dismiss": {
+        "message": "閉じる",
+        "description": "スナックバー通知の閉じるボタンのテキスト。"
+    },
+    "options_loading_folders": {
+        "message": "フォルダを読み込んでいます...",
+        "description": "フォルダツリー読み込み中に表示されるメッセージ。"
+    },
+    "options_login_to_load": {
+        "message": "フォルダを読み込むには、拡張機能のポップアップからログインしてください。",
+        "description": "フォルダを表示するためにログインが必要な場合のメッセージ。"
+    },
+    "options_error_loading_folders": {
+        "message": "フォルダの読み込み中にエラーが発生しました。ログインしていること、およびインターネット接続を確認してください。",
+        "description": "フォルダツリーの読み込みに失敗した場合のメッセージ。"
+    },
+    "context_menu_save_image": {
+        "message": "画像をpCloudに保存",
+        "description": "画像を保存するためのコンテキストメニュー項目。"
+    },
+    "notification_upload_started_title": {
+        "message": "画像のアップロード",
+        "description": "画像アップロード開始時の通知タイトル。"
+    },
+    "notification_upload_started_message": {
+        "message": "画像をpCloudに保存しています...",
+        "description": "画像アップロード開始時の通知メッセージ。"
+    },
+    "notification_upload_success_title": {
+        "message": "アップロード完了",
+        "description": "画像アップロード成功時の通知タイトル。"
+    },
+    "notification_upload_success_message": {
+        "message": "画像がpCloudに正常に保存されました。",
+        "description": "画像アップロード成功時の通知メッセージ。"
+    },
+    "notification_upload_error_title": {
+        "message": "アップロード失敗",
+        "description": "画像アップロード失敗時の通知タイトル。"
+    },
+    "notification_upload_error_message": {
+        "message": "画像をpCloudに保存できませんでした。もう一度お試しください。",
+        "description": "画像アップロード失敗時の通知メッセージ。"
+    },
+    "notification_auth_error_message": {
+        "message": "ファイルを保存するにはpCloud拡張機能にログインしてください。",
+        "description": "ユーザーが未ログインの場合の通知メッセージ。"
+    },
+    "options_section_filename": {
+        "message": "画像ファイル名",
+        "description": "オプションページの画像ファイル名設定セクションのヘッダー。"
+    },
+    "options_section_text_filename": {
+        "message": "テキストファイル名",
+        "description": "オプションページのテキストファイル名設定セクションのヘッダー。"
+    },
+    "options_filename_description": {
+        "message": "ドラッグ＆ドロップでファイル名の部分を並べ替えます。除外するにはチェックを外してください。",
+        "description": "ファイル名設定UIの説明。"
+    },
+    "options_filename_part_sorting_number": {
+        "message": "並べ替え番号",
+        "description": "「並べ替え番号」ファイル名部分のラベル。"
+    },
+    "options_filename_part_page_title": {
+        "message": "ページタイトル",
+        "description": "「ページタイトル」ファイル名部分のラベル。"
+    },
+    "options_filename_part_timestamp": {
+        "message": "タイムスタンプ",
+        "description": "「タイムスタンプ」ファイル名部分のラベル。"
+    },
+    "options_filename_part_free_key": {
+        "message": "カスタムテキスト",
+        "description": "「カスタムテキスト」ファイル名部分のラベル。"
+    },
+    "options_filename_part_date": {
+        "message": "日付",
+        "description": "「日付」ファイル名部分のラベル。"
+    },
+    "options_filename_separator_label": {
+        "message": "区切り文字",
+        "description": "ファイル名部分間の区切り文字入力フィールドのラベル。"
+    },
+    "contextMenuItemUploadSelection": {
+        "message": "選択したテキストをpCloudにアップロード",
+        "description": "選択したテキストをアップロードするためのコンテキストメニュー項目。"
+    },
+    "notificationUploadTextStartedTitle": {
+        "message": "テキストのアップロード",
+        "description": "テキストアップロード開始時の通知タイトル。"
+    },
+    "notificationUploadTextStartedMessage": {
+        "message": "選択したテキストをpCloudに保存しています...",
+        "description": "テキストアップロード開始時の通知メッセージ。"
+    },
+    "notificationUploadTextSuccessTitle": {
+        "message": "アップロード完了",
+        "description": "テキストアップロード成功時の通知タイトル。"
+    },
+    "notificationUploadTextSuccessMessage": {
+        "message": "選択したテキストがpCloudに正常に保存されました。",
+        "description": "テキストアップロード成功時の通知メッセージ。"
+    },
+    "notificationUploadTextErrorTitle": {
+        "message": "アップロード失敗",
+        "description": "テキストアップロード失敗時の通知タイトル。"
+    },
+    "notificationUploadTextErrorMessage": {
+        "message": "選択したテキストをpCloudに保存できませんでした。もう一度お試しください。",
+        "description": "テキストアップロード失敗時の通知メッセージ。"
+    },
+    "notification_error_stale_content_script": {
+        "message": "ページに接続できません。タブをリロードしてもう一度お試しください。",
+        "description": "コンテンツスクリプトが古いか利用できない場合のエラーメッセージ。"
+    },
+    "context_menu_save_selection": {
+        "message": "選択範囲をドキュメントとしてpCloudに保存"
+    },
+    "options_section_document_downloader": {
+        "message": "ドキュメントダウンローダー"
+    },
+    "options_document_format_label": {
+        "message": "ドキュメント形式"
+    },
+    "options_document_include_metadata_label": {
+        "message": "メタデータを含める (YAML Frontmatter)"
+    },
+    "options_text_include_metadata_label": {
+        "message": "メタデータを含める (YAML Frontmatter)"
+    },
+    "notification_document_processing_title": {
+        "message": "ドキュメントを処理中"
+    },
+    "notification_document_processing_message": {
+        "message": "選択範囲を変換してアップロードしています..."
+    },
+    "notification_document_success_title": {
+        "message": "ドキュメント保存完了"
+    },
+    "notification_document_success_message": {
+        "message": "ドキュメントがpCloudに正常に保存されました。"
+    },
+    "notification_document_error_title": {
+        "message": "保存失敗"
+    },
+    "notification_document_error_message": {
+        "message": "ドキュメントを保存できませんでした。もう一度お試しください。"
+    },
+    "error_connection_lost_refresh": {
+        "message": "ページに接続できません。タブをリロードしてもう一度お試しください。",
+        "description": "コンテンツスクリプトが古いか利用できない場合のエラーメッセージ。"
+    },
+    "options_domain_rules_title": {
+        "message": "ドメイン別のアップロードパス"
+    },
+    "options_domain_rules_test_playground_title": {
+        "message": "テストプレイグラウンド"
+    },
+    "options_domain_rules_test_placeholder": {
+        "message": "ルールをテストするURLを入力...",
+        "description": "ルールテスト用の入力フィールドのプレースホルダー。"
+    },
+    "options_domain_rules_test_result_match": {
+        "message": "✅ マッチしたルール: {rule}"
+    },
+    "options_domain_rules_test_result_no_match": {
+        "message": "マッチするルールが見つかりません。"
+    },
+    "options_dialog_cancel": {
+        "message": "キャンセル"
+    },
+    "options_dialog_save": {
+        "message": "保存"
+    },
+    "options_dialog_select": {
+        "message": "選択"
+    },
+    "options_dialog_ok": {
+        "message": "OK"
+    },
+    "options_folder_picker_title": {
+        "message": "フォルダを選択"
+    },
+    "options_domain_rules_help_icon_tooltip": {
+        "message": "ルールヘルプ"
+    },
+    "options_domain_rules_help_dialog_title": {
+        "message": "ルール優先順位ヘルプ"
+    },
+    "options_domain_rules_help_dialog_content": {
+        "message": "ルールは上から順に照合されます。最初に一致したルールが適用されます。ドラッグ＆ドロップでルールを並べ替えることができます。設定を確認するために、上の「テストプレイグラウンド」を使用することをお勧めします。"
+    },
+    "options_domain_rules_add_button": {
+        "message": "ルールを追加"
+    },
+    "options_domain_rules_delete_button": {
+        "message": "ルールを削除"
+    },
+    "options_domain_rules_col_domain": {
+        "message": "ドメイン (ワイルドカード対応)"
+    },
+    "options_domain_rules_col_path": {
+        "message": "ターゲットpCloudパス"
+    },
+    "options_domain_rules_dialog_title_add": {
+        "message": "新しいルールを追加"
+    },
+    "options_domain_rules_dialog_title_edit": {
+        "message": "ルールを編集"
+    },
+    "options_domain_rules_folder_picker_create_btn": {
+        "message": "新しいフォルダを作成"
+    },
+    "options_domain_rules_confirm_delete": {
+        "message": "このルールを削除してもよろしいですか？"
+    },
+    "options_section_premium": {
+        "message": "プレミアムアップグレード"
+    },
+    "options_premium_active": {
+        "message": "プレミアム有効"
+    },
+    "options_premium_description": {
+        "message": "ドキュメントダウンローダー（Markdown/Word）などの高度な機能をロック解除しましょう！"
+    },
+    "options_tier_pcloud_name": {
+        "message": "HyperCmdC for pCloud"
+    },
+    "options_tier_pcloud_desc": {
+        "message": "この拡張機能の機能のみをロック解除します。"
+    },
+    "options_tier_master_name": {
+        "message": "HyperCmdC Master"
+    },
+    "options_tier_master_desc": {
+        "message": "すべてのHyperCmdC拡張機能（pCloud、S3など）をロック解除します。"
+    },
+    "options_restore_purchase": {
+        "message": "購入を復元"
+    },
+    "options_premium_thank_you": {
+        "message": "サポートありがとうございます！"
+    },
+    "options_premium_active_desc": {
+        "message": "すべてのプレミアム機能にアクセスできます。"
+    },
+    "options_payment_success": {
+        "message": "支払いが成功しました！プレミアム機能がロック解除されました。"
+    },
+    "options_payment_failed": {
+        "message": "支払いに失敗しました。もう一度お試しください。"
+    },
+    "options_restore_success": {
+        "message": "購入が正常に復元されました！"
+    },
+    "options_restore_failed": {
+        "message": "このメールアドレスのライセンスが見つかりません。"
+    },
+    "notification_premium_required_title": {
+        "message": "プレミアム機能"
+    },
+    "notification_premium_required_message": {
+        "message": "この機能にはプレミアムライセンスが必要です。今すぐアップグレードしてロック解除しましょう！"
+    },
+    "notification_premium_upgrade_button": {
+        "message": "今すぐアップグレード"
+    },
+    "options_upgrade_now": {
+        "message": "今すぐアップグレード"
+    },
+    "options_payment_page_opening": {
+        "message": "支払いページを開いています... (モック - 開発モード)"
+    },
+    "toast_uploading_to_pcloud": {
+        "message": "pCloudにアップロード中..."
+    },
+    "toast_upload_started": {
+        "message": "アップロードを開始しました！"
+    },
+    "toast_processing_images": {
+        "message": "画像を処理中 ($1/$2)..."
+    },
+    "toast_generating_document": {
+        "message": "ドキュメントを生成中..."
+    },
+    "toast_view_button": {
+        "message": "表示"
+    },
+    "pdf_download_to_pcloud": {
+        "message": "pCloudに保存"
+    },
+    "pdf_download_as_markdown": {
+        "message": "MarkdownとしてpCloudに保存"
+    },
+    "pdf_error_not_pdf": {
+        "message": "このページはPDFではありません。"
+    },
+    "pdf_error_fetch_failed": {
+        "message": "PDFデータの取得に失敗しました。"
+    },
+    "visit_official_website": {
+        "message": "'HyperCmdC' 公式サイトへ"
+    },
+    "options_promotion_text": {
+        "message": "期間限定無料！",
+        "description": "プロモーションアイコンの横に表示されるテキスト。"
+    },
+    "options_footer_opensource_text": {
+        "message": "GitHubでソースを表示",
+        "description": "オープンソースリポジトリへのリンクテキスト。"
+    }
+}

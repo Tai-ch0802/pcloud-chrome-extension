@@ -1,0 +1,479 @@
+{
+    "extensionName": {
+        "message": "HyperCmdC for pCloud",
+        "description": "Назва розширення."
+    },
+    "extensionDescription": {
+        "message": "Інтегруйте pCloud безперешкодно з вашим браузером Chrome для легкого керування файлами.",
+        "description": "Опис розширення."
+    },
+    "options_title": {
+        "message": "Параметри розширення pCloud",
+        "description": "Заголовок для сторінки параметрів."
+    },
+    "options_description": {
+        "message": "Налаштуйте параметри вашого розширення pCloud для Chrome тут.",
+        "description": "Опис для сторінки параметрів."
+    },
+    "options_default_folder_label": {
+        "message": "Поточний вибраний шлях:",
+        "description": "Мітка для відображення поточного вибраного шляху."
+    },
+    "options_default_folder_placeholder": {
+        "message": "наприклад, 0 для кореневої папки",
+        "description": "Заповнювач для введення ID папки завантаження за замовчуванням."
+    },
+    "options_save_button_text": {
+        "message": "Зберегти налаштування",
+        "description": "Текст для кнопки збереження параметрів."
+    },
+    "options_saved_message": {
+        "message": "Налаштування збережено!",
+        "description": "Повідомлення, що відображається після збереження налаштувань."
+    },
+    "options_invalid_folder_id": {
+        "message": "Недійсний ID папки. Введіть невід’ємне число.",
+        "description": "Повідомлення про помилку для недійсного введення ID папки."
+    },
+    "options_theme_label": {
+        "message": "Тема"
+    },
+    "options_theme_googlestyle": {
+        "message": "Стиль Google"
+    },
+    "options_theme_geek": {
+        "message": "Гік"
+    },
+    "back_button_title": {
+        "message": "Назад",
+        "description": "Заголовок для кнопки назад."
+    },
+    "login_token_prompt": {
+        "message": "Автентифікувати за допомогою токена",
+        "description": "Підказка для перегляду входу за допомогою токена."
+    },
+    "login_prompt": {
+        "message": "Увійти в pCloud",
+        "description": "Підказка для перегляду входу."
+    },
+    "login_email_placeholder": {
+        "message": "Електронна пошта або ім'я користувача",
+        "description": "Заповнювач для введення електронної пошти/імені користувача."
+    },
+    "login_password_placeholder": {
+        "message": "Пароль",
+        "description": "Заповнювач для введення пароля."
+    },
+    "login_button_text": {
+        "message": "Увійти",
+        "description": "Текст для кнопки входу."
+    },
+    "login_oauth_button": {
+        "message": "Увійти через pCloud",
+        "description": "Текст для кнопки входу OAuth."
+    },
+    "login_oauth_error": {
+        "message": "Автентифікація не вдалася. Спробуйте ще раз.",
+        "description": "Загальне повідомлення про помилку для невдалого входу OAuth."
+    },
+    "login_error_empty_credentials": {
+        "message": "Введіть електронну пошту/ім'я користувача та пароль.",
+        "description": "Повідомлення про помилку для порожніх полів входу."
+    },
+    "login_error_invalid_credentials": {
+        "message": "Вхід не вдався. Перевірте свої облікові дані.",
+        "description": "Повідомлення про помилку для недійсного входу."
+    },
+    "login_token_description": {
+        "message": "Увійдіть на my.pcloud.com на іншій вкладці, а потім вставте токен 'auth' сюди.",
+        "description": "Опис того, як отримати токен автентифікації."
+    },
+    "login_token_placeholder": {
+        "message": "Вставте свій токен автентифікації сюди",
+        "description": "Заповнювач для текстової області токена автентифікації."
+    },
+    "login_token_button_text": {
+        "message": "Перевірити та зберегти токен",
+        "description": "Текст для кнопки входу за допомогою токена."
+    },
+    "login_switch_to_token": {
+        "message": "Або увійдіть за допомогою токена автентифікації",
+        "description": "Посилання для перемикання на вхід за допомогою токена."
+    },
+    "login_switch_to_password": {
+        "message": "Або увійдіть за допомогою електронної пошти та пароля",
+        "description": "Посилання для перемикання на вхід за допомогою пароля."
+    },
+    "login_error_invalid_token": {
+        "message": "Недійсний токен. Перевірте токен і спробуйте ще раз.",
+        "description": "Повідомлення про помилку для недійсного токена автентифікації."
+    },
+    "login_error_generic": {
+        "message": "Під час перевірки сталася неочікувана помилка. Спробуйте ще раз.",
+        "description": "Загальне повідомлення про помилку для перевірки токена."
+    },
+    "upload_prompt": {
+        "message": "Завантажити на pCloud",
+        "description": "Підказка для перегляду завантаження."
+    },
+    "logout_button_text": {
+        "message": "Вийти",
+        "description": "Текст для кнопки виходу."
+    },
+    "upload_select_file_button": {
+        "message": "Вибрати файл",
+        "description": "Кнопка для відкриття вибору файлу."
+    },
+    "upload_drag_and_drop_prompt": {
+        "message": "Перетягніть файли сюди для завантаження",
+        "description": "Текст для області перетягування."
+    },
+    "upload_select_file_link": {
+        "message": "Або виберіть файли",
+        "description": "Текст посилання для відкриття вибору файлу як альтернатива перетягуванню."
+    },
+    "go_to_pcloud_website": {
+        "message": "Перейти на вебсайт pCloud",
+        "description": "Посилання на вебсайт pCloud."
+    },
+    "upload_button_text": {
+        "message": "Завантажити",
+        "description": "Текст для кнопки завантаження."
+    },
+    "upload_success_message": {
+        "message": "Файл успішно завантажено!",
+        "description": "Повідомлення про успіх після завантаження."
+    },
+    "upload_error_generic": {
+        "message": "Завантаження не вдалося. Спробуйте ще раз.",
+        "description": "Загальне повідомлення про помилку для завантаження."
+    },
+    "upload_error_no_auth": {
+        "message": "Помилка автентифікації. Увійдіть ще раз.",
+        "description": "Повідомлення про помилку, коли не автентифіковано для завантаження."
+    },
+    "upload_error_no_file": {
+        "message": "Виберіть файл для завантаження.",
+        "description": "Повідомлення про помилку, коли не вибрано файл для завантаження."
+    },
+    "options_section_appearance": {
+        "message": "Вигляд",
+        "description": "Заголовок для розділу налаштувань вигляду на сторінці параметрів."
+    },
+    "options_section_uploads": {
+        "message": "Завантаження",
+        "description": "Заголовок для розділу налаштувань завантаження на сторінці параметрів."
+    },
+    "snackbar_dismiss": {
+        "message": "Закрити",
+        "description": "Текст для кнопки закриття на сповіщенні snackbar."
+    },
+    "options_loading_folders": {
+        "message": "Завантаження папок...",
+        "description": "Повідомлення, що відображається під час завантаження дерева папок."
+    },
+    "options_login_to_load": {
+        "message": "Увійдіть через спливаюче вікно розширення, щоб завантажити папки.",
+        "description": "Повідомлення, що відображається, коли користувачеві потрібно увійти, щоб побачити папки."
+    },
+    "options_error_loading_folders": {
+        "message": "Помилка завантаження папок. Переконайтеся, що ви увійшли в систему та маєте підключення до Інтернету.",
+        "description": "Повідомлення, що відображається, коли завантаження дерева папок не вдалося."
+    },
+    "context_menu_save_image": {
+        "message": "Зберегти зображення на pCloud",
+        "description": "Текст елемента контекстного меню для збереження зображення."
+    },
+    "notification_upload_started_title": {
+        "message": "Завантаження зображення",
+        "description": "Заголовок для сповіщення, коли починається завантаження зображення."
+    },
+    "notification_upload_started_message": {
+        "message": "Збереження зображення на ваш pCloud...",
+        "description": "Повідомлення для сповіщення, коли починається завантаження зображення."
+    },
+    "notification_upload_success_title": {
+        "message": "Завантаження завершено",
+        "description": "Заголовок для сповіщення, коли завантаження зображення успішне."
+    },
+    "notification_upload_success_message": {
+        "message": "Зображення успішно збережено на pCloud.",
+        "description": "Повідомлення для сповіщення, коли завантаження зображення успішне."
+    },
+    "notification_upload_error_title": {
+        "message": "Завантаження не вдалося",
+        "description": "Заголовок для сповіщення, коли завантаження зображення не вдалося."
+    },
+    "notification_upload_error_message": {
+        "message": "Не вдалося зберегти зображення на pCloud. Спробуйте ще раз.",
+        "description": "Повідомлення для сповіщення, коли завантаження зображення не вдалося."
+    },
+    "notification_auth_error_message": {
+        "message": "Увійдіть у розширення pCloud, щоб зберегти файли.",
+        "description": "Повідомлення для сповіщення, коли користувач не увійшов у систему."
+    },
+    "options_section_filename": {
+        "message": "Ім'я файлу зображення",
+        "description": "Заголовок для розділу налаштувань імені файлу зображення на сторінці параметрів."
+    },
+    "options_section_text_filename": {
+        "message": "Ім'я текстового файлу",
+        "description": "Заголовок для розділу налаштувань імені текстового файлу на сторінці параметрів."
+    },
+    "options_filename_description": {
+        "message": "Перетягніть, щоб змінити порядок частин імені файлу. Зніміть прапорець, щоб виключити.",
+        "description": "Опис для інтерфейсу конфігурації імені файлу."
+    },
+    "options_filename_part_sorting_number": {
+        "message": "Номер сортування",
+        "description": "Мітка для частини імені файлу 'Номер сортування'."
+    },
+    "options_filename_part_page_title": {
+        "message": "Заголовок сторінки",
+        "description": "Мітка для частини імені файлу 'Заголовок сторінки'."
+    },
+    "options_filename_part_timestamp": {
+        "message": "Часова позначка",
+        "description": "Мітка для частини імені файлу 'Часова позначка'."
+    },
+    "options_filename_part_free_key": {
+        "message": "Власний текст",
+        "description": "Мітка для частини імені файлу 'Власний текст'."
+    },
+    "options_filename_part_date": {
+        "message": "Дата",
+        "description": "Мітка для частини імені файлу 'Дата'."
+    },
+    "options_filename_separator_label": {
+        "message": "Роздільник",
+        "description": "Мітка для поля введення роздільника між частинами імені файлу."
+    },
+    "contextMenuItemUploadSelection": {
+        "message": "Завантажити вибраний текст на pCloud",
+        "description": "Текст елемента контекстного меню для завантаження вибраного тексту."
+    },
+    "notificationUploadTextStartedTitle": {
+        "message": "Завантаження тексту",
+        "description": "Заголовок для сповіщення, коли починається завантаження тексту."
+    },
+    "notificationUploadTextStartedMessage": {
+        "message": "Збереження вибраного тексту на ваш pCloud...",
+        "description": "Повідомлення для сповіщення, коли починається завантаження тексту."
+    },
+    "notificationUploadTextSuccessTitle": {
+        "message": "Завантаження завершено",
+        "description": "Заголовок для сповіщення, коли завантаження тексту успішне."
+    },
+    "notificationUploadTextSuccessMessage": {
+        "message": "Вибраний текст успішно збережено на pCloud.",
+        "description": "Повідомлення для сповіщення, коли завантаження тексту успішне."
+    },
+    "notificationUploadTextErrorTitle": {
+        "message": "Завантаження не вдалося",
+        "description": "Заголовок для сповіщення, коли завантаження тексту не вдалося."
+    },
+    "notificationUploadTextErrorMessage": {
+        "message": "Не вдалося зберегти вибраний текст на pCloud. Спробуйте ще раз.",
+        "description": "Повідомлення для сповіщення, коли завантаження тексту не вдалося."
+    },
+    "notification_error_stale_content_script": {
+        "message": "Неможливо підключитися до сторінки. Оновіть вкладку та спробуйте ще раз.",
+        "description": "Повідомлення про помилку, коли скрипт вмісту застарів або недоступний."
+    },
+    "context_menu_save_selection": {
+        "message": "Зберегти виділення як документ на pCloud"
+    },
+    "options_section_document_downloader": {
+        "message": "Завантажувач документів"
+    },
+    "options_document_format_label": {
+        "message": "Format dokumentu"
+    },
+    "options_document_include_metadata_label": {
+        "message": "Включити метадані (YAML Frontmatter)"
+    },
+    "options_text_include_metadata_label": {
+        "message": "Включити метадані (YAML Frontmatter)"
+    },
+    "notification_document_processing_title": {
+        "message": "Обробка документа"
+    },
+    "notification_document_processing_message": {
+        "message": "Перетворення та завантаження вашого вибору..."
+    },
+    "notification_document_success_title": {
+        "message": "Документ збережено"
+    },
+    "notification_document_success_message": {
+        "message": "Документ успішно збережено на pCloud."
+    },
+    "notification_document_error_title": {
+        "message": "Збереження не вдалося"
+    },
+    "notification_document_error_message": {
+        "message": "Не вдалося зберегти документ. Спробуйте ще раз."
+    },
+    "error_connection_lost_refresh": {
+        "message": "Неможливо підключитися до сторінки. Оновіть вкладку та спробуйте ще раз.",
+        "description": "Повідомлення про помилку, коли скрипт вмісту застарів або недоступний."
+    },
+    "options_domain_rules_title": {
+        "message": "Шлях завантаження за доменом"
+    },
+    "options_domain_rules_test_playground_title": {
+        "message": "Тестовий майданчик"
+    },
+    "options_domain_rules_test_placeholder": {
+        "message": "Введіть URL для тестування правил...",
+        "description": "Заповнювач для тестування правил."
+    },
+    "options_domain_rules_test_result_match": {
+        "message": "✅ Відповідне правило: {rule}"
+    },
+    "options_domain_rules_test_result_no_match": {
+        "message": "Не знайдено відповідного правила."
+    },
+    "options_dialog_cancel": {
+        "message": "Скасувати"
+    },
+    "options_dialog_save": {
+        "message": "Зберегти"
+    },
+    "options_dialog_select": {
+        "message": "Вибрати"
+    },
+    "options_dialog_ok": {
+        "message": "ОК"
+    },
+    "options_folder_picker_title": {
+        "message": "Вибрати папку"
+    },
+    "options_domain_rules_help_icon_tooltip": {
+        "message": "Довідка щодо правил"
+    },
+    "options_domain_rules_help_dialog_title": {
+        "message": "Довідка щодо пріоритету правил"
+    },
+    "options_domain_rules_help_dialog_content": {
+        "message": "Правила зіставляються зверху вниз. Буде застосовано перше відповідне правило. Ви можете перетягувати, щоб змінити порядок правил. Ми рекомендуємо використовувати 'Тестовий майданчик' вище для перевірки вашої конфігурації."
+    },
+    "options_domain_rules_add_button": {
+        "message": "Додати правило"
+    },
+    "options_domain_rules_delete_button": {
+        "message": "Видалити правило"
+    },
+    "options_domain_rules_col_domain": {
+        "message": "Домен (підтримує символи узагальнення)"
+    },
+    "options_domain_rules_col_path": {
+        "message": "Цільовий шлях pCloud"
+    },
+    "options_domain_rules_dialog_title_add": {
+        "message": "Додати нове правило"
+    },
+    "options_domain_rules_dialog_title_edit": {
+        "message": "Редагувати правило"
+    },
+    "options_domain_rules_folder_picker_create_btn": {
+        "message": "Створити нову папку"
+    },
+    "options_domain_rules_confirm_delete": {
+        "message": "Ви впевнені, що хочете видалити це правило?"
+    },
+    "options_section_premium": {
+        "message": "Преміум оновлення"
+    },
+    "options_premium_active": {
+        "message": "PREMIUM АКТИВНИЙ"
+    },
+    "options_premium_description": {
+        "message": "Розблокуйте розширені функції, такі як Завантажувач документів (Markdown/Word) та багато іншого!"
+    },
+    "options_tier_pcloud_name": {
+        "message": "HyperCmdC for pCloud"
+    },
+    "options_tier_pcloud_desc": {
+        "message": "Розблоковує функції лише для цього розширення."
+    },
+    "options_tier_master_name": {
+        "message": "HyperCmdC Master"
+    },
+    "options_tier_master_desc": {
+        "message": "Розблоковує ВСІ розширення HyperCmdC (pCloud, S3 тощо)."
+    },
+    "options_restore_purchase": {
+        "message": "Відновити покупку"
+    },
+    "options_premium_thank_you": {
+        "message": "Дякуємо за вашу підтримку!"
+    },
+    "options_premium_active_desc": {
+        "message": "У вас є доступ до всіх преміум-функцій."
+    },
+    "options_payment_success": {
+        "message": "Оплата успішна! Преміум-функції розблоковано."
+    },
+    "options_payment_failed": {
+        "message": "Оплата не вдалася. Спробуйте ще раз."
+    },
+    "options_restore_success": {
+        "message": "Покупку успішно відновлено!"
+    },
+    "options_restore_failed": {
+        "message": "Ліцензію для цього електронного листа не знайдено."
+    },
+    "notification_premium_required_title": {
+        "message": "Преміум-функція"
+    },
+    "notification_premium_required_message": {
+        "message": "Ця функція вимагає ліцензії Premium. Оновіть зараз, щоб розблокувати!"
+    },
+    "notification_premium_upgrade_button": {
+        "message": "Оновити зараз"
+    },
+    "options_upgrade_now": {
+        "message": "Оновити зараз"
+    },
+    "options_payment_page_opening": {
+        "message": "Відкриття платіжної сторінки... (Макет - Режим розробки)"
+    },
+    "toast_uploading_to_pcloud": {
+        "message": "Завантаження на pCloud..."
+    },
+    "toast_upload_started": {
+        "message": "Завантаження розпочато!"
+    },
+    "toast_processing_images": {
+        "message": "Обробка зображень ($1/$2)..."
+    },
+    "toast_generating_document": {
+        "message": "Створення документа..."
+    },
+    "toast_view_button": {
+        "message": "Перегляд"
+    },
+    "pdf_download_to_pcloud": {
+        "message": "Зберегти в pCloud"
+    },
+    "pdf_download_as_markdown": {
+        "message": "Завантажити як Markdown в pCloud"
+    },
+    "pdf_error_not_pdf": {
+        "message": "Ця сторінка не є PDF."
+    },
+    "pdf_error_fetch_failed": {
+        "message": "Не вдалося отримати дані PDF."
+    },
+    "visit_official_website": {
+        "message": "Відвідати вебсайт 'HyperCmdC'"
+    },
+    "options_promotion_text": {
+        "message": "Безкоштовно протягом обмеженого часу!",
+        "description": "Рекламний текст, що відображається поруч із піктограмою акції."
+    },
+    "options_footer_opensource_text": {
+        "message": "Переглянути джерело на GitHub",
+        "description": "Текст посилання на сховище з відкритим кодом."
+    }
+}

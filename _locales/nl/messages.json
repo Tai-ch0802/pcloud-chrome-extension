@@ -1,0 +1,479 @@
+{
+    "extensionName": {
+        "message": "HyperCmdC for pCloud",
+        "description": "De naam van de extensie."
+    },
+    "extensionDescription": {
+        "message": "Integreer pCloud naadloos met uw Chrome-browser voor eenvoudig bestandsbeheer.",
+        "description": "De beschrijving van de extensie."
+    },
+    "options_title": {
+        "message": "pCloud Extensie Opties",
+        "description": "Titel voor de optiepagina."
+    },
+    "options_description": {
+        "message": "Configureer hier uw pCloud Chrome Extensie-instellingen.",
+        "description": "Beschrijving voor de optiepagina."
+    },
+    "options_default_folder_label": {
+        "message": "Huidig geselecteerd pad:",
+        "description": "Label voor de weergave van het huidige geselecteerde pad."
+    },
+    "options_default_folder_placeholder": {
+        "message": "bijv. 0 voor hoofdmap",
+        "description": "Plaatsaanduiding voor invoer van standaard uploadmap-ID."
+    },
+    "options_save_button_text": {
+        "message": "Instellingen opslaan",
+        "description": "Tekst voor de knop opties opslaan."
+    },
+    "options_saved_message": {
+        "message": "Instellingen opgeslagen!",
+        "description": "Bericht weergegeven nadat instellingen zijn opgeslagen."
+    },
+    "options_invalid_folder_id": {
+        "message": "Ongeldig map-ID. Voer een niet-negatief getal in.",
+        "description": "Foutbericht voor ongeldige map-ID-invoer."
+    },
+    "options_theme_label": {
+        "message": "Thema"
+    },
+    "options_theme_googlestyle": {
+        "message": "Google-stijl"
+    },
+    "options_theme_geek": {
+        "message": "Geek"
+    },
+    "back_button_title": {
+        "message": "Terug",
+        "description": "Titel voor de terugknop."
+    },
+    "login_token_prompt": {
+        "message": "Authenticeren met Token",
+        "description": "Prompt voor de token-loginweergave."
+    },
+    "login_prompt": {
+        "message": "Inloggen bij pCloud",
+        "description": "Prompt voor de loginweergave."
+    },
+    "login_email_placeholder": {
+        "message": "E-mail of Gebruikersnaam",
+        "description": "Plaatsaanduiding voor invoer van e-mail/gebruikersnaam."
+    },
+    "login_password_placeholder": {
+        "message": "Wachtwoord",
+        "description": "Plaatsaanduiding voor invoer van wachtwoord."
+    },
+    "login_button_text": {
+        "message": "Inloggen",
+        "description": "Tekst voor de inlogknop."
+    },
+    "login_oauth_button": {
+        "message": "Inloggen met pCloud",
+        "description": "Tekst voor de OAuth-inlogknop."
+    },
+    "login_oauth_error": {
+        "message": "Authenticatie mislukt. Probeer het opnieuw.",
+        "description": "Algemene foutmelding voor mislukte OAuth-login."
+    },
+    "login_error_empty_credentials": {
+        "message": "Voer zowel e-mail/gebruikersnaam als wachtwoord in.",
+        "description": "Foutbericht voor lege inlogvelden."
+    },
+    "login_error_invalid_credentials": {
+        "message": "Inloggen mislukt. Controleer uw inloggegevens.",
+        "description": "Foutbericht voor ongeldige login."
+    },
+    "login_token_description": {
+        "message": "Log in op my.pcloud.com in een ander tabblad en plak de 'auth'-token hier.",
+        "description": "Beschrijving voor hoe u de authenticatietoken verkrijgt."
+    },
+    "login_token_placeholder": {
+        "message": "Plak uw authenticatietoken hier",
+        "description": "Plaatsaanduiding voor het tekstgebied van de authenticatietoken."
+    },
+    "login_token_button_text": {
+        "message": "Verifieer en bewaar token",
+        "description": "Tekst voor de token-inlogknop."
+    },
+    "login_switch_to_token": {
+        "message": "Of log in met authenticatietoken",
+        "description": "Link om over te schakelen naar token-login."
+    },
+    "login_switch_to_password": {
+        "message": "Of log in met e-mail en wachtwoord",
+        "description": "Link om over te schakelen naar wachtwoord-login."
+    },
+    "login_error_invalid_token": {
+        "message": "Ongeldige token. Controleer de token en probeer het opnieuw.",
+        "description": "Foutbericht voor een ongeldige authenticatietoken."
+    },
+    "login_error_generic": {
+        "message": "Er is een onverwachte fout opgetreden tijdens de verificatie. Probeer het opnieuw.",
+        "description": "Algemene foutmelding voor tokenverificatie."
+    },
+    "upload_prompt": {
+        "message": "Uploaden naar pCloud",
+        "description": "Prompt voor de uploadweergave."
+    },
+    "logout_button_text": {
+        "message": "Uitloggen",
+        "description": "Tekst voor de uitlogknop."
+    },
+    "upload_select_file_button": {
+        "message": "Bestand selecteren",
+        "description": "Knop om bestandsselectie te openen."
+    },
+    "upload_drag_and_drop_prompt": {
+        "message": "Sleep bestanden hierheen om te uploaden",
+        "description": "Tekst voor het sleepgebied."
+    },
+    "upload_select_file_link": {
+        "message": "Of selecteer bestanden",
+        "description": "Linktekst om bestandsselectie te openen als alternatief voor slepen en neerzetten."
+    },
+    "go_to_pcloud_website": {
+        "message": "Ga naar pCloud Website",
+        "description": "Link naar pCloud-website."
+    },
+    "upload_button_text": {
+        "message": "Uploaden",
+        "description": "Tekst voor de uploadknop."
+    },
+    "upload_success_message": {
+        "message": "Bestand succesvol geüpload!",
+        "description": "Succesbericht na uploaden."
+    },
+    "upload_error_generic": {
+        "message": "Uploaden mislukt. Probeer het opnieuw.",
+        "description": "Algemene foutmelding voor uploaden."
+    },
+    "upload_error_no_auth": {
+        "message": "Authenticatiefout. Log opnieuw in.",
+        "description": "Foutbericht wanneer niet geauthenticeerd voor uploaden."
+    },
+    "upload_error_no_file": {
+        "message": "Selecteer een bestand om te uploaden.",
+        "description": "Foutbericht wanneer geen bestand is geselecteerd voor uploaden."
+    },
+    "options_section_appearance": {
+        "message": "Uiterlijk",
+        "description": "Koptekst voor de sectie uiterlijkinstellingen op de optiepagina."
+    },
+    "options_section_uploads": {
+        "message": "Uploads",
+        "description": "Koptekst voor de sectie uploadinstellingen op de optiepagina."
+    },
+    "snackbar_dismiss": {
+        "message": "Sluiten",
+        "description": "Tekst voor de sluitknop op een snackbar-melding."
+    },
+    "options_loading_folders": {
+        "message": "Mappen laden...",
+        "description": "Bericht weergegeven terwijl de mappenstructuur wordt geladen."
+    },
+    "options_login_to_load": {
+        "message": "Log in via de extensie-popup om mappen te laden.",
+        "description": "Bericht weergegeven wanneer de gebruiker moet inloggen om mappen te zien."
+    },
+    "options_error_loading_folders": {
+        "message": "Fout bij laden van mappen. Zorg ervoor dat u bent ingelogd en een internetverbinding hebt.",
+        "description": "Bericht weergegeven wanneer het laden van de mappenstructuur mislukt."
+    },
+    "context_menu_save_image": {
+        "message": "Afbeelding opslaan in pCloud",
+        "description": "Contextmenu-itemtekst voor het opslaan van een afbeelding."
+    },
+    "notification_upload_started_title": {
+        "message": "Afbeelding uploaden",
+        "description": "Titel voor de melding wanneer afbeeldingsupload begint."
+    },
+    "notification_upload_started_message": {
+        "message": "Afbeelding opslaan in uw pCloud...",
+        "description": "Bericht voor de melding wanneer afbeeldingsupload begint."
+    },
+    "notification_upload_success_title": {
+        "message": "Uploaden voltooid",
+        "description": "Titel voor de melding wanneer afbeeldingsupload succesvol is."
+    },
+    "notification_upload_success_message": {
+        "message": "Afbeelding succesvol opgeslagen in pCloud.",
+        "description": "Bericht voor de melding wanneer afbeeldingsupload succesvol is."
+    },
+    "notification_upload_error_title": {
+        "message": "Uploaden mislukt",
+        "description": "Titel voor de melding wanneer afbeeldingsupload mislukt."
+    },
+    "notification_upload_error_message": {
+        "message": "Kan afbeelding niet opslaan in pCloud. Probeer het opnieuw.",
+        "description": "Bericht voor de melding wanneer afbeeldingsupload mislukt."
+    },
+    "notification_auth_error_message": {
+        "message": "Log in op de pCloud-extensie om bestanden op te slaan.",
+        "description": "Melding wanneer de gebruiker niet is ingelogd."
+    },
+    "options_section_filename": {
+        "message": "Bestandsnaam afbeelding",
+        "description": "Koptekst voor de sectie instellingen voor afbeeldingsbestandsnaam op de optiepagina."
+    },
+    "options_section_text_filename": {
+        "message": "Bestandsnaam tekst",
+        "description": "Koptekst voor de sectie instellingen voor tekstbestandsnaam op de optiepagina."
+    },
+    "options_filename_description": {
+        "message": "Sleep en zet neer om bestandsnaamdelen opnieuw te ordenen. Vink uit om uit te sluiten.",
+        "description": "Beschrijving voor de bestandsnaamconfiguratie-UI."
+    },
+    "options_filename_part_sorting_number": {
+        "message": "Sorteernummer",
+        "description": "Label voor het bestandsnaamdeel 'Sorteernummer'."
+    },
+    "options_filename_part_page_title": {
+        "message": "Paginatitel",
+        "description": "Label voor het bestandsnaamdeel 'Paginatitel'."
+    },
+    "options_filename_part_timestamp": {
+        "message": "Tijdstempel",
+        "description": "Label voor het bestandsnaamdeel 'Tijdstempel'."
+    },
+    "options_filename_part_free_key": {
+        "message": "Aangepaste tekst",
+        "description": "Label voor het bestandsnaamdeel 'Aangepaste tekst'."
+    },
+    "options_filename_part_date": {
+        "message": "Datum",
+        "description": "Label voor het bestandsnaamdeel 'Datum'."
+    },
+    "options_filename_separator_label": {
+        "message": "Scheidingsteken",
+        "description": "Label voor het invoerveld voor het scheidingsteken tussen bestandsnaamdelen."
+    },
+    "contextMenuItemUploadSelection": {
+        "message": "Geselecteerde tekst uploaden naar pCloud",
+        "description": "Contextmenu-itemtekst voor het uploaden van geselecteerde tekst."
+    },
+    "notificationUploadTextStartedTitle": {
+        "message": "Tekst uploaden",
+        "description": "Titel voor de melding wanneer tekstupload begint."
+    },
+    "notificationUploadTextStartedMessage": {
+        "message": "Geselecteerde tekst opslaan in uw pCloud...",
+        "description": "Bericht voor de melding wanneer tekstupload begint."
+    },
+    "notificationUploadTextSuccessTitle": {
+        "message": "Uploaden voltooid",
+        "description": "Titel voor de melding wanneer tekstupload succesvol is."
+    },
+    "notificationUploadTextSuccessMessage": {
+        "message": "Geselecteerde tekst succesvol opgeslagen in pCloud.",
+        "description": "Bericht voor de melding wanneer tekstupload succesvol is."
+    },
+    "notificationUploadTextErrorTitle": {
+        "message": "Uploaden mislukt",
+        "description": "Titel voor de melding wanneer tekstupload mislukt."
+    },
+    "notificationUploadTextErrorMessage": {
+        "message": "Kan geselecteerde tekst niet opslaan in pCloud. Probeer het opnieuw.",
+        "description": "Bericht voor de melding wanneer tekstupload mislukt."
+    },
+    "notification_error_stale_content_script": {
+        "message": "Kan geen verbinding maken met de pagina. Laad het tabblad opnieuw en probeer het nog eens.",
+        "description": "Foutbericht wanneer het inhoudsscript verouderd of niet beschikbaar is."
+    },
+    "context_menu_save_selection": {
+        "message": "Sla selectie op als document in pCloud"
+    },
+    "options_section_document_downloader": {
+        "message": "Document Downloader"
+    },
+    "options_document_format_label": {
+        "message": "Document Formaat"
+    },
+    "options_document_include_metadata_label": {
+        "message": "Inclusief Metadata (YAML Frontmatter)"
+    },
+    "options_text_include_metadata_label": {
+        "message": "Inclusief Metadata (YAML Frontmatter)"
+    },
+    "notification_document_processing_title": {
+        "message": "Document verwerken"
+    },
+    "notification_document_processing_message": {
+        "message": "Uw selectie converteren en uploaden..."
+    },
+    "notification_document_success_title": {
+        "message": "Document opgeslagen"
+    },
+    "notification_document_success_message": {
+        "message": "Document succesvol opgeslagen in pCloud."
+    },
+    "notification_document_error_title": {
+        "message": "Opslaan mislukt"
+    },
+    "notification_document_error_message": {
+        "message": "Kan document niet opslaan. Probeer het opnieuw."
+    },
+    "error_connection_lost_refresh": {
+        "message": "Kan geen verbinding maken met de pagina. Laad het tabblad opnieuw en probeer het nog eens.",
+        "description": "Foutbericht wanneer het inhoudsscript verouderd of niet beschikbaar is."
+    },
+    "options_domain_rules_title": {
+        "message": "Uploadpad per domein"
+    },
+    "options_domain_rules_test_playground_title": {
+        "message": "Test Speeltuin"
+    },
+    "options_domain_rules_test_placeholder": {
+        "message": "Voer URL in om regels te testen...",
+        "description": "Plaatsaanduiding voor het testen van regels."
+    },
+    "options_domain_rules_test_result_match": {
+        "message": "✅ Overeenkomende regel: {rule}"
+    },
+    "options_domain_rules_test_result_no_match": {
+        "message": "Geen overeenkomende regel gevonden."
+    },
+    "options_dialog_cancel": {
+        "message": "Annuleren"
+    },
+    "options_dialog_save": {
+        "message": "Opslaan"
+    },
+    "options_dialog_select": {
+        "message": "Selecteren"
+    },
+    "options_dialog_ok": {
+        "message": "OK"
+    },
+    "options_folder_picker_title": {
+        "message": "Selecteer map"
+    },
+    "options_domain_rules_help_icon_tooltip": {
+        "message": "Regelhulp"
+    },
+    "options_domain_rules_help_dialog_title": {
+        "message": "Regelprioriteit Hulp"
+    },
+    "options_domain_rules_help_dialog_content": {
+        "message": "Regels worden van boven naar beneden vergeleken. De eerste overeenkomende regel wordt toegepast. U kunt slepen en neerzetten om regels opnieuw te ordenen. We raden aan de 'Test Speeltuin' hierboven te gebruiken om uw configuratie te verifiëren."
+    },
+    "options_domain_rules_add_button": {
+        "message": "Regel toevoegen"
+    },
+    "options_domain_rules_delete_button": {
+        "message": "Regel verwijderen"
+    },
+    "options_domain_rules_col_domain": {
+        "message": "Domein (ondersteunt wildcards)"
+    },
+    "options_domain_rules_col_path": {
+        "message": "Doel pCloud-pad"
+    },
+    "options_domain_rules_dialog_title_add": {
+        "message": "Nieuwe regel toevoegen"
+    },
+    "options_domain_rules_dialog_title_edit": {
+        "message": "Regel bewerken"
+    },
+    "options_domain_rules_folder_picker_create_btn": {
+        "message": "Nieuwe map maken"
+    },
+    "options_domain_rules_confirm_delete": {
+        "message": "Weet u zeker dat u deze regel wilt verwijderen?"
+    },
+    "options_section_premium": {
+        "message": "Premium Upgrade"
+    },
+    "options_premium_active": {
+        "message": "PREMIUM ACTIEF"
+    },
+    "options_premium_description": {
+        "message": "Ontgrendel geavanceerde functies zoals Document Downloader (Markdown/Word) en meer!"
+    },
+    "options_tier_pcloud_name": {
+        "message": "HyperCmdC for pCloud"
+    },
+    "options_tier_pcloud_desc": {
+        "message": "Ontgrendelt functies alleen voor deze extensie."
+    },
+    "options_tier_master_name": {
+        "message": "HyperCmdC Master"
+    },
+    "options_tier_master_desc": {
+        "message": "Ontgrendelt ALLE HyperCmdC-extensies (pCloud, S3, enz.)."
+    },
+    "options_restore_purchase": {
+        "message": "Aankoop herstellen"
+    },
+    "options_premium_thank_you": {
+        "message": "Bedankt voor uw steun!"
+    },
+    "options_premium_active_desc": {
+        "message": "U hebt toegang tot alle premiumfuncties."
+    },
+    "options_payment_success": {
+        "message": "Betaling geslaagd! Premiumfuncties ontgrendeld."
+    },
+    "options_payment_failed": {
+        "message": "Betaling mislukt. Probeer het opnieuw."
+    },
+    "options_restore_success": {
+        "message": "Aankoop succesvol hersteld!"
+    },
+    "options_restore_failed": {
+        "message": "Geen licentie gevonden voor dit e-mailadres."
+    },
+    "notification_premium_required_title": {
+        "message": "Premium Functie"
+    },
+    "notification_premium_required_message": {
+        "message": "Deze functie vereist een Premium licentie. Upgrade nu om te ontgrendelen!"
+    },
+    "notification_premium_upgrade_button": {
+        "message": "Nu Upgraden"
+    },
+    "options_upgrade_now": {
+        "message": "Nu Upgraden"
+    },
+    "options_payment_page_opening": {
+        "message": "Betaalpagina openen... (Mock - Ontwikkelmodus)"
+    },
+    "toast_uploading_to_pcloud": {
+        "message": "Uploaden naar pCloud..."
+    },
+    "toast_upload_started": {
+        "message": "Uploaden gestart!"
+    },
+    "toast_processing_images": {
+        "message": "Afbeeldingen verwerken ($1/$2)..."
+    },
+    "toast_generating_document": {
+        "message": "Document genereren..."
+    },
+    "toast_view_button": {
+        "message": "Bekijken"
+    },
+    "pdf_download_to_pcloud": {
+        "message": "Opslaan in pCloud"
+    },
+    "pdf_download_as_markdown": {
+        "message": "Downloaden als Markdown naar pCloud"
+    },
+    "pdf_error_not_pdf": {
+        "message": "Deze pagina is geen PDF."
+    },
+    "pdf_error_fetch_failed": {
+        "message": "Ophalen van PDF-gegevens mislukt."
+    },
+    "visit_official_website": {
+        "message": "Bezoek 'HyperCmdC' Website"
+    },
+    "options_promotion_text": {
+        "message": "Tijdelijk gratis!",
+        "description": "Promotietekst weergegeven naast het promotiepictogram."
+    },
+    "options_footer_opensource_text": {
+        "message": "Broncode bekijken op GitHub",
+        "description": "Linktekst naar de open source repository."
+    }
+}

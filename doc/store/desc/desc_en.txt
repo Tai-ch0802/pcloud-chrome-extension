@@ -1,6 +1,6 @@
-🚀 HyperCmdC for pCloud: The Ultimate Cloud Savings Tool! ☁️
+🚀 HyperCmdC for pCloud: The Ultimate Cloud Savings Tool! [OPEN SOURCE & FREE] ☁️
 
-Unlock the full power of pCloud directly from your browser! HyperCmdC seamlessly integrates pCloud into your daily workflow, making saving content faster and easier than ever.
+Unlock the full power of pCloud directly from your browser! HyperCmdC is now fully Open Source and Free, seamlessly integrating pCloud into your daily workflow.
 
 ✨ KEY FEATURES:
 
@@ -18,7 +18,7 @@ Unlock the full power of pCloud directly from your browser! HyperCmdC seamlessly
 • Instantly creates a Markdown note in your cloud.
 • Perfect for research and note-taking.
 
-📄 Web to Document (Premium)
+📄 Web to Document
 • Turn any web content into a clean Markdown or Word document.
 • Images are automatically downloaded, uploaded to pCloud, and linked in your document! 🤯
 • Keeps your notes rich and portable.
@@ -26,7 +26,7 @@ Unlock the full power of pCloud directly from your browser! HyperCmdC seamlessly
 📂 Smart PDF Integration
 • A beautiful floating button appears on any PDF you view in Chrome.
 • Save PDFs directly to specific pCloud folders with one click.
-• [Premium] Attempts to convert PDFs to Markdown for AI or other apps!
+• Attempts to convert PDFs to Markdown for AI or other apps!
 
 ⚡ Power User Tools
 • Customizable filenames (Date, Title, Custom Keys).
@@ -34,6 +34,7 @@ Unlock the full power of pCloud directly from your browser! HyperCmdC seamlessly
 • Smart fallbacks ensure you never lose a file.
 
 🔒 Secure & Private
+• Open Source Codebase - Verify it yourself on GitHub!
 • Uses official pCloud OAuth 2.0.
 • Your credentials never leave your browser.
 
