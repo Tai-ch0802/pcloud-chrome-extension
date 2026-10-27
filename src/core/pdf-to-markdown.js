@@ -14,7 +14,10 @@ async function convertPdfToMarkdown(pdfData) {
     window.pdfjsLib.GlobalWorkerOptions.workerSrc = chrome.runtime.getURL('src/assets/vendor/pdf.worker.js');
 
     try {
-        const loadingTask = window.pdfjsLib.getDocument({ data: pdfData });
+        // isEvalSupported: false — 內建的 PDF.js 3.11.174 受 CVE-2024-4367（GHSA-wgrm-67xf-hhpq）影響：
+        // 惡意 PDF 的字型資料可在 eval 路徑執行任意 JS。官方修正在 4.2.67，但 4.x 起只發 ES module，
+        // 無法直接當 content script 載入，先關掉 eval 路徑（官方建議的緩解方式），文字擷取不受影響。
+        const loadingTask = window.pdfjsLib.getDocument({ data: pdfData, isEvalSupported: false });
         const pdf = await loadingTask.promise;
         const totalPages = pdf.numPages;
         let markdown = "";
